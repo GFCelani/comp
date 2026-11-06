@@ -138,3 +138,25 @@ Na 1ª ata (236) a reunião 235 não está em `validacao/selic_oficial.csv` (com
 **Combinações (6 + A como referência):** D e E com logística C=0,3, logística C=0,1 e floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42).
 
 **Protocolo.** Igual ao v2: janela crescente; escolha nas atas 251–270 (acurácia → balanceada → mais simples, A na disputa); confirmação única nas 271–281 do escolhido e de A; troca só se melhor que A na escolha e não pior na confirmação.
+
+## Modelo v3: resultado (15h13) — modelo publicado NÃO muda
+
+Script: `modelo/v3_comparar.py` → `modelo/v3_resultado.json`. Nenhuma chamada ao Claude.
+
+**Escolha (janela crescente, previsões das atas 251–270, n = 20):**
+
+| Combinação | Acertos | Acurácia | Acurácia balanceada |
+|---|---|---|---|
+| A-log C=0,3 (atual) | 16/20 | 80,0% | 81,0% |
+| D-log C=0,3 | 16/20 | 80,0% | 81,0% |
+| D-log C=0,1 | 16/20 | 80,0% | 81,0% |
+| D-floresta | 14/20 | 70,0% | 70,6% |
+| E-log C=0,3 | 16/20 | 80,0% | 80,2% |
+| E-log C=0,1 | 15/20 | 75,0% | 74,6% |
+| E-floresta | 13/20 | 65,0% | 65,1% |
+
+Escolhido pelo critério: A-log C=0,3 (empate em acurácia e balanceada com D-log; desempate pelo mais simples, A tem menos variáveis). Nenhum candidato com histórico superou A, então a regra de troca não se aplica.
+
+**Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Total 23/31, igual ao publicado.
+
+**Decisão.** Mantido o modelo publicado. As variáveis de histórico foram só testadas e não entram no modelo nem na lista do README. banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.

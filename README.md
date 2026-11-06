@@ -49,6 +49,36 @@ Nunca usou GitHub ou o Claude? Comece por **[COMO_COMECAR.md](COMO_COMECAR.md)**
 
 Os três cases buscam resolver problemas de pessoas de dentro do mercado financeiro, de forma que a solução seja realmente uma ferramenta útil no dia a dia. O objetivo é despertar a curiosidade com IA para que vocês sejam capazes de automatizar processos. Por isso, todos os cases são resolvidos pelo **[caminho avançado](avancado/README.md)**, com código de partida em Python, Claude Code, Skills e fluxos automáticos que verificam os próprios números.
 
+## Variáveis do modelo publicado
+
+Regressão logística (StandardScaler, C=0,3), uma linha por ata, alvo = decisão da reunião seguinte. Todas as variáveis vêm do texto das atas e das notas de tom dos parágrafos.
+
+- `decisao_registrada_na_ata_alta`: decisão registrada na ata = alta
+- `decisao_registrada_na_ata_manutencao`: decisão registrada na ata = manutencao
+- `decisao_registrada_na_ata_corte`: decisão registrada na ata = corte
+- `tom_nivel`: índice de tom da ata
+- `tom_variacao`: variação do tom contra a ata anterior
+- `tom_media_3_atas`: média do tom nas últimas 3 atas
+- `tom_cenario_externo`: tom da seção de cenário externo (sem seção própria: 0)
+- `tom_cenario_domestico`: tom da seção de conjuntura
+- `tom_expectativas_projecoes`: tom da seção de expectativas (sem seção própria: 0)
+- `tom_balanco_riscos`: tom da seção de riscos
+- `tom_decisao_orientacao`: tom das seções de condução e decisão
+- `saldo_duro_brando`: saldo de parágrafos duros menos brandos
+- `proporcao_muito_duro`: parágrafos com nota +2
+- `proporcao_muito_brando`: parágrafos com nota −2
+- `dispersao_notas`: desvio-padrão das notas
+- `sinais_virada`: termos de virada na seção de decisão
+- `termos_inflacao`: termos de inflação por mil palavras
+- `termos_expectativas`: termos de expectativas por mil palavras
+- `termos_atividade`: termos de atividade por mil palavras
+- `termos_mercado_trabalho`: termos de mercado de trabalho por mil palavras
+- `termos_cambio`: termos de câmbio por mil palavras
+- `termos_fiscal`: termos fiscais por mil palavras
+- `termos_cenario_externo`: termos de cenário externo por mil palavras
+- `n_paragrafos`: número de parágrafos
+- `var_n_paragrafos`: variação do número de parágrafos
+
 ## Onde estão os dados
 
 Tudo em **[`data/`](data/)**, uma pasta por case. Cada uma tem um `README.md` com o problema, o dicionário dos dados, os **cuidados de interpretação** e perguntas de partida. Os dados do Banco Central foram baixados com o script em [`scripts/`](scripts/), que você pode rodar de novo para atualizar. Leia **[USO-DOS-DADOS.md](USO-DOS-DADOS.md)** antes de publicar qualquer resultado.

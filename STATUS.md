@@ -25,6 +25,7 @@ Modelo de nota de tom (todas as variáveis vêm das atas e das notas; ver `DECIS
 
 - **Na capa: corte** (alta 15,2%, manutenção 28,5%, corte 56,2%), a partir da ata 281 (a ata da 282 ainda não saiu).
 - **Modelo v2 com dados do parceiro (testado às 15h05, não adotado):** índice, surpresa e confiança do parceiro e o léxico duro/brando entraram em 7 combinações novas. No período de escolha (atas 251–270) nenhuma superou o atual (80,0%, 16/20; a melhor nova empatou). Na confirmação (271–281) o atual fez 7/11. Detalhes em `DECISOES.md`.
+- **Modelo v3 com histórico recente de decisões (testado às 15h13, não adotado):** variação da taxa atual e anterior, decisão anterior e reuniões seguidas na mesma direção, em 6 combinações. Na escolha (251–270) a melhor empatou com o atual (16/20, 80,0%) e perdeu no desempate pelo mais simples. Confirmação do atual: 7/11. Modelo publicado e previsão inalterados.
 - Variáveis mais importantes (permutação): decisão registrada na ata = alta, termos de virada, nível do tom, termos de inflação.
 
 ## Modelos de tom de parágrafo
