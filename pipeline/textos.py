@@ -20,6 +20,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -40,7 +41,7 @@ ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 MAX_REESCRITAS = 2
-VERSAO = 2          # muda o hash quando o formato/prompt muda
+VERSAO = 3          # muda o hash quando o formato/prompt muda
 FUSO = timezone(timedelta(hours=-3))
 
 NOME_PREV = {"aperto": "alta", "manutencao": "manutenção", "afrouxamento": "corte"}
@@ -51,6 +52,16 @@ MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "a
          "novembro", "dezembro"]
 RE_MARCA = re.compile(r"\[\[(c\d+)\]\]")
 RE_NUM = re.compile(r"\d+(?:[.,]\d+)*")
+# Proibido no relatório (seções): afirmações sobre os nossos próprios dados. Manchete e linha fina podem.
+PROIBIDOS_RELATORIO = {"acert": "acerto do sinal", "previsao ingenua": "previsão ingênua", "ingenua": "previsão ingênua",
+                       "nosso sinal": "nosso sinal", "focus": "Focus", "nao foi publicada": "ata não publicada"}
+STOPWORDS = set("""sobre entre quando ainda mesmo mesma porque tambem assim desde depois antes apenas outro outra
+outros outras sendo estao seria serao pelos pelas essas esses essa nessa nesse nesta neste nestes nestas aquela
+aquele aquelas aqueles muito muitos muita muitas menos maior menores maiores menor tanto tanta quanto quanta todos
+todas qualquer dessa desse deste desta destes destas dessas desses foram tinha houve podem poder poderia dever devem
+deve contra segundo durante embora enquanto porem contudo comite copom havia haver estar estava esteve tendo seja
+sejam fosse fossem forma parte vista longo cerca algum alguma alguns algumas nenhum nenhuma outrem onde ondem cujo
+cuja sempre nunca agora ainda pouco pouca poucos poucas grande grandes desta neles nelas deles delas assim""".split())
 
 PROMPT = """Você é analista de política monetária e escreve para profissionais de banco, mercado e investidores,
 que querem saber o que deve acontecer com os juros e por quê. Use SOMENTE os dados abaixo.
@@ -101,6 +112,14 @@ Regras de citação (verificadas por código):
   LITERAL e contínua de até 25 palavras do parágrafo indicado (sem reticências, sem aspas extras).
 - Todo marcador usado no texto existe em "citacoes" do mesmo parágrafo, e toda citação é usada no texto.
 - Nenhum número que não esteja na lista de números permitidos. Números no padrão brasileiro (13,75%).
+Regras de conteúdo do relatório (as 3 seções; verificadas por código):
+- O relatório só afirma o que está nas atas acima. NÃO fale dos nossos próprios dados: acerto ou acurácia do
+  sinal, "nosso sinal", previsão ingênua, Focus, índice de tom, ata ainda não publicada. Isso já aparece na
+  manchete, na linha fina e nos blocos laterais da página. Frases com "acert", "ingênua", "nosso sinal", "Focus"
+  ou "não foi publicada" são reprovadas.
+- Cada citação tem de sustentar a frase em que aparece: o trecho citado trata do mesmo fato, e pelo menos uma
+  palavra de conteúdo (5 letras ou mais) da frase aparece também no trecho. Uma frase sem trecho que a sustente
+  deve ser cortada, não remendada com uma citação genérica.
 Linguagem de mercado, direta, sem jargão sem explicação. Não é recomendação de investimento: não diga para
 comprar, vender ou investir em nada.
 
@@ -111,7 +130,8 @@ PROMPT_REESCRITA = """Sua resposta anterior teve problemas verificados por códi
 {erros}
 
 Corrija o que falhou mantendo todas as regras (toda sentença com marcador [[cN]] antes do ponto; trecho =
-cópia literal de até 25 palavras do parágrafo indicado; só números permitidos; manchete com a previsão
+cópia literal de até 25 palavras do parágrafo indicado; cada trecho sustenta a sua frase; nada sobre acerto
+do sinal, previsão ingênua, Focus ou ata não publicada nas seções; só números permitidos; manchete com a previsão
 "{previsto}" e a data da próxima reunião). Responda APENAS com o JSON completo.
 
 Sua resposta anterior:
@@ -274,6 +294,16 @@ def sentencas(texto: str) -> list[str]:
     return [p for p in (x.strip() for x in partes) if p]
 
 
+def sem_acento(s: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", s.lower()) if not unicodedata.combining(c))
+
+
+def palavras_conteudo(s: str) -> set[str]:
+    """Palavras de 5+ letras fora das stopwords, sem acento, em caixa baixa e sem o "s" do plural."""
+    return {w[:-1] if w.endswith("s") and len(w) > 5 else w
+            for w in re.findall(r"[a-z]+", sem_acento(RE_MARCA.sub(" ", s))) if len(w) >= 5 and w not in STOPWORDS}
+
+
 def verificar(resp: dict, ctx: dict) -> list[str]:
     erros: list[str] = []
     prev, permitidos, datas_ok = ctx["prev"], ctx["permitidos"], ctx["datas_ok"]
@@ -318,11 +348,25 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
             if not txt:
                 erros.append(f"{rot}: texto vazio")
                 continue
+            cits = p.get("citacoes") or []
+            por_id = {c.get("id"): c for c in cits}
             for sent in sentencas(txt):
                 if not RE_MARCA.search(sent):
                     erros.append(f"{rot}: sentença sem marcador [[cN]]: {sent[:80]!r}")
+                norm = sem_acento(sent)
+                for chave, nome in PROIBIDOS_RELATORIO.items():
+                    if chave in norm:
+                        erros.append(f"{rot}: o relatório não pode falar de {nome} (isso já está na manchete e nos "
+                                     f"blocos laterais); reescreva só com o que está nas atas: {sent[:80]!r}")
+                        break
+                pal = palavras_conteudo(sent)
+                for cid in dict.fromkeys(RE_MARCA.findall(sent)):
+                    c = por_id.get(cid)
+                    if c and not (pal & palavras_conteudo(c.get("trecho") or "")):
+                        erros.append(f"{rot} {cid}: a citação não sustenta a frase (nenhuma palavra de conteúdo em "
+                                     f"comum entre a frase e o trecho); troque o trecho ou reescreva a frase: "
+                                     f"{sent[:80]!r}")
             usados = set(RE_MARCA.findall(txt))
-            cits = p.get("citacoes") or []
             dados_ids = [c.get("id") for c in cits]
             if len(set(dados_ids)) != len(dados_ids):
                 erros.append(f"{rot}: ids de citação repetidos")
@@ -367,6 +411,60 @@ def finalizar(resp: dict) -> dict:
 
 def recorte(texto: str, n: int = 25) -> str:
     return " ".join(texto.split()[:n])
+
+
+# Temas para o plano B: (raiz sem acento procurada no trecho, como aparece na frase). A frase leva uma palavra
+# do trecho, o que garante a checagem de sustentação. Ordem = prioridade.
+TEMAS = [("expectativa", "as expectativas de inflação"), ("desancorad", "a desancoragem das expectativas"),
+         ("inflacao", "a inflação"), ("cambio", "o câmbio"), ("credito", "o crédito"), ("fiscal", "a política fiscal"),
+         ("trabalho", "o mercado de trabalho"), ("atividade", "a atividade econômica"),
+         ("servicos", "a inflação de serviços"), ("externo", "o cenário externo"), ("riscos", "os riscos"),
+         ("incerteza", "a incerteza"), ("restritiv", "a política monetária restritiva"), ("cenario", "o cenário")]
+
+
+def tema(trecho: str) -> str:
+    t = sem_acento(trecho)
+    for raiz, nome in TEMAS:
+        if raiz in t and palavras_conteudo(nome) & palavras_conteudo(trecho):
+            return nome
+    for w in trecho.split():
+        if palavras_conteudo(w):
+            return f"o ponto sobre {w.strip(',.;:()')}"
+    return f"o trecho que começa com \"{' '.join(trecho.split()[:6])}\""
+
+
+# Modelos de frase do plano B por (tipo, efeito), escolhidos pela posição da mudança.
+# {t} = tema, {a} = ata atual, {b} = ata anterior, {k} = id da citação.
+MODELOS_MUDOU = {
+    ("novo", "endureceu"): [
+        "A ata {a} incluiu um trecho novo sobre {t} que deixa a comunicação mais dura [[{k}]].",
+        "Na ata {a}, o Copom passou a abordar {t} com um tom mais duro [[{k}]].",
+        "Um parágrafo novo da ata {a}, sobre {t}, reforça a cautela do Comitê [[{k}]].",
+        "O texto novo sobre {t} na ata {a} aponta para uma postura mais firme [[{k}]]."],
+    ("novo", "suavizou"): [
+        "A ata {a} incluiu um trecho novo sobre {t} que deixa a comunicação mais branda [[{k}]].",
+        "Na ata {a}, o Copom passou a abordar {t} com um tom mais leve [[{k}]].",
+        "Um parágrafo novo da ata {a}, sobre {t}, alivia o tom do Comitê [[{k}]].",
+        "O texto novo sobre {t} na ata {a} abre espaço para uma postura menos rígida [[{k}]]."],
+    ("alterado", "endureceu"): [
+        "O Copom reescreveu na ata {a} a passagem sobre {t}, agora com tom mais duro [[{k}]].",
+        "A redação sobre {t} ficou mais dura na ata {a} do que na ata {b} [[{k}]].",
+        "Ao revisar o que dizia sobre {t}, o Comitê endureceu a mensagem na ata {a} [[{k}]].",
+        "A nova versão do trecho sobre {t} na ata {a} soa mais firme [[{k}]]."],
+    ("alterado", "suavizou"): [
+        "O Copom reescreveu na ata {a} a passagem sobre {t}, agora com tom mais brando [[{k}]].",
+        "A redação sobre {t} ficou mais leve na ata {a} do que na ata {b} [[{k}]].",
+        "Ao revisar o que dizia sobre {t}, o Comitê suavizou a mensagem na ata {a} [[{k}]].",
+        "A nova versão do trecho sobre {t} na ata {a} soa menos rígida [[{k}]]."],
+    ("removido", "endureceu"): [
+        "Saiu da ata {a} o trecho da ata {b} sobre {t}, o que deixa a comunicação mais dura [[{k}]].",
+        "Sem a passagem da ata {b} sobre {t}, a ata {a} fica com tom mais firme [[{k}]].",
+        "O Copom deixou de lado na ata {a} o que dizia sobre {t} na ata {b}, e o tom endureceu [[{k}]]."],
+    ("removido", "suavizou"): [
+        "Saiu da ata {a} o trecho da ata {b} sobre {t}, o que deixa a comunicação mais branda [[{k}]].",
+        "Sem a passagem da ata {b} sobre {t}, a ata {a} fica com tom mais leve [[{k}]].",
+        "O Copom deixou de lado na ata {a} o que dizia sobre {t} na ata {b}, e o tom suavizou [[{k}]]."],
+}
 
 
 def candidatos_mudanca(ctx: dict) -> list[dict]:
@@ -471,16 +569,8 @@ def plano_b(ctx: dict) -> dict:
     # mudou
     cits, frases = [], []
     for k, c in enumerate(candidatos_mudanca(ctx)[:3], 1):
-        mais = "mais branda" if c["efeito"] == "suavizou" else "mais dura"
-        if c["tipo"] == "novo":
-            f = f"Um trecho novo da ata {atual} deixa a comunicação {mais}, com nota {c['nota']:+d} na régua de -2 a +2 [[c{k}]]."
-        elif c["tipo"] == "alterado":
-            f = (f"Um parágrafo reescrito na ata {atual} passou de nota {c['nota_antes']:+d} para {c['nota']:+d}, "
-                 f"o que torna a comunicação {mais} [[c{k}]].")
-        else:
-            f = (f"Saiu da ata {atual} um trecho da ata {anterior} com nota {c['nota_antes']:+d}, o que torna a "
-                 f"comunicação {mais} [[c{k}]].")
-        frases.append(f)
+        modelos = MODELOS_MUDOU[(c["tipo"], c["efeito"])]
+        frases.append(modelos[(k - 1) % len(modelos)].format(t=tema(c["trecho"]), a=atual, b=anterior, k=f"c{k}"))
         cits.append({"id": f"c{k}", "ata": c["ata"], "paragrafo": c["paragrafo"], "trecho": c["trecho"]})
     mudou = [{"texto": " ".join(frases), "citacoes": cits}] if frases else []
 
@@ -488,25 +578,26 @@ def plano_b(ctx: dict) -> dict:
     pa = ctx["par_atual"]
     n_dec = maior_nota(ctx, lambda p: re.search(r"(?i)decis|condução", p.get("secao") or "")) \
         or maior_nota(ctx, lambda p: True)
-    cond = {"aperto": ("o sinal de tom aponta alta da Selic", "os juros futuros tendem a subir, o real pode ganhar "
+    cond = {"aperto": ("juros mais altos", "os juros futuros tendem a subir, o real pode ganhar "
                        "apoio e o crédito tende a ficar mais caro"),
-            "manutencao": ("o sinal de tom aponta manutenção da Selic", "os juros futuros tendem a oscilar pouco, "
+            "manutencao": ("juros parados por mais tempo", "os juros futuros tendem a oscilar pouco, "
                            "o câmbio pode seguir mais ligado ao cenário externo e o crédito tende a continuar restrito"),
-            "afrouxamento": ("o sinal de tom aponta corte da Selic", "os juros futuros tendem a recuar, o real pode "
+            "afrouxamento": ("espaço para juros menores", "os juros futuros tendem a recuar, o real pode "
                              "perder parte do diferencial de juros e o crédito tende a ficar menos caro")}[prev["previsto"]]
     efeito = []
     if n_dec:
-        efeito = [{"texto": f"Com o índice de tom em {br(i)}, {cond[0]} {quando} [[c1]]. Se o mercado ler a ata nessa "
-                            f"direção, {cond[1]}, com efeito sobre a inflação esperada [[c1]].",
-                   "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_dec, "trecho": recorte(pa[n_dec]["texto"])}]}]
+        tr = recorte(pa[n_dec]["texto"])
+        efeito = [{"texto": f"Se o mercado ler o que a ata {atual} diz sobre {tema(tr)} como sinal de {cond[0]}, "
+                            f"{cond[1]}, com efeito sobre a inflação esperada [[c1]].",
+                   "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_dec, "trecho": tr}]}]
     # observar
     n_risco = maior_nota(ctx, lambda p: re.search(r"(?i)risco", (p.get("secao") or "") + " " + p["texto"])) or n_dec
     observar = []
     if n_risco:
-        observar = [{"texto": f"Até a próxima reunião, o ponto a observar são os riscos que o Copom destacou na ata "
-                              f"{atual}, que podem confirmar ou mudar o sinal [[c1]].",
-                     "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_risco,
-                                   "trecho": recorte(pa[n_risco]["texto"])}]}]
+        tr = recorte(pa[n_risco]["texto"])
+        observar = [{"texto": f"Até a próxima reunião, vale acompanhar {tema(tr)}, ponto que o Copom destacou na ata "
+                              f"{atual} e que pode confirmar ou mudar a direção dos juros [[c1]].",
+                     "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_risco, "trecho": tr}]}]
     return {"manchete": manchete, "linha_fina": fina,
             "secoes": [{"id": "mudou", "titulo": "O que mudou na comunicação do Copom", "paragrafos": mudou},
                        {"id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": efeito},
