@@ -1,0 +1,386 @@
+{
+ "ata": 270,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mostra-se adverso e particularmente incerto",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "A política comercial alimenta incertezas sobre a economia global, notadamente acerca da magnitude da desaceleração econômica",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Tal cenário segue exigindo cautela por parte de países emergentes em ambiente de maior tensão geopolítica.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "mas observa-se uma incipiente moderação no crescimento",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "permanecem em valores acima da meta, situando-se em 5,5% e 4,5%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O cenário prospectivo de inflação segue desafiador em diversas dimensões",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "se prevê, agora, um a desaceleração na economia norte -americana mais acentuada do que era esperado",
+   "padroes": [],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Alguns fatores elencados durante a reunião seguem dando confiança ao Comitê de que o processo de moderação de crescimento deve ocorrer",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A política monetária significativamente contracionista já tem contribuído e seguirá contribuindo para a moderação de crescimento",
+   "padroes": [
+    "P09",
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "com ganhos reais acima da produtividade",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o crédito bancário tem apresentado inflexão, com elevação de taxa de juros",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Um estímulo significativo nos últimos anos adveio da política fiscal.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
+   "padroes": [
+    "P04",
+    "P06",
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "corroborando a interpretação de uma inflação pressionada pela demanda",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "No cenário de referência, a trajetória para a taxa de juros é extraída da pesquisa Focus",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "atual horizonte relevante de política monetária, são, respectivamente, 4,8% e 3,6%",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "com um debate se ainda se mantinha levemente assimétrico, mas menos assimétrico do que na reunião anterior, ou se já se podia defini-lo como neutro",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "prescreve uma política monetária em patamar significativamente contracionista por período prolongado",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Em linha com a indicação na reunião anterior, o Comitê optou pela elevação de 0,50 ponto percentual",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "aliado ao estágio avançado do ciclo de ajuste e seus impactos acumulados ainda por serem observados, demanda cautela adicional",
+   "padroes": [
+    "P01",
+    "P18"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "a calibragem do aperto monetário apropriado seguirá guiada pelo objetivo de trazer a inflação à meta no horizonte relevante",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Tal cenário prescreve uma política monetária em patamar significativamente contracionista",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "para 14,75% a.a.",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o cenário de elevada incerteza, aliado ao estágio avançado do ciclo de ajuste",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "a calibragem do aperto monetário apropriado seguirá guiada pelo objetivo de trazer a inflação à meta no horizonte relevante",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 27,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 17,
+   "paragrafo_anterior": 16,
+   "direcao": -2,
+   "trecho": "com um debate se ainda se mantinha levemente assimétrico, mas menos assimétrico do que na reunião anterior, ou se já se podia defini-lo como neutro",
+   "padroes": [
+    "P03"
+   ],
+   "explicacao": "Balanço de riscos menos altista, com debate sobre torná-lo neutro."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 19,
+   "direcao": -1,
+   "trecho": "era apropriado indicar que o ciclo não está encerrado",
+   "padroes": [
+    "P01",
+    "P05"
+   ],
+   "explicacao": "Some a indicação de que haverá nova alta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 21,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "aliado ao estágio avançado do ciclo de ajuste e seus impactos acumulados ainda por serem observados, demanda cautela adicional",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Ciclo em estágio avançado: sinal de fim próximo das altas."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "prescreve uma política monetária em patamar significativamente contracionista por período prolongado",
+   "padroes": [
+    "P04",
+    "P10"
+   ],
+   "explicacao": "Juros altos por período prolongado: duro na duração."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 16,
+   "direcao": -1,
+   "trecho": "são, respectivamente, 4,8% e 3,6%",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção no horizonte relevante caiu de 3,9% para 3,6%."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "paragrafo_anterior": 13,
+   "direcao": -1,
+   "trecho": "mantiveram-se acima da meta de inflação em todos os horizontes",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Expectativas deixam de subir; tira a desancoragem adicional."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "A política monetária significativamente contracionista já tem contribuído e seguirá contribuindo para a moderação de crescimento",
+   "padroes": [
+    "P13",
+    "P09"
+   ],
+   "explicacao": "Aperto já surte efeito na atividade."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 22,
+   "paragrafo_anterior": 20,
+   "direcao": 1,
+   "trecho": "O Comit ê se manterá vigilante",
+   "padroes": [
+    "P18"
+   ],
+   "explicacao": "Introduz vigilância e calibragem, sem prometer novas altas."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.7,
+  "surpresa": -0.5,
+  "explicacao": "Alta de 0,50 ponto sem guia futuro, ciclo em estágio avançado; debate sobre balanço de riscos neutro e projeção menor são brandos. Mantém juros contracionistas por período prolongado. Mais branda que a anterior."
+ }
+}

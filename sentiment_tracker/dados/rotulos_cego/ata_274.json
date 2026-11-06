@@ -1,0 +1,325 @@
+{
+ "ata": 274,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ambiente externo ainda se mantém incerto em função da conjuntura e da política econômica nos Estados Unidos",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "trajetória de moderação no crescimento da atividade econômica, mas o mercado de trabalho ainda mostra dinamismo.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "apresentaram algum arrefecimento, mas mantiveram-se acima da meta para a inflação.",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário prospectivo de inflação segue desafiador em diversas dimensões.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o Copom deve preservar uma postura de cautela.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "reforçando a interpretação d o cenário delineado pelo Comitê estar, até agora, se concretizando.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "segue apresentando desaceleração mais nítida, compatível com a política monetária em curso",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "observou-se movimento agora mais nítido em horizontes além do relevante.",
+   "padroes": [
+    "P10",
+    "P11"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado.",
+   "padroes": [
+    "P04",
+    "P11"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A inflação de serviços também apresentou algum arrefecimento, mas ainda se mostra mais resiliente",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "o Comitê optou por já incorporar uma estimativa preliminar do impacto da medida de ampliação da isenção do imposto de renda.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "se manteve acima da meta de inflação, em 3,3%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "riscos mais elevados do que o usual tanto de alta quanto de baixa para o cenário de inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Tal cenário prescreve uma política monetária em patamar significativamente contracionista por período bastante prolongado",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "já com maior convicção de que a taxa corrente é suficiente para assegurar a convergência da inflação à meta.",
+   "padroes": [
+    "P09",
+    "P04"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "o Comitê seguirá vigilante e não hesitará em retomar o ciclo de alta se julgar apropriado.",
+   "padroes": [
+    "P05",
+    "P10"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "O Comitê avalia que a estratégia de manutenção do nível corrente da taxa de juros por período bastante prolongado é suficiente",
+   "padroes": [
+    "P04",
+    "P05",
+    "P09"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": 17,
+   "direcao": -1,
+   "trecho": "já com maior convicção de que a taxa corrente é suficiente para assegurar a convergência da inflação à meta.",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Copom passa a ter mais convicção de que 15% basta; afasta novas altas."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 21,
+   "direcao": -1,
+   "trecho": "O Comitê avalia que a estratégia de manutenção do nível corrente da taxa de juros por período bastante prolongado é suficiente",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Deixa de 'avaliar se' a manutenção basta e afirma que basta."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 19,
+   "direcao": -1,
+   "trecho": "exige-se uma política monetária em patamar significativamente contracionista por período bastante prolongado.",
+   "padroes": [
+    "P04",
+    "P11"
+   ],
+   "explicacao": "Some da seção de decisão o parágrafo sobre expectativas desancoradas exigindo juros altos por longo tempo."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": 9,
+   "direcao": -1,
+   "trecho": "observou-se movimento agora mais nítido em horizontes além do relevante.",
+   "padroes": [
+    "P10",
+    "P11"
+   ],
+   "explicacao": "Queda das expectativas fica mais clara, inclusive em prazos longos."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 11,
+   "paragrafo_anterior": 11,
+   "direcao": -1,
+   "trecho": "A inflação de serviços também apresentou algum arrefecimento",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Até serviços, o componente mais resistente, começa a ceder."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "paragrafo_anterior": 3,
+   "direcao": -1,
+   "trecho": "apresentaram algum arrefecimento, mas mantiveram-se acima da meta para a inflação.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Inflação cheia e núcleos começam a arrefecer."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 12,
+   "paragrafo_anterior": 12,
+   "direcao": 1,
+   "trecho": "o Comitê optou por já incorporar uma estimativa preliminar do impacto da medida de ampliação da isenção do imposto de renda.",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Inclui nas projeções o estímulo fiscal da isenção do IR, postura conservadora."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.3,
+  "surpresa": -0.6,
+  "explicacao": "Juros mantidos em 15% por período bastante prolongado, mas com 'maior convicção' de que a taxa é suficiente, queda mais nítida das expectativas e retirada do parágrafo duro da decisão. Cláusula de retomada mantida limita a leitura branda."
+ }
+}

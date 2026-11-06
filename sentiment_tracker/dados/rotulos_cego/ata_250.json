@@ -1,0 +1,325 @@
+{
+ "ata": 250,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "reforçam uma perspectiva de desaceleração do crescimento global nos próximos trimestres.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "aliado a uma inflação corrente elevada e com alto grau de difusão, sugere que pressões inflacionárias no setor de serviços podem demorar a se dissipar",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Es sa maior sensibilidade, concomitante ao aperto das condições financeiras, inspira maior atenção para países emergentes.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "continua sinalizando crescimento na margem, ainda que e m ritmo mais moderado",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "a inflação ao consumidor continua elevada",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "a projeção de inflação acumulada em doze meses situa-se em 3, 2%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Houve um ajuste na extensão e na velocidade do ciclo de aperto de política monetár ia em alguns países avançados",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "suscita questionamentos sobre a sustentabilidade d o endividamento público em diversos países",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o impacto da política monetária e suas defasagens aponta para uma redução do ritmo da atividade econômica",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O Comitê debateu os impactos, já perceptíveis, da política monetária nos dados de crédito e atividade econômica.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o aumento de gastos de forma permanente e a incerteza sobre sua trajetória a partir do próximo ano podem elevar os prêmios de risco do país",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "permanecem fatores de risco em ambas as direções",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "segue compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o Copom avalia que não haverá impactos relevantes sobre a condução de política monetária",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "avalia que houve algum a diminuição da ociosidade estimada desde sua última atualização",
+   "padroes": [
+    "P13",
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê reforçou que é necessário manter a vigilância, avaliando se a estratégia de manutenção da taxa básica de juros por um período suficientemente prolongado",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "O Comitê enfatiza que não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado.",
+   "padroes": [
+    "P05"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "o Copom decidiu manter a taxa básica de juros em 13,75% a.a.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado",
+   "padroes": [
+    "P05",
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 20,
+   "direcao": -1,
+   "trecho": "Dois membros do comitê votaram por uma elevação residual de 0,25 ponto percentual na taxa básica de juros.",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Some a minoria que pedia alta; decisão unânime pela manutenção."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 19,
+   "direcao": -1,
+   "trecho": "A s opções pela elevação de juros em 0,25 ponto percentual e pel a manutenção da taxa básica de juros foram amplamente debatidas.",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Não há mais menção a debate de nova alta nesta reunião."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "o impacto da política monetária e suas defasagens aponta para uma redução do ritmo da atividade econômica, que tende a se acentuar nos próximos trimestres.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Atividade desacelerando por efeito dos juros: menos pressão sobre a inflação."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 10,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "O Comitê debateu os impactos, já perceptíveis, da política monetária nos dados de crédito e atividade econômica.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Efeitos do aperto já visíveis no crédito e na renda."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "avalia que houve algum a diminuição da ociosidade estimada desde sua última atualização",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Hiato estimado menos folgado: pressão maior sobre preços."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "As projeções de inflaç ão apresentaram leve aumento nos horizontes mais longos",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeções de prazo mais longo subiram um pouco."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 0,
+   "trecho": "O Comitê reforça que irá perseverar até que se consolide não apenas o processo de desinflação",
+   "padroes": [
+    "P06",
+    "P05"
+   ],
+   "explicacao": "Retirado o 'por unanimidade' da frase de perseverança, mas cláusula de retomada mantida."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 8,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "suscita questionamentos sobre a sustentabilidade d o endividamento público em diversos países",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Maior atenção a riscos fiscais e emergentes no exterior."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.6,
+  "surpresa": -0.2,
+  "explicacao": "Manutenção unânime em 13,75% com cláusula de retomada e período prolongado mantidos. Some a ala por alta e a atividade desacelera, embora o hiato estreite e projeções subam levemente: um pouco mais branda que a ata anterior."
+ }
+}

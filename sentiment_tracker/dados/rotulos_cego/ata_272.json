@@ -1,0 +1,385 @@
+{
+ "ata": 272,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo está mais adverso e incerto em função da conjuntura e da política econômica nos Estados Unidos",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Tal cenário exige particular cautela por parte de países emergentes em ambiente marcado por tensão geopolítica.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "tem apresentado, conforme esperado, certa moderação no crescimento, mas o mercado de trabalho ainda mostra dinamismo.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a inflação cheia e as medidas subjacente s mantiveram-se acima da meta para a inflação.",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário prospectivo de inflação segue desafiador em diversas dimensões.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "há maior incerteza no cenário externo e, consequentemente, o Copom deve preservar uma postura de cautela.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A conjuntura de atividade econômica doméstica tem indicado certa moderação no crescimento",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Tal moderação, necessária para a abertura de hiato e a convergência da inflação à meta, se coaduna com uma política monetária contracionista.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Em momentos de inflexão no ciclo econômico, é natural que se observem sinais mistos advindos de indicadores econômicos",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "crédito, mais sensível às condições financeiras, tem apresentado uma moderação mais nítida.",
+   "padroes": [
+    "P10",
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "com ganhos reais consistentemente acima da produtividade",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o cenário se desenrola conforme esperado e compatível com a política monetária em curso.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "mantiveram-se acima da meta de inflação em todos os horizontes, mantendo o cenário de inflação adverso.",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "expectativas",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado.",
+   "padroes": [
+    "P04",
+    "P06",
+    "P11"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "seguiu apresentando surpresas baixistas no período recente em relação ao que os analistas previam, mas manteve-se com inflação acima da meta.",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "No cenário de referência, a trajetória para a taxa de juros é extraída da pesquisa Focus",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção de inflação utilizando o cenário de referência extraído da pesquisa Focus se manteve acima da meta de inflação, em 3,4%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "riscos mais elevados do que o usual tanto de alta quanto de baixa para o cenário de inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Tal cenário prescreve uma política monetária em patamar significativamente contracionista por período bastante prolongado",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "continuar a interrupção do ciclo de alta para observar os efeitos do ciclo empreendido.",
+   "padroes": [
+    "P01",
+    "P04",
+    "P05"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "exige-se uma política monetária em patamar significativamente contracionista por período bastante prolongado.",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+   "padroes": [
+    "P01",
+    "P04",
+    "P05"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 24,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
+   "padroes": [
+    "P16"
+   ],
+   "explicacao": "Fim das altas: juros mantidos em 15%, como já antecipado no comunicado e na ata anterior."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 25,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+   "padroes": [
+    "P05"
+   ],
+   "explicacao": "Troca 'prosseguir' por 'retomar' a alta: reconhece que o ciclo está pausado, mas mantém a ameaça."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 22,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "continuar a interrupção do ciclo de alta para observar os efeitos do ciclo empreendido.",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Pausa deixa de ser condicionada a nova avaliação e passa a ser continuidade da interrupção."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 6,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "A elevação por parte dos Estados Unidos das tarifas comerciais para o Brasil tem impactos setoriais relevantes",
+   "padroes": [
+    "P18"
+   ],
+   "explicacao": "Tarifas dos EUA ao Brasil tornam cenário externo mais adverso e reforçam a cautela."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 10,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "tem apresentado uma moderação mais nítida.",
+   "padroes": [
+    "P10",
+    "P13"
+   ],
+   "explicacao": "Crédito desacelera de forma mais clara, sinal de que o aperto está funcionando."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "com ganhos reais consistentemente acima da produtividade",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Reforça que salários reais seguem acima da produtividade, pressão inflacionária persistente."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "se manteve acima da meta de inflação, em 3,4%.",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Novo horizonte relevante (2027) ainda mostra projeção acima da meta de 3%."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 25,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "O cenário atual, marcado por elevada incerteza, exige cautela na condução da política monetária.",
+   "padroes": [
+    "P18"
+   ],
+   "explicacao": "Nova menção a cautela por incerteza elevada, reforçando juros parados por mais tempo."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.0,
+  "surpresa": 0.0,
+  "explicacao": "Pausa em 15% confirmada, com juros significativamente contracionistas por período bastante prolongado e cláusula de retomada mantida. Projeção acima da meta compensa sinais de moderação no crédito; ata em linha com o comunicado."
+ }
+}

@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T13:01:29-03:00",
+ "gerado_em": "2026-11-06T14:08:39-03:00",
  "alvo": "rotulo_surpresa = média de surpresa dos analistas (peso 1) e z da variação do prefixado 2 anos no dia da ata (peso 0 a 0,5 conforme contaminação por outros eventos)",
  "features": [
   "claude_surpresa",
@@ -7,84 +7,114 @@
   "delta_nivel",
   "lex_delta_z"
  ],
- "pesos": {
-  "claude_surpresa": 0.407,
-  "mudancas": 0.006,
-  "delta_nivel": 0.202,
+ "estimador_escolhido": "claude_surpresa",
+ "correlacao_loo_candidatos": {
+  "media_sinais": 0.539,
+  "claude_surpresa": 0.626,
+  "ridge": 0.537
+ },
+ "regra_escolha": "maior correlação leave-one-out; ridge só se superar o melhor sem ajuste por > 0,03",
+ "candidatos_vs_rotulo": {
+  "media_sinais": {
+   "n": 46,
+   "correlacao": 0.539,
+   "acerto_direcao": 0.826,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.533
+  },
+  "claude_surpresa": {
+   "n": 46,
+   "correlacao": 0.626,
+   "acerto_direcao": 0.826,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.468
+  },
+  "ridge": {
+   "n": 46,
+   "correlacao": 0.537,
+   "acerto_direcao": 0.826,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.494
+  }
+ },
+ "pesos_ridge": {
+  "claude_surpresa": 0.68,
+  "mudancas": -0.023,
+  "delta_nivel": -0.018,
   "lex_delta_z": 0.144
  },
- "intercepto": -0.051,
+ "intercepto_ridge": 0.08,
  "loo_vs_rotulo": {
-  "n": 18,
-  "correlacao": 0.433,
-  "acerto_direcao": 0.667,
-  "n_direcionais": 6,
-  "erro_medio_abs": 0.415
+  "n": 46,
+  "correlacao": 0.626,
+  "acerto_direcao": 0.826,
+  "n_direcionais": 23,
+  "erro_medio_abs": 0.468
  },
  "loo_vs_analistas": {
-  "n": 18,
-  "correlacao": 0.409,
-  "acerto_direcao": 0.667,
-  "n_direcionais": 6,
-  "erro_medio_abs": 0.488
+  "n": 46,
+  "correlacao": 0.58,
+  "acerto_direcao": 0.826,
+  "n_direcionais": 23,
+  "erro_medio_abs": 0.55
  },
  "loo_vs_di_dias_limpos": {
-  "n": 13,
-  "correlacao": 0.356,
-  "acerto_direcao": 0.833,
-  "n_direcionais": 6,
-  "erro_medio_abs": 0.82,
+  "n": 36,
+  "correlacao": 0.542,
+  "acerto_direcao": 0.682,
+  "n_direcionais": 22,
+  "erro_medio_abs": 0.991,
   "nota": "d_pre2 em dezenas de pb; só atas com peso_mercado > 0"
  },
  "sinais_isolados_vs_rotulo": {
   "claude_surpresa": {
-   "n": 18,
-   "correlacao": 0.684,
-   "acerto_direcao": 0.833,
-   "n_direcionais": 6,
-   "erro_medio_abs": 0.412
+   "n": 46,
+   "correlacao": 0.626,
+   "acerto_direcao": 0.826,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.468
   },
   "mudancas": {
-   "n": 18,
-   "correlacao": 0.42,
-   "acerto_direcao": 0.667,
-   "n_direcionais": 6,
-   "erro_medio_abs": 1.016
+   "n": 46,
+   "correlacao": 0.4,
+   "acerto_direcao": 0.696,
+   "n_direcionais": 23,
+   "erro_medio_abs": 1.146
   },
   "delta_nivel": {
-   "n": 18,
-   "correlacao": 0.543,
-   "acerto_direcao": 0.667,
-   "n_direcionais": 6,
-   "erro_medio_abs": 0.43
+   "n": 46,
+   "correlacao": 0.357,
+   "acerto_direcao": 0.609,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.582
   },
   "lex_delta_z": {
-   "n": 18,
-   "correlacao": 0.423,
-   "acerto_direcao": 0.833,
-   "n_direcionais": 6,
-   "erro_medio_abs": 0.735
+   "n": 46,
+   "correlacao": 0.345,
+   "acerto_direcao": 0.739,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.717
   },
   "claude_nivel": {
-   "n": 18,
-   "correlacao": 0.246,
-   "acerto_direcao": 0.667,
-   "n_direcionais": 6,
-   "erro_medio_abs": 0.754
+   "n": 46,
+   "correlacao": 0.323,
+   "acerto_direcao": 0.652,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.873
   },
   "nivel": {
-   "n": 18,
-   "correlacao": 0.247,
-   "acerto_direcao": 0.667,
-   "n_direcionais": 6,
-   "erro_medio_abs": 0.712
+   "n": 46,
+   "correlacao": 0.313,
+   "acerto_direcao": 0.652,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.835
   }
  },
  "base_ingenua_zero": {
-  "erro_medio_abs": 0.388,
+  "erro_medio_abs": 0.561,
   "nota": "prever sempre 'em linha' (0)"
  },
- "intervalo_previsao_95": 1.46,
- "n_atas_treino": 18,
+ "intervalo_previsao_95": 1.223,
+ "n_atas_treino": 46,
  "aviso": "Amostra curta (atas desde 2021, n≈45): intervalos largos. Os padrões da Skill foram extraídos das mesmas atas; o leave-one-out cobre os pesos, não os padrões."
 }

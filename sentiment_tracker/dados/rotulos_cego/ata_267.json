@@ -1,0 +1,380 @@
+{
+ "ata": 267,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo permanece desafiador",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue exigindo cautela por parte de países emergentes",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "com destaque para a divulgação do PIB do terceiro trimestre, que indicou abertura adicional do hiato",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "elevaram-se de forma relevante e encontram-se em torno de 4,8% e 4,6%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O cenário prospectivo de inflação mostra-se mais desafiador em diversas dimensões",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "indica uma demanda interna crescendo em ritmo bastante intenso, apesar da política monetária contracionista",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "há elementos que sugerem uma desaceleração, tal como o maior aperto",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "de capitais também têm surpreendido ao longo do ano",
+   "padroes": [],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A conjunção de uma taxa de câmbio mais depreciada com a elevação das curvas de juros nominal e real torna o ambiente mais complexo",
+   "padroes": [],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O debate do Comitê evidenciou, novamente, a necessidade de políticas fiscal e monetária harmoniosas",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "expectativas",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "tornando o cenário de inflação mais adverso e requerendo uma política monetária mais contracionista",
+   "padroes": [
+    "P11",
+    "P12"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "houve não só uma interrupção no processo desinflacionário, como uma maior pressão inflacionária nas últimas divulgações",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "exige maior cautela na condução da política monetária doméstica",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê elevou a taxa de juros real neutra em seus modelos de 4,75% para 5,00% a.a.",
+   "padroes": [
+    "P07"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "os determinantes de prazo mais curto, como a taxa de câmbio e a inflação corrente, se deterioraram",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção para a inflação acumulada em quatro trimestres para o segundo trimestre de 2026 é 4,0%",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê avalia que o cenário se mostra menos incerto e mais adverso do que na reunião anterior",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Persiste, no entanto, uma assimetria altista no balanço de riscos",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Tal piora demanda uma política monetária ainda mais contracionista.",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "antevê ajuste de mesma magnitude nas próximas duas reuniões",
+   "padroes": [
+    "P01",
+    "P02",
+    "P06"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "A magnitude total do ciclo de aperto monetário será ditada pelo firme compromisso de convergência da inflação à meta",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o que exige uma política monetária ainda mais contracionista",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "elevando a taxa básica de juros em 1,00 ponto percentual, para 12,25% a.a.",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Comitê antevê, em se confirmando o cenário esperado, ajustes de mesma magnitude nas próximas duas reuniões",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 27,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 22,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "antevê ajuste de mesma magnitude nas próximas duas reuniões",
+   "padroes": [
+    "P01",
+    "P02",
+    "P06"
+   ],
+   "explicacao": "Promete mais duas altas de 1 ponto, guia forte já dado no comunicado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Comitê elevou a taxa de juros real neutra em seus modelos de 4,75% para 5,00% a.a.",
+   "padroes": [
+    "P07"
+   ],
+   "explicacao": "Juro neutro mais alto implica juros mais altos para conter a inflação."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "elevaram-se em todos os prazos, indicando desancoragem adicional",
+   "padroes": [
+    "P11",
+    "P12"
+   ],
+   "explicacao": "Anúncio fiscal piorou expectativas em todos os prazos."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Comitê avalia que o cenário se mostra menos incerto e mais adverso do que na reunião anterior",
+   "padroes": [
+    "P03"
+   ],
+   "explicacao": "Riscos de alta se materializaram, cenário pior."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 16,
+   "direcao": 1,
+   "trecho": "a projeção para a inflação acumulada em quatro trimestres para o segundo trimestre de 2026 é 4,0%",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção no horizonte relevante subiu de 3,6% para 4,0%."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 12,
+   "paragrafo_anterior": 12,
+   "direcao": 1,
+   "trecho": "como uma maior pressão inflacionária nas últimas divulgações",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Inflação corrente piorou e vetores inflacionários se intensificaram."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 6,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "levando a nova reavaliação de um hiato mais positivo",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Atividade acima do esperado, hiato mais positivo."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.9,
+  "surpresa": 0.6,
+  "explicacao": "Alta de 1 ponto com guia de mais duas altas iguais; neutro elevado a 5%, expectativas e projeções piores, riscos materializados. Muito dura; a novidade além do comunicado é o neutro maior e o diagnóstico mais adverso."
+ }
+}

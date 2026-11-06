@@ -1,0 +1,297 @@
+{
+ "ata": 275,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ambiente externo ainda se mantém incerto em função da conjuntura e da política econômica nos Estados Unidos",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "trajetória de moderação no crescimento da atividade econômica, como observado na última divulgação do PIB, enquanto o mercado de trabalho mostra resiliência.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "seguiram apresentando algum arrefecimento, mas mantiveram-se acima da meta para a inflação.",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o cenário internacional está menos incerto do que esteve há alguns meses",
+   "padroes": [],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "mostrou uma redução no crescimento do consumo das famílias, que vinha em ritmo forte em função dos ganhos reais de renda.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Concluiu-se que o mercado de trabalho está em patamar bastante apertado, que há sinais incipientes de desa quecimento",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "exige- se uma restrição monetári a maior e por mais tempo do que outrora seria apropriado.",
+   "padroes": [
+    "P04",
+    "P06",
+    "P11"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "a política monetária tem contribuído de forma determinante para a desinflação observada.",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Comitê continuará acompanhando os dados para calibrar e refinar os impactos da medida de ampliação da isenção do imposto de renda.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "a projeção de inflação utilizando o cenário de referência extraído da pesquisa Focus está em 3,2%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "riscos mais elevados do que o usual tanto de alta quanto de baixa para o cenário de inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "destacando o ganho de confiança que vem se acumulando com o processo de desinflação.",
+   "padroes": [
+    "P09",
+    "P04"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o cenário prescreve uma política monetária significativamente contracionista por período bastante prolongado.",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "prossegue m a moderação gradual da atividade em curso, a diminuição da inflação corrente e a redução nas expectativas de inflaçã o.",
+   "padroes": [
+    "P10",
+    "P05"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "a estratégia em curso, de manutenção do nível corrente da taxa de juros por período bastante prolongado, é adequada",
+   "padroes": [
+    "P04",
+    "P05",
+    "P09"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 18,
+   "direcao": -1,
+   "trecho": "a diminuição da inflação corrente e a redução nas expectativas de inflaçã o.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Somem 'certa' e 'alguma': queda da inflação e das expectativas vira fato, sem ressalva."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "destacando o ganho de confiança que vem se acumulando com o processo de desinflação.",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Copom descreve sua evolução: de avaliar se a taxa bastava a concluir que é adequada."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 20,
+   "direcao": -1,
+   "trecho": "que, como usual, não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+   "padroes": [
+    "P05"
+   ],
+   "explicacao": "'Como usual' torna a ameaça de alta uma fórmula protocolar, menos crível."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 9,
+   "paragrafo_anterior": 11,
+   "direcao": -1,
+   "trecho": "a política monetária tem contribuído de forma determinante para a desinflação observada.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Atribui a desinflação aos juros altos: o trabalho está sendo feito."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 4,
+   "paragrafo_anterior": 5,
+   "direcao": -1,
+   "trecho": "o cenário internacional está menos incerto do que esteve há alguns meses",
+   "padroes": [],
+   "explicacao": "Ambiente externo menos incerto, com commodities contidas e condições financeiras favoráveis."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 11,
+   "paragrafo_anterior": 13,
+   "direcao": -1,
+   "trecho": "está em 3,2%.",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção do horizonte relevante cai para 3,2% e some a frase 'acima da meta'."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 6,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Concluiu-se que o mercado de trabalho está em patamar bastante apertado",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Mercado de trabalho apertado segue preocupação, embora com sinais iniciais de desaquecimento."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.1,
+  "surpresa": -0.5,
+  "explicacao": "Manutenção em 15% por período bastante prolongado, agora julgada 'adequada', com ganho de confiança na desinflação, retirada de qualificadores e 'como usual' na cláusula de retomada. Sem sinal explícito de corte; mercado de trabalho apertado contrabalança."
+ }
+}

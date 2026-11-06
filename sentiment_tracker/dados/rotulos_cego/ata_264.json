@@ -1,0 +1,408 @@
+{
+ "ata": 264,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mantém-se adverso",
+   "padroes": [],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue exigindo cautela por parte de países emergentes",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue apresentando dinamismo maior do que o esperado",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "medidas de inflação subjacente se situaram acima da meta para a inflação nas divulgações mais recentes",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Em cenário alternativo apresentado, utiliza- se a hipótese de taxa de juros constante ao longo do horizonte relevante de política monetária.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "o horizonte relevante para a política monetária é de seis trimestres à frente",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção para o horizonte relevante está acima da meta de inflação de 3%",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "situam-se em 4,2% para 2024 e 3,6% para 2025",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "vislumbra-se um cenário de redução gradual da inflação e da atividade e um início cauteloso da flexibilização monetária",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As taxas de câmbio de países emergentes tiveram depreciação no período recent e",
+   "padroes": [],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "um cenário de maior incerteza global e de movimentos cambiais mais abruptos exige maior cautela",
+   "padroes": [
+    "P14",
+    "P18"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "tornando mais desafiador o processo de convergência da inflação à meta",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "vem tendo impactos relevantes sobre os preços de ativos e as expectativas",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "continuará tomando decisões que salvaguardem a credibilidade e, consequentemente, reduzam o custo da desinflação",
+   "padroes": [
+    "P11",
+    "P06"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o momento é de acompanhamento diligente dos condicionantes da inflação e de maior vigilância perante um cenário mais desafiador",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ciclo de crédito segue benigno com expansão em volume e redução de taxas",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Concluiu-se que o processo desinflacionário arrefeceu",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Concluiu-se unanimemente pela necessidade de uma política monetária ainda mais cautelosa",
+   "padroes": [
+    "P08",
+    "P06",
+    "P18"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria do balanço de riscos",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "corroboram a necessidade de maior vigilância",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "h ouve nova elevação das projeções de inflação para o horizonte relevante de política monetária",
+   "padroes": [
+    "P08",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a política monetária deve se manter contracionista por tempo suficiente",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Comitê, unanimemente, reforçou que não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta",
+   "padroes": [
+    "P01",
+    "P06"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu manter a taxa básica de juros em 10,50% a.a.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 27,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "ampliação da desancoragem das expectativas de inflação",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 28,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "demandam acompanhamento diligente e ainda maior cautela",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 29,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.6
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 25,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta se julgar apropriado",
+   "padroes": [
+    "P01",
+    "P06"
+   ],
+   "explicacao": "Pela primeira vez o Comitê, por unanimidade, coloca alta de juros na mesa."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 15,
+   "direcao": 2,
+   "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "explicacao": "Balanço de riscos deixa de ser simétrico: riscos de inflação maior predominam."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "uma taxa de câmbio persistentemente mais depreciada",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Novos riscos de alta: desancoragem prolongada e câmbio depreciado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 25,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "sem se comprometer com estratégias futuras",
+   "padroes": [
+    "P02"
+   ],
+   "explicacao": "Abre duas opções: manter por muito tempo ou subir juros."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 13,
+   "direcao": 1,
+   "trecho": "Concluiu-se que o processo desinflacionário arrefeceu",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Desinflação perdeu força, com inflação corrente acima da meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 7,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "a projeção para o horizonte relevante está acima da meta de inflação de 3%",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Mesmo com Selic constante, projeção fica acima da meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": 10,
+   "direcao": 1,
+   "trecho": "vem tendo impactos relevantes sobre os preços de ativos e as expectativas",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Fiscal passa a ser citado como causa de piora de ativos e expectativas."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.4,
+  "surpresa": 1.2,
+  "explicacao": "Manutenção já anunciada, mas a ata põe alta de juros explicitamente na mesa, por unanimidade, e declara riscos para cima, com desinflação arrefecendo e projeção acima da meta."
+ }
+}
