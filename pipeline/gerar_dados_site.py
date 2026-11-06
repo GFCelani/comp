@@ -3,8 +3,8 @@ Monta os dados do site → saida/dados_site.json e saida/busca.json, e copia os 
 
     .venv/Scripts/python.exe pipeline/gerar_dados_site.py
 
-Usa banco/indice_modelo.json quando existir (fonte_indice = "modelo"), senão banco/indice.json.
-Inclui banco/metricas_previsao.json, banco/metricas_modelo.json e validacao/resultado.json quando existirem.
+Usa banco/indice.json para a série de tom; banco/indice_modelo.json (P(alta) − P(corte) do modelo de decisão) vai no campo indice_modelo.
+Inclui banco/metricas_previsao.json, banco/metricas_modelo.json quando existirem.
 dados_site.json só leva trechos curtos (≤25 palavras); o texto completo vai só para busca.json,
 que o site lê apenas no servidor.
 """
@@ -31,9 +31,7 @@ COMO_MEDIMOS = {
     "agregacao": ("O índice de cada ata é a média das notas ignorando zeros: parágrafos neutros (fatos e dados) "
                   "não diluem o sinal. Se nenhum parágrafo tiver nota diferente de zero, o índice fica vazio. "
                   "A média simples de todas as notas também é calculada e guardada para comparação."),
-    "validacao": ("Validação humana: 20 parágrafos de atas diferentes, sorteados com semente fixa, foram "
-                  "rotulados pelo time sem ver a nota do Claude, e as duas notas são comparadas. Checagem por "
-                  "código: todo trecho exibido é conferido como cópia literal do parágrafo, com no máximo 25 "
+    "validacao": ("Checagem por código: todo trecho exibido é conferido como cópia literal do parágrafo, com no máximo 25 "
                   "palavras; o que não passa é marcado como inválido. Nos textos de mudanças e impacto, todo "
                   "número precisa existir nos dados fornecidos."),
 }
@@ -56,6 +54,39 @@ def datas_dados() -> dict:
     if ARQ_FOCUS.exists():
         out["focus"] = str(pd.read_csv(ARQ_FOCUS, usecols=["Data"])["Data"].max())
     return out
+
+
+def metricas_previsao_publica(m: dict | None, mm: dict | None) -> dict | None:
+    """Versão pública: só o modelo de nota de tom. Ingênua, nível e variação do tom ficam fora (DECISOES.md)."""
+    if not mm:
+        return None
+    met = mm.get("metricas") or {}
+    return {"gerado_em": mm.get("gerado_em"), "n_atas": mm.get("n_atas_treino"), "periodo": met.get("periodo"),
+            "escolhido": mm.get("tipo"), "criterio_escolha": mm.get("criterio_escolha"),
+            "metodos": {mm.get("tipo"): {"acuracia_tempo": met.get("acuracia"),
+                                         "acuracia_balanceada": met.get("acuracia_balanceada"),
+                                         "n_tempo": met.get("n"), "viradas_tempo": mm.get("viradas"),
+                                         "disponivel": True}}}
+
+
+def checagens(rotulos: list, paragrafos: list, textos: dict, status: dict | None) -> dict:
+    """Checagens por código: trechos dos rótulos, citações do relatório e portão de qualidade."""
+    validos = sum(bool(r.get("trecho_valido")) for r in rotulos)
+    texto_par = {(p["ata"], p["paragrafo"]): p["texto"] for p in paragrafos}
+    ver = tot = 0
+    for s in textos.get("secoes") or []:
+        for p in s.get("paragrafos") or []:
+            for c in p.get("citacoes") or []:
+                tot += 1
+                t = texto_par.get((c.get("ata"), c.get("paragrafo")), "")
+                tr = c.get("trecho") or ""
+                ver += bool(tr) and tr in t and len(tr.split()) <= 25
+    port = (status or {}).get("portao")
+    portao = ({"resultado": port.get("resultado"), "motivo": port.get("motivo"), "verificado_em": port.get("verificado_em")}
+              if isinstance(port, dict) else None)
+    return {"trechos": {"validos": validos, "invalidos": len(rotulos) - validos, "total": len(rotulos)},
+            "citacoes_relatorio": {"verificadas": ver, "total": tot, "ok": ver == tot},
+            "portao_qualidade": portao}
 
 
 def manchete(textos: dict, ult: int) -> dict | None:
@@ -89,7 +120,7 @@ def main() -> int:
     por_num = {a["numero"]: a for a in atas}
     paragrafos = jsonl(B / "paragrafos.jsonl")
     rotulos = jsonl(B / "rotulos.jsonl")
-    fonte = "modelo" if (B / "indice_modelo.json").exists() else "simples"
+    fonte = "simples"  # indice_modelo.json agora é P(alta) − P(corte) do modelo de decisão, não índice de tom
     indice = ler(B / ("indice_modelo.json" if fonte == "modelo" else "indice.json"))
     ind = {i["ata"]: i for i in indice["atas"]}
     textos = ler(S / "textos.json") or {}
@@ -121,11 +152,7 @@ def main() -> int:
 
     ult = atas[-1]
     agora = datetime.now(timezone(timedelta(hours=-3))).isoformat(timespec="seconds")   # Brasília, também no runner (UTC)
-    validacao = ler(RAIZ / "validacao" / "resultado.json")
     como = dict(COMO_MEDIMOS)
-    if validacao:
-        como["validacao"] += (f" Resultado: concordância exata {validacao['concordancia_exata']:.0%} e a até 1 ponto "
-                              f"{validacao['concordancia_1ponto']:.0%} em {validacao["n"]} parágrafos.")
     dados = {
         "gerado_em": agora,
         "exemplo": False,
@@ -149,11 +176,13 @@ def main() -> int:
         "manchete": manchete(textos, ult["numero"]),
         "relatorio": relatorio(textos, ult["numero"], por_num),
         "como_medimos": como,
-        "metricas_previsao": ler(B / "metricas_previsao.json"),
+        "metricas_previsao": metricas_previsao_publica(ler(B / "metricas_previsao.json"), ler(B / "metricas_modelo.json")),
         "metricas_modelo": ler(B / "metricas_modelo.json"),
-        "validacao_humana": validacao,
+        "checagens_automaticas": checagens(rotulos, paragrafos, textos, ler(S / "status.json")),
         "datas_dados": datas_dados(),
         "conferencia_selic": ler(S / "conferencia_selic.json"),
+        "validacao_selic_oficial": ler(S / "validacao_selic_oficial.json"),
+        "indice_modelo": ler(B / "indice_modelo.json"),
         "status": ler(S / "status.json"),
     }
 

@@ -83,7 +83,7 @@ export function SecaoDados({ dados }: { dados: DadosSite }) {
                 { rotulo: "período", valor: `${dataCurta(resumo.periodo.inicio)} a ${dataCurta(resumo.periodo.fim)}` },
                 { rotulo: "dados gerados em", valor: dataHora(dados.gerado_em) ?? <Aguardando /> },
                 { rotulo: "última verificação", valor: dataHora(dados.ultima_verificacao) ?? <Aguardando /> },
-                { rotulo: "fonte do índice", valor: dados.fonte_indice === "modelo" ? "modelo do parceiro" : "simples (média sem zeros)" },
+                { rotulo: "fonte do índice", valor: dados.fonte_indice === "modelo" ? "modelo de notas" : "simples (média sem zeros)" },
               ]}
             />
           </Cartao>

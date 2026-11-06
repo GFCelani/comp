@@ -1,28 +1,28 @@
 {
   "ata_atual": 281,
   "ata_anterior": 280,
-  "gerado_em": "2026-11-06T14:16:56-03:00",
+  "gerado_em": "2026-11-06T14:53:47-03:00",
   "origem": "claude",
   "motivo_automatico": null,
   "tentativas": 1,
   "reescritas": 0,
-  "hash_entrada": "fd1ae31880610778",
-  "previsto": "manutencao",
-  "metodo_escolhido": "ingenua",
+  "hash_entrada": "1180d0de0d008b2f",
+  "previsto": "afrouxamento",
+  "metodo_escolhido": "logistica",
   "proxima_reuniao": {
     "numero": 283,
     "data": "2026-12-09",
     "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)"
   },
-  "manchete": "Copom deve manter a Selic em 09/12; ata mostra tom menos duro",
-  "linha_fina": "A manutenção vem do método de maior acurácia histórica, que acertou 84% das reuniões; na ata 281 o tom ficou menos duro, com variação de 0,28 ponto para baixo.",
+  "manchete": "Copom deve cortar a Selic em 09/12; ata mostra tom menos duro",
+  "linha_fina": "Nosso modelo prevê afrouxamento e acertou 74% das decisões seguintes desde 2021; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
   "secoes": [
     {
       "id": "mudou",
       "titulo": "O que mudou na comunicação do Copom",
       "paragrafos": [
         {
-          "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Também surgiu um parágrafo sobre crédito, que mostra redução nas modalidades de prazo mais longo, as mais sensíveis à política monetária [[c2]].",
+          "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Na ata 280, o texto ainda falava em sinais mistos advindos dos indicadores [[c2]].",
           "citacoes": [
             {
               "id": "c1",
@@ -32,26 +32,26 @@
             },
             {
               "id": "c2",
-              "ata": 281,
-              "paragrafo": 6,
-              "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo"
+              "ata": 280,
+              "paragrafo": 5,
+              "trecho": "Naturalmente, em momentos de inflexão no ciclo econômico, observam-se sinais mistos advindos de indicadores econômicos."
             }
           ]
         },
         {
-          "texto": "O Comitê afirma que a inflação cheia e a média das medidas subjacentes desaceleraram e estão abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]]. Na ata anterior, a inflação cheia ainda aparecia acima do limite superior da meta [[c4]].",
+          "texto": "A ata 281 incluiu um parágrafo sobre crédito, que mostra desaceleração do crescimento em meio a uma política monetária restritiva [[c3]]. A inflação, segundo a ata 281, desacelerou e ficou abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c4]].",
           "citacoes": [
             {
               "id": "c3",
               "ata": 281,
-              "paragrafo": 2,
-              "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta"
+              "paragrafo": 6,
+              "trecho": "consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva"
             },
             {
               "id": "c4",
-              "ata": 280,
+              "ata": 281,
               "paragrafo": 2,
-              "trecho": "a inflação cheia desacelerou, porém ainda acima do limite superior da meta"
+              "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta"
             }
           ]
         }
@@ -62,25 +62,37 @@
       "titulo": "O efeito provável no mercado",
       "paragrafos": [
         {
-          "texto": "A ata mantém o aviso de que a restrição monetária precisa durar mais tempo, o que pode sustentar juros futuros elevados por um período maior [[c5]]. A leitura de que os riscos têm assimetria altista tende a manter o câmbio e a inflação esperada sob atenção [[c6]]. A evidência de que a política monetária já chega à atividade sinaliza que o crédito tende a seguir desacelerando [[c7]].",
+          "texto": "O acúmulo de evidências de que os juros altos chegam à atividade tende a sustentar a continuidade do afrouxamento da Selic [[c5]]. Isso pode limitar a queda dos juros futuros, porque a ata diz que a inflação permanece pressionada pela demanda [[c6]]. A leitura de que as expectativas seguem acima da meta em todos os horizontes pode deixar a inflação esperada sob pressão [[c7]]. O câmbio pode reagir a um eventual corte, pois a ata cita o risco de uma taxa de câmbio persistentemente mais depreciada [[c8]]. O crédito de mais longo prazo tende a seguir em redução, segundo a ata [[c9]].",
           "citacoes": [
             {
               "id": "c5",
               "ata": 281,
-              "paragrafo": 10,
-              "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado"
+              "paragrafo": 15,
+              "trecho": "O Comitê avalia que as evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente."
             },
             {
               "id": "c6",
               "ata": 281,
-              "paragrafo": 13,
-              "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista."
+              "paragrafo": 15,
+              "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo"
             },
             {
               "id": "c7",
               "ata": 281,
-              "paragrafo": 15,
-              "trecho": "evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente"
+              "paragrafo": 10,
+              "trecho": "As expectativas de inflação, medidas por diferentes instrumentos e obtidas de diferentes grupos de agentes permanecem acima da meta de inflação em todos os horizontes."
+            },
+            {
+              "id": "c8",
+              "ata": 281,
+              "paragrafo": 13,
+              "trecho": "por meio de uma taxa de câmbio persistentemente mais depreciada"
+            },
+            {
+              "id": "c9",
+              "ata": 281,
+              "paragrafo": 6,
+              "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo"
             }
           ]
         }
@@ -91,25 +103,31 @@
       "titulo": "O que observar até a próxima reunião",
       "paragrafos": [
         {
-          "texto": "O Comitê diz que não deve reagir aos efeitos primários de choques de oferta, mas que vai monitorar os efeitos de segunda ordem [[c8]]. Vale acompanhar também a desancoragem das expectativas de inflação para prazos mais longos [[c9]]. Os rendimentos do mercado de trabalho, que ainda crescem em termos reais acima da produtividade, seguem no radar [[c10]].",
+          "texto": "Vale observar o mercado de trabalho, onde o desemprego segue em patamares historicamente baixos [[c10]]. Também importa ver se os rendimentos seguem crescendo em termos reais acima da produtividade do trabalho [[c11]]. Outro ponto é o risco de efeitos de segunda ordem dos choques de oferta, aos quais o Copom diz que reagiria com firmeza [[c12]]. A política fiscal também merece atenção, porque o esmorecimento das reformas pode elevar a taxa de juros neutra da economia [[c13]].",
           "citacoes": [
-            {
-              "id": "c8",
-              "ata": 281,
-              "paragrafo": 16,
-              "trecho": "não deve reagir aos efeitos primários de choques dessa natureza, mas que é necessário monitorar com atenção eventuais efeitos de segunda ordem"
-            },
-            {
-              "id": "c9",
-              "ata": 281,
-              "paragrafo": 10,
-              "trecho": "O Comitê monitora com atenção a desancoragem das expectativas de inflação para prazos mais longos"
-            },
             {
               "id": "c10",
               "ata": 281,
               "paragrafo": 7,
+              "trecho": "A taxa de desemprego mantém-se em patamares historicamente baixos"
+            },
+            {
+              "id": "c11",
+              "ata": 281,
+              "paragrafo": 7,
               "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho"
+            },
+            {
+              "id": "c12",
+              "ata": 281,
+              "paragrafo": 16,
+              "trecho": "é necessário monitorar com atenção eventuais efeitos de segunda ordem, e reagir com firmeza caso esses efeitos se materializem"
+            },
+            {
+              "id": "c13",
+              "ata": 281,
+              "paragrafo": 8,
+              "trecho": "têm o potencial de elevar a taxa de juros neutra da economia"
             }
           ]
         }
@@ -140,7 +158,7 @@
     }
   ],
   "impacto": {
-    "texto": "O índice de tom da ata 281 ficou em 0,62, contra 0,90 na ata 280, uma variação de -0,28 na escala de -2 a +2. Na reunião, o Copom decidiu cortar a Selic em 0,25 ponto percentual, e a meta passou a 13,75% ao ano. Se esse tom mais brando se mantiver, os juros futuros tendem a recuar e a próxima decisão pode trazer novo corte da Selic.",
+    "texto": "O índice de tom da ata 281 ficou em -0,73, contra -0,27 na ata 280, uma variação de -0,46 na escala de -2 a +2. Na reunião, o Copom decidiu cortar a Selic em 0,25 ponto percentual, e a meta passou a 13,75% ao ano. Se esse tom mais brando se mantiver, os juros futuros tendem a recuar e a próxima decisão pode trazer novo corte da Selic.",
     "data_selic": "2026-11-06",
     "data_focus": "2026-10-30",
     "origem": "automatico"

@@ -9,7 +9,7 @@ const caminhos: Record<string, React.ReactNode> = {
       <rect x="9" y="9" width="4.5" height="4.5" rx="1" />
     </>
   ),
-  modelos: (
+  modelo: (
     <>
       <path d="M2.5 13.5h11" />
       <path d="M4.5 11V7.5M8 11V4.5M11.5 11V8.5" />

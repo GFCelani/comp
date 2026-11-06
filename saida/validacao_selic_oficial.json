@@ -1,0 +1,12 @@
+{
+  "verificado_em": "2026-11-06T14:52:34-03:00",
+  "fonte": "validacao/selic_oficial.csv (BCB, histórico das taxas de juros; ver validacao/FONTE_SELIC.md)",
+  "n_csv": 47,
+  "n_banco": 46,
+  "n_comparadas": 46,
+  "so_no_csv": [
+    282
+  ],
+  "so_no_banco": [],
+  "divergencias": []
+}

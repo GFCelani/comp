@@ -10,7 +10,7 @@ import { Aplicativo } from "./Aplicativo";
 import { FormEntrada } from "./FormEntrada";
 import type { IdSecao } from "./secoes";
 import { SecaoVisaoGeral } from "./SecaoVisaoGeral";
-import { SecaoModelos } from "./SecaoModelos";
+import { SecaoModelo } from "./SecaoModelo";
 import { SecaoValidacao } from "./SecaoValidacao";
 import { SecaoDados } from "./SecaoDados";
 import { SecaoTextos } from "./SecaoTextos";
@@ -66,8 +66,8 @@ export async function PainelPagina({ secaoInicial }: { secaoInicial: IdSecao }) 
       secaoInicial={secaoInicial}
       contexto={contexto}
       secoes={{
-        "visao-geral": <SecaoVisaoGeral dados={dados} previsao={campos.previsao ?? null} />,
-        modelos: <SecaoModelos dados={dados} previsao={campos.previsao ?? null} />,
+        "visao-geral": <SecaoVisaoGeral dados={dados} />,
+        modelo: <SecaoModelo dados={dados} />,
         validacao: <SecaoValidacao dados={dados} />,
         dados: <SecaoDados dados={dados} />,
         textos: (

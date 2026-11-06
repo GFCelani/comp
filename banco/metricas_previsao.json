@@ -5,7 +5,7 @@
     "manutencao": "entre -0.25 e 0.25"
   },
   "fonte_indice": "simples",
-  "gerado_em": "2026-11-06T14:12:37",
+  "gerado_em": "2026-11-06T14:53:03",
   "n_atas": 45,
   "periodo": {
     "inicio": "2021-01-20",
@@ -799,7 +799,9 @@
     "ingenua",
     "variacao_tom",
     "nivel_tom",
-    "modelo_parceiro"
+    "arvore",
+    "logistica",
+    "floresta"
   ],
   "metodos": {
     "ingenua": {
@@ -1849,11 +1851,54 @@
         }
       ]
     },
-    "modelo_parceiro": {
-      "disponivel": false,
-      "rotulo_pt": "Modelo do parceiro (nível do índice do modelo, ±0,25)",
-      "motivo": "banco/indice_modelo.json não existe"
+    "arvore": {
+      "disponivel": true,
+      "rotulo_pt": "Árvore de decisão (profundidade 2) com tom, Focus e inflação",
+      "acuracia_loo": null,
+      "acerto_sinal": null,
+      "n": null,
+      "acuracia_tempo": 0.645,
+      "acuracia_balanceada_tempo": 0.655,
+      "viradas_tempo": {
+        "acertos": 1,
+        "total": 6
+      },
+      "n_tempo": 31,
+      "fonte_acuracia": "banco/metricas_modelo.json"
+    },
+    "logistica": {
+      "disponivel": true,
+      "rotulo_pt": "Regressão logística multinomial com tom, Focus e inflação",
+      "acuracia_loo": null,
+      "acerto_sinal": null,
+      "n": null,
+      "acuracia_tempo": 0.742,
+      "acuracia_balanceada_tempo": 0.738,
+      "viradas_tempo": {
+        "acertos": 2,
+        "total": 6
+      },
+      "n_tempo": 31,
+      "fonte_acuracia": "banco/metricas_modelo.json"
+    },
+    "floresta": {
+      "disponivel": true,
+      "rotulo_pt": "Floresta aleatória (300 árvores, profundidade 3) com tom, Focus e inflação",
+      "acuracia_loo": null,
+      "acerto_sinal": null,
+      "n": null,
+      "acuracia_tempo": 0.677,
+      "acuracia_balanceada_tempo": 0.702,
+      "viradas_tempo": {
+        "acertos": 1,
+        "total": 6
+      },
+      "n_tempo": 31,
+      "fonte_acuracia": "banco/metricas_modelo.json"
     }
   },
-  "escolhido": "ingenua"
+  "escolhido": "logistica",
+  "criterio_escolha": "acuracia_tempo",
+  "validacao_tempo": null,
+  "destaque_viradas": null
 }

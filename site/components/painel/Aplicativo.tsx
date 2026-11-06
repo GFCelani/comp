@@ -50,10 +50,10 @@ export function Aplicativo({
     if (nav && el) nav.scrollTo({ left: Math.max(0, el.offsetLeft - 12) });
   }, [ativa]);
 
-  // Abre na seção do hash (#modelos…) e acompanha voltar/avançar do navegador.
+  // Abre na seção do hash (#modelo…; #modelos vale como alias) e acompanha voltar/avançar do navegador.
   useEffect(() => {
     const ler = () => {
-      const h = window.location.hash.slice(1);
+      const h = window.location.hash.slice(1) === "modelos" ? "modelo" : window.location.hash.slice(1);
       if (ehSecao(h)) setAtiva(h);
     };
     ler();

@@ -9,11 +9,8 @@ Previsão para a próxima reunião do Copom ainda não realizada → banco/previ
 - Última decisão conhecida: https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros
   (tabela oficial de decisões), conferida com a série SGS 432. Pode ser de uma reunião cuja ata ainda
   não saiu (`ata_publicada: false`).
-- Sinal: índice de tom da última ata com índice (banco/indice_modelo.json se existir, senão
-  banco/indice.json). Regra fixa: aperto se índice > 0,25; afrouxamento se < −0,25; senão manutenção.
-- `previsto` = previsão do MÉTODO ESCOLHIDO em banco/metricas_previsao.json (maior acurácia leave-one-out entre
-  ingenua, nivel_tom, variacao_tom e modelo_parceiro; ver DECISOES.md). `previsto_nivel_tom` guarda a regra de nível.
-- Acerto histórico do sinal e da previsão ingênua (repetir a última decisão): banco/metricas_previsao.json.
+- Previsão publicada: SEMPRE o modelo de nota de tom (banco/metricas_modelo.json, gerado por modelo/treinar.py):
+  `previsto` = classe de maior probabilidade, no vocabulário aperto/manutencao/afrouxamento.
 - Focus: mediana da Selic no fim do ano da próxima reunião, na data de coleta mais recente.
 Sem calendário (BC fora do ar e nenhuma data futura já gravada), `proxima_reuniao.data` fica null e
 `fonte` = "indisponível". Nunca inventa datas. Só regrava o arquivo se o conteúdo (fora gerado_em) mudar.
@@ -99,7 +96,7 @@ def main() -> int:
     hoje = datetime.now(timezone(timedelta(hours=-3))).date()
     atas = sorted(ler(B / "atas.json"), key=lambda a: a["numero"])
     ult_ata = atas[-1]
-    fonte_ind = "modelo" if (B / "indice_modelo.json").exists() else "simples"
+    fonte_ind = "simples"  # banco/indice_modelo.json agora guarda P(alta) − P(corte) do modelo (ver CONTRATO.md)
     ind = ler(B / ("indice_modelo.json" if fonte_ind == "modelo" else "indice.json"))
     com_ind = sorted((i for i in ind["atas"] if i.get("indice") is not None), key=lambda i: i["ata"])
     base = com_ind[-1]
@@ -140,15 +137,6 @@ def main() -> int:
         if vp.get("data") and date.fromisoformat(vp["data"]) >= hoje and date.fromisoformat(vp["data"]) > data_ult:
             prox = vp                                          # data oficial já baixada antes e ainda futura
 
-    met = ler(B / "metricas_previsao.json") or {}
-    mi, mg = met.get("indice") or {}, met.get("ingenua") or {}
-    acerto = {"indice": {"acuracia": mi.get("acuracia"), "acerto_sinal": mi.get("acerto_sinal"),
-                         "n": met.get("n_atas"), "n_direcionais": mi.get("n_previsoes_direcionais")},
-              "ingenua": {"acuracia": mg.get("acuracia"), "acerto_sinal": mg.get("acerto_sinal"),
-                          "n": met.get("n_atas"), "n_direcionais": mg.get("n_previsoes_direcionais"),
-                          "previsto": PARA_SINAL.get(ultima["decisao"])},
-              "periodo": met.get("periodo"), "melhor": met.get("melhor")}
-
     focus = None
     if ARQ_FOCUS.exists():
         f = pd.read_csv(ARQ_FOCUS)
@@ -158,52 +146,36 @@ def main() -> int:
         if len(sub):
             focus = {"mediana": float(sub["Mediana"].iloc[-1]), "ano_referencia": ano, "data": str(sub["Data"].iloc[-1])}
 
-    # Previsão de cada método para a próxima reunião; publica a do escolhido
-    MAIS_DURO = {"afrouxamento": "manutencao", "manutencao": "aperto", "aperto": "aperto"}
-    MAIS_BRANDO = {"aperto": "manutencao", "manutencao": "afrouxamento", "afrouxamento": "afrouxamento"}
-    nivel = lambda v: None if v is None else "aperto" if v > LIMIAR else "afrouxamento" if v < -LIMIAR else "manutencao"
-    dec_atual = PARA_SINAL.get(ultima["decisao"]) or "manutencao"
-    simp = sorted((i for i in ler(B / "indice.json")["atas"] if i.get("indice") is not None), key=lambda i: i["ata"])
-    if len(simp) >= 2:
-        delta = round(simp[-1]["indice"] - simp[-2]["indice"], 3)
-        prev_var = MAIS_DURO[dec_atual] if delta > LIMIAR else MAIS_BRANDO[dec_atual] if delta < -LIMIAR else dec_atual
-    else:
-        delta, prev_var = None, dec_atual
-    prev_modelo = None
-    if (B / "indice_modelo.json").exists():
-        im = sorted((i for i in ler(B / "indice_modelo.json")["atas"] if i.get("indice") is not None), key=lambda i: i["ata"])
-        prev_modelo = nivel(im[-1]["indice"]) if im else None
-    proximas = {"ingenua": dec_atual, "nivel_tom": nivel(simp[-1]["indice"]) if simp else None,
-                "variacao_tom": prev_var, "modelo_parceiro": prev_modelo}
-    mets = met.get("metodos") or {}
-    metodos = []
-    for nome in ("ingenua", "variacao_tom", "nivel_tom", "modelo_parceiro"):
-        m = mets.get(nome) or {}
-        disp = bool(m.get("disponivel")) and proximas[nome] is not None
-        metodos.append({"nome": nome, "rotulo_pt": m.get("rotulo_pt"), "acuracia_loo": m.get("acuracia_loo"),
-                        "acerto_sinal": m.get("acerto_sinal"), "n": m.get("n"),
-                        "previsto_proxima": proximas[nome] if disp else None, "disponivel": disp})
-    escolhido = met.get("escolhido") if proximas.get(met.get("escolhido") or "") else "ingenua"
-    previsto_nivel = previsto
-    previsto = proximas[escolhido]
-
+    # Previsão publicada: SEMPRE o modelo de nota de tom (banco/metricas_modelo.json, modelo/treinar.py)
+    mm = ler(B / "metricas_modelo.json") or {}
+    pa = mm.get("previsao_atual") or {}
+    mt = mm.get("metricas") or {}
+    probs = pa.get("probabilidades")
+    previsto = PARA_SINAL.get(pa.get("previsto")) if probs else None
+    acc = mt.get("acuracia")
+    ano0 = ((mt.get("periodo") or {}).get("inicio") or "2021")[:4]
+    texto_publico = (f"Nosso modelo, treinado com as atas desde 2021, acertou {round(100 * acc)}% das decisões "
+                     f"seguintes.") if acc is not None else None
+    metodos = [{"nome": mm.get("tipo"), "rotulo_pt": "modelo de nota de tom", "acuracia_tempo": acc,
+                "acuracia_balanceada": mt.get("acuracia_balanceada"), "n_tempo": mt.get("n"), "n": mt.get("n"),
+                "viradas_tempo": mm.get("viradas"), "probabilidades": probs, "previsto_proxima": previsto,
+                "disponivel": bool(probs)}]
     saida = {"gerado_em": datetime.now(timezone(timedelta(hours=-3))).isoformat(timespec="seconds"),
-             "base_ata": base["ata"], "base_data_reuniao": base.get("data_reuniao"), "fonte_indice": fonte_ind,
-             "indice": indice, "regra": {"aperto": "indice > 0.25", "afrouxamento": "indice < -0.25"},
-             "previsto": previsto, "metodo_escolhido": escolhido,
-             "acuracia_escolhido": (mets.get(escolhido) or {}).get("acuracia_loo"),
-             "previsto_nivel_tom": previsto_nivel,
-             "variacao_tom": {"delta": delta, "ata": simp[-1]["ata"] if simp else None,
-                              "ata_anterior": simp[-2]["ata"] if len(simp) >= 2 else None},
+             "base_ata": pa.get("ata_base", base["ata"]), "base_data_reuniao": base.get("data_reuniao"),
+             "fonte_indice": fonte_ind, "indice": indice,
+             "previsto": previsto, "metodo_escolhido": mm.get("tipo"), "acuracia_escolhido": acc,
+             "probabilidades": probs, "texto_publico": texto_publico,
+             "observacao": pa.get("observacao"),
+             "criterio_escolha": mm.get("criterio_escolha"), "validacao_tempo": mt.get("periodo"),
              "metodos": metodos, "proxima_reuniao": prox,
              "ultima_decisao_conhecida": ultima if not ultima["ata_publicada"] else None,
-             "ultima_decisao": ultima, "acerto": acerto, "focus_selic": focus}
+             "ultima_decisao": ultima, "focus_selic": focus}
     sem_data = lambda d: {k: v for k, v in d.items() if k != "gerado_em"}
     if sem_data(velho) == sem_data(saida):
         print("banco/previsao.json sem mudança.")
         return 0
     ARQ_SAIDA.write_text(json.dumps(saida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"banco/previsao.json: {previsto} pelo método {escolhido}; nível do tom: {previsto_nivel} (índice {indice} da ata {base['ata']}) para a reunião "
+    print(f"banco/previsao.json: {previsto} pelo modelo {mm.get('tipo')} {probs} para a reunião "
           f"{prox['numero']} em {prox['data']}; última decisão {ultima['numero']} {ultima['decisao']} "
           f"({'ata publicada' if ultima['ata_publicada'] else 'ata não publicada'})")
     return 0

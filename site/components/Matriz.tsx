@@ -1,6 +1,6 @@
 /**
  * Matriz de confusão: grade com escala sequencial de UMA cor (acento em opacidades crescentes
- * sobre o papel). Linhas = previsto, colunas = realizado. A diagonal (acertos) leva contorno.
+ * sobre o papel). Linhas = realizado, colunas = previsto. A diagonal (acertos) leva contorno.
  * Cinco degraus fixos para que o número dentro da célula sempre passe no contraste AA.
  */
 
@@ -21,8 +21,8 @@ export function Matriz({
   rotulosColuna,
   valores,
   legenda,
-  eixoLinha = "previsto",
-  eixoColuna = "realizado",
+  eixoLinha = "realizado",
+  eixoColuna = "previsto",
 }: {
   rotulos: string[];
   rotulosColuna?: string[];
