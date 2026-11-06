@@ -25,7 +25,7 @@ export function ExplorarAtas({ atas }: { atas: Ata[] }) {
 
   return (
     <div className="grid gap-4 md:grid-cols-[260px_1fr]">
-      <div role="tablist" aria-label="Atas" className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-1">
+      <div role="tablist" aria-label="Atas" className="flex md:flex-col gap-2 overflow-x-auto md:overflow-y-auto md:max-h-[640px] pb-1 md:pr-1">
         {ordenadas.map((a) => {
           const ativa = a.numero === atual.numero;
           return (
@@ -35,7 +35,7 @@ export function ExplorarAtas({ atas }: { atas: Ata[] }) {
               aria-selected={ativa}
               aria-controls="painel-ata"
               onClick={() => setNumero(a.numero)}
-              className={`botao shrink-0 justify-between md:w-full text-left ${ativa ? "" : ""}`}
+              className="botao shrink-0 justify-between md:w-full text-left rounded-xl"
               aria-pressed={ativa}
             >
               <span>
@@ -57,7 +57,7 @@ export function ExplorarAtas({ atas }: { atas: Ata[] }) {
             href={atual.url_pdf}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-ciano underline underline-offset-4"
+            className="text-sm text-acento underline underline-offset-4"
           >
             abrir a ata no site do BC
           </a>

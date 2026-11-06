@@ -135,7 +135,7 @@ export function PergunteAsAtas({ atas }: { atas: { numero: number; data_reuniao:
                       href={r.url_pdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-ciano underline underline-offset-4"
+                      className="text-acento underline underline-offset-4"
                     >
                       ver no PDF oficial
                     </a>

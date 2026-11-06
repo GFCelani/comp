@@ -27,9 +27,12 @@ type PontoProps = {
   index?: number;
 };
 
-function MarcadorDecisao({ cx, cy, payload, index }: PontoProps) {
+function MarcadorDecisao({ cx, cy, payload, index, pequeno }: PontoProps & { pequeno?: boolean }) {
   if (cx === undefined || cy === undefined || !payload) return <g key={index} />;
   const cor = corDecisao[payload.decisao];
+  if (pequeno) {
+    return <circle key={index} cx={cx} cy={cy} r={2.5} fill={cor} stroke="var(--fundo)" strokeWidth={1} />;
+  }
   if (payload.decisao === "alta") {
     return (
       <polygon
@@ -80,7 +83,7 @@ function Dica({ active, payload }: TooltipProps) {
         {p.ata}ª reunião · {data(p.data_reuniao)}
       </div>
       <div className="num">
-        índice de tom: <span className="text-ciano">{fmtIndice(p.indice)}</span>
+        índice de tom: <span className="text-acento">{fmtIndice(p.indice)}</span>
       </div>
       <div className="num">
         Selic depois: {fmtSelic(p.selic_apos)} ({fmtDecisao(p.decisao, p.decisao_pp)})
@@ -93,6 +96,7 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
   const selics = serie.map((p) => p.selic_apos);
   const minS = Math.floor(Math.min(...selics) * 2) / 2 - 0.5;
   const maxS = Math.ceil(Math.max(...selics) * 2) / 2 + 0.5;
+  const muitos = serie.length > 12;
 
   return (
     <div>
@@ -103,16 +107,18 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
             <XAxis
               dataKey="ata"
               tickFormatter={(v) => `${v}ª`}
-              tick={{ fill: "var(--texto-2)", fontSize: 12 }}
+              tick={{ fill: "var(--texto-2)", fontSize: muitos ? 11 : 12 }}
               axisLine={{ stroke: "var(--borda)" }}
               tickLine={false}
+              interval="preserveStartEnd"
+              minTickGap={muitos ? 28 : 8}
             />
             <YAxis
               yAxisId="tom"
               domain={[-2, 2]}
               ticks={[-2, -1, 0, 1, 2]}
               tickFormatter={(v) => (v > 0 ? `+${v}` : v < 0 ? `−${Math.abs(v)}` : "0")}
-              tick={{ fill: "var(--ciano)", fontSize: 12 }}
+              tick={{ fill: "var(--acento)", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               width={44}
@@ -137,7 +143,7 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
               stroke="var(--texto-3)"
               strokeWidth={1.25}
               strokeDasharray="4 3"
-              dot={(p: PontoProps) => <MarcadorDecisao {...p} />}
+              dot={(p: PontoProps) => <MarcadorDecisao {...p} pequeno={muitos} />}
               activeDot={false}
               isAnimationActive={false}
             />
@@ -146,26 +152,29 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
               type="monotone"
               dataKey="indice"
               name="Índice de tom"
-              stroke="var(--ciano)"
+              stroke="var(--acento)"
               strokeWidth={2.5}
-              dot={{ r: 4, fill: "var(--ciano)", stroke: "var(--fundo)", strokeWidth: 1.5 }}
+              dot={{ r: muitos ? 2.5 : 4, fill: "var(--acento)", stroke: "var(--fundo)", strokeWidth: 1.5 }}
               activeDot={{ r: 6 }}
               isAnimationActive={false}
+              connectNulls
             >
-              <LabelList
-                dataKey="indice"
-                position="top"
-                offset={10}
-                formatter={(v: unknown) => fmtIndice(typeof v === "number" ? v : null)}
-                style={{ fill: "var(--ciano)", fontSize: 12, fontVariantNumeric: "tabular-nums" }}
-              />
+              {!muitos && (
+                <LabelList
+                  dataKey="indice"
+                  position="top"
+                  offset={10}
+                  formatter={(v: unknown) => fmtIndice(typeof v === "number" ? v : null)}
+                  style={{ fill: "var(--acento)", fontSize: 12, fontVariantNumeric: "tabular-nums" }}
+                />
+              )}
             </Line>
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-texto-2" aria-label="Legenda">
+      <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-texto-2 px-2 sm:px-0" aria-label="Legenda">
         <li className="flex items-center gap-2">
-          <span className="inline-block w-5 h-[3px] bg-ciano rounded" aria-hidden="true" />
+          <span className="inline-block w-5 h-[3px] bg-acento rounded" aria-hidden="true" />
           índice de tom (eixo esquerdo, −2 a +2)
         </li>
         <li className="flex items-center gap-2">
