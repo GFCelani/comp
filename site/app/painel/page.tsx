@@ -5,6 +5,7 @@ import { Matriz } from "@/components/Matriz";
 import { Rodape } from "@/components/Rodape";
 import { Cabecalho } from "@/components/Cabecalho";
 import { GraficoIndice } from "@/components/GraficoIndice";
+import { fraseUltimaVerificacao } from "@/lib/verificacao";
 
 export const metadata: Metadata = {
   title: "Painel de verificação · Tradutor do Copom",
@@ -85,7 +86,9 @@ function LadoComparativo({ titulo, m, descricao }: { titulo: string; m: Metricas
   );
 }
 
-export default function Painel() {
+export default async function Painel() {
+  const verificacao = await fraseUltimaVerificacao();
+  const cs = dados.conferencia_selic ?? null;
   const { resumo, metricas_previsao: mp, metricas_modelo: mm, validacao_humana: vh } = dados;
 
   const fraseMelhor = mp
@@ -291,7 +294,71 @@ export default function Painel() {
           )}
         </Bloco>
 
-        <Bloco id="qualidade" kicker="06 · dados" titulo="Qualidade dos dados">
+        <Bloco id="conferencia" kicker="06 · conferência" titulo="Conferência com a tabela oficial do BC">
+          {!cs ? (
+            <Aguardando texto="A conferência da Selic de cada reunião com o histórico oficial do Banco Central ainda não rodou." />
+          ) : (
+            <div className="cartao p-5">
+              <p className="text-lg font-semibold num">
+                {cs.n_comparadas} {cs.n_comparadas === 1 ? "reunião conferida" : "reuniões conferidas"},{" "}
+                {cs.divergencias.length === 0
+                  ? "nenhuma divergência"
+                  : `${cs.divergencias.length} ${cs.divergencias.length === 1 ? "divergência" : "divergências"}`}
+              </p>
+              {cs.divergencias.length > 0 && (
+                <ul className="mt-3 divide-y divide-borda text-sm num">
+                  {cs.divergencias.map((d, i) => (
+                    <li key={i} className="py-2 break-words text-texto-2">
+                      {Object.entries(d)
+                        .map(([k, v]) => `${k.replace(/_/g, " ")}: ${typeof v === "object" ? JSON.stringify(v) : String(v)}`)
+                        .join(" · ")}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="mt-3 text-xs text-texto-2 num">
+                Conferido em {dataCurta(cs.verificado_em?.slice(0, 10))} contra{" "}
+                <a href={cs.fonte_url} target="_blank" rel="noopener noreferrer" className="link break-all">
+                  a tabela de taxas do BC
+                </a>
+                .
+              </p>
+            </div>
+          )}
+        </Bloco>
+
+        <Bloco id="fluxo" kicker="07 · fluxo automático" titulo="O que roda sozinho">
+          <div className="grid gap-8 md:grid-cols-3 md:divide-x md:divide-borda">
+            <div>
+              <h3 className="font-semibold text-lg">Todo dia útil</h3>
+              <p className="coluna-texto mt-2">
+                Às 10h, 14h e 18h o sistema verifica se o Banco Central publicou uma ata nova. Se publicou, baixa a ata,
+                extrai os parágrafos, dá a nota de tom, gera os textos, confere a Selic, passa pelo portão de qualidade e
+                publica o site.
+              </p>
+              <p className="coluna-texto mt-2 num">{verificacao}</p>
+            </div>
+            <div className="md:pl-8">
+              <h3 className="font-semibold text-lg">Planos B</h3>
+              <p className="coluna-texto mt-2">
+                Nota de tom: modelo do parceiro; se não estiver disponível, o Claude; se o Claude falhar, um modelo
+                TF-IDF de base.
+              </p>
+              <p className="coluna-texto mt-2">
+                Textos de “o que mudou” e “impacto”: o Claude; se falhar, um texto automático sem IA, montado a partir
+                dos dados.
+              </p>
+            </div>
+            <div className="md:pl-8">
+              <h3 className="font-semibold text-lg">Configuração manual</h3>
+              <p className="coluna-texto mt-2">
+                Só uma, feita uma vez no início: cadastrar o token do Claude nos segredos do repositório no GitHub.
+              </p>
+            </div>
+          </div>
+        </Bloco>
+
+        <Bloco id="qualidade" kicker="08 · dados" titulo="Qualidade dos dados">
           <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
             <Destaque rotulo="atas no banco" valor={String(resumo.n_atas)} nota={`${data(resumo.periodo.inicio)} a ${data(resumo.periodo.fim)}`} />
             <Destaque rotulo="parágrafos" valor={String(resumo.n_paragrafos)} />

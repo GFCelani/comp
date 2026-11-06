@@ -65,6 +65,16 @@ function manchete(decisao: "alta" | "manutencao" | "corte", selicApos: number, i
   return { linha1: `Copom ${verbo} ${fmtSelic(selicApos)}`, linha2: `e ${tomFrase}` };
 }
 
+function OrigemTexto({ origem }: { origem?: string | null }) {
+  if (origem === "automatico") {
+    return <p className="etiqueta etiqueta-sem-ponto mb-4">texto automático (sem IA)</p>;
+  }
+  if (origem === "claude") {
+    return <p className="etiqueta etiqueta-sem-ponto mb-4">gerado pelo Claude e verificado por código</p>;
+  }
+  return null;
+}
+
 export default function Pagina() {
   const { resumo, serie, mudancas, impacto, atas, como_medimos } = dados;
   const u = resumo.ultima_ata;
@@ -183,6 +193,8 @@ export default function Pagina() {
           ) : mudancas.length === 0 ? (
             <p className="text-texto-2">Nenhuma mudança relevante registrada.</p>
           ) : (
+            <>
+            <OrigemTexto origem={dados.textos_origem} />
             <ol className="grid gap-8 md:grid-cols-3 md:divide-x md:divide-borda">
               {mudancas.map((mu, i) => (
                 <li key={`${mu.paragrafo}-${mu.tipo}`} className={`min-w-0 ${i > 0 ? "md:pl-8" : ""}`}>
@@ -207,6 +219,7 @@ export default function Pagina() {
                 </li>
               ))}
             </ol>
+            </>
           )}
         </Editoria>
 
@@ -214,6 +227,8 @@ export default function Pagina() {
           {dados.textos_pendentes ? (
             <AvisoPendente />
           ) : (
+            <>
+            <OrigemTexto origem={impacto.origem ?? dados.textos_origem} />
             <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
               <p className="text-xl sm:text-2xl leading-relaxed font-medium border-l-2 border-acento pl-6">
                 {impacto.texto}
@@ -230,6 +245,7 @@ export default function Pagina() {
                 </p>
               </div>
             </div>
+            </>
           )}
         </Editoria>
 

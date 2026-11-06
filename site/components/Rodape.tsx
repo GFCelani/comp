@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { dados } from "@/lib/dados";
-import { dataCurta, dataHora } from "@/lib/formato";
+import { dataCurta } from "@/lib/formato";
+import { fraseUltimaVerificacao } from "@/lib/verificacao";
 
-export function Rodape() {
-  const verificacao = dataHora(dados.ultima_verificacao);
+export async function Rodape() {
+  const verificacao = await fraseUltimaVerificacao();
   return (
     <footer className="mt-20 bg-fundo-2 border-t border-borda">
       <div className="mx-auto max-w-[1180px] px-4 py-10 grid gap-8 md:grid-cols-[1.4fr_1fr_1fr] text-sm text-texto-2">
@@ -14,7 +15,7 @@ export function Rodape() {
             exato que sustenta cada conclusão.
           </p>
           <p className="mt-3 num">
-            {verificacao ? `Última verificação automática: ${verificacao}.` : "Verificação automática ainda não rodou."}{" "}
+            {verificacao}{" "}
             O site se atualiza sozinho quando o Banco Central publica uma ata nova.
           </p>
         </div>

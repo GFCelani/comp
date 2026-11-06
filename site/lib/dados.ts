@@ -84,11 +84,20 @@ export type ValidacaoHumana = {
   itens?: { ata: number; paragrafo: number; nota_humana: number; nota_claude: number }[];
 };
 
+export type ConferenciaSelic = {
+  verificado_em: string;
+  fonte_url: string;
+  n_comparadas: number;
+  divergencias: Record<string, unknown>[];
+};
+
 export type DadosSite = {
   gerado_em: string;
   exemplo: boolean;
   ultima_verificacao?: string | null;
   textos_pendentes?: boolean;
+  textos_origem?: string | null;
+  conferencia_selic?: ConferenciaSelic | null;
   fonte_indice: "simples" | "modelo";
   resumo: {
     ultima_ata: {
@@ -107,7 +116,7 @@ export type DadosSite = {
   };
   serie: PontoSerie[];
   mudancas: Mudanca[];
-  impacto: { texto: string; data_selic: string; data_focus: string };
+  impacto: { texto: string; data_selic: string; data_focus: string; origem?: string | null };
   atas: Ata[];
   como_medimos: { regua: string; agregacao: string; validacao: string };
   metricas_previsao: MetricasPrevisao | null;
