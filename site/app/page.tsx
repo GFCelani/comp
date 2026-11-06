@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { dados } from "@/lib/dados";
+import { obterDados } from "@/lib/edicoes";
 import {
   data,
   dataCurta,
@@ -75,7 +75,14 @@ function OrigemTexto({ origem }: { origem?: string | null }) {
   return null;
 }
 
-export default function Pagina() {
+export const revalidate = 60;
+
+function Revisado() {
+  return <span className="etiqueta etiqueta-sem-ponto text-brando">revisado pelo time</span>;
+}
+
+export default async function Pagina() {
+  const { dados, revisados } = await obterDados();
   const { resumo, serie, mudancas, impacto, atas, como_medimos } = dados;
   const u = resumo.ultima_ata;
   const m = manchete(u.decisao, u.selic_apos, u.indice);
@@ -216,6 +223,11 @@ export default function Pagina() {
                     “{mu.trecho}”
                   </blockquote>
                   <p className="coluna-texto mt-4">{mu.explicacao}</p>
+                  {revisados.mudancas.has(i) && (
+                    <p className="mt-3">
+                      <Revisado />
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>
@@ -229,6 +241,11 @@ export default function Pagina() {
           ) : (
             <>
             <OrigemTexto origem={impacto.origem ?? dados.textos_origem} />
+            {revisados.impacto && (
+              <p className="mb-4">
+                <Revisado />
+              </p>
+            )}
             <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
               <p className="text-xl sm:text-2xl leading-relaxed font-medium border-l-2 border-acento pl-6">
                 {impacto.texto}
@@ -255,7 +272,7 @@ export default function Pagina() {
           titulo="Ata por ata, parágrafo por parágrafo"
           linhaFina="Escolha uma reunião para ver os parágrafos que puxaram o tom para cima ou para baixo, com a nota e o trecho."
         >
-          <ExplorarAtas atas={atas} />
+          <ExplorarAtas atas={atas} revisadas={[...revisados.notas]} />
         </Editoria>
 
         <Editoria

@@ -85,6 +85,12 @@ function recorte(texto: string, termos: string[], max = 40): string {
   return `${inicio > 0 ? "…" : ""}${corpo}…`;
 }
 
+/** Texto completo de um parágrafo, só no servidor (validação de trechos editados). */
+export function textoDoParagrafo(ata: number, paragrafo: number): string | null {
+  const p = (paragrafos as Paragrafo[]).find((x) => x.ata === ata && x.paragrafo === paragrafo);
+  return p ? p.texto : null;
+}
+
 export function buscar(q: string, ata?: number | null, limite = 5): Resultado[] {
   const termos = Array.from(new Set(tokenizar(q)));
   if (termos.length === 0) return [];

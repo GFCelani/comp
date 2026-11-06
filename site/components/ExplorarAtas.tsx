@@ -14,7 +14,7 @@ function fmtNota(n: number) {
   return n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "0";
 }
 
-export function ExplorarAtas({ atas }: { atas: Ata[] }) {
+export function ExplorarAtas({ atas, revisadas = [] }: { atas: Ata[]; revisadas?: string[] }) {
   const ordenadas = [...atas].sort((a, b) => b.numero - a.numero);
   const [numero, setNumero] = useState(ordenadas[0]?.numero);
   const atual = ordenadas.find((a) => a.numero === numero) ?? ordenadas[0];
@@ -76,7 +76,12 @@ export function ExplorarAtas({ atas }: { atas: Ata[] }) {
                 <span className={`num font-bold ${corNota(p.nota)}`} aria-label={`nota ${fmtNota(p.nota)}`}>
                   {fmtNota(p.nota)}
                 </span>
-                <span className="trecho text-sm break-words min-w-0">“{p.trecho}”</span>
+                <span className="trecho text-sm break-words min-w-0">
+                  “{p.trecho}”
+                  {revisadas.includes(`${atual.numero}.${p.paragrafo}`) && (
+                    <span className="not-italic ml-2 text-xs text-brando">revisado pelo time</span>
+                  )}
+                </span>
               </li>
             ))}
           </ol>
