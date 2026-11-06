@@ -1,0 +1,45 @@
+{
+  "ata_atual": 281,
+  "ata_anterior": 280,
+  "novos": [
+    {
+      "paragrafo": 4,
+      "texto": "A incerteza com relação ao cenário externo segue em níveis elevados. A continuidade de indefinições em relação aos desdobramentos das tensões geopolíticas e seus efeitos sobre preços de commodities e insumos alteraram expectativas sobre a condução da política monetária nas principais economias avançadas."
+    },
+    {
+      "paragrafo": 5,
+      "texto": "A atividade econômica doméstica manteve trajetória de moderação, tal como antecipado pelo Comitê. A leitura mais recente do PIB, referente ao segundo trimestre de 2026, confirmou a desaceleração apontada por outros indicadores e revelou que o movimento foi mais intenso nas atividades econômicas e nos componentes da demanda mais sensíveis ao ciclo econômico. O Comitê relembra que o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia e convergência da inflação à meta."
+    },
+    {
+      "paragrafo": 6,
+      "texto": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva. Nota-se, em particular, redução nas modalidades de mais longo prazo, mais sensíve is à política monetária que as modalidades de curto prazo ou emergenciais, mais onerosas. Estas continuaram crescendo, porém com desaceleração na margem. Por outro lado, o s créditos com recursos direcionados mantiveram trajetória de expansão para pessoas físicas, na linha do crédito imobiliário, e para empresas, sustentados pelas operações com fundos garantidores."
+    },
+    {
+      "paragrafo": 9,
+      "texto": "As leituras mais recentes apontam para queda da inflação ao consumidor, tanto no índice cheio quanto na média das medidas subjacentes. Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta. Ainda sob a mesma perspectiva das variações acumuladas em 12 meses, nas divulgações mais recentes as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo."
+    }
+  ],
+  "removidos": [
+    {
+      "paragrafo": 4,
+      "texto": "A incerteza com relação ao cenário externo segue em níveis elevados. Além das indefinições em relação aos desdobramentos das tensões geopolíticas, colaborou para esse cenário a permanência de incertezas com relação à política econômica dos Estados Unidos."
+    },
+    {
+      "paragrafo": 5,
+      "texto": "A atividade econômica doméstica manteve trajetória de moderação, tal como antecipado pelo Comitê. Indicadores correntes apontam para desaceleração na passagem do primeiro para o segundo trimestre de 2026, disseminada entre os componentes de oferta e demanda do produto agregado. Naturalmente, em momentos de inflexão no ciclo econômico, observam-se sinais mistos advindos de indicadores econômicos. O Comitê relembra que o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia e convergência da inflação à meta."
+    },
+    {
+      "paragrafo": 8,
+      "texto": "A inflação para os consumidores desacelerou nas leituras mais recentes do índice cheio, que permanece em nível superior ao intervalo superior da meta na variação acumulada em 12 meses, enquanto as medidas subjacentes também desaceleraram, situando-se em nível ligeiramente abaixo do limite superior da meta. Ainda sob a mesma perspectiva das variações acumuladas em 12 meses nas divulgações mais recentes, os preços aos produtores recuaram, sob forte influência da indústria extrativa, ao passo que as medidas menos voláteis da transformação mostraram ligeira elevação."
+    }
+  ],
+  "alterados": [
+    {
+      "paragrafo_atual": 2,
+      "paragrafo_anterior": 2,
+      "similaridade": 0.72,
+      "diff": "Em relação ao cenário doméstico, o conjunto dos indicadores divulgados desde a última reunião ~~sugere~~ **mostra** uma moderação gradual da atividade econômica, **principalmente em setores mais cíclicos,** embora ainda em patamar ~~resiliente, com sinais mistos entre setores,~~ **resiliente** e mercado de trabalho aquecido. Nas ~~divu lgações~~ **divulgações** mais recentes, a inflação cheia ~~desacelerou, porém ainda acima do limite superior da meta, enquanto as~~ **e a média de** medidas subjacentes ~~desaceleraram para patamar ligeiramente~~ **desaceleraram, situando-se** abaixo do limite superior **do intervalo de tolerância, porém ainda acima** da meta."
+    }
+  ],
+  "iguais": 15
+}
