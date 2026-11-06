@@ -79,13 +79,23 @@ function respostaPronta(pergunta: string): ItemFaq | null {
 
 /* ---------- busca como resposta única ---------- */
 
+/** O melhor trecho precisa conter pelo menos metade dos termos da pergunta. */
+function cobre(pergunta: string, ata: number | null): boolean {
+  const termos = [...new Set(tokenizar(pergunta))];
+  const melhor = buscarCompletos(pergunta, ata, 1)[0];
+  if (!melhor || !termos.length) return false;
+  const doc = new Set(tokenizar(melhor.completo));
+  const achados = termos.filter((t) => doc.has(t)).length;
+  return achados >= Math.max(1, Math.ceil(termos.length / 2));
+}
+
 function respostaDaBusca(pergunta: string, ata: number | null): Resposta {
-  const fontes = buscar(pergunta, ata, 5);
+  const fontes = cobre(pergunta, ata) ? buscar(pergunta, ata, 5) : [];
   if (!fontes.length) {
     return {
       modo: "vazio",
       resposta:
-        "Não encontrei esse assunto nas atas. Tente outras palavras, como inflação, atividade, câmbio ou expectativas, ou busque em todas as atas.",
+        "As atas do Copom não tratam desse assunto. Tente perguntar sobre inflação, juros, atividade, câmbio ou expectativas, ou use outras palavras.",
       citacoes: [],
       fontes: [],
     };
