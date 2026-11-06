@@ -209,7 +209,6 @@ export default async function Pagina() {
                   <p className="rotulo text-acento">Leia o relatório de hoje</p>
                   <p className="titulo-serifa mt-0.5 text-[1.125rem] leading-[1.25]">
                     O que mudou na ata {ataRelatorio}
-                    <br />e o que isso pode significar
                   </p>
                   <a
                     href="#relatorio"
@@ -222,7 +221,7 @@ export default async function Pagina() {
                   </a>
                 </div>
 
-                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-2 border-t border-linha px-5 py-3">
+                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-1.5 border-t border-linha px-5 py-3">
                   <div className="flex items-baseline justify-between gap-3">
                     <p className="text-[0.875rem] font-medium text-tinta">
                       Previsão para a próxima reunião{proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
