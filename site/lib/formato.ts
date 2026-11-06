@@ -54,6 +54,28 @@ export function pontos(pp: number | null | undefined): string {
   return `${pp > 0 ? "+" : "−"}${s} p.p.`;
 }
 
+const fmtDataHora = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZone: "America/Sao_Paulo",
+});
+
+export function dataHora(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  // Sem fuso explícito, mostra a hora como foi gravada (hora local do pipeline).
+  const semFuso = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?$/);
+  if (semFuso) {
+    const [, a, m, d, h, min] = semFuso;
+    return `${d}/${m}/${a} ${h}:${min}`;
+  }
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return fmtDataHora.format(d);
+}
+
 export function pct(v: number | null | undefined): string {
   if (v === null || v === undefined) return "aguardando";
   return fmtPct.format(v);

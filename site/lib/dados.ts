@@ -87,6 +87,8 @@ export type ValidacaoHumana = {
 export type DadosSite = {
   gerado_em: string;
   exemplo: boolean;
+  ultima_verificacao?: string | null;
+  textos_pendentes?: boolean;
   fonte_indice: "simples" | "modelo";
   resumo: {
     ultima_ata: {

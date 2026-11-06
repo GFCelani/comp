@@ -29,6 +29,15 @@ function Secao({
   );
 }
 
+function AvisoPendente() {
+  return (
+    <div className="cartao p-5 border-dashed text-texto-2" role="status">
+      <p className="font-semibold text-texto">textos da ata nova em revisão</p>
+      <p className="text-sm mt-1">O índice e os trechos já estão atualizados; a leitura em texto está sendo conferida pelo time.</p>
+    </div>
+  );
+}
+
 export default function Pagina() {
   const { resumo, serie, mudancas, impacto, atas, como_medimos } = dados;
   const u = resumo.ultima_ata;
@@ -103,7 +112,9 @@ export default function Pagina() {
         titulo="O que mudou na última ata"
         resumo={`Comparação da ${u.numero}ª ata com a anterior. Cada item traz o parágrafo, o trecho exato e se a mudança endureceu ou suavizou o tom.`}
       >
-        {mudancas.length === 0 ? (
+        {dados.textos_pendentes ? (
+          <AvisoPendente />
+        ) : mudancas.length === 0 ? (
           <p className="text-texto-2">Nenhuma mudança relevante registrada.</p>
         ) : (
           <ol className="grid gap-4 md:grid-cols-3">
@@ -130,6 +141,9 @@ export default function Pagina() {
       </Secao>
 
       <Secao id="impacto" titulo="Principal impacto">
+        {dados.textos_pendentes ? (
+          <AvisoPendente />
+        ) : (
         <div className="cartao p-5 sm:p-6 border-l-4 border-l-ciano">
           <p className="text-lg leading-relaxed max-w-[70ch]">{impacto.texto}</p>
           <p className="mt-4 text-xs text-texto-2 num">
@@ -137,6 +151,7 @@ export default function Pagina() {
             {dataCurta(impacto.data_focus)}.
           </p>
         </div>
+        )}
       </Secao>
 
       <Secao
