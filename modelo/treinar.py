@@ -178,7 +178,7 @@ def main() -> int:
     v = vt[melhor]
     met = {"tipo": melhor, "gerado_em": agora,
            "descricao": "modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágrafos",
-           "hiperparametros": HIPER[melhor], "variaveis": variaveis,
+           "hiperparametros": {n: HIPER[n] for n in ORDEM}, "variaveis": variaveis,
            "coeficientes": coef if melhor == "logistica" else None,
            "coeficientes_logistica": coef, "regra_arvore_pt": regra,
            "regra_arvore_texto": export_text(arv, feature_names=VARS, decimals=2),
@@ -203,6 +203,15 @@ def main() -> int:
                                "metodos": {n: {**{k: vt[n][k] for k in ("acuracia", "acuracia_balanceada",
                                                                         "matriz_confusao", "viradas")},
                                                "previsoes": vt[n]["previsoes_ata_a_ata"]} for n in ORDEM}}}
+    # Validação deixando uma ata de fora por vez, com o modelo publicado, em todas as atas com alvo
+    loo_prev = []
+    for i in range(len(y)):
+        fica = np.arange(len(y)) != i
+        loo_prev += ajustar_prever(melhor, X[fica], y[fica], X[i:i + 1])[0]
+    met["validacao_loo"] = {"n": int(len(y)), "metodos": {melhor: {
+        "acuracia": round(float(np.mean([a == b for a, b in zip(y, loo_prev)])), 3),
+        "acuracia_balanceada": round(float(balanced_accuracy_score(list(y), loo_prev)), 3), "n": int(len(y))}}}
+    print("LOO:", met["validacao_loo"])
     previsao_atual["por_modelo"] = {melhor: probs}
     (B / "metricas_modelo.json").write_text(json.dumps(met, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

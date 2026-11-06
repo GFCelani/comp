@@ -248,7 +248,8 @@ def main():
     conclusao = CONCLUSAO
     out = {
         "gerado_em": datetime.now().isoformat(timespec="seconds"),
-        "modelo": met.get("tipo"), "hiperparametros": met.get("hiperparametros"),
+        "modelo": met.get("tipo"), "hiperparametros": (met.get("hiperparametros") or {}).get(met.get("tipo"))
+        if isinstance(met.get("hiperparametros"), dict) else met.get("hiperparametros"),
         "periodo": {"atas": f"{prevs[0]['ata']}–{prevs[-1]['ata']}", "inicio": prevs[0]["data_reuniao"],
                     "fim": prevs[-1]["data_reuniao"], "n": n},
         "acuracia_geral": acc(ok),

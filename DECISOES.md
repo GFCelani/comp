@@ -174,3 +174,21 @@ Lista fechada, sem Claude. Escolha na janela crescente prevendo as atas 251–27
 - Modelos (hiperparâmetros fixos): logística C=0,3; logística C=1,0 (ambas com StandardScaler, max_iter 5000); floresta (300 árvores, max_depth 3, min_samples_leaf 3, random_state 42).
 - 6 combinações mais A-log C=0,3 como referência. Vence a maior acurácia; desempate pela balanceada e depois pela mais simples (A antes de F antes de G; logística antes de floresta).
 - Troca só se o escolhido for melhor que A na escolha e não for pior na confirmação.
+
+## Modelo v4: resultado (15h34) — modelo publicado NÃO muda
+
+Escolha (janela crescente, atas 251–270), `modelo/v4_comparar.py`, saída em `modelo/v4_resultado.json`:
+
+| combinação | acertos | acurácia | balanceada |
+|---|---|---|---|
+| A-log C=0,3 (referência) | 16/20 | 0,800 | 0,810 |
+| F-log C=0,3 | 14/20 | 0,700 | 0,706 |
+| F-log C=1,0 | 14/20 | 0,700 | 0,714 |
+| F-floresta | 13/20 | 0,650 | 0,659 |
+| G-log C=0,3 | 14/20 | 0,700 | 0,698 |
+| G-log C=1,0 | 16/20 | 0,800 | 0,810 |
+| G-floresta | 13/20 | 0,650 | 0,651 |
+
+G-log C=1,0 empatou com A em acurácia e balanceada; pelo desempate (mais simples), o escolhido é A. Confirmação (atas 271–281, rodada uma vez): A 7/11 (0,636; balanceada 0,650). Como o escolhido é o próprio A, não há troca. Modelo publicado segue A, logística com StandardScaler e C=0,3: 23/31 atas (251ª a 281ª) na validação no tempo.
+
+Painel: `hiperparametros` passa a ser um objeto por modelo (o painel lê `hiperparametros[modelo_publicado]` como texto) e `validacao_loo` = {n: 46, metodos: {logistica: {acuracia 0,804, acuracia_balanceada 0,797, n 46}}}, deixando uma ata de fora por vez nas 46 atas com alvo (modelo/treinar.py).

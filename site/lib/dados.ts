@@ -108,7 +108,7 @@ export type MetricasModelo = {
   gerado_em: string;
   tipo?: "logistica" | "floresta" | "arvore" | string;
   descricao?: string;
-  hiperparametros?: string;
+  hiperparametros?: string | Record<string, string>;
   variaveis?: { nome: string; descricao: string; importancia: number }[];
   coeficientes?: Record<string, Record<string, number>> | null;
   coeficientes_logistica?: Record<string, Record<string, number>>;

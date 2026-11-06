@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T15:22:04-03:00",
+  "gerado_em": "2026-11-06T15:34:36-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T15:22:04-03:00",
+  "ultima_verificacao": "2026-11-06T15:34:36-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4438,7 +4438,7 @@
     "validacao": "Checagem por código: todo trecho exibido é conferido como cópia literal do parágrafo, com no máximo 25 palavras; o que não passa é marcado como inválido. Nos textos de mudanças e impacto, todo número precisa existir nos dados fornecidos."
   },
   "metricas_previsao": {
-    "gerado_em": "2026-11-06T14:53:03",
+    "gerado_em": "2026-11-06T15:34:23",
     "n_atas": 46,
     "periodo": {
       "inicio_ata": 251,
@@ -4463,9 +4463,13 @@
   },
   "metricas_modelo": {
     "tipo": "logistica",
-    "gerado_em": "2026-11-06T14:53:03",
+    "gerado_em": "2026-11-06T15:34:23",
     "descricao": "modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágrafos",
-    "hiperparametros": "StandardScaler + LogisticRegression(C=0.3, max_iter=5000)",
+    "hiperparametros": {
+      "arvore": "DecisionTreeClassifier(max_depth=2, random_state=42)",
+      "logistica": "StandardScaler + LogisticRegression(C=0.3, max_iter=5000)",
+      "floresta": "RandomForestClassifier(n_estimators=300, max_depth=3, min_samples_leaf=3, random_state=42)"
+    },
     "variaveis": [
       {
         "nome": "decisao_registrada_na_ata_alta",
@@ -7788,6 +7792,16 @@
               }
             }
           ]
+        }
+      }
+    },
+    "validacao_loo": {
+      "n": 46,
+      "metodos": {
+        "logistica": {
+          "acuracia": 0.804,
+          "acuracia_balanceada": 0.797,
+          "n": 46
         }
       }
     }
