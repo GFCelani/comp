@@ -125,6 +125,7 @@ def main() -> int:
         "validacao_humana": validacao,
         "datas_dados": datas_dados(),
         "conferencia_selic": ler(S / "conferencia_selic.json"),
+        "status": ler(S / "status.json"),
     }
 
     # Nenhum texto longo no JSON público: trechos ≤ 25 palavras
