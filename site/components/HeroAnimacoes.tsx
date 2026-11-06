@@ -26,6 +26,7 @@ export function ManchetePorLinha({ texto, className, id }: { texto: string; clas
         topo = s.offsetTop;
       }
       s.style.setProperty("--linha", String(linha));
+      s.style.setProperty("--i", String(spans.indexOf(s)));
     }
     setPronta(true);
   }, [texto]);
@@ -43,8 +44,8 @@ export function ManchetePorLinha({ texto, className, id }: { texto: string; clas
 }
 
 /** Número que conta de 0 até o valor (proporção 0–1 vira %), uma vez, em ~0,8 s. */
-export function ContaAte({ valor, atraso = 300, duracao = 800 }: { valor: number; atraso?: number; duracao?: number }) {
-  const alvo = Math.round(valor * 100);
+export function ContaAte({ valor, atraso = 300, duracao = 800, inteiro = false }: { valor: number; atraso?: number; duracao?: number; inteiro?: boolean }) {
+  const alvo = inteiro ? Math.round(valor) : Math.round(valor * 100);
   const [n, setN] = useState(alvo);
 
   useEffect(() => {
@@ -63,8 +64,9 @@ export function ContaAte({ valor, atraso = 300, duracao = 800 }: { valor: number
   }, [alvo, atraso, duracao]);
 
   return (
-    <span className="num" aria-label={`${alvo}%`}>
-      {n}%
+    <span className="num" aria-label={inteiro ? String(alvo) : `${alvo}%`}>
+      {n}
+      {inteiro ? "" : "%"}
     </span>
   );
 }

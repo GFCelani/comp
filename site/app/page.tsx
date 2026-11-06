@@ -7,7 +7,6 @@ import {
   selic as fmtSelic,
   decisao as fmtDecisao,
   pct,
-  previsaoRotulo,
   tomRotulo,
 } from "@/lib/formato";
 import { camposNovos, relatorioDeReserva } from "@/lib/previsao";
@@ -20,6 +19,7 @@ import { Cabecalho } from "@/components/Cabecalho";
 import { ParagrafoCitado } from "@/components/ParagrafoCitado";
 import { ManchetePorLinha, ContaAte } from "@/components/HeroAnimacoes";
 import { Medidor } from "@/components/Medidor";
+import { FundoHero } from "@/components/FundoHero";
 
 export const revalidate = 60;
 
@@ -50,14 +50,11 @@ type MetodoPrevisao = {
   n: number | null;
   previsto_proxima: string | null;
   disponivel: boolean;
+  acuracia_tempo?: number | null;
+  n_tempo?: number | null;
+  probabilidades?: { alta: number; manutencao: number; corte: number } | null;
 };
 
-const NOME_CURTO: Record<string, string> = {
-  ingenua: "repetir a última decisão",
-  variacao_tom: "variação do tom com a decisão atual",
-  nivel_tom: "nível do tom",
-  modelo_parceiro: "modelo do parceiro",
-};
 
 function maiuscula(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -109,9 +106,31 @@ export default async function Pagina() {
   const escolhido = metodos.find((m) => m.nome === pvx?.metodo_escolhido) ?? null;
   const acuraciaEscolhido = pvx?.acuracia_escolhido ?? escolhido?.acuracia_loo ?? null;
   const nEscolhido = escolhido?.n ?? null;
-  const nomeMetodo = pvx?.metodo_escolhido ? NOME_CURTO[pvx.metodo_escolhido] ?? escolhido?.rotulo_pt ?? pvx.metodo_escolhido : "aguardando";
-  const tomPerde =
-    escolhido?.nome === "ingenua" && metodos.some((m) => (m.nome === "nivel_tom" || m.nome === "variacao_tom") && m.disponivel);
+  const pvy = pvx as (typeof pvx & {
+    criterio_escolha?: string;
+    provisoria?: boolean;
+    provisorio?: boolean;
+    texto_publico?: string | null;
+    explicacao_publica?: string | null;
+    probabilidades?: { alta: number; manutencao: number; corte: number } | null;
+    validacao_tempo?: { inicio_ata: number; fim_ata: number; n: number } | null;
+    ultima_decisao?: { selic: number; data: string } | null;
+    variacao_tom?: { delta: number; ata: number; ata_anterior: number } | null;
+  }) | null | undefined;
+  const provisoria = Boolean(pvy?.provisoria ?? pvy?.provisorio);
+  const textoPublico = pvy?.texto_publico ?? pvy?.explicacao_publica ?? null;
+  const probs = escolhido?.probabilidades ?? pvy?.probabilidades ?? null;
+  const porTempo = pvy?.criterio_escolha === "acuracia_tempo" && escolhido?.acuracia_tempo != null && escolhido?.n_tempo;
+  const testadas = porTempo ? (escolhido?.n_tempo ?? null) : nEscolhido;
+  const acuraciaPublicada = porTempo ? (escolhido?.acuracia_tempo ?? null) : acuraciaEscolhido;
+  const acertos = acuraciaPublicada != null && testadas ? Math.round(acuraciaPublicada * testadas) : null;
+  const selicHoje = pvy?.ultima_decisao?.selic ?? ud?.selic ?? u.selic_apos;
+  const fraseSelic =
+    pv?.previsto === "manutencao"
+      ? `Selic mantida em ${fmtSelic(selicHoje)}`
+      : pv?.previsto === "aperto"
+        ? `Selic sobe a partir de ${fmtSelic(selicHoje)}`
+        : `Selic cai a partir de ${fmtSelic(selicHoje)}`;
 
   const anterior = serie.length > 1 ? serie[serie.length - 2] : null;
   const ataRelatorio = pv?.base_ata ?? u.numero;
@@ -125,122 +144,133 @@ export default async function Pagina() {
       )}
       <Cabecalho />
       <main id="conteudo" className="flex-1">
-        {/* 1. Capa */}
-        <section className="envelope pt-[104px] sm:pt-[112px] lg:pt-[124px]" aria-labelledby="manchete">
-          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
-            <div>
-              <p className="rotulo num entra-1" style={{ animationDelay: "0ms" }}>
-                Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
-              </p>
-              <ManchetePorLinha
-                id="manchete"
-                texto={manchete ?? "A manchete desta ata está sendo escrita"}
-                className="titulo-serifa mt-4 text-[2.25rem] leading-[1.08] sm:text-[2.75rem] lg:text-[clamp(2.6rem,3.5vw,3.25rem)] lg:leading-[1.06] tracking-[-0.025em] max-w-[24ch]"
-              />
-              {linhaFina ? (
-                <p className="entra-1 mt-5 text-[1.0625rem] sm:text-lg lg:text-[1.1875rem] leading-[1.55] text-tinta-2 max-w-[60ch]">{linhaFina}</p>
-              ) : (
-                <p className="entra-1 mt-5">
-                  <Aguardando texto="linha fina aguardando o pipeline" />
+        {/* 1. Capa: altura da tela menos o header, conteúdo centralizado */}
+        <section className="relative lg:min-h-[100svh] lg:flex lg:items-center pt-[104px] sm:pt-[112px] lg:pt-[92px] lg:pb-6" aria-labelledby="manchete">
+          <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
+          <div className="envelope relative w-full">
+            <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
+              <div className="flex flex-col justify-center">
+                <p className="rotulo num entra-0">
+                  Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
                 </p>
-              )}
-              <dl className="entra-2 mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
-                <div>
-                  <dt className="text-tinta-3">Selic após a reunião</dt>
-                  <dd className="mt-0.5 font-medium">
-                    {fmtSelic(u.selic_apos)} <span className="text-tinta-2 font-normal">({fmtDecisao(u.decisao, u.decisao_pp)})</span>
-                  </dd>
-                </div>
-                {ud && !ud.ata_publicada && (
+                <ManchetePorLinha
+                  id="manchete"
+                  texto={manchete ?? "A manchete desta ata está sendo escrita"}
+                  className="titulo-serifa mt-4 text-[2.25rem] leading-[1.08] sm:text-[2.75rem] lg:text-[clamp(2.6rem,3.5vw,3.25rem)] lg:leading-[1.06] tracking-[-0.025em] max-w-[24ch]"
+                />
+                {linhaFina ? (
+                  <p className="entra-1 mt-5 text-[1.0625rem] sm:text-lg lg:text-[1.1875rem] leading-[1.55] text-tinta-2 max-w-[60ch]">{linhaFina}</p>
+                ) : (
+                  <p className="entra-1 mt-5">
+                    <Aguardando texto="linha fina aguardando o pipeline" />
+                  </p>
+                )}
+                <dl className="entra-2 mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
                   <div>
-                    <dt className="text-tinta-3">Decisão de {dataCurta(ud.data)}</dt>
+                    <dt className="text-tinta-3">Selic após a reunião</dt>
                     <dd className="mt-0.5 font-medium">
-                      {ud.decisao === "manutencao"
-                        ? `manteve em ${fmtSelic(ud.selic)}`
-                        : `${fmtDecisao(ud.decisao, ud.decisao_pp)}, para ${fmtSelic(ud.selic)}`}
-                      <span className="text-tinta-2 font-normal">, ata ainda não publicada</span>
+                      {fmtSelic(u.selic_apos)} <span className="text-tinta-2 font-normal">({fmtDecisao(u.decisao, u.decisao_pp)})</span>
                     </dd>
                   </div>
-                )}
-                <div>
-                  <dt className="text-tinta-3">Documento</dt>
-                  <dd className="mt-0.5">
-                    <a href={u.url_pdf} target="_blank" rel="noopener noreferrer" className="link">
-                      ata original em PDF
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            {/* Cartão de destaque: esticado até a altura do bloco de texto */}
-            <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col" aria-label="Destaques">
-              <div className="px-6 pt-5 pb-5 bg-fundo-petroleo">
-                <p className="rotulo text-acento">Leia o relatório de hoje</p>
-                <p className="titulo-serifa mt-1.5 text-[1.3125rem] leading-[1.25]">
-                  O que mudou na ata {ataRelatorio}
-                  <br />e o que isso pode significar
-                </p>
-                <a
-                  href="#relatorio"
-                  className="group mt-4 flex w-full items-center justify-center gap-2 rounded-[10px] bg-acento px-4 py-3 text-[0.9375rem] font-medium text-papel shadow-[0_1px_2px_rgb(16_19_23/0.12)] transition-[background-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-acento-2 hover:shadow-[0_10px_24px_-12px_rgb(17_100_107/0.6)]"
-                >
-                  Ler o relatório
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-y-0.5">
-                    <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
+                  {ud && !ud.ata_publicada && (
+                    <div>
+                      <dt className="text-tinta-3">Decisão de {dataCurta(ud.data)}</dt>
+                      <dd className="mt-0.5 font-medium">
+                        {ud.decisao === "manutencao"
+                          ? `manteve em ${fmtSelic(ud.selic)}`
+                          : `${fmtDecisao(ud.decisao, ud.decisao_pp)}, para ${fmtSelic(ud.selic)}`}
+                        <span className="text-tinta-2 font-normal">, ata ainda não publicada</span>
+                      </dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt className="text-tinta-3">Documento</dt>
+                    <dd className="mt-0.5">
+                      <a href={u.url_pdf} target="_blank" rel="noopener noreferrer" className="link">
+                        ata original em PDF
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
-              <div id="previsao" className="flex-1 flex flex-col justify-between gap-4 border-t border-linha px-6 py-5">
-                <div className="flex items-baseline justify-between gap-4">
-                  <p className="rotulo">Nossa previsão</p>
-                  <p className="text-xs text-tinta-3 num">
-                    {proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}
-                    {proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
+              {/* Cartão: mesma altura do bloco de texto (grade esticada) */}
+              <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col" aria-label="Destaques">
+                <div className="px-6 pt-4 pb-4 bg-fundo-petroleo">
+                  <p className="rotulo text-acento">Leia o relatório de hoje</p>
+                  <p className="titulo-serifa mt-1 text-[1.25rem] leading-[1.25]">
+                    O que mudou na ata {ataRelatorio}
+                    <br />e o que isso pode significar
                   </p>
+                  <a
+                    href="#relatorio"
+                    className="botao-brilho group mt-3 flex w-full items-center justify-center gap-2 rounded-[10px] bg-acento px-4 py-2.5 text-[0.9375rem] font-medium text-papel shadow-[0_1px_2px_rgb(16_19_23/0.12)] transition-[background-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-acento-2 hover:shadow-[0_10px_24px_-12px_rgb(17_100_107/0.6)]"
+                  >
+                    Ler o relatório
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-y-0.5">
+                      <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
                 </div>
-                {pv ? (
-                  <>
-                    <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
-                      <div className="min-w-0">
-                        <p className={`titulo-serifa text-[2.25rem] leading-none entra-2 ${corPrevisto(pv.previsto)}`}>{maiuscula(previsaoRotulo[pv.previsto])}</p>
-                        <p className="mt-2 text-sm text-tinta-2">
-                          da Selic em {proxima?.data ? <strong className="font-medium text-tinta num">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
+
+                <div id="previsao" className="flex-1 flex flex-col justify-between gap-3 border-t border-linha px-6 py-4">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="text-[0.875rem] font-medium text-tinta">
+                      Previsão para a próxima reunião{proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
+                    </p>
+                    {provisoria && <span className="text-xs text-alerta">provisória</span>}
+                  </div>
+                  {pv ? (
+                    <>
+                      <p className={`titulo-serifa text-[1.75rem] leading-[1.1] entra-2 ${corPrevisto(pv.previsto)}`}>{fraseSelic}</p>
+
+                      {probs ? (
+                        <div>
+                          <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-papel-3" role="img" aria-label={`Probabilidades: alta ${pct(probs.alta)}, manutenção ${pct(probs.manutencao)}, corte ${pct(probs.corte)}`}>
+                            <span className="barra-enche h-full bg-duro-forte" style={{ width: `${probs.alta * 100}%`, animationDelay: "500ms" }} />
+                            <span className="barra-enche h-full bg-tinta-3 border-x-2 border-papel" style={{ width: `${probs.manutencao * 100}%`, animationDelay: "640ms" }} />
+                            <span className="barra-enche h-full bg-brando-forte" style={{ width: `${probs.corte * 100}%`, animationDelay: "780ms" }} />
+                          </div>
+                          <div className="mt-1.5 flex justify-between text-xs num">
+                            <span className="text-duro">alta {pct(probs.alta)}</span>
+                            <span className="text-tinta-2">manutenção {pct(probs.manutencao)}</span>
+                            <span className="text-brando">corte {pct(probs.corte)}</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <p>
+                          <Aguardando texto="probabilidades aguardando o modelo" />
+                        </p>
+                      )}
+
+                      {!provisoria && acertos != null && testadas ? (
+                        <p className="text-sm text-tinta-2 num">
+                          Acertou{" "}
+                          <strong className="font-medium text-tinta">
+                            <ContaAte valor={acertos} inteiro />
+                          </strong>{" "}
+                          de {testadas} reuniões testadas.
+                        </p>
+                      ) : null}
+
+                      {textoPublico && <p className="text-[0.8125rem] leading-snug text-tinta-2">{textoPublico}</p>}
+
+                      <div className="flex items-center gap-3 pt-3 border-t border-linha">
+                        <Medidor valor={pv.indice} className="h-[28px] w-[46px] shrink-0" />
+                        <p className="text-[0.8125rem] text-tinta-2 leading-snug num">
+                          Tom da ata {pv.base_ata}: <span className={corIndice(pv.indice)}>{fmtIndice(pv.indice)}</span>.{" "}
+                          <a href="#numeros" className="link whitespace-nowrap">ver os números</a>
                         </p>
                       </div>
-                      <div className="text-right border-l border-linha pl-4">
-                        <p className="text-xs text-tinta-3">Acurácia</p>
-                        {acuraciaEscolhido != null ? (
-                          <>
-                            <p className="mt-1 text-[1.75rem] leading-none font-medium tracking-tight">
-                              <ContaAte valor={acuraciaEscolhido} />
-                            </p>
-                            <p className="mt-1 text-xs text-tinta-3 num">{nEscolhido ? `em ${nEscolhido} reuniões` : ""}</p>
-                          </>
-                        ) : (
-                          <Aguardando />
-                        )}
-                      </div>
-                    </div>
-                    <p className="text-sm text-tinta-2 leading-snug">
-                      Método: <span className="text-tinta font-medium">{nomeMetodo}</span>, o de maior acerto no histórico.
+                    </>
+                  ) : (
+                    <p>
+                      <Aguardando texto="previsão aguardando o pipeline" />
                     </p>
-                    <div className="flex items-center gap-3 pt-3 border-t border-linha">
-                      <Medidor valor={pv.indice} className="h-[30px] w-[50px] shrink-0" />
-                      <p className="text-[0.8125rem] text-tinta-2 leading-snug num">
-                        Tom da ata {pv.base_ata}: <span className={corIndice(pv.indice)}>{fmtIndice(pv.indice)}</span>, só contexto.{" "}
-                        <a href="#numeros" className="link whitespace-nowrap">ver os números</a>
-                      </p>
-                    </div>
-                  </>
-                ) : (
-                  <p>
-                    <Aguardando texto="previsão aguardando o pipeline" />
-                  </p>
-                )}
-              </div>
-            </aside>
+                  )}
+                </div>
+              </aside>
+            </div>
           </div>
         </section>
 
@@ -343,7 +373,7 @@ export default async function Pagina() {
 
             <div id="numeros" className="mt-16">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
-                <h3 className="titulo-serifa text-[1.625rem] leading-tight">Quanto cada método acertou</h3>
+                <h3 className="titulo-serifa text-[1.625rem] leading-tight">Quanto a previsão acertou</h3>
                 {periodo && (
                   <p className="text-sm text-tinta-3 num">
                     Direção da Selic na reunião seguinte, {dataCurta(periodo.inicio)} a {dataCurta(periodo.fim)}
@@ -351,35 +381,34 @@ export default async function Pagina() {
                 )}
               </div>
               <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-y-8">
-                {metodos.filter((m) => m.disponivel).length ? (
-                  metodos
-                    .filter((m) => m.disponivel)
-                    .map((m) => (
-                      <Numero
-                        key={m.nome}
-                        destaque={m.nome === escolhido?.nome}
-                        valor={m.acuracia_loo != null ? pct(m.acuracia_loo) : <Aguardando />}
-                        rotulo={maiuscula(NOME_CURTO[m.nome] ?? m.rotulo_pt ?? m.nome)}
-                        contexto={`${m.nome === escolhido?.nome ? "Método publicado. " : ""}${
-                          m.n ? `Acerto em ${m.n} reuniões. ` : ""
-                        }${m.previsto_proxima ? `Para a próxima: ${previsaoRotulo[m.previsto_proxima as keyof typeof previsaoRotulo] ?? m.previsto_proxima}.` : ""}`}
-                      />
-                    ))
-                ) : (
-                  <Numero valor={<Aguardando />} rotulo="Métodos de previsão" contexto="Aguardando as métricas do pipeline." />
-                )}
+                <Numero
+                  destaque
+                  valor={acuraciaPublicada != null && !provisoria ? pct(acuraciaPublicada) : <Aguardando />}
+                  rotulo="Acerto da previsão"
+                  contexto={
+                    acertos != null && testadas && !provisoria
+                      ? `${acertos} de ${testadas} reuniões testadas${pvy?.validacao_tempo ? `, da ata ${pvy.validacao_tempo.inicio_ata} à ${pvy.validacao_tempo.fim_ata}` : ""}.`
+                      : "Aguardando a validação."
+                  }
+                />
+                <Numero
+                  valor={fmtSelic(selicHoje)}
+                  rotulo="Selic hoje"
+                  contexto={ud ? `Decisão de ${dataCurta(ud.data)}.` : `Depois da reunião de ${dataCurta(u.data_reuniao)}.`}
+                />
+                <Numero
+                  valor={<span className={corIndice(u.indice)}>{fmtIndice(u.indice)}</span>}
+                  rotulo={`Tom da ata ${u.numero}`}
+                  contexto={`${maiuscula(tomRotulo(u.indice))}${
+                    pvy?.variacao_tom ? `; ${fmtIndice(pvy.variacao_tom.delta)} em relação à ata ${pvy.variacao_tom.ata_anterior}` : ""
+                  }. Explica o que mudou, não é a previsão.`}
+                />
                 <Numero
                   valor={pv?.focus_selic ? fmtSelic(pv.focus_selic.mediana) : <Aguardando />}
                   rotulo={pv?.focus_selic ? `Focus: Selic no fim de ${pv.focus_selic.ano_referencia}` : "Focus"}
                   contexto={pv?.focus_selic ? `Mediana do mercado, coleta de ${dataCurta(pv.focus_selic.data)}.` : "Aguardando o dado do Focus."}
                 />
               </div>
-              {tomPerde && (
-                <p className="mt-8 max-w-[70ch] text-[0.9375rem] text-tinta-2">
-                  O tom das atas ainda não bate repetir a última decisão: por isso a previsão publicada usa o método de maior acerto,
-                  e o tom entra como explicação do que mudou na comunicação.
-                </p>
-              )}
               <p className="mt-10 text-sm text-tinta-3">
                 Detalhes, matriz de confusão e validação no{" "}
                 <Link href="/painel" className="link-tinta">
