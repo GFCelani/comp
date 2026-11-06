@@ -1,0 +1,155 @@
+{
+  "gerado_em": "2026-11-06T12:40:00",
+  "exemplo": true,
+  "fonte_indice": "simples",
+  "resumo": {
+    "ultima_ata": {
+      "numero": 281,
+      "data_reuniao": "2026-09-16",
+      "decisao": "corte",
+      "decisao_pp": -0.25,
+      "selic_apos": 13.75,
+      "indice": -0.2,
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf"
+    },
+    "n_atas": 6,
+    "n_paragrafos": 240,
+    "n_trechos_invalidos": 0,
+    "periodo": { "inicio": "2026-01-28", "fim": "2026-09-16" }
+  },
+  "serie": [
+    { "ata": 276, "data_reuniao": "2026-01-28", "indice": 0.85, "selic_apos": 15.0, "decisao": "manutencao", "decisao_pp": 0.0 },
+    { "ata": 277, "data_reuniao": "2026-03-18", "indice": 0.4, "selic_apos": 14.75, "decisao": "corte", "decisao_pp": -0.25 },
+    { "ata": 278, "data_reuniao": "2026-04-29", "indice": 0.1, "selic_apos": 14.5, "decisao": "corte", "decisao_pp": -0.25 },
+    { "ata": 279, "data_reuniao": "2026-06-17", "indice": -0.3, "selic_apos": 14.25, "decisao": "corte", "decisao_pp": -0.25 },
+    { "ata": 280, "data_reuniao": "2026-08-05", "indice": -0.55, "selic_apos": 14.0, "decisao": "corte", "decisao_pp": -0.25 },
+    { "ata": 281, "data_reuniao": "2026-09-16", "indice": -0.2, "selic_apos": 13.75, "decisao": "corte", "decisao_pp": -0.25 }
+  ],
+  "mudancas": [
+    {
+      "paragrafo": 12,
+      "trecho": "[exemplo] o Comitê seguirá vigilante e avaliará se a estratégia é adequada",
+      "efeito": "endureceu",
+      "explicacao": "[exemplo] A ata anterior falava em \"atento\"; a nova usa \"vigilante\". É um sinal de mais cautela com os próximos cortes.",
+      "tipo": "alterado"
+    },
+    {
+      "paragrafo": 7,
+      "trecho": "[exemplo] a inflação de serviços segue em patamar elevado",
+      "efeito": "endureceu",
+      "explicacao": "[exemplo] Parágrafo novo chamando atenção para serviços. Indica preocupação com uma parte da inflação que cede devagar.",
+      "tipo": "novo"
+    },
+    {
+      "paragrafo": 15,
+      "trecho": "[exemplo] a atividade econômica mostra sinais de moderação",
+      "efeito": "suavizou",
+      "explicacao": "[exemplo] A economia desacelerando reduz a pressão sobre os preços. Abre espaço para o ciclo de cortes continuar.",
+      "tipo": "alterado"
+    }
+  ],
+  "impacto": {
+    "texto": "[exemplo] O tom ficou um pouco mais cauteloso, mas ainda brando. Isso sinaliza que o Copom pode seguir cortando a Selic em passos de 0,25 ponto, sem acelerar o ritmo. Se o mercado ler da mesma forma, os juros futuros tendem a oscilar pouco e as expectativas do Focus para o fim do ano devem ficar estáveis.",
+    "data_selic": "2026-11-05",
+    "data_focus": "2026-10-31"
+  },
+  "atas": [
+    {
+      "numero": 276, "data_reuniao": "2026-01-28",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom276-not20260128276.pdf",
+      "indice": 0.85, "n_paragrafos": 40, "n_nao_zero": 13,
+      "paragrafos": [
+        { "paragrafo": 9, "nota": 2, "trecho": "[exemplo] manter a taxa em patamar elevado por período prolongado" },
+        { "paragrafo": 11, "nota": 1, "trecho": "[exemplo] expectativas de inflação seguem acima da meta" },
+        { "paragrafo": 20, "nota": -1, "trecho": "[exemplo] atividade mais fraca que o esperado" }
+      ]
+    },
+    {
+      "numero": 277, "data_reuniao": "2026-03-18",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom277-not20260318277.pdf",
+      "indice": 0.4, "n_paragrafos": 40, "n_nao_zero": 12,
+      "paragrafos": [
+        { "paragrafo": 8, "nota": 1, "trecho": "[exemplo] riscos para a inflação seguem assimétricos para cima" },
+        { "paragrafo": 18, "nota": -1, "trecho": "[exemplo] iniciar um ciclo gradual de redução da taxa" }
+      ]
+    },
+    {
+      "numero": 278, "data_reuniao": "2026-04-29",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom278-not20260429278.pdf",
+      "indice": 0.1, "n_paragrafos": 40, "n_nao_zero": 10,
+      "paragrafos": [
+        { "paragrafo": 10, "nota": 1, "trecho": "[exemplo] o câmbio mais depreciado pressiona os preços" },
+        { "paragrafo": 19, "nota": -1, "trecho": "[exemplo] a inflação corrente cedeu nos últimos meses" }
+      ]
+    },
+    {
+      "numero": 279, "data_reuniao": "2026-06-17",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom279-not20260617279.pdf",
+      "indice": -0.3, "n_paragrafos": 40, "n_nao_zero": 10,
+      "paragrafos": [
+        { "paragrafo": 13, "nota": -1, "trecho": "[exemplo] as expectativas do Focus recuaram na margem" },
+        { "paragrafo": 21, "nota": -2, "trecho": "[exemplo] o Comitê antevê continuidade do ciclo de cortes" }
+      ]
+    },
+    {
+      "numero": 280, "data_reuniao": "2026-08-05",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
+      "indice": -0.55, "n_paragrafos": 40, "n_nao_zero": 11,
+      "paragrafos": [
+        { "paragrafo": 12, "nota": -1, "trecho": "[exemplo] o Comitê seguirá atento aos dados" },
+        { "paragrafo": 16, "nota": -2, "trecho": "[exemplo] a desaceleração da atividade reforça o espaço para cortes" }
+      ]
+    },
+    {
+      "numero": 281, "data_reuniao": "2026-09-16",
+      "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+      "indice": -0.2, "n_paragrafos": 40, "n_nao_zero": 12,
+      "paragrafos": [
+        { "paragrafo": 7, "nota": 1, "trecho": "[exemplo] a inflação de serviços segue em patamar elevado" },
+        { "paragrafo": 12, "nota": 1, "trecho": "[exemplo] o Comitê seguirá vigilante e avaliará se a estratégia é adequada" },
+        { "paragrafo": 15, "nota": -1, "trecho": "[exemplo] a atividade econômica mostra sinais de moderação" },
+        { "paragrafo": 22, "nota": -1, "trecho": "[exemplo] decidiu reduzir a taxa Selic em 0,25 ponto percentual" }
+      ]
+    }
+  ],
+  "como_medimos": {
+    "regua": "Cada parágrafo da ata recebe uma nota de −2 (muito brando: indica corte de juros com ênfase) a +2 (muito duro: indica alta ou juros altos por período prolongado). 0 é neutro: só descreve dados.",
+    "agregacao": "O índice da ata é a média das notas diferentes de zero. Parágrafos neutros não entram para não diluir o sinal. A média simples fica registrada como referência.",
+    "validacao": "O time classifica 20 parágrafos à mão, sem ver a nota do Claude, e compara. Cada trecho citado é conferido por código contra o texto da ata; se não for cópia exata, é marcado como inválido."
+  },
+  "metricas_previsao": {
+    "regra": { "aperto": "indice > 0.25", "afrouxamento": "indice < -0.25", "manutencao": "entre -0.25 e 0.25" },
+    "fonte_indice": "simples",
+    "gerado_em": "2026-11-06T12:40:00",
+    "n_atas": 5,
+    "periodo": { "inicio": "2026-01-28", "fim": "2026-08-05" },
+    "indice": {
+      "acuracia": 0.4,
+      "acerto_sinal": 0.5,
+      "matriz_confusao": { "rotulos": ["afrouxamento", "manutencao", "aperto"], "valores": [[2, 0, 0], [1, 0, 0], [2, 0, 0]] },
+      "atas": [
+        { "ata": 276, "data_reuniao": "2026-01-28", "indice": 0.85, "previsto": "aperto", "realizado": "afrouxamento", "variacao_pp": -0.25, "acertou": false },
+        { "ata": 277, "data_reuniao": "2026-03-18", "indice": 0.4, "previsto": "aperto", "realizado": "afrouxamento", "variacao_pp": -0.25, "acertou": false },
+        { "ata": 278, "data_reuniao": "2026-04-29", "indice": 0.1, "previsto": "manutencao", "realizado": "afrouxamento", "variacao_pp": -0.25, "acertou": false },
+        { "ata": 279, "data_reuniao": "2026-06-17", "indice": -0.3, "previsto": "afrouxamento", "realizado": "afrouxamento", "variacao_pp": -0.25, "acertou": true },
+        { "ata": 280, "data_reuniao": "2026-08-05", "indice": -0.55, "previsto": "afrouxamento", "realizado": "afrouxamento", "variacao_pp": -0.25, "acertou": true }
+      ]
+    },
+    "ingenua": {
+      "acuracia": 0.8,
+      "acerto_sinal": 1.0,
+      "matriz_confusao": { "rotulos": ["afrouxamento", "manutencao", "aperto"], "valores": [[4, 0, 0], [1, 0, 0], [0, 0, 0]] },
+      "atas": [
+        { "ata": 276, "data_reuniao": "2026-01-28", "previsto": "manutencao", "realizado": "afrouxamento", "acertou": false },
+        { "ata": 277, "data_reuniao": "2026-03-18", "previsto": "afrouxamento", "realizado": "afrouxamento", "acertou": true },
+        { "ata": 278, "data_reuniao": "2026-04-29", "previsto": "afrouxamento", "realizado": "afrouxamento", "acertou": true },
+        { "ata": 279, "data_reuniao": "2026-06-17", "previsto": "afrouxamento", "realizado": "afrouxamento", "acertou": true },
+        { "ata": 280, "data_reuniao": "2026-08-05", "previsto": "afrouxamento", "realizado": "afrouxamento", "acertou": true }
+      ]
+    },
+    "melhor": "ingenua"
+  },
+  "metricas_modelo": null,
+  "validacao_humana": null,
+  "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" }
+}
