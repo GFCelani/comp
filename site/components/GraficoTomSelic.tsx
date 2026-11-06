@@ -549,7 +549,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
           : ""}
       </p>
 
-      <table className="sr-only">
+      <div className="sr-only"><table>
         <caption>Índice de tom e Selic meta por reunião do Copom</caption>
         <thead>
           <tr>
@@ -571,7 +571,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>
     </figure>
   );
 }
