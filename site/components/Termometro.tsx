@@ -41,6 +41,10 @@ export function Termometro({
   const perto = xa !== null && Math.abs(xa - x) < 16;
   const inicio = Math.min(50, x);
   const comprimento = Math.abs(x - 50);
+  // quente = duro (acima de 0), frio = brando (abaixo de 0)
+  const lado = valor > 0 ? "duro" : valor < 0 ? "brando" : null;
+  const corTexto = lado === "duro" ? "text-duro" : lado === "brando" ? "text-brando" : "text-tinta-2";
+  const corMarca = lado === "duro" ? "bg-duro-forte" : lado === "brando" ? "bg-brando-forte" : "bg-tinta-3";
 
   const descricao =
     `Índice de tom ${fmtIndice(valor)} (${tomRotulo(valor)}), numa régua de −2 (mais brando) a +2 (mais duro)` +
@@ -61,7 +65,7 @@ export function Termometro({
             </span>
           )}
           <span
-            className="num absolute bottom-1.5 whitespace-nowrap text-[15px] font-semibold leading-none text-acento"
+            className={`num absolute bottom-1.5 whitespace-nowrap text-[15px] font-semibold leading-none ${corTexto}`}
             style={ancorado(x)}
           >
             {fmtIndice(valor)}
@@ -70,6 +74,8 @@ export function Termometro({
 
         {/* trilho, marcas, preenchimento e marcadores */}
         <div className="relative h-3.5" aria-hidden="true">
+          <div className="absolute top-1/2 left-0 h-2.5 w-1/2 -translate-y-1/2 rounded-l-full bg-brando-suave" />
+          <div className="absolute top-1/2 right-0 h-2.5 w-1/2 -translate-y-1/2 rounded-r-full bg-duro-suave" />
           <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-papel-3" />
           {MARCAS.map((v) => (
             <span
@@ -81,7 +87,7 @@ export function Termometro({
             />
           ))}
           <div
-            className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-acento"
+            className={`absolute top-1/2 h-1 -translate-y-1/2 rounded-full ${corMarca}`}
             style={{ left: `${inicio}%`, width: `${comprimento}%` }}
           />
           {xa !== null && (
@@ -91,7 +97,7 @@ export function Termometro({
             />
           )}
           <span
-            className="absolute top-1/2 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-acento"
+            className={`absolute top-1/2 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${corMarca}`}
             style={{
               left: `${x}%`,
               boxShadow:
@@ -125,9 +131,9 @@ export function Termometro({
           ))}
         </div>
 
-        <div className="mt-1.5 flex justify-between text-xs text-tinta-3" aria-hidden="true">
-          <span>mais brando</span>
-          <span>mais duro</span>
+        <div className="mt-1.5 flex justify-between text-xs" aria-hidden="true">
+          <span className="text-brando">mais brando</span>
+          <span className="text-duro">mais duro</span>
         </div>
       </div>
     </div>

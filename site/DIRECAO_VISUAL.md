@@ -1,8 +1,31 @@
-# Direção visual — Tradutor do Copom (v2, tema claro)
+# Direção visual — CopomAI (v3, tema claro com paleta de tom)
 
 Alvo: jornal financeiro claro e minimalista. Texto e gráficos são os protagonistas; o resto recua. Muito espaço em branco, uma cor de destaque só, acabamento de detalhe no nível das quatro referências. O `/painel` é um produto separado (aplicativo de página única), com os mesmos tokens.
 
 Medições feitas no Playwright em 06/11/2026 (1440×900, estilos computados). Capturas em `.playwright-mcp/ref-*.png`. Nada de textos, logos ou marcas dessas páginas entra no site; só medidas e padrões.
+
+## v3 (06/11, 14h): nome, logo, header e paleta de tom
+
+- **Nome e logo:** CopomAI. Símbolo = medidor de tom em meia-lua sobre quadrado petróleo (raio 8/32): arco frio à esquerda (brando), arco quente à direita (duro), ponteiro branco. `components/Logo.tsx` (`Logo`, `SimboloCopomAI`) e `app/icon.svg` (favicon). Nome em Geist 600, −0,035em, com "AI" em petróleo.
+- **Header:** portado do `Header.tsx` do projeto cartoes-nfc (só leitura): solto no topo; passando de 64px de rolagem (volta abaixo de 24px), acende a cápsula de vidro (branco 74%, blur 20px, saturate 130%, borda 1px a 10%, raio 12px, sombra `0 18px 44px -28px`), o conjunto sobe 12px, 420ms `cubic-bezier(.22,.7,.28,1)`. Itens numerados 01–04 em Geist Mono 9,4px, botão "Ler o relatório" em petróleo. No celular, o mesmo menu em painel de vidro.
+- **Hero:** cabe inteiro em 1440×900, 1366×768 e 1280×720; manchete de 2,6–3,25rem, no máximo 4 linhas; cartão compacto com o método numa linha.
+
+### Paleta de tom (contraste sobre branco)
+
+| Token | Hex | Uso | Origem |
+|---|---|---|---|
+| `duro` | `#a4501d` (5,6:1) | texto de tom duro, alta de juros, previsão de alta | cobre do cartoes-nfc (`#A8622F`) escurecido |
+| `duro-forte` | `#c2621f` | só marcas gráficas (pontos, degraus, preenchimento do termômetro) | idem |
+| `duro-suave` | `#fbeee3` | fundo de marca de citação dura, área acima do zero | idem |
+| `brando` | `#2a62b0` (5,9:1) | texto de tom brando, corte, previsão de corte | ciano da cardine (`#7FD9E6`) levado ao azul |
+| `brando-forte` | `#3b7fd9` | só marcas gráficas | idem |
+| `brando-suave` | `#e9f0fb` | fundo de marca branda, área abaixo do zero | idem |
+| `apoio` | `#6b3a24` (10:1) | links do rodapé e detalhes | terra do cartoes-nfc |
+| `fundo-petroleo` | `#eef5f4` | faixa dos dados, chamado do relatório | superfície da Leblon puxada ao petróleo |
+| `fundo-quente` | `#fbf6ef` | rodapé | creme do cartoes-nfc, mais claro |
+| `fundo-frio` | `#f0f4fa` | faixa das ferramentas | — |
+
+Regra: quente = duro/alta, frio = brando/corte, em todo lugar (termômetro, gráfico tom+Selic, marcas de citação pela nota do parágrafo citado, selos do Explorar, previsão da capa). Petróleo continua sendo a marca e a linha principal. Texto pequeno nunca nas variantes `-forte`.
 
 ## O que entra de cada referência
 

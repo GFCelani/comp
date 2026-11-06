@@ -6,19 +6,25 @@ import { dataCurta, indice as fmtIndice, tomRotulo } from "@/lib/formato";
 
 type Filtro = "todos" | "duros" | "brandos";
 
-const FILTROS: { valor: Filtro; rotulo: string }[] = [
+/** quente = duro (nota > 0), frio = brando (nota < 0) */
+const FILTROS: { valor: Filtro; rotulo: string; ponto?: string }[] = [
   { valor: "todos", rotulo: "todos" },
-  { valor: "duros", rotulo: "mais duros" },
-  { valor: "brandos", rotulo: "mais brandos" },
+  { valor: "duros", rotulo: "mais duros", ponto: "bg-duro-forte" },
+  { valor: "brandos", rotulo: "mais brandos", ponto: "bg-brando-forte" },
 ];
+
+function classeIndice(v: number | null) {
+  if (v === null || v === 0) return "text-tinta-2";
+  return v > 0 ? "text-duro" : "text-brando";
+}
 
 function fmtNota(n: number) {
   return n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "0";
 }
 
 function classeNota(n: number) {
-  if (n > 0) return "bg-acento-suave text-acento";
-  if (n < 0) return "bg-papel-2 text-tinta-2";
+  if (n > 0) return "bg-duro-suave text-duro";
+  if (n < 0) return "bg-brando-suave text-brando";
   return "bg-papel text-tinta-3 border border-linha";
 }
 
@@ -158,7 +164,7 @@ export function ExplorarAtas({
           </div>
           <p className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <span className="rotulo">índice</span>
-            <span className="num text-xl font-semibold text-acento">{fmtIndice(atual.indice)}</span>
+            <span className={`num text-xl font-semibold ${classeIndice(atual.indice)}`}>{fmtIndice(atual.indice)}</span>
             <span className="text-[0.9375rem] text-tinta-2">{tomRotulo(atual.indice)}</span>
           </p>
           <p className="texto-2 num mt-1">
@@ -175,6 +181,7 @@ export function ExplorarAtas({
                   aria-pressed={filtro === f.valor}
                   onClick={() => setFiltro(f.valor)}
                 >
+                  {f.ponto && <span aria-hidden="true" className={`size-2 shrink-0 rounded-full ${f.ponto}`} />}
                   {f.rotulo}
                   <span className="num opacity-70">{contagem[f.valor]}</span>
                 </button>

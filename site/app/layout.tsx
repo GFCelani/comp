@@ -24,9 +24,9 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Tradutor do Copom",
+  title: "CopomAI",
   description:
-    "O tom das atas do Copom numa régua de −2 a +2, o que mudou entre as atas e o que isso pode significar para a Selic. Sempre com o parágrafo e o trecho exato.",
+    "CopomAI lê as atas do Copom. O tom das atas do Copom numa régua de −2 a +2, o que mudou entre as atas e o que isso pode significar para a Selic. Sempre com o parágrafo e o trecho exato.",
 };
 
 export const viewport: Viewport = {

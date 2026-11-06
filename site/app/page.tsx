@@ -33,6 +33,10 @@ function OrigemTexto({ origem }: { origem?: string | null }) {
   return null;
 }
 
+function corPrevisto(p: string) {
+  return p === "aperto" ? "text-duro" : p === "afrouxamento" ? "text-brando" : "text-tinta";
+}
+
 function maiuscula(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
@@ -89,6 +93,9 @@ export default async function Pagina() {
           : "Até aqui, os dois métodos empatam."
       : null;
 
+  const notas: Record<string, number> = {};
+  for (const a of atas) for (const p of a.paragrafos) notas[`${a.numero}.${p.paragrafo}`] = p.nota;
+
   const anterior = serie.length > 1 ? serie[serie.length - 2] : null;
   const ataRelatorio = pv?.base_ata ?? u.numero;
 
@@ -102,23 +109,23 @@ export default async function Pagina() {
       <Cabecalho />
       <main id="conteudo" className="flex-1">
         {/* 1. Capa */}
-        <section className="envelope pt-10 sm:pt-16 lg:pt-20" aria-labelledby="manchete">
-          <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_380px] items-start">
+        <section className="envelope pt-[104px] sm:pt-[112px] lg:pt-[124px]" aria-labelledby="manchete">
+          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] items-start">
             <div>
               <p className="rotulo num">
                 Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
               </p>
-              <h1 id="manchete" className="titulo-serifa mt-5 text-[2.5rem] leading-[1.06] sm:text-[3.5rem] lg:text-[4.15rem] lg:leading-[1.03] tracking-[-0.025em] max-w-[17ch]">
+              <h1 id="manchete" className="titulo-serifa mt-4 text-[2.25rem] leading-[1.08] sm:text-[2.75rem] lg:text-[clamp(2.6rem,3.5vw,3.25rem)] lg:leading-[1.06] tracking-[-0.025em] max-w-[24ch]">
                 {manchete ?? <>A manchete desta ata está sendo escrita</>}
               </h1>
               {linhaFina ? (
-                <p className="mt-6 text-lg sm:text-[1.3125rem] leading-[1.55] text-tinta-2 max-w-[58ch]">{linhaFina}</p>
+                <p className="mt-5 text-[1.0625rem] sm:text-lg lg:text-[1.1875rem] leading-[1.55] text-tinta-2 max-w-[60ch]">{linhaFina}</p>
               ) : (
-                <p className="mt-6">
+                <p className="mt-5">
                   <Aguardando texto="linha fina aguardando o pipeline" />
                 </p>
               )}
-              <dl className="mt-8 pt-5 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
+              <dl className="mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
                 <div>
                   <dt className="text-tinta-3">Selic após a reunião</dt>
                   <dd className="mt-0.5 font-medium">
@@ -149,23 +156,13 @@ export default async function Pagina() {
 
             {/* Cartão de destaque: dois chamados */}
             <aside className="cartao-destaque overflow-hidden" aria-label="Destaques">
-              <a href="#relatorio" className="group block p-6 sm:p-7 hover:bg-papel-2 transition-colors">
-                <p className="rotulo">Leia o relatório de hoje</p>
-                <p className="titulo-serifa mt-2 text-[1.5rem] leading-[1.2]">
+              <a href="#relatorio" className="group block px-6 py-5 bg-fundo-petroleo hover:bg-[#e4efed] transition-colors">
+                <p className="rotulo text-acento">Leia o relatório de hoje</p>
+                <p className="titulo-serifa mt-1.5 text-[1.3125rem] leading-[1.25]">
                   O que mudou na ata {ataRelatorio}
                   <br />e o que isso pode significar
                 </p>
-                {relatorio && (
-                  <ol className="mt-4 grid gap-1.5 text-sm text-tinta-2">
-                    {relatorio.secoes.map((s, i) => (
-                      <li key={s.id} className="flex gap-3">
-                        <span className="num text-tinta-3 w-4 shrink-0">{i + 1}</span>
-                        <span>{s.titulo}</span>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-acento">
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-acento">
                   ler o relatório
                   <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-y-0.5">
                     <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -173,34 +170,28 @@ export default async function Pagina() {
                 </span>
               </a>
 
-              <div className="border-t border-linha p-6 sm:p-7 bg-papel">
+              <div id="previsao" className="border-t border-linha px-6 py-5">
                 <div className="flex items-baseline justify-between gap-4">
                   <p className="rotulo">Nossa previsão</p>
-                  <p className="text-xs text-tinta-3 num">
-                    {proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}
-                  </p>
+                  <p className="text-xs text-tinta-3 num">{proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}</p>
                 </div>
                 {pv ? (
                   <>
-                    <p className="mt-2 flex items-baseline gap-3 flex-wrap">
-                      <span className="titulo-serifa text-[2.75rem] leading-none text-acento">{maiuscula(previsaoRotulo[pv.previsto])}</span>
-                      <span className="text-tinta-2">da Selic</span>
-                    </p>
-                    <p className="mt-2 text-sm text-tinta-2 num">
-                      Decisão em {proxima?.data ? <strong className="font-medium text-tinta">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
-                    </p>
-                    <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] gap-5 items-start">
+                    <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
                       <div>
-                        <p className="text-xs text-tinta-3">Método</p>
-                        <p className="mt-1 text-[0.8125rem] leading-snug text-tinta-2 num">
-                          Índice de tom da ata {pv.base_ata}: <span className="text-tinta font-medium">{fmtIndice(pv.indice)}</span>. Acima de +0,25 indica alta; abaixo de −0,25, corte; entre os dois, manutenção.
+                        <p className="flex items-baseline gap-2.5 flex-wrap">
+                          <span className={`titulo-serifa text-[2.5rem] leading-none ${corPrevisto(pv.previsto)}`}>{maiuscula(previsaoRotulo[pv.previsto])}</span>
+                          <span className="text-tinta-2">da Selic</span>
+                        </p>
+                        <p className="mt-2 text-sm text-tinta-2 num">
+                          em {proxima?.data ? <strong className="font-medium text-tinta">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
                         </p>
                       </div>
-                      <div className="text-right border-l border-linha pl-5">
+                      <div className="text-right border-l border-linha pl-4">
                         <p className="text-xs text-tinta-3">Acurácia</p>
                         {acertoIndice ? (
                           <>
-                            <p className="mt-1 num text-[1.75rem] leading-none font-medium tracking-tight">{pct(acertoIndice.acuracia)}</p>
+                            <p className="mt-1 num text-[1.625rem] leading-none font-medium tracking-tight">{pct(acertoIndice.acuracia)}</p>
                             <p className="mt-1 text-xs text-tinta-3 num">em {acertoIndice.n} reuniões</p>
                           </>
                         ) : (
@@ -208,13 +199,10 @@ export default async function Pagina() {
                         )}
                       </div>
                     </div>
-                    {acertoIngenua && (
-                      <p className="mt-4 pt-4 border-t border-linha text-xs leading-relaxed text-tinta-2 num">
-                        Repetir a última decisão acertou {pct(acertoIngenua.acuracia)} no mesmo período
-                        {acertoIngenua.previsto ? ` e hoje indica ${previsaoRotulo[acertoIngenua.previsto as keyof typeof previsaoRotulo]}` : ""}.{" "}
-                        <a href="#numeros" className="link">ver os números</a>
-                      </p>
-                    )}
+                    <p className="mt-4 pt-3 border-t border-linha text-[0.8125rem] text-tinta-2 num">
+                      Pelo índice da ata {pv.base_ata} ({fmtIndice(pv.indice)}).{" "}
+                      <a href="#numeros" className="link">ver os números</a>
+                    </p>
                   </>
                 ) : (
                   <p className="mt-3">
@@ -273,7 +261,7 @@ export default async function Pagina() {
                     </h3>
                     <div className="mt-5 grid gap-6 sm:pl-9">
                       {s.paragrafos.map((p, j) => (
-                        <ParagrafoCitado key={j} texto={p.texto} citacoes={p.citacoes} />
+                        <ParagrafoCitado key={j} texto={p.texto} citacoes={p.citacoes} notas={notas} />
                       ))}
                     </div>
                   </section>
@@ -288,7 +276,7 @@ export default async function Pagina() {
         </section>
 
         {/* 3. Dados */}
-        <section id="tom" className="mt-24 sm:mt-32 bg-papel-2 border-y border-linha" aria-labelledby="tom-t">
+        <section id="tom" className="mt-24 sm:mt-32 bg-fundo-petroleo border-y border-[#dbe8e6]" aria-labelledby="tom-t">
           <div className="envelope py-16 sm:py-24">
             <TituloSecao id="tom-t" rotulo="Os dados">
               O tom das atas
@@ -403,10 +391,10 @@ export default async function Pagina() {
                       <div className="flex sm:flex-col gap-2 sm:gap-1.5 items-baseline sm:items-start">
                         <span className="num text-sm font-medium">§ {mu.paragrafo}</span>
                         <span className="text-sm text-tinta-3">{mu.tipo}</span>
-                        <span className={`selo ${mu.efeito === "endureceu" ? "text-acento" : ""}`}>{mu.efeito}</span>
+                        <span className={`selo border-transparent ${mu.efeito === "endureceu" ? "bg-duro-suave text-duro" : "bg-brando-suave text-brando"}`}>{mu.efeito}</span>
                       </div>
                       <div className="min-w-0">
-                        <p className="trecho text-[1.0625rem] leading-relaxed border-l-2 border-acento pl-4 break-words">“{mu.trecho}”</p>
+                        <p className={`trecho text-[1.0625rem] leading-relaxed border-l-2 pl-4 break-words ${mu.efeito === "endureceu" ? "border-duro-forte" : "border-brando-forte"}`}>“{mu.trecho}”</p>
                         <p className="mt-2 text-sm text-tinta-2 leading-relaxed">{mu.explicacao}</p>
                         {revisados.mudancas.has(i) && <span className="selo selo-ok mt-2">revisado pelo time</span>}
                       </div>
@@ -445,7 +433,8 @@ export default async function Pagina() {
         </section>
 
         {/* 5. Ferramentas */}
-        <section id="ferramentas" className="envelope mt-24 sm:mt-32" aria-labelledby="ferramentas-t">
+        <section id="ferramentas" className="mt-24 sm:mt-32 bg-fundo-frio border-y border-[#dfe7f2]" aria-labelledby="ferramentas-t">
+          <div className="envelope py-16 sm:py-24">
           <TituloSecao id="ferramentas-t" rotulo="Ferramentas">
             Leia as atas
             <br />
@@ -470,6 +459,7 @@ export default async function Pagina() {
                 <ExplorarAtas atas={atas} revisadas={[...revisados.notas]} />
               </div>
             </div>
+          </div>
           </div>
         </section>
       </main>

@@ -22,7 +22,7 @@ function TelaCentral({ children }: { children: React.ReactNode }) {
     <main id="conteudo" className="flex flex-1 items-center justify-center bg-papel-2 px-4 py-16">
       <div className="cartao w-full max-w-[380px] p-6 sm:p-8">
         <p className="text-[15px] font-semibold">
-          Tradutor do Copom <span className="font-normal text-tinta-3">· painel</span>
+          CopomAI <span className="font-normal text-tinta-3">· painel</span>
         </p>
         {children}
       </div>

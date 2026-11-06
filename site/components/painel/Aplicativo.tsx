@@ -13,7 +13,7 @@ export function useSecaoAtiva(): IdSecao {
   return useContext(SecaoAtiva);
 }
 
-const NOME = "Tradutor do Copom";
+const NOME = "CopomAI";
 
 function useSair() {
   const router = useRouter();

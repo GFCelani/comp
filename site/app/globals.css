@@ -17,6 +17,18 @@
   --acento: #11646b; /* a única cor de destaque: índice, links, ação principal (6,9:1) */
   --acento-2: #0b4d53; /* hover do acento */
   --acento-suave: #e7f1f1; /* fundo de marca de citação e seleção */
+  /* tom: quente = duro / alta de juros; frio = brando / corte */
+  --duro: #a4501d; /* cobre (cartoes-nfc #A8622F escurecido), 5,6:1 */
+  --duro-forte: #c2621f; /* só em marcas gráficas, nunca em texto pequeno */
+  --duro-suave: #fbeee3;
+  --brando: #2a62b0; /* azul frio (ciano da cardine levado ao azul), 5,9:1 */
+  --brando-forte: #3b7fd9; /* só em marcas gráficas */
+  --brando-suave: #e9f0fb;
+  --apoio: #6b3a24; /* terra (cartoes-nfc), links do rodapé e detalhes, 10:1 */
+  /* fundos suaves para alternar seções e destacar cartões */
+  --fundo-petroleo: #eef5f4; /* leblon #F7F9F9 puxado ao petróleo */
+  --fundo-quente: #fbf6ef; /* cartoes-nfc #FFF6EC mais claro */
+  --fundo-frio: #f0f4fa;
   --ok: #17784a;
   --ok-suave: #e9f5ef;
   --alerta: #9a5b00;
@@ -40,6 +52,16 @@
   --color-acento: var(--acento);
   --color-acento-2: var(--acento-2);
   --color-acento-suave: var(--acento-suave);
+  --color-duro: var(--duro);
+  --color-duro-forte: var(--duro-forte);
+  --color-duro-suave: var(--duro-suave);
+  --color-brando: var(--brando);
+  --color-brando-forte: var(--brando-forte);
+  --color-brando-suave: var(--brando-suave);
+  --color-apoio: var(--apoio);
+  --color-fundo-petroleo: var(--fundo-petroleo);
+  --color-fundo-quente: var(--fundo-quente);
+  --color-fundo-frio: var(--fundo-frio);
   --color-ok: var(--ok);
   --color-ok-suave: var(--ok-suave);
   --color-alerta: var(--alerta);
@@ -244,7 +266,6 @@ h3 {
 
 /* link discreto em tinta (rodapé, navegação) */
 .link-tinta {
-  color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;

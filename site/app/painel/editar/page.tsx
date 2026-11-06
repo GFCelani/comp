@@ -4,7 +4,7 @@ import { PainelPagina } from "@/components/painel/PainelPagina";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Textos · Painel · Tradutor do Copom",
+  title: "Textos · Painel · CopomAI",
   robots: { index: false, follow: false },
 };
 

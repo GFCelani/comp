@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent } from "react";
 import type { Decisao, PontoSerie } from "@/lib/dados";
 import {
@@ -47,6 +47,29 @@ const REUNIOES_NO_CURTO = 16;
 const TIP_W = 212;
 const TIP_H = 104;
 
+/** quente = duro (alta), frio = brando (corte); perto do neutro fica no acento */
+const LIMIAR_COR = 0.25;
+function corPonto(v: number): string {
+  if (v > LIMIAR_COR) return "var(--duro-forte)";
+  if (v < -LIMIAR_COR) return "var(--brando-forte)";
+  return "var(--acento)";
+}
+function corTextoTom(v: number): string {
+  if (v > LIMIAR_COR) return "var(--duro)";
+  if (v < -LIMIAR_COR) return "var(--brando)";
+  return "var(--acento)";
+}
+function classeTextoTom(v: number): string {
+  if (v > 0) return "text-duro";
+  if (v < 0) return "text-brando";
+  return "text-tinta-2";
+}
+const COR_VIRADA: Record<Decisao, string> = {
+  alta: "var(--duro)",
+  corte: "var(--brando)",
+  manutencao: "var(--tinta-2)",
+};
+
 const halo: CSSProperties = {
   paintOrder: "stroke",
   stroke: "var(--papel)",
@@ -54,7 +77,7 @@ const halo: CSSProperties = {
   strokeLinejoin: "round",
 };
 
-type Virada = { i: number; x: number; rotulo: string; esq: number; larg: number; linha: 0 | 1 };
+type Virada = { i: number; x: number; rotulo: string; cor: string; esq: number; larg: number; linha: 0 | 1 };
 
 function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, curto: boolean) {
   const n = dados.length;
@@ -97,16 +120,29 @@ function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, 
   }
 
   // linha do tom: quebra onde não há leitura
+  // e área entre a linha e o zero, um trecho por sequência contínua
+  const y0 = yT(0);
   let caminhoTom = "";
+  let areaTom = "";
   let aberto = false;
+  let ultimoX = 0;
+  const fecharArea = () => {
+    if (aberto) areaTom += `L${ultimoX.toFixed(1)},${y0.toFixed(1)}Z`;
+  };
   dados.forEach((p, i) => {
     if (p.indice === null) {
+      fecharArea();
       aberto = false;
       return;
     }
-    caminhoTom += `${aberto ? "L" : "M"}${xs[i].toFixed(1)},${yT(p.indice).toFixed(1)}`;
+    const px = xs[i].toFixed(1);
+    const py = yT(p.indice).toFixed(1);
+    caminhoTom += `${aberto ? "L" : "M"}${px},${py}`;
+    areaTom += aberto ? `L${px},${py}` : `M${px},${y0.toFixed(1)}L${px},${py}`;
+    ultimoX = xs[i];
     aberto = true;
   });
+  fecharArea();
   let ultimoTom = -1;
   for (let i = n - 1; i >= 0; i--) {
     if (dados[i].indice !== null) {
@@ -126,14 +162,24 @@ function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, 
   let caminhoSelic = `M${xs[0].toFixed(1)},${yS(selics[0]).toFixed(1)}`;
   for (let i = 1; i < n; i++) caminhoSelic += `H${xs[i].toFixed(1)}V${yS(selics[i]).toFixed(1)}`;
   const areaSelic = `${caminhoSelic}V${selicBot}H${xs[0].toFixed(1)}Z`;
+  // degraus de mudança: o salto e o patamar seguinte, quente na alta e frio no corte
+  const degraus: { d: string; cor: string }[] = [];
+  for (let i = 1; i < n; i++) {
+    if (selics[i] === selics[i - 1]) continue;
+    const fim = i + 1 < n ? `H${xs[i + 1].toFixed(1)}` : "";
+    degraus.push({
+      d: `M${xs[i].toFixed(1)},${yS(selics[i - 1]).toFixed(1)}V${yS(selics[i]).toFixed(1)}${fim}`,
+      cor: selics[i] > selics[i - 1] ? "var(--duro-forte)" : "var(--brando-forte)",
+    });
+  }
 
   // viradas de ciclo, calculadas na série inteira (o primeiro ponto visível também tem anterior)
   const deslocamento = serie.length - n;
-  let viradas: { i: number; rotulo: string }[] = [];
+  let viradas: { i: number; rotulo: string; cor: string }[] = [];
   for (let i = 0; i < n; i++) {
     const j = deslocamento + i;
     if (j >= 1 && ehVirada(serie[j - 1].decisao, serie[j].decisao)) {
-      viradas.push({ i, rotulo: ROTULO_VIRADA[serie[j].decisao] });
+      viradas.push({ i, rotulo: ROTULO_VIRADA[serie[j].decisao], cor: COR_VIRADA[serie[j].decisao] });
     }
   }
   // fica com as mais espaçadas
@@ -171,7 +217,7 @@ function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, 
       linha = 1;
     if (linha === null) continue;
     fimLinha[linha] = esq + larg;
-    posicionadas.push({ i: v.i, x, rotulo: v.rotulo, esq, larg, linha });
+    posicionadas.push({ i: v.i, x, rotulo: v.rotulo, cor: v.cor, esq, larg, linha });
   }
 
   // eixo x: poucas datas, sempre a última
@@ -194,7 +240,10 @@ function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, 
     yT,
     yS,
     marcas,
+    y0,
     caminhoTom,
+    areaTom,
+    degraus,
     ultimoTom,
     caminhoSelic,
     areaSelic,
@@ -205,6 +254,9 @@ function montar(dados: PontoSerie[], serie: PontoSerie[], W: number, H: number, 
 
 export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; altura?: number }) {
   const caixa = useRef<HTMLDivElement>(null);
+  const idBase = useId().replace(/:/g, "");
+  const clipAcima = `${idBase}-acima`;
+  const clipAbaixo = `${idBase}-abaixo`;
   const [largura, setLargura] = useState<number | null>(null);
   const [sel, setSel] = useState<number | null>(null); // número da ata selecionada
 
@@ -302,6 +354,19 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
             className="absolute inset-0 block overflow-visible"
             aria-hidden="true"
           >
+            <defs>
+              <clipPath id={clipAcima}>
+                <rect x={0} y={0} width={largura} height={Math.max(0, g.y0)} />
+              </clipPath>
+              <clipPath id={clipAbaixo}>
+                <rect x={0} y={g.y0} width={largura} height={Math.max(0, altura - g.y0)} />
+              </clipPath>
+            </defs>
+
+            {/* área entre o tom e o zero: quente acima, fria abaixo */}
+            <path d={g.areaTom} fill="var(--duro-suave)" fillOpacity={0.85} clipPath={`url(#${clipAcima})`} />
+            <path d={g.areaTom} fill="var(--brando-suave)" fillOpacity={0.85} clipPath={`url(#${clipAbaixo})`} />
+
             {/* grade leve do painel de tom */}
             {g.marcas.map((v) => (
               <g key={`m${v}`}>
@@ -347,10 +412,10 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
             <text x={0} y={g.AH + 12} fontSize={12} fontWeight={500} fill="var(--tinta-2)" style={halo}>
               índice de tom
             </text>
-            <text x={largura} y={g.AH + 12} fontSize={12} textAnchor="end" fill="var(--tinta-3)" style={halo}>
+            <text x={largura} y={g.AH + 12} fontSize={12} textAnchor="end" fill="var(--duro)" style={halo}>
               ↑ mais duro
             </text>
-            <text x={largura} y={g.tomBot + 17} fontSize={12} textAnchor="end" fill="var(--tinta-3)" style={halo}>
+            <text x={largura} y={g.tomBot + 17} fontSize={12} textAnchor="end" fill="var(--brando)" style={halo}>
               ↓ mais brando
             </text>
             <text x={0} y={g.selicTop - 10} fontSize={12} fontWeight={500} fill="var(--tinta-2)" style={halo}>
@@ -366,6 +431,17 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
               strokeWidth={1.5}
               strokeLinejoin="miter"
             />
+            {g.degraus.map((d, k) => (
+              <path
+                key={`dg${k}`}
+                d={d.d}
+                fill="none"
+                stroke={d.cor}
+                strokeWidth={2}
+                strokeLinejoin="miter"
+                strokeLinecap="square"
+              />
+            ))}
             <line
               x1={g.ML}
               x2={largura - g.MR}
@@ -407,7 +483,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
             />
             {dados.map((p, i) =>
               p.indice === null || i === g.ultimoTom ? null : (
-                <circle key={`p${p.ata}`} cx={g.xs[i]} cy={g.yT(p.indice)} r={2.5} fill="var(--acento)" />
+                <circle key={`p${p.ata}`} cx={g.xs[i]} cy={g.yT(p.indice)} r={2.5} fill={corPonto(p.indice)} />
               ),
             )}
             {g.ultimoTom >= 0 && dados[g.ultimoTom].indice !== null && (
@@ -416,7 +492,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
                   cx={g.xs[g.ultimoTom]}
                   cy={g.yT(dados[g.ultimoTom].indice as number)}
                   r={5.5}
-                  fill="var(--acento)"
+                  fill={corPonto(dados[g.ultimoTom].indice as number)}
                   stroke="var(--papel)"
                   strokeWidth={3}
                 />
@@ -425,7 +501,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
                   y={g.yT(dados[g.ultimoTom].indice as number) + 4.5}
                   fontSize={13}
                   fontWeight={600}
-                  fill="var(--acento)"
+                  fill={corTextoTom(dados[g.ultimoTom].indice as number)}
                   className="num"
                   style={halo}
                 >
@@ -468,7 +544,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
                   y={2 + v.linha * 17 + 12}
                   textAnchor="middle"
                   fontSize={12}
-                  fill="var(--tinta-2)"
+                  fill={v.cor}
                 >
                   {v.rotulo}
                 </text>
@@ -493,7 +569,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
                     cx={g.xs[idxSel]}
                     cy={g.yT(pSel.indice)}
                     r={5}
-                    fill="var(--acento)"
+                    fill={corPonto(pSel.indice)}
                     stroke="var(--papel)"
                     strokeWidth={2.5}
                   />
@@ -527,7 +603,7 @@ export function GraficoTomSelic({ serie, altura = 360 }: { serie: PontoSerie[]; 
                   <span className="text-tinta-3">sem leitura</span>
                 ) : (
                   <>
-                    <span className="font-medium text-acento">{fmtIndice(pSel.indice)}</span>{" "}
+                    <span className={`font-medium ${classeTextoTom(pSel.indice)}`}>{fmtIndice(pSel.indice)}</span>{" "}
                     <span className="text-tinta-2">({tomRotulo(pSel.indice)})</span>
                   </>
                 )}
