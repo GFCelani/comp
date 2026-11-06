@@ -1,0 +1,797 @@
+{
+  "regra": {
+    "aperto": "indice > 0.25",
+    "afrouxamento": "indice < -0.25",
+    "manutencao": "entre -0.25 e 0.25"
+  },
+  "fonte_indice": "simples",
+  "gerado_em": "2026-11-06T12:42:01",
+  "n_atas": 45,
+  "periodo": {
+    "inicio": "2021-01-20",
+    "fim": "2026-08-05"
+  },
+  "indice": {
+    "acuracia": 0.4,
+    "acerto_sinal": 0.429,
+    "n_previsoes_direcionais": 42,
+    "matriz_confusao": {
+      "rotulos": [
+        "afrouxamento",
+        "manutencao",
+        "aperto"
+      ],
+      "valores": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          10,
+          14,
+          18
+        ]
+      ]
+    },
+    "atas": [
+      {
+        "ata": 280,
+        "data_reuniao": "2026-08-05",
+        "indice": 0.9,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 279,
+        "data_reuniao": "2026-06-17",
+        "indice": 0.47,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 278,
+        "data_reuniao": "2026-04-29",
+        "indice": 0.5,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 277,
+        "data_reuniao": "2026-03-18",
+        "indice": 0.5,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 276,
+        "data_reuniao": "2026-01-28",
+        "indice": 0.1,
+        "previsto": "manutencao",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 275,
+        "data_reuniao": "2025-12-10",
+        "indice": 1.25,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 274,
+        "data_reuniao": "2025-11-05",
+        "indice": 1.0,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 273,
+        "data_reuniao": "2025-09-17",
+        "indice": 1.21,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 272,
+        "data_reuniao": "2025-07-30",
+        "indice": 1.18,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 271,
+        "data_reuniao": "2025-06-18",
+        "indice": 1.3,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 270,
+        "data_reuniao": "2025-05-07",
+        "indice": 0.93,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.25,
+        "acertou": true
+      },
+      {
+        "ata": 269,
+        "data_reuniao": "2025-03-19",
+        "indice": 1.24,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.5,
+        "acertou": true
+      },
+      {
+        "ata": 268,
+        "data_reuniao": "2025-01-29",
+        "indice": 1.26,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 267,
+        "data_reuniao": "2024-12-11",
+        "indice": 1.29,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 266,
+        "data_reuniao": "2024-11-06",
+        "indice": 1.31,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 265,
+        "data_reuniao": "2024-09-18",
+        "indice": 1.13,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.5,
+        "acertou": true
+      },
+      {
+        "ata": 264,
+        "data_reuniao": "2024-07-31",
+        "indice": 1.11,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.25,
+        "acertou": true
+      },
+      {
+        "ata": 263,
+        "data_reuniao": "2024-06-19",
+        "indice": 1.25,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 262,
+        "data_reuniao": "2024-05-08",
+        "indice": 1.12,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 261,
+        "data_reuniao": "2024-03-20",
+        "indice": 0.78,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.25,
+        "acertou": false
+      },
+      {
+        "ata": 260,
+        "data_reuniao": "2024-01-31",
+        "indice": 0.47,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 259,
+        "data_reuniao": "2023-12-13",
+        "indice": 0.39,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 258,
+        "data_reuniao": "2023-11-01",
+        "indice": 0.46,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 257,
+        "data_reuniao": "2023-09-20",
+        "indice": 0.3,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 256,
+        "data_reuniao": "2023-08-02",
+        "indice": 0.12,
+        "previsto": "manutencao",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 255,
+        "data_reuniao": "2023-06-21",
+        "indice": 0.55,
+        "previsto": "aperto",
+        "realizado": "afrouxamento",
+        "variacao_pp": -0.5,
+        "acertou": false
+      },
+      {
+        "ata": 254,
+        "data_reuniao": "2023-05-03",
+        "indice": 0.45,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 253,
+        "data_reuniao": "2023-03-22",
+        "indice": 0.75,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 252,
+        "data_reuniao": "2023-02-01",
+        "indice": 1.0,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 251,
+        "data_reuniao": "2022-12-07",
+        "indice": 0.82,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 250,
+        "data_reuniao": "2022-10-26",
+        "indice": 0.5,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 249,
+        "data_reuniao": "2022-09-21",
+        "indice": 0.93,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 248,
+        "data_reuniao": "2022-08-03",
+        "indice": 1.0,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
+      {
+        "ata": 247,
+        "data_reuniao": "2022-06-15",
+        "indice": 0.62,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.5,
+        "acertou": true
+      },
+      {
+        "ata": 246,
+        "data_reuniao": "2022-05-04",
+        "indice": 0.62,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.5,
+        "acertou": true
+      },
+      {
+        "ata": 245,
+        "data_reuniao": "2022-03-16",
+        "indice": 1.28,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 244,
+        "data_reuniao": "2022-02-02",
+        "indice": 1.14,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 243,
+        "data_reuniao": "2021-12-08",
+        "indice": 1.0,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.5,
+        "acertou": true
+      },
+      {
+        "ata": 242,
+        "data_reuniao": "2021-10-27",
+        "indice": 1.29,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.5,
+        "acertou": true
+      },
+      {
+        "ata": 241,
+        "data_reuniao": "2021-09-22",
+        "indice": 0.73,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.5,
+        "acertou": true
+      },
+      {
+        "ata": 240,
+        "data_reuniao": "2021-08-04",
+        "indice": 1.25,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 239,
+        "data_reuniao": "2021-06-16",
+        "indice": 0.86,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 1.0,
+        "acertou": true
+      },
+      {
+        "ata": 238,
+        "data_reuniao": "2021-05-05",
+        "indice": 0.9,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.75,
+        "acertou": true
+      },
+      {
+        "ata": 237,
+        "data_reuniao": "2021-03-17",
+        "indice": 1.4,
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "variacao_pp": 0.75,
+        "acertou": true
+      },
+      {
+        "ata": 236,
+        "data_reuniao": "2021-01-20",
+        "indice": 0.23,
+        "previsto": "manutencao",
+        "realizado": "aperto",
+        "variacao_pp": 0.75,
+        "acertou": false
+      }
+    ]
+  },
+  "ingenua": {
+    "acuracia": 0.844,
+    "acerto_sinal": 0.9,
+    "n_previsoes_direcionais": 30,
+    "matriz_confusao": {
+      "rotulos": [
+        "afrouxamento",
+        "manutencao",
+        "aperto"
+      ],
+      "valores": [
+        [
+          10,
+          1,
+          0
+        ],
+        [
+          2,
+          11,
+          2
+        ],
+        [
+          0,
+          2,
+          17
+        ]
+      ]
+    },
+    "atas": [
+      {
+        "ata": 280,
+        "data_reuniao": "2026-08-05",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 279,
+        "data_reuniao": "2026-06-17",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 278,
+        "data_reuniao": "2026-04-29",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 277,
+        "data_reuniao": "2026-03-18",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 276,
+        "data_reuniao": "2026-01-28",
+        "previsto": "manutencao",
+        "realizado": "afrouxamento",
+        "acertou": false
+      },
+      {
+        "ata": 275,
+        "data_reuniao": "2025-12-10",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 274,
+        "data_reuniao": "2025-11-05",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 273,
+        "data_reuniao": "2025-09-17",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 272,
+        "data_reuniao": "2025-07-30",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 271,
+        "data_reuniao": "2025-06-18",
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "acertou": false
+      },
+      {
+        "ata": 270,
+        "data_reuniao": "2025-05-07",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 269,
+        "data_reuniao": "2025-03-19",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 268,
+        "data_reuniao": "2025-01-29",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 267,
+        "data_reuniao": "2024-12-11",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 266,
+        "data_reuniao": "2024-11-06",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 265,
+        "data_reuniao": "2024-09-18",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 264,
+        "data_reuniao": "2024-07-31",
+        "previsto": "manutencao",
+        "realizado": "aperto",
+        "acertou": false
+      },
+      {
+        "ata": 263,
+        "data_reuniao": "2024-06-19",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 262,
+        "data_reuniao": "2024-05-08",
+        "previsto": "afrouxamento",
+        "realizado": "manutencao",
+        "acertou": false
+      },
+      {
+        "ata": 261,
+        "data_reuniao": "2024-03-20",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 260,
+        "data_reuniao": "2024-01-31",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 259,
+        "data_reuniao": "2023-12-13",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 258,
+        "data_reuniao": "2023-11-01",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 257,
+        "data_reuniao": "2023-09-20",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 256,
+        "data_reuniao": "2023-08-02",
+        "previsto": "afrouxamento",
+        "realizado": "afrouxamento",
+        "acertou": true
+      },
+      {
+        "ata": 255,
+        "data_reuniao": "2023-06-21",
+        "previsto": "manutencao",
+        "realizado": "afrouxamento",
+        "acertou": false
+      },
+      {
+        "ata": 254,
+        "data_reuniao": "2023-05-03",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 253,
+        "data_reuniao": "2023-03-22",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 252,
+        "data_reuniao": "2023-02-01",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 251,
+        "data_reuniao": "2022-12-07",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 250,
+        "data_reuniao": "2022-10-26",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 249,
+        "data_reuniao": "2022-09-21",
+        "previsto": "manutencao",
+        "realizado": "manutencao",
+        "acertou": true
+      },
+      {
+        "ata": 248,
+        "data_reuniao": "2022-08-03",
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "acertou": false
+      },
+      {
+        "ata": 247,
+        "data_reuniao": "2022-06-15",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 246,
+        "data_reuniao": "2022-05-04",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 245,
+        "data_reuniao": "2022-03-16",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 244,
+        "data_reuniao": "2022-02-02",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 243,
+        "data_reuniao": "2021-12-08",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 242,
+        "data_reuniao": "2021-10-27",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 241,
+        "data_reuniao": "2021-09-22",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 240,
+        "data_reuniao": "2021-08-04",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 239,
+        "data_reuniao": "2021-06-16",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 238,
+        "data_reuniao": "2021-05-05",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 237,
+        "data_reuniao": "2021-03-17",
+        "previsto": "aperto",
+        "realizado": "aperto",
+        "acertou": true
+      },
+      {
+        "ata": 236,
+        "data_reuniao": "2021-01-20",
+        "previsto": "manutencao",
+        "realizado": "aperto",
+        "acertou": false
+      }
+    ]
+  },
+  "melhor": "ingenua"
+}

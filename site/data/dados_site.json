@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T12:37:05",
+  "gerado_em": "2026-11-06T12:42:26",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T12:37:05",
+  "ultima_verificacao": "2026-11-06T12:42:26",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -16,7 +16,7 @@
     },
     "n_atas": 46,
     "n_paragrafos": 1060,
-    "n_trechos_invalidos": 0,
+    "n_trechos_invalidos": 1,
     "periodo": {
       "inicio": "2021-01-20",
       "fim": "2026-09-16"
@@ -26,7 +26,7 @@
     {
       "ata": 236,
       "data_reuniao": "2021-01-20",
-      "indice": null,
+      "indice": 0.23,
       "selic_apos": 2.0,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -34,7 +34,7 @@
     {
       "ata": 237,
       "data_reuniao": "2021-03-17",
-      "indice": null,
+      "indice": 1.4,
       "selic_apos": 2.75,
       "decisao": "alta",
       "decisao_pp": 0.75
@@ -42,7 +42,7 @@
     {
       "ata": 238,
       "data_reuniao": "2021-05-05",
-      "indice": null,
+      "indice": 0.9,
       "selic_apos": 3.5,
       "decisao": "alta",
       "decisao_pp": 0.75
@@ -50,7 +50,7 @@
     {
       "ata": 239,
       "data_reuniao": "2021-06-16",
-      "indice": null,
+      "indice": 0.86,
       "selic_apos": 4.25,
       "decisao": "alta",
       "decisao_pp": 0.75
@@ -58,7 +58,7 @@
     {
       "ata": 240,
       "data_reuniao": "2021-08-04",
-      "indice": null,
+      "indice": 1.25,
       "selic_apos": 5.25,
       "decisao": "alta",
       "decisao_pp": 1.0
@@ -66,7 +66,7 @@
     {
       "ata": 241,
       "data_reuniao": "2021-09-22",
-      "indice": null,
+      "indice": 0.73,
       "selic_apos": 6.25,
       "decisao": "alta",
       "decisao_pp": 1.0
@@ -74,7 +74,7 @@
     {
       "ata": 242,
       "data_reuniao": "2021-10-27",
-      "indice": null,
+      "indice": 1.29,
       "selic_apos": 7.75,
       "decisao": "alta",
       "decisao_pp": 1.5
@@ -82,7 +82,7 @@
     {
       "ata": 243,
       "data_reuniao": "2021-12-08",
-      "indice": null,
+      "indice": 1.0,
       "selic_apos": 9.25,
       "decisao": "alta",
       "decisao_pp": 1.5
@@ -90,7 +90,7 @@
     {
       "ata": 244,
       "data_reuniao": "2022-02-02",
-      "indice": null,
+      "indice": 1.14,
       "selic_apos": 10.75,
       "decisao": "alta",
       "decisao_pp": 1.5
@@ -98,7 +98,7 @@
     {
       "ata": 245,
       "data_reuniao": "2022-03-16",
-      "indice": null,
+      "indice": 1.28,
       "selic_apos": 11.75,
       "decisao": "alta",
       "decisao_pp": 1.0
@@ -106,7 +106,7 @@
     {
       "ata": 246,
       "data_reuniao": "2022-05-04",
-      "indice": null,
+      "indice": 0.62,
       "selic_apos": 12.75,
       "decisao": "alta",
       "decisao_pp": 1.0
@@ -114,7 +114,7 @@
     {
       "ata": 247,
       "data_reuniao": "2022-06-15",
-      "indice": null,
+      "indice": 0.62,
       "selic_apos": 13.25,
       "decisao": "alta",
       "decisao_pp": 0.5
@@ -122,7 +122,7 @@
     {
       "ata": 248,
       "data_reuniao": "2022-08-03",
-      "indice": null,
+      "indice": 1.0,
       "selic_apos": 13.75,
       "decisao": "alta",
       "decisao_pp": 0.5
@@ -130,7 +130,7 @@
     {
       "ata": 249,
       "data_reuniao": "2022-09-21",
-      "indice": null,
+      "indice": 0.93,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -138,7 +138,7 @@
     {
       "ata": 250,
       "data_reuniao": "2022-10-26",
-      "indice": null,
+      "indice": 0.5,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -146,7 +146,7 @@
     {
       "ata": 251,
       "data_reuniao": "2022-12-07",
-      "indice": null,
+      "indice": 0.82,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -154,7 +154,7 @@
     {
       "ata": 252,
       "data_reuniao": "2023-02-01",
-      "indice": null,
+      "indice": 1.0,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -162,7 +162,7 @@
     {
       "ata": 253,
       "data_reuniao": "2023-03-22",
-      "indice": null,
+      "indice": 0.75,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -170,7 +170,7 @@
     {
       "ata": 254,
       "data_reuniao": "2023-05-03",
-      "indice": null,
+      "indice": 0.45,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -178,7 +178,7 @@
     {
       "ata": 255,
       "data_reuniao": "2023-06-21",
-      "indice": null,
+      "indice": 0.55,
       "selic_apos": 13.75,
       "decisao": "manutencao",
       "decisao_pp": 0.0
@@ -186,7 +186,7 @@
     {
       "ata": 256,
       "data_reuniao": "2023-08-02",
-      "indice": null,
+      "indice": 0.12,
       "selic_apos": 13.25,
       "decisao": "corte",
       "decisao_pp": -0.5
@@ -194,7 +194,7 @@
     {
       "ata": 257,
       "data_reuniao": "2023-09-20",
-      "indice": null,
+      "indice": 0.3,
       "selic_apos": 12.75,
       "decisao": "corte",
       "decisao_pp": -0.5
@@ -202,7 +202,7 @@
     {
       "ata": 258,
       "data_reuniao": "2023-11-01",
-      "indice": null,
+      "indice": 0.46,
       "selic_apos": 12.25,
       "decisao": "corte",
       "decisao_pp": -0.5
@@ -210,7 +210,7 @@
     {
       "ata": 259,
       "data_reuniao": "2023-12-13",
-      "indice": null,
+      "indice": 0.39,
       "selic_apos": 11.75,
       "decisao": "corte",
       "decisao_pp": -0.5
@@ -425,217 +425,1981 @@
       "numero": 236,
       "data_reuniao": "2021-01-20",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom236-not20210120236.pdf",
-      "indice": null,
+      "indice": 0.23,
       "n_paragrafos": 21,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 13,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": -1,
+          "trecho": "sugere que os estímulos monetários terão longa duração, permitindo um ambiente favorável para economias emergentes"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se em níveis acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "implicam elevação das projeções de inflação para os próximos meses"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "O risco fiscal elevado segue criando uma assimetria altista no balanço de riscos"
+        },
+        {
+          "paragrafo": 11,
+          "nota": -1,
+          "trecho": "podem implicar um cenário doméstico caracterizado por mais gradualismo ou até uma reversão temporária da retomada econômica"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "Como consequência, o Comitê decidiu interromper o forward guidance."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "os riscos fiscais geram um viés de alta nessas projeções, potencialmente justificando trajetória com elevação dos juros anterior à assumida sob esse cenário"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "esses membros julgam que o Copom deveria considerar o início de um processo de normalização parcial, reduzindo o grau \"extraordinário\" dos estímulos monetários"
+        },
+        {
+          "paragrafo": 16,
+          "nota": -1,
+          "trecho": "o Copom julgou apropriado manter, neste momento, o grau extraordinariamente elevado de estímulo monetário"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "podem elevar a taxa de juros estrutural da economia"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": null
+        },
+        {
+          "paragrafo": 20,
+          "nota": -1,
+          "trecho": "o fim do forward guidance não implica mecanicamente uma elevação da taxa de juros"
+        }
+      ]
     },
     {
       "numero": 237,
       "data_reuniao": "2021-03-17",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom237-not20210317237.pdf",
-      "indice": null,
+      "indice": 1.4,
       "n_paragrafos": 23,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 15,
+      "paragrafos": [
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se em níveis acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "Apesar da pressão inflacionária de curto prazo se revelar mais forte e persistente que o esperado"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "o agravamento da pandemia pode atrasar o processo de recuperação econômica, produzindo trajetória de inflação abaixo do esperado"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "O risco fiscal elevado segue criando uma assimetria altista no balanço de riscos"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "a ociosidade da economia como um todo se reduziu mais rapidamente que o previsto"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 2,
+          "trecho": "o cenário atual já não prescreve um grau de estímulo extraordinário e que o Copom deveria iniciar um processo de normalização parcial"
+        },
+        {
+          "paragrafo": 14,
+          "nota": 2,
+          "trecho": "justificando trajetória com elevação inicial dos juros superior à suposta no cenário básico"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 2,
+          "trecho": "Todos esses fatores contribuíram para uma postura mais assertiva na condução da política monetária."
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "um ajuste inicial de 0,75 ponto percentual na taxa Selic seria o mais adequado"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 2,
+          "trecho": "seria adequada a continuação do processo de normalização parcial do estímulo monetário com outro ajuste da mesma magnitude"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto percentual, para 2,75% a.a."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "podem elevar a taxa de juros estrutural da economia"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 1,
+          "trecho": "Os membros do Copom consideram que o cenário atual já não prescreve um grau de estímulo extraordinário."
+        },
+        {
+          "paragrafo": 21,
+          "nota": 2,
+          "trecho": "o Copom decidiu iniciar um processo de normalização parcial, reduzindo o grau extraordinário do estímulo monetário"
+        },
+        {
+          "paragrafo": 22,
+          "nota": 2,
+          "trecho": "o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste da mesma magnitude"
+        }
+      ]
     },
     {
       "numero": 238,
       "data_reuniao": "2021-05-05",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom238-not20210505238.pdf",
-      "indice": null,
+      "indice": 0.9,
       "n_paragrafos": 19,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 10,
+      "paragrafos": [
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se no topo do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "Esse cenário supõe trajetória de juros que se eleva para 5,50% a.a. neste ano e para 6,25% a.a. em 2022."
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "o processo de recuperação econômica dos efeitos da pandemia pode ser mais lento do que o estimado, produzindo trajetória de inflação abaixo do esperado"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "O risco fiscal elevado segue criando uma assimetria altista no balanço de riscos"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "a ociosidade da economia como um todo se reduziu mais rapidamente que o previsto"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "justificando assim uma elevação de juros de 0,75 ponto percentual nesta reunião"
+        },
+        {
+          "paragrafo": 14,
+          "nota": 2,
+          "trecho": "na próxima reunião seria adequad o outro ajuste da mesma magnitude, caso não haja mudança nos condicionantes de inflação"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto percentual, para 3,50% a.a."
+        },
+        {
+          "paragrafo": 17,
+          "nota": -1,
+          "trecho": "com a manutenção de algum estímulo monetário ao longo do processo de recuperação econômica"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste da mesma magnitude"
+        }
+      ]
     },
     {
       "numero": 239,
       "data_reuniao": "2021-06-16",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom239-not20210616239.pdf",
-      "indice": null,
+      "indice": 0.86,
       "n_paragrafos": 21,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 14,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": -1,
+          "trecho": "a comunicação dos principais bancos centrais sugere que os estímulos monetários terão longa duração."
+        },
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "os indicadores recentes continuam mostrando evolução mais positiva do que o esperado, implicando revisões relevantes nas projeções de crescimento."
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A persistência da pressão inflacionária revela-se maior que o esperado, sobretudo entre os bens industriais."
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "produziria trajetória de inflação abaixo do cenário básico."
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "o risco fiscal elevado segue criando uma assimetria altista no balanço de riscos"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "o segundo semestre do ano deve mostrar uma retomada robusta da atividade"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "a ociosidade da economia como um todo se reduziu mais rapidamente que o previsto"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "justificando assim uma trajetória para a política monetária menos estimulativa do que a utilizada no cenário básico."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções em torno da meta de inflação no horizonte relevante."
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "destacando a possibilidade de ajuste mais tempestivo na próxima reunião."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto percentual, para 4,25% a.a."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "Esse ajuste é necessário para mitigar a disseminação dos atuais choques temporários sobre a inflação."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "o Comitê antevê a continuação do processo de normalização monetária com outro ajuste da mesma magnitude."
+        }
+      ]
     },
     {
       "numero": 240,
       "data_reuniao": "2021-08-04",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom240-not20210804240.pdf",
-      "indice": null,
+      "indice": 1.25,
       "n_paragrafos": 21,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 12,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "ainda há risco relevante de aumento da inflação nas economias centrais"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor continua se revelando persistente."
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "produziria trajetória de inflação abaixo do cenário básico"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "o risco fiscal elevado segue criando uma assimetria altista no balanço de riscos"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "justificando assim uma trajetória para a política monetária mais contracionista do que a utilizada no cenário básico."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 2,
+          "trecho": "são necessárias elevações de juros subsequentes, sem interrupção, até patamar acima do neutro"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "deveria, mais uma vez, reforçar seu co mpromisso inequívoco na persecução das metas de inflação"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 2,
+          "trecho": "um ajuste mais tempestivo da política monetária é a estratégia mais apropriada, neste momento"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "elevar a taxa básica de juros em 1,00 ponto percentual, para 5,25% a.a."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 2,
+          "trecho": "ser apropriado um ciclo de elevação da taxa de juros para patamar acima do neutro."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "o Comitê antevê outro a juste da mesma magnitude."
+        }
+      ]
     },
     {
       "numero": 241,
       "data_reuniao": "2021-09-22",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom241-not20210922241.pdf",
-      "indice": null,
+      "indice": 0.73,
       "n_paragrafos": 19,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 11,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "continua mostrando evolução positiva e não enseja mudança relevante para o cenário prospectivo"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada."
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "uma possível reversão, ainda que parcial, do aumento recente nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo do cenário básico."
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "o risco fiscal elevado segue criando uma assimetria altista no balanço de riscos, ou seja, com trajetórias para a inflação acima do projetado"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "justificando assim uma trajetória para a política monetária mais contracionista do que a utilizada no cenário básico."
+        },
+        {
+          "paragrafo": 14,
+          "nota": -1,
+          "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista e garantir a convergência da inflação para a meta em 2022"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "aumento da magnitude do ciclo de ajuste da política monetária para patamar significativamente contracionista é a estratégia mais apropriada"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,00 ponto percentual, para 6,25% a.a."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "o cenário básico e o balanço de riscos do Copom indicam ser apropriado que o ciclo de aperto monetário avance no território contracionista."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitud e."
+        }
+      ]
     },
     {
       "numero": 242,
       "data_reuniao": "2021-10-27",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom242-not20211027242.pdf",
-      "indice": null,
+      "indice": 1.29,
       "n_paragrafos": 19,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 14,
+      "paragrafos": [
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada e tem se mostrado mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "Esse cenário supõe trajetória de juros que se eleva para 8,75% a.a. neste ano e para 9,75% a.a. durante 2022"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "produziria trajetória de inflação abaixo do cenário básico."
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "podem elevar os prêmios de risco do país."
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "elevaram o risco de desancoragem das expectativas de inflação, aumentando a assimetria altista no balanço de riscos."
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas."
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "podem elevar a taxa de juros estrutural da economia."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 2,
+          "trecho": "o Comitê concluiu que o grau apropriado de aperto monetário é s ignificativamente mais contracionista do que o utilizado no cenário básico."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 2,
+          "trecho": "motivando o Copom a escolher uma trajetória de elevação de juros compatível com a convergência da inflação para a meta ainda em 2022."
+        },
+        {
+          "paragrafo": 15,
+          "nota": 2,
+          "trecho": "O Comitê avaliou, inclusive, cenários com ritmos de ajuste maiores do que 1,50 ponto percentual."
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 7,75% a.a."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 2,
+          "trecho": "indicam ser apropriado que o ciclo de aperto monetário avance ainda mais no território contracionista."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude."
+        }
+      ]
     },
     {
       "numero": 243,
       "data_reuniao": "2021-12-08",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom243-not20211208243.pdf",
-      "indice": null,
+      "indice": 1.0,
       "n_paragrafos": 19,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 13,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "Alguns bancos centrais das principais economias expressaram claramente a necessidade de cautela frente à maior persistência da inflaçã o"
+        },
+        {
+          "paragrafo": 2,
+          "nota": -1,
+          "trecho": "Indicadores de mais alta frequência indicam recuo da atividade econômica, difundido entre vários setores, em setembro e possivelmente em outubro."
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, e tem se mostrado mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "produziria trajetória de inflação abaixo do cenário básico."
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "podem elevar os prêmios de risco do país."
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "questionamentos em relação ao arcabouço fiscal elevam o risco de desancoragem das expectativas de inflação, mantendo a assimetria altista no balanço de riscos."
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 2,
+          "trecho": "o Copom concluiu que o ciclo de aperto monetário deverá ser mais contracionista do que o utilizado no cenário básico por todo o horizonte relevante."
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "o ritmo de ajuste de 1,50 ponto percentual, neste momento, é adequado"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 9,25% a.a."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 2,
+          "trecho": "é apropriado que o ciclo de aperto monetário avance significativamente em território contracionista."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude."
+        }
+      ]
     },
     {
       "numero": 244,
       "data_reuniao": "2022-02-02",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom244-not20220202244.pdf",
-      "indice": null,
+      "indice": 1.14,
       "n_paragrafos": 21,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 14,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "A maior persistência inflacionária aumenta o risco de um aperto monetário mais célere nos EUA, tornando as condições financeiras mais desafiadoras para economias emergentes."
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, e segue se mostrando mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 9,
+          "nota": -1,
+          "trecho": "uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo do cenário de referência."
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "políticas fiscais que impliquem impulso adicional da demanda agregada ou piorem a trajetória fiscal futura podem impactar negativamente preços de ativos importantes"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "a incerteza em relação ao arcabouço fiscal segue mantendo elevado o risco de desancoragem das expectativas de inflação"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "as projeções de inflação estão acima do limite superior do intervalo de tolerância da meta para 2022 e ao redor da meta para 2023."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 2,
+          "trecho": "o risco de desancoragem das expectativas para prazos mais longos, derivado dos desenvolvimentos no cenário fiscal"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "os cenários considerados, consistentes com a convergência da inflação para suas metas, pressupunham trajetória da taxa de juros superior"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "é a estratégia mais adequada para atingir aperto monetário suficiente e garantir a convergência da inflação ao longo do horizonte relevante"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 10,75% a.a."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 2,
+          "trecho": "é apropriado que o ciclo de aperto monetário avance significativamente em território contracionista"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 1,
+          "trecho": "o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros."
+        }
+      ]
     },
     {
       "numero": 245,
       "data_reuniao": "2022-03-16",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom245-not20220316245.pdf",
-      "indice": null,
+      "indice": 1.28,
       "n_paragrafos": 25,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 18,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "o choque de oferta decorrente do conflito tem o potencial de exacerbar as pressões inflacionárias que já vinham se acumulando"
+        },
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "esses desenvolvimentos podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas na produção global de bens"
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, e mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação."
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "produziria trajetória de inflação abaixo dos seus cenários"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "podem impactar negativamente preços de ativos importantes e elevar os prêmios de risco do país"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "O Comitê segue considerando uma assimetria altista no balanço de riscos."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "resulta em elevação dos prêmios de risco e eleva o risco de desancoragem das expectativas de inflação"
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "O Comitê considerou que a boa prática recomenda que a política monetária reaja aos impactos secundários desse tipo de choque"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "as projeções de inflação estão acima do limite superior do intervalo de tolerância da meta para 2022 e ao redor da meta para 2023"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "o Copom considerou que, neste momento, um ciclo de aperto monetário semelhante ao utilizado nos seus cenários é o mais adequado"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o Comitê avalia que este ciclo deverá ser ainda mais contracionista"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 2,
+          "trecho": "o Comitê optou por uma trajetória de juros mais tempestiva do que a embutida em seus cenários"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "um novo ajuste de 1, 00 ponto percentual, seguido de ajuste adicional de mesma magnitude, é a estratégia mais adequada"
+        },
+        {
+          "paragrafo": 21,
+          "nota": 2,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,00 ponto percentual, para 11,75% a.a."
+        },
+        {
+          "paragrafo": 22,
+          "nota": 2,
+          "trecho": "é apropriado que o ciclo de aperto monetário continue avançando significativamente em território ainda mais contracionista"
+        },
+        {
+          "paragrafo": 23,
+          "nota": 2,
+          "trecho": "O Comitê enfatiza que irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação"
+        },
+        {
+          "paragrafo": 24,
+          "nota": 2,
+          "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude."
+        }
+      ]
     },
     {
       "numero": 246,
       "data_reuniao": "2022-05-04",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom246-not20220504246.pdf",
-      "indice": null,
+      "indice": 0.62,
       "n_paragrafos": 20,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 13,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas na produção global de bens"
+        },
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "Bancos centrais de países desenvolvidos e emergentes têm adotado uma postura mais contracionista em reação ao avanço da inflação"
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, se mostrando mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "Alguns membros enfatizaram que a inflação corrente alta tem contaminado as expectativas de maior prazo além do esperado."
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "as pressões inflacionárias globais se intensificaram"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "O Comitê avalia que há possibilidade de reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local."
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "aumenta o risco de desancoragem das expectativas de inflação"
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "o aperto das condições financeiras cria um risco de desaceleração mais forte que o antecipado nos trimestres à frente"
+        },
+        {
+          "paragrafo": 13,
+          "nota": -1,
+          "trecho": "o ciclo de aperto monetário corrente foi bastante intenso e tempestivo e que, devido às defasagens de política monetária"
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "ocorreu deterioração marginal tanto na dinâmica inflacionária de curto prazo quanto em suas projeções mais longas"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "Concluiu-se que um novo ajuste de 1,00 ponto percentual era apropriado."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "elevar a taxa básica de juros em 1,00 ponto percentual, para 12,75% a.a."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o ciclo de aperto monetário continue avançando significativamente em território ainda mais contracionista"
+        }
+      ]
     },
     {
       "numero": 247,
       "data_reuniao": "2022-06-15",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom247-not20220615247.pdf",
-      "indice": null,
+      "indice": 0.62,
       "n_paragrafos": 22,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 16,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "Na visão do Comitê, esses desenvolvimentos podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas na produção global de bens."
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "indica um crescimento acima do que era esperado pelo Comitê"
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, se mostrando mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "trazem um risco adicional para as pressões inflacionárias globais"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "O Comitê já antecipa uma desaceleração da atividade global nos próximos trimestres"
+        },
+        {
+          "paragrafo": 9,
+          "nota": -1,
+          "trecho": "o Comitê avalia que há possibilidade de reversão, ainda que parcial, d o aumento dos preços de commodities internacionais em moeda local"
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "podem trazer um risco de alta para o cenário inflacionário e para as expectativas de inflação"
+        },
+        {
+          "paragrafo": 11,
+          "nota": -1,
+          "trecho": "O Comitê avalia que a atividade deve desacelerar nos próximos trimestres quando os impactos defasados da política monetária se fizerem mais presentes."
+        },
+        {
+          "paragrafo": 14,
+          "nota": -1,
+          "trecho": "o ciclo de aperto monetário corrente foi bastante intenso e tempestivo"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "o Comitê notou que ocorreu deterioração tanto na dinâmica inflacionária de curto prazo quanto em suas projeções mais longas"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "manutenção da taxa de juros em território significativamente contracionista por um período mais prolongado que o utilizado no cenário de referência"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "Concluiu-se que um novo ajuste de 0,50 ponto percentual era apropriado"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "O Comitê optou então, por sinalizar, um novo ajuste de igual ou menor magnitude."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,50 ponto percentual, para 13,25% a.a."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "é apropriado que o ciclo de aperto monetário continue avançando significativamente em terri tório ainda mais contracionista"
+        },
+        {
+          "paragrafo": 21,
+          "nota": 1,
+          "trecho": "o Comitê antevê um novo ajuste, de igual ou menor magnitude."
+        }
+      ]
     },
     {
       "numero": 248,
       "data_reuniao": "2022-08-03",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom248-not20220803248.pdf",
-      "indice": null,
+      "indice": 1.0,
       "n_paragrafos": 24,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 14,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "em um ambiente inflacionário ainda pressionado"
+        },
+        {
+          "paragrafo": 2,
+          "nota": -1,
+          "trecho": "O crescimento de grandes economias tem sido revisado para baixo, tanto para este quanto para o próximo ano"
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "O Comitê segue acompanhando os riscos em torno de uma desaceleração global em ambiente de inflação significativamente pressionada."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "com uma retomada no mercado de trabalho mais forte do que era esperada pelo Comitê"
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, se mostrando mais persistente que o antecipado."
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas"
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "o prolongamento de tais políticas pode elevar os prêmios de risco do país e as expectativas de inflação"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "a dinâmica inflacionária de curto prazo segue desafiadora, com avanço das medidas de inflação subjacente"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "o ciclo de aperto monetário continuasse avançando significativamente em território ainda mais contracionista"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "Concluiu-se que um novo ajuste de 0,50 ponto percentual era apropriado frente a um ambiente de elevada incerteza"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 1,
+          "trecho": "O Comitê optou por sinalizar que avaliará a necessidade de um ajuste residual, de menor magnitude, na próxima reunião"
+        },
+        {
+          "paragrafo": 21,
+          "nota": 1,
+          "trecho": "o Copom decidiu, por unanimidade, elevar a taxa b ásica de juros em 0,50 ponto percentual, para 13,75% a.a."
+        },
+        {
+          "paragrafo": 22,
+          "nota": 2,
+          "trecho": "é apropriado que o ciclo de aperto monetário continue avançando significativamente em território ainda mais contracionista"
+        },
+        {
+          "paragrafo": 23,
+          "nota": 1,
+          "trecho": "O Copom enfatiza que seguirá vigilante e que os passos futuros da política monetária poderão ser ajustados"
+        }
+      ]
     },
     {
       "numero": 249,
       "data_reuniao": "2022-09-21",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom249-not20220921249.pdf",
-      "indice": null,
+      "indice": 0.93,
       "n_paragrafos": 24,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 14,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "o baixo grau de ociosidade do mercado de trabalho nessas economias sugere que pressões inflacionárias no setor de serviços podem demorar a se dissipar"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "em ambiente de inflação significativamente pressionada"
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "a divulgação do PIB apontou ritmo de crescimento acima do esperado no segundo trimestre"
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "mantêm-se acima do intervalo compatível com o cumprimento da meta para a inflação"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "o hiato do produto estar mais estreito do que o utilizado atualmente pelo Copom em seu cenário de referência"
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "grande parte do impacto da política monetária ainda está por ser observada, tanto na atividade econômica quanto na inflação"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "as projeções mais positivas para a atividade econômica, que elevam o risco de pressões mais persistentes"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "podem elevar os prêmios de risco do país e as expectativas de inflação"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "a mediana das expectativas de inflação para 2024 subiu desde a reunião passada do Copom"
+        },
+        {
+          "paragrafo": 18,
+          "nota": -1,
+          "trecho": "ainda não se observa grande parte do efeito contracionista esperado"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "era apropriado manter a taxa de juros no patamar de 13,75% a.a."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "a alta adicional fortaleceria a mensagem de comprometimento do Comitê com sua estratégia"
+        },
+        {
+          "paragrafo": 21,
+          "nota": 2,
+          "trecho": "irá perseverar até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas em torno de suas metas"
+        },
+        {
+          "paragrafo": 23,
+          "nota": 2,
+          "trecho": "não hesitará em retomar o ciclo de a juste caso o processo de desinflação não transcorra como esperado"
+        }
+      ]
     },
     {
       "numero": 250,
       "data_reuniao": "2022-10-26",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom250-not20221026250.pdf",
-      "indice": null,
+      "indice": 0.5,
       "n_paragrafos": 21,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 12,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "sugere que pressões inflacionárias no setor de serviços podem demorar a se dissipar."
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "em ambiente de inflação significativamente pressionada."
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "continua sinalizando crescimento na margem, ainda que e m ritmo mais moderado."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "a inflação ao consumidor continua elevada."
+        },
+        {
+          "paragrafo": 7,
+          "nota": -1,
+          "trecho": "eleva m o risco de uma desaceleração global mais pronunciada."
+        },
+        {
+          "paragrafo": 9,
+          "nota": -1,
+          "trecho": "indicam um ritmo de crescimento mais moderado na margem."
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "O Comitê debateu os impactos, já perceptíveis, da política monetária nos dados de crédito e atividade econômica."
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "podem elevar os prêmios de risco do país e as expectativas de inflação"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "Os riscos seguem elevados, requerendo acompanhamento contínuo e serenidade em sua avaliação."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "a estratégia de manutenção da taxa básica de juros por um período suficientemente prolongado"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 2,
+          "trecho": "não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "irá perseverar até que se consolide não apenas o processo de desinfla ção como também a ancoragem das expectativas em torno de suas metas."
+        }
+      ]
     },
     {
       "numero": 251,
       "data_reuniao": "2022-12-07",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom251-not20221207251.pdf",
-      "indice": null,
+      "indice": 0.82,
       "n_paragrafos": 23,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 11,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "pressões inflacionárias no setor de serviços devem demorar a se dissipar"
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "corrobora o cenário de desaceleração do crescimento esperado pelo Comitê"
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "a inflação ao consumidor continua elevada"
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "o processo de desin flação deve ser não linear e mais lento do que o observado em episódios recentes"
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "cenário global de aperto de condições financeiras mais prolongado"
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "reforçam a expectativa do Comitê de desaceleração do ritmo da atividade econômica, que deve se acentuar nos próximos trimestres"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "demandarão maior atenção e perseverança na condução da política monetária"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "o Comitê notou com preocupação uma elevação na média das expectativas"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "é necessário manter a vigilância, avaliando se a estratégia de manutenção da taxa básica de juros por um período suficientemente prolongado"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado"
+        },
+        {
+          "paragrafo": 22,
+          "nota": 2,
+          "trecho": "irá perseverar até que se consolide não apenas o processo de desinfla ção como também a ancoragem das expectativas em torno de suas metas"
+        }
+      ]
     },
     {
       "numero": 252,
       "data_reuniao": "2023-02-01",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom252-not20230201252.pdf",
-      "indice": null,
+      "indice": 1.0,
       "n_paragrafos": 32,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 18,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "pressões inflacionárias no setor de serviços devem demorar a se dissipar"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "se delineia um período prolongado de juros elevados, o que requer maior cautela na condução das políticas econômicas"
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "segue corroborando o cenário de desaceleração do crescimento esperado pelo Comitê"
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "a inflação ao consumidor continua elevada"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "consoli dam um cenário global de aperto de condições financeiras mais prolongado"
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "é desafiador e possivelmente ocorrerá de forma mais lenta do que usualmente observado"
+        },
+        {
+          "paragrafo": 11,
+          "nota": -1,
+          "trecho": "reforçam a expectativa do Comitê de desaceleração do ritmo da atividade econômica, que deve se acentuar nos próximos trimestres"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 2,
+          "trecho": "O Comitê notou com especial preocupação a deterioração das expectativas de inflação de prazos mais longos."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "é necessário se manter ainda mais atento na condução da política monetária para reancorar as expectativas"
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "sendo a política monetária a variável de ajuste macroeconômico utilizada para mitigar os efeitos porventura inflacionários da política fiscal"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "o Comitê enfatiza que irá atuar para garantir que a inflação convirja para as metas"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "tal conjuntura eleva o custo da desinflação necessária para atingir as metas estabelecidas pelo Conselho Monetário Nacional"
+        },
+        {
+          "paragrafo": 24,
+          "nota": 1,
+          "trecho": "ainda há bastante incerteza sobre como se dará a desaceleração da inflação e tal processo tende a ser não linear."
+        },
+        {
+          "paragrafo": 26,
+          "nota": 2,
+          "trecho": "O Comitê seguirá atento e perseverará até que a ancoragem das expectativas se consolide."
+        },
+        {
+          "paragrafo": 27,
+          "nota": 1,
+          "trecho": "As projeções do Comitê se elevaram tanto em função da elevação de preços administrados quanto de preços livres."
+        },
+        {
+          "paragrafo": 28,
+          "nota": 1,
+          "trecho": "O Comitê reforçou que é necessário manter a vigilância"
+        },
+        {
+          "paragrafo": 29,
+          "nota": 2,
+          "trecho": "O Comitê enfatiza que não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado."
+        },
+        {
+          "paragrafo": 31,
+          "nota": 2,
+          "trecho": "não hesitará em retomar o ciclo de aj uste caso o processo de desinflação não transcorra como esperado"
+        }
+      ]
     },
     {
       "numero": 253,
       "data_reuniao": "2023-03-22",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom253-not20230322253.pdf",
-      "indice": null,
+      "indice": 0.75,
       "n_paragrafos": 28,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 16,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "O ambiente inflacionário segue desafiador e o baixo grau de ociosidade do mercado de trabalho em algumas economias"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "a sinalização majoritária entre as autoridades monetárias é de um período prolongado de juros elevados para combater as pressões"
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "segue corroborando o cenário de desaceleração do crescimento esperado pelo Comitê."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor continua elevada."
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "os impactos de uma elevação da taxa neutra sobre suas projeções crescem no tempo"
+        },
+        {
+          "paragrafo": 9,
+          "nota": 1,
+          "trecho": "políticas parafiscais expansionistas, que têm o potencial de elevar a taxa neutra e diminuir a potência da política monetária"
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "a redução das pressões inflacionária s continua a requerer o compromisso e a determinação dos bancos centrais com o controle da inflação"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "O cenário, por conseguinte, mostra-se ainda mais desafiador para a condução da política monetária"
+        },
+        {
+          "paragrafo": 13,
+          "nota": -1,
+          "trecho": "Os dados de ati vidade no Brasil seguem indicando um ritmo de crescimento mais moderado na margem"
+        },
+        {
+          "paragrafo": 14,
+          "nota": -1,
+          "trecho": "somente em período recente o mercado de trabalho exi biu evidências de desaceleração moderada"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "Tal processo demanda serenidade e paciência na condução da política monetária para garantir a convergência da inflação para suas metas."
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "A deterioração adicional das expectativas de inflação da pesquisa Focus, especialmente em prazos mais longos, foi bastante debatida."
+        },
+        {
+          "paragrafo": 20,
+          "nota": 2,
+          "trecho": "o Copom reafirma que conduzirá a política monetária necessária para o cumprimento das metas."
+        },
+        {
+          "paragrafo": 23,
+          "nota": 1,
+          "trecho": "as expectativas de inflação seguiram um processo de desancoragem"
+        },
+        {
+          "paragrafo": 24,
+          "nota": 1,
+          "trecho": "O Copom enfatizou que a execução da política monetária, neste momento, requer serenidade e paciência"
+        },
+        {
+          "paragrafo": 27,
+          "nota": 2,
+          "trecho": "não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado."
+        }
+      ]
     },
     {
       "numero": 254,
       "data_reuniao": "2023-05-03",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom254-not20230503254.pdf",
-      "indice": null,
+      "indice": 0.45,
       "n_paragrafos": 23,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 11,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "a sinalização majoritária entre as autoridades monetárias é de um período prolongado de juros elevados para combater as pressões inflacionárias"
+        },
+        {
+          "paragrafo": 4,
+          "nota": 1,
+          "trecho": "A inflação ao consumidor continua elevada."
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "sugerem que pressões i nflacionárias devem demorar a se dissipar."
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "demanda serenidade e paciência na condução da política monetária para garantir a convergência da inflação para suas metas."
+        },
+        {
+          "paragrafo": 12,
+          "nota": -1,
+          "trecho": "enfatizou-se o comportamento benigno recente nos preços de atacado, tanto na parte de alimentos quanto na parte de industriais"
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "As expectativas de inflação seguem desancoradas das metas definidas pelo Conselho Monetário Nacional, tendo havido uma pequena deterioração na margem."
+        },
+        {
+          "paragrafo": 15,
+          "nota": -1,
+          "trecho": "a apresentação do arcabouço fiscal reduz iu a incerteza associada a cenários extremos de crescimento da dívida pública."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "Nesse cenário, o Copom reafirma que conduzirá a política monetária necessária para o cumprimento das metas."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "observa-se maior resiliência e menor velocidade da desinflação nas últimas divulgações"
+        },
+        {
+          "paragrafo": 20,
+          "nota": -1,
+          "trecho": "os cenários que poderiam requerer a retomada do ciclo de aperto monetário se tornaram menos prováveis."
+        },
+        {
+          "paragrafo": 22,
+          "nota": 1,
+          "trecho": "não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado."
+        }
+      ]
     },
     {
       "numero": 255,
       "data_reuniao": "2023-06-21",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom255-not20230621255.pdf",
-      "indice": null,
+      "indice": 0.55,
       "n_paragrafos": 23,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 11,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "a sinalização majoritária de um período prolongado de juros elevados para combater as pressões inflacionárias"
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "o Comitê optou por elevar a estimativa de taxa de juros real neutra de 4,0% a.a. para 4,5%"
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "sugerem que pressões inflacionárias devem demorar a se dissipar"
+        },
+        {
+          "paragrafo": 8,
+          "nota": -1,
+          "trecho": "o processo de moderação do crescimento nos setores mais cíclicos da economia se aprofundará"
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "demanda serenidade e paciência na condução da política monetária para garantir a convergência da inflação para suas metas"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "expectativas desancoradas elevam o custo de trazer a inflação de volta à meta"
+        },
+        {
+          "paragrafo": 14,
+          "nota": -1,
+          "trecho": "a apresentação e a tramitação do arcabouço fiscal reduziram substancialmente a incerteza em torno do risco fiscal"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "requer parcimônia e cautela na condução da política monetária"
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "flexibilizações do grau de aperto monetário exigem confiança na trajetória do processo de desinflação"
+        },
+        {
+          "paragrafo": 19,
+          "nota": -1,
+          "trecho": "pode permitir acumular a confiança necessária para iniciar um processo parcimonioso de inflexão na próxima reunião"
+        },
+        {
+          "paragrafo": 22,
+          "nota": 2,
+          "trecho": "a estratégia de manutenção da taxa básica de juros por período prolongado tem se mostrado adequada para assegurar a convergência da inflação"
+        }
+      ]
     },
     {
       "numero": 256,
       "data_reuniao": "2023-08-02",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom256-not20230802256.pdf",
-      "indice": null,
+      "indice": 0.12,
       "n_paragrafos": 23,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 16,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "seja sinalizando um período prolongado de juros elevados para combater as pressões inflacionárias"
+        },
+        {
+          "paragrafo": 3,
+          "nota": -1,
+          "trecho": "A inflação ao consumidor segue com uma dinâmica corrente mais benigna, em particular nos componentes referentes a bens industriais e alimentos."
+        },
+        {
+          "paragrafo": 5,
+          "nota": 1,
+          "trecho": "Permanece, assim, a determinação dos bancos centrais de controlarem a inflação por meio da manutenção do aperto da política monetária por período mais prolongado."
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "Discutiu-se, então, o risco de que o hiato do produto esteja mais apertado do que se supõe no cenário"
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "concluiu-se unanimemente pela necessidade de uma política monetária contracionista e cautelosa, de modo a reforçar a dinâmica desinflacionária."
+        },
+        {
+          "paragrafo": 10,
+          "nota": -1,
+          "trecho": "As expectativas de inflação apresentaram reancoragem parcial desde a reunião anterior do Copom."
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "a reancoragem se mostra ainda parcial e o Comitê debateu novamente os motivos para tal desancoragem."
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "têm o potencial de elevar a taxa de juros neutra da economia, com impactos deletérios sobre a potência da política monetária"
+        },
+        {
+          "paragrafo": 15,
+          "nota": -1,
+          "trecho": "permitiu acumular a confiança necessária para iniciar um ciclo gradual de flexibilização monetária"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "requer uma postura mais conservadora ao longo do ciclo de flexibilização da política monetária"
+        },
+        {
+          "paragrafo": 18,
+          "nota": -1,
+          "trecho": "concord aram unanimemente com a expectativa de corte s de 0,50 ponto percentual nas próximas reuniões"
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "a necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante"
+        },
+        {
+          "paragrafo": 20,
+          "nota": -1,
+          "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0,50 ponto percentual, para 13,25% a.a."
+        },
+        {
+          "paragrafo": 21,
+          "nota": 1,
+          "trecho": "O Comitê reforça a necessidade de perseverar com uma política monetária contracionista"
+        },
+        {
+          "paragrafo": 22,
+          "nota": -1,
+          "trecho": "os membros do Comitê, unanimemente, anteveem redução de mesma magnitude nas próximas reuniões"
+        },
+        {
+          "paragrafo": 23,
+          "nota": -1,
+          "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros do Comitê"
+        }
+      ]
     },
     {
       "numero": 257,
       "data_reuniao": "2023-09-20",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom257-not20230920257.pdf",
-      "indice": null,
+      "indice": 0.3,
       "n_paragrafos": 27,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 20,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "seja dando continuidade a seus ciclos de aperto monetário, seja sinalizando um período prolongado de juros elevados para combater as pressões inflacionárias"
+        },
+        {
+          "paragrafo": 3,
+          "nota": 1,
+          "trecho": "o conjunto de indicadores recentes indica um cenário de maior resiliência da atividade econômica."
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "A inflação ao consumidor segue com uma dinâmica corrente mais benigna, exibindo desaceleração tanto na inflação de serviços quanto nos núcleos de inflação."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "Observa-se um processo de desinflação, que refletiu o arrefecimento das pressões sobre commodities após os impactos iniciais da guerra na Ucrânia"
+        },
+        {
+          "paragrafo": 9,
+          "nota": -1,
+          "trecho": "a credibilidade conquistada, permitindo uma ancoragem sólida das expectativas de inflação"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "julgue nesse momento prematuro reavaliar o crescimento potencial, o Comitê pondera que a persistência de um crescimento resiliente nos próximos trimestres"
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "têm o potencial de elevar a taxa de juros neutra da economia, com impactos deletérios sobre a potência da política monetária"
+        },
+        {
+          "paragrafo": 13,
+          "nota": -1,
+          "trecho": "O Comitê concordou que não há evidência de pressões salariais elevadas nas negociações trabalhistas."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "o Comitê julga que o hiato do produto está mais apertado do que o estimado anteriormente"
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "Em que pese as condições monetárias restritivas, enfatizou-se que já se observa a transmissão do ciclo de política monetária"
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "o Comitê reforça a importância da firme persecução dessas metas."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "concluiu- se unanimemente pela necessidade de uma política monetária contracionista e cautelosa, de modo a reforçar a dinâmica desinflacionária."
+        },
+        {
+          "paragrafo": 18,
+          "nota": 1,
+          "trecho": "o Comitê avalia que a redução das expectativas virá por meio de uma atuação firme"
+        },
+        {
+          "paragrafo": 21,
+          "nota": -1,
+          "trecho": "todos os membros concordaram que era apropriado reduzir a taxa Selic em 0,50 ponto percentual"
+        },
+        {
+          "paragrafo": 22,
+          "nota": 1,
+          "trecho": "O Comitê julga como pouco provável uma intensificação adicional do ritmo de ajustes"
+        },
+        {
+          "paragrafo": 23,
+          "nota": 1,
+          "trecho": "necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante"
+        },
+        {
+          "paragrafo": 24,
+          "nota": -1,
+          "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0,50 ponto percentual, para 12,75% a.a."
+        },
+        {
+          "paragrafo": 25,
+          "nota": 1,
+          "trecho": "O Comitê reforça a necessidade de perseverar com uma política monetária contracionista"
+        },
+        {
+          "paragrafo": 26,
+          "nota": -1,
+          "trecho": "anteveem redução de mesma magnitude nas próximas reuniões"
+        },
+        {
+          "paragrafo": 27,
+          "nota": -1,
+          "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros do Comitê"
+        }
+      ]
     },
     {
       "numero": 258,
       "data_reuniao": "2023-11-01",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom258-not20231101258.pdf",
-      "indice": null,
+      "indice": 0.46,
       "n_paragrafos": 28,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 24,
+      "paragrafos": [
+        {
+          "paragrafo": 1,
+          "nota": 1,
+          "trecho": "O ambiente externo mostra-se adverso, em função da elevação das taxas de juros de prazos mais longos nos Estados Unidos"
+        },
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "Os bancos centrais das principais economias permanecem determinados em promover a convergência das taxas de inflação para suas metas"
+        },
+        {
+          "paragrafo": 3,
+          "nota": -1,
+          "trecho": "o conjunto de indicadores recentes de atividade econômica segue consistente com o cenário de desaceleração esperado pelo Comitê."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "o aperto monetário global pode trazer pressões sobre o câmbio e impactar o preço dos ativos domésticos"
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "Os riscos em torno do cenário global cresceram."
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "o Comitê avalia que é apropriado adotar uma postura de maior cautela diante dos riscos envolvidos."
+        },
+        {
+          "paragrafo": 9,
+          "nota": -1,
+          "trecho": "os dados de atividade divulgados desde a última reunião corroboram o cenário delineado pelo Copom."
+        },
+        {
+          "paragrafo": 10,
+          "nota": 1,
+          "trecho": "têm o potencial de elevar a taxa de juros neutra da economia, com impactos deletérios sobre a potência da política monetária"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "é importante seguir monitorando com bast ante atenção as diferentes variáveis do mercado de trabalho."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 1,
+          "trecho": "cresceu a incerteza em torno da própria meta estabelecida para o resultado fiscal, o que levou a um aumento do prêmio de risco."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "esgotam-s e a l gumas fontes de desinflação que contribuíram para o primeiro estágio da desinflação."
+        },
+        {
+          "paragrafo": 15,
+          "nota": 1,
+          "trecho": "concluiu-se unanimemente pela necessidade de uma política monetária contracionista e cautelosa, de modo a reforçar a dinâmica desinflacionária."
+        },
+        {
+          "paragrafo": 16,
+          "nota": 2,
+          "trecho": "As expectativas de inflação seguem desancoradas e são um fator de preocupação."
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "é mais incerta do que o usual e exige cautela na condução da política monetária."
+        },
+        {
+          "paragrafo": 19,
+          "nota": 1,
+          "trecho": "ainda há um caminho longo a percorrer para a ancoragem das expectativas e o retorno da inflação à meta"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 1,
+          "trecho": "A desancoragem das expectativas de inflação para prazos mais longos se manteve desde a última reunião do Copom."
+        },
+        {
+          "paragrafo": 21,
+          "nota": 1,
+          "trecho": "O Comitê é unânime em avaliar que o aumento da incerteza no cenário global exige cautela."
+        },
+        {
+          "paragrafo": 22,
+          "nota": -1,
+          "trecho": "todos os membros concordaram que era apropri ado reduzir a taxa Selic em 0,50 ponto percentual"
+        },
+        {
+          "paragrafo": 23,
+          "nota": -1,
+          "trecho": "os membros do Comitê concordaram unanimemente com a expectativa de cortes de 0, 50 ponto percentual nas próximas reuniões"
+        },
+        {
+          "paragrafo": 24,
+          "nota": 1,
+          "trecho": "O Comitê percebe a necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante"
+        },
+        {
+          "paragrafo": 25,
+          "nota": -1,
+          "trecho": "o Copom deci di u reduzir a taxa básica de juros em 0,50 ponto perce ntual, para 12,25% a.a."
+        },
+        {
+          "paragrafo": 26,
+          "nota": 1,
+          "trecho": "demanda serenidade e moderação na condução da política monetária."
+        },
+        {
+          "paragrafo": 27,
+          "nota": -1,
+          "trecho": "anteveem redução de mesma magnitude nas próximas reuniões"
+        },
+        {
+          "paragrafo": 28,
+          "nota": -1,
+          "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros do Comitê"
+        }
+      ]
     },
     {
       "numero": 259,
       "data_reuniao": "2023-12-13",
       "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom259-not20231213259.pdf",
-      "indice": null,
+      "indice": 0.39,
       "n_paragrafos": 24,
-      "n_nao_zero": 0,
-      "paragrafos": []
+      "n_nao_zero": 18,
+      "paragrafos": [
+        {
+          "paragrafo": 2,
+          "nota": 1,
+          "trecho": "O Comitê avalia que o cenário segue exigindo cautela por parte de países emergentes."
+        },
+        {
+          "paragrafo": 4,
+          "nota": -1,
+          "trecho": "A inflação ao consumidor segue a trajetória esperada de desinflação, com destaque para a sua composição benigna."
+        },
+        {
+          "paragrafo": 6,
+          "nota": 1,
+          "trecho": "é apropriado adotar uma postura de cautela, principalmente em países emergentes."
+        },
+        {
+          "paragrafo": 7,
+          "nota": 1,
+          "trecho": "poderia provocar, no médio prazo, um excesso de demanda em relação à oferta, com potenciais impactos sobre preços."
+        },
+        {
+          "paragrafo": 8,
+          "nota": 1,
+          "trecho": "têm o potencial de elevar a taxa de juros neutra da economia, com impactos deletérios sobre a potência da política monetária"
+        },
+        {
+          "paragrafo": 11,
+          "nota": 1,
+          "trecho": "o Comitê reafirma a importância da firme persecução dessas metas."
+        },
+        {
+          "paragrafo": 12,
+          "nota": 1,
+          "trecho": "concluiu-se unanimemente pela necessidade de uma política monetária contracionista e cautelosa, de modo a reforçar a dinâmica desinflacionária."
+        },
+        {
+          "paragrafo": 13,
+          "nota": 2,
+          "trecho": "As expectativas de inflação seguem desancoradas e são um fator de preocupação."
+        },
+        {
+          "paragrafo": 14,
+          "nota": 1,
+          "trecho": "segue incerta e exige cautela na condução da política monetária."
+        },
+        {
+          "paragrafo": 16,
+          "nota": 1,
+          "trecho": "ainda há um caminho longo a percorrer para a ancoragem das expectativas e o retorno da inflação à meta"
+        },
+        {
+          "paragrafo": 17,
+          "nota": 1,
+          "trecho": "mantendo-se acima da meta."
+        },
+        {
+          "paragrafo": 18,
+          "nota": -1,
+          "trecho": "todos os membros concordaram que era apropriado reduzir a taxa Selic em 0,50 ponto percentual"
+        },
+        {
+          "paragrafo": 19,
+          "nota": -1,
+          "trecho": "os membros do Comitê concordaram unanimemente com a expectativa de cortes de 0,50 ponto percentual nas próximas reuniões"
+        },
+        {
+          "paragrafo": 20,
+          "nota": 1,
+          "trecho": "O Comitê percebe a necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante"
+        },
+        {
+          "paragrafo": 21,
+          "nota": -1,
+          "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0,50 ponto percentual, para 11,75% a.a."
+        },
+        {
+          "paragrafo": 22,
+          "nota": 1,
+          "trecho": "demanda serenidade e moderação na condução da política monetária."
+        },
+        {
+          "paragrafo": 23,
+          "nota": -1,
+          "trecho": "anteveem redução de mesma magnitude nas próximas reuniões"
+        },
+        {
+          "paragrafo": 24,
+          "nota": -1,
+          "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros do Comitê"
+        }
+      ]
     },
     {
       "numero": 260,
@@ -2460,16 +4224,16 @@
       "manutencao": "entre -0.25 e 0.25"
     },
     "fonte_indice": "simples",
-    "gerado_em": "2026-11-06T12:37:04",
-    "n_atas": 21,
+    "gerado_em": "2026-11-06T12:42:01",
+    "n_atas": 45,
     "periodo": {
-      "inicio": "2024-01-31",
+      "inicio": "2021-01-20",
       "fim": "2026-08-05"
     },
     "indice": {
-      "acuracia": 0.333,
-      "acerto_sinal": 0.35,
-      "n_previsoes_direcionais": 20,
+      "acuracia": 0.4,
+      "acerto_sinal": 0.429,
+      "n_previsoes_direcionais": 42,
       "matriz_confusao": {
         "rotulos": [
           "afrouxamento",
@@ -2483,14 +4247,14 @@
             0
           ],
           [
-            1,
+            2,
             0,
-            0
+            1
           ],
           [
-            6,
-            7,
-            7
+            10,
+            14,
+            18
           ]
         ]
       },
@@ -2683,13 +4447,229 @@
           "realizado": "afrouxamento",
           "variacao_pp": -0.5,
           "acertou": false
+        },
+        {
+          "ata": 259,
+          "data_reuniao": "2023-12-13",
+          "indice": 0.39,
+          "previsto": "aperto",
+          "realizado": "afrouxamento",
+          "variacao_pp": -0.5,
+          "acertou": false
+        },
+        {
+          "ata": 258,
+          "data_reuniao": "2023-11-01",
+          "indice": 0.46,
+          "previsto": "aperto",
+          "realizado": "afrouxamento",
+          "variacao_pp": -0.5,
+          "acertou": false
+        },
+        {
+          "ata": 257,
+          "data_reuniao": "2023-09-20",
+          "indice": 0.3,
+          "previsto": "aperto",
+          "realizado": "afrouxamento",
+          "variacao_pp": -0.5,
+          "acertou": false
+        },
+        {
+          "ata": 256,
+          "data_reuniao": "2023-08-02",
+          "indice": 0.12,
+          "previsto": "manutencao",
+          "realizado": "afrouxamento",
+          "variacao_pp": -0.5,
+          "acertou": false
+        },
+        {
+          "ata": 255,
+          "data_reuniao": "2023-06-21",
+          "indice": 0.55,
+          "previsto": "aperto",
+          "realizado": "afrouxamento",
+          "variacao_pp": -0.5,
+          "acertou": false
+        },
+        {
+          "ata": 254,
+          "data_reuniao": "2023-05-03",
+          "indice": 0.45,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 253,
+          "data_reuniao": "2023-03-22",
+          "indice": 0.75,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 252,
+          "data_reuniao": "2023-02-01",
+          "indice": 1.0,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 251,
+          "data_reuniao": "2022-12-07",
+          "indice": 0.82,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 250,
+          "data_reuniao": "2022-10-26",
+          "indice": 0.5,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 249,
+          "data_reuniao": "2022-09-21",
+          "indice": 0.93,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 248,
+          "data_reuniao": "2022-08-03",
+          "indice": 1.0,
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "variacao_pp": 0.0,
+          "acertou": false
+        },
+        {
+          "ata": 247,
+          "data_reuniao": "2022-06-15",
+          "indice": 0.62,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 0.5,
+          "acertou": true
+        },
+        {
+          "ata": 246,
+          "data_reuniao": "2022-05-04",
+          "indice": 0.62,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 0.5,
+          "acertou": true
+        },
+        {
+          "ata": 245,
+          "data_reuniao": "2022-03-16",
+          "indice": 1.28,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.0,
+          "acertou": true
+        },
+        {
+          "ata": 244,
+          "data_reuniao": "2022-02-02",
+          "indice": 1.14,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.0,
+          "acertou": true
+        },
+        {
+          "ata": 243,
+          "data_reuniao": "2021-12-08",
+          "indice": 1.0,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.5,
+          "acertou": true
+        },
+        {
+          "ata": 242,
+          "data_reuniao": "2021-10-27",
+          "indice": 1.29,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.5,
+          "acertou": true
+        },
+        {
+          "ata": 241,
+          "data_reuniao": "2021-09-22",
+          "indice": 0.73,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.5,
+          "acertou": true
+        },
+        {
+          "ata": 240,
+          "data_reuniao": "2021-08-04",
+          "indice": 1.25,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.0,
+          "acertou": true
+        },
+        {
+          "ata": 239,
+          "data_reuniao": "2021-06-16",
+          "indice": 0.86,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 1.0,
+          "acertou": true
+        },
+        {
+          "ata": 238,
+          "data_reuniao": "2021-05-05",
+          "indice": 0.9,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 0.75,
+          "acertou": true
+        },
+        {
+          "ata": 237,
+          "data_reuniao": "2021-03-17",
+          "indice": 1.4,
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "variacao_pp": 0.75,
+          "acertou": true
+        },
+        {
+          "ata": 236,
+          "data_reuniao": "2021-01-20",
+          "indice": 0.23,
+          "previsto": "manutencao",
+          "realizado": "aperto",
+          "variacao_pp": 0.75,
+          "acertou": false
         }
       ]
     },
     "ingenua": {
-      "acuracia": 0.81,
-      "acerto_sinal": 0.857,
-      "n_previsoes_direcionais": 14,
+      "acuracia": 0.844,
+      "acerto_sinal": 0.9,
+      "n_previsoes_direcionais": 30,
       "matriz_confusao": {
         "rotulos": [
           "afrouxamento",
@@ -2698,19 +4678,19 @@
         ],
         "valores": [
           [
-            6,
+            10,
             1,
             0
           ],
           [
-            1,
-            5,
-            1
+            2,
+            11,
+            2
           ],
           [
             0,
-            1,
-            6
+            2,
+            17
           ]
         ]
       },
@@ -2861,6 +4841,174 @@
           "previsto": "afrouxamento",
           "realizado": "afrouxamento",
           "acertou": true
+        },
+        {
+          "ata": 259,
+          "data_reuniao": "2023-12-13",
+          "previsto": "afrouxamento",
+          "realizado": "afrouxamento",
+          "acertou": true
+        },
+        {
+          "ata": 258,
+          "data_reuniao": "2023-11-01",
+          "previsto": "afrouxamento",
+          "realizado": "afrouxamento",
+          "acertou": true
+        },
+        {
+          "ata": 257,
+          "data_reuniao": "2023-09-20",
+          "previsto": "afrouxamento",
+          "realizado": "afrouxamento",
+          "acertou": true
+        },
+        {
+          "ata": 256,
+          "data_reuniao": "2023-08-02",
+          "previsto": "afrouxamento",
+          "realizado": "afrouxamento",
+          "acertou": true
+        },
+        {
+          "ata": 255,
+          "data_reuniao": "2023-06-21",
+          "previsto": "manutencao",
+          "realizado": "afrouxamento",
+          "acertou": false
+        },
+        {
+          "ata": 254,
+          "data_reuniao": "2023-05-03",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 253,
+          "data_reuniao": "2023-03-22",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 252,
+          "data_reuniao": "2023-02-01",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 251,
+          "data_reuniao": "2022-12-07",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 250,
+          "data_reuniao": "2022-10-26",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 249,
+          "data_reuniao": "2022-09-21",
+          "previsto": "manutencao",
+          "realizado": "manutencao",
+          "acertou": true
+        },
+        {
+          "ata": 248,
+          "data_reuniao": "2022-08-03",
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "acertou": false
+        },
+        {
+          "ata": 247,
+          "data_reuniao": "2022-06-15",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 246,
+          "data_reuniao": "2022-05-04",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 245,
+          "data_reuniao": "2022-03-16",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 244,
+          "data_reuniao": "2022-02-02",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 243,
+          "data_reuniao": "2021-12-08",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 242,
+          "data_reuniao": "2021-10-27",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 241,
+          "data_reuniao": "2021-09-22",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 240,
+          "data_reuniao": "2021-08-04",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 239,
+          "data_reuniao": "2021-06-16",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 238,
+          "data_reuniao": "2021-05-05",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 237,
+          "data_reuniao": "2021-03-17",
+          "previsto": "aperto",
+          "realizado": "aperto",
+          "acertou": true
+        },
+        {
+          "ata": 236,
+          "data_reuniao": "2021-01-20",
+          "previsto": "manutencao",
+          "realizado": "aperto",
+          "acertou": false
         }
       ]
     },
