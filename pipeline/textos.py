@@ -1,31 +1,32 @@
 """
-Gera as 3 principais mudanças da última ata e o impacto provável → saida/textos.json.
+Relatório de mercado sobre a última ata e a previsão para a próxima reunião → saida/textos.json.
 
-    .venv/Scripts/python.exe pipeline/textos.py            # só se a última ata mudou
+    .venv/Scripts/python.exe pipeline/textos.py            # só se a entrada mudou (hash)
     .venv/Scripts/python.exe pipeline/textos.py --forcar
+    .venv/Scripts/python.exe pipeline/textos.py --sem-claude --saida /tmp/t.json   # testa o plano B
 
-Uma chamada `claude -p --model sonnet` com saida/diff_ultimas.json, o índice das 2 últimas atas
-e Selic/Focus com datas. Verificação por código:
-  - o trecho (≤25 palavras) existe literalmente no parágrafo da ata certa
-    (ata atual para "novo"/"alterado", ata anterior para "removido");
-  - todo número da explicação e do impacto existe entre os números fornecidos no prompt.
-Até 2 reescritas; o que ainda falhar é descartado.
-Plano B sem LLM (Claude indisponível, com erro ou reprovado): mudanças escolhidas por código a partir do
-diff e das notas de tom, trecho = primeira oração do parágrafo, explicação e impacto por modelo de texto
-fixo com números dos dados. Campo `origem` ("claude" | "automatico") nas mudanças e no impacto.
+Uma chamada `claude -p --model sonnet` com o diff, os parágrafos das 2 últimas atas (número e nota),
+o índice das últimas 6 atas, banco/previsao.json, o acerto histórico, Selic/Focus com datas e a lista de
+números permitidos. Pede manchete, linha fina e 3 seções (mudou, efeito, observar) com 3 a 5 parágrafos
+no total; toda sentença leva um marcador [[cN]] que aponta para uma citação {ata, paragrafo, trecho}.
+Verificação por código (ver verificar()); até 2 reescritas com os erros. Se ainda falhar, ou se o
+Claude não estiver disponível, PLANO B determinístico por modelos de frase fixos, que passa pela mesma
+verificação. `mudancas` e `impacto` (seção de Evidência) vêm sempre do código.
+Idempotente: guarda `hash_entrada` (atas do diff + previsao.json sem gerado_em); com o mesmo hash não faz
+nada, exceto refazer um plano B causado por Claude indisponível quando o Claude voltar.
 """
 import argparse
+import hashlib
 import json
 import re
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import claude_cli  # noqa: E402
-import modelo_base  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parents[1]
 ARQ_DIFF = RAIZ / "saida" / "diff_ultimas.json"
@@ -33,59 +34,194 @@ ARQ_PARAGRAFOS = RAIZ / "banco" / "paragrafos.jsonl"
 ARQ_ATAS = RAIZ / "banco" / "atas.json"
 ARQ_INDICE = RAIZ / "banco" / "indice.json"
 ARQ_INDICE_MODELO = RAIZ / "banco" / "indice_modelo.json"
+ARQ_PREVISAO = RAIZ / "banco" / "previsao.json"
 ARQ_FOCUS = RAIZ / "data" / "case1_focus" / "focus_anuais.csv"
 ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 MAX_REESCRITAS = 2
+VERSAO = 2          # muda o hash quando o formato/prompt muda
+FUSO = timezone(timedelta(hours=-3))
 
-PROMPT = """Você explica atas do Copom (Banco Central do Brasil) para quem não é economista.
-Compare a ata {atual} com a ata {anterior} usando SOMENTE os dados abaixo.
+NOME_PREV = {"aperto": "alta", "manutencao": "manutenção", "afrouxamento": "corte"}
+PALAVRAS_PREV = {"aperto": ("alta", "elevação", "aperto", "subir", "subida"),
+                 "manutencao": ("manutenção", "manter", "mantida", "estabilidade", "pausa"),
+                 "afrouxamento": ("corte", "redução", "afrouxamento", "cortar", "reduzir")}
+MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro",
+         "novembro", "dezembro"]
+RE_MARCA = re.compile(r"\[\[(c\d+)\]\]")
+RE_NUM = re.compile(r"\d+(?:[.,]\d+)*")
 
-## Índice de tom (−2 muito brando … +2 muito duro; média das notas dos parágrafos, ignorando neutros)
+PROMPT = """Você é analista de política monetária e escreve para profissionais de banco, mercado e investidores,
+que querem saber o que deve acontecer com os juros e por quê. Use SOMENTE os dados abaixo.
+
+## Previsão do nosso sinal para a próxima reunião (banco/previsao.json)
+{previsao}
+
+## Acerto histórico (reuniões de {ini} a {fim})
+{acerto}
+
+## Índice de tom das últimas 6 atas (−2 muito brando … +2 muito duro; média das notas dos parágrafos, ignorando neutros)
 {indices}
 
 ## Dados de mercado (com a data de cada um)
 {mercado}
 
-## Parágrafos novos na ata {atual}
-{novos}
+## O que mudou entre a ata {anterior} e a ata {atual} (diff por parágrafo)
+Novos na ata {atual}: {novos}
+Removidos (existiam na ata {anterior}): {removidos}
+Alterados (parágrafo atual ← anterior): {alterados}
 
-## Parágrafos removidos (existiam na ata {anterior})
-{removidos}
+## Parágrafos da ata {atual} (reunião de {data_atual}) — [ata §parágrafo | nota | seção]
+{par_atual}
 
-## Parágrafos alterados (texto completo na ata {atual}, depois o diff: ~~removido~~ **adicionado**)
-{alterados}
+## Parágrafos da ata {anterior} (reunião de {data_anterior})
+{par_anterior}
+
+## Números permitidos (qualquer outro número é proibido, exceto número de ata, de parágrafo, anos e datas dos dados)
+{permitidos}
 
 ## Tarefa
-1. Escolha as 3 mudanças mais importantes para a política de juros. Para cada uma:
-   - "paragrafo": número do parágrafo (na ata {atual} para novo/alterado; na ata {anterior} para removido);
-   - "trecho": cópia LITERAL e contínua de até 25 palavras desse parágrafo (sem ~~ ou **, sem reticências);
-   - "efeito": "endureceu" ou "suavizou" (o tom da comunicação ficou mais duro ou mais brando);
-   - "explicacao": exatamente 2 frases simples, para leigos;
-   - "tipo": "novo", "alterado" ou "removido".
-2. "impacto": 2 ou 3 frases em linguagem condicional ("pode", "tende a", "se ... então") sobre o efeito
-   provável na Selic, nos juros futuros, no câmbio ou na inflação esperada.
-Regras: não use nenhum número que não esteja nos dados acima (não invente percentuais, datas ou valores).
-Escreva números no padrão brasileiro, com vírgula decimal (ex.: 13,75%). O "tipo" deve corresponder à
-seção de onde o parágrafo veio (novos, removidos ou alterados).
-Não faça recomendação de investimento.
+Escreva um relatório em JSON:
+- "manchete": UMA frase forte que junta a mudança na comunicação do Copom e a previsão do nosso sinal para a
+  próxima reunião, com a data dela no formato DD/MM. Forma (não conteúdo): "Copom suaviza o tom sobre a
+  inflação e o sinal aponta manutenção da Selic em DD/MM". A previsão da manchete TEM de ser a do nosso
+  sinal ("{previsto}"), apresentada como sinal ("o sinal aponta"), não como certeza.
+- "linha_fina": uma frase de apoio (por exemplo, o contraponto da previsão ingênua ou do Focus).
+- "secoes": exatamente 3 seções, nesta ordem, com 3 a 5 parágrafos NO TOTAL (pelo menos 1 por seção):
+  1. id "mudou", titulo "O que mudou na comunicação do Copom": o que mudou e por quê;
+  2. id "efeito", titulo "O efeito provável no mercado": efeito provável sobre Selic, juros futuros, câmbio,
+     inflação esperada e crédito, SEMPRE em linguagem condicional ("pode", "tende a", "sinaliza");
+  3. id "observar", titulo "O que observar até a próxima reunião".
+Regras de citação (verificadas por código):
+- Cada parágrafo é {{"texto": "...", "citacoes": [...]}}.
+- TODA sentença do texto termina com um ou mais marcadores [[cN]] ANTES do ponto final, assim:
+  "O Copom retirou a menção a X [[c1]]." Nenhuma sentença sem marcador.
+- Cada citação: {{"id": "c1", "ata": {atual} ou {anterior}, "paragrafo": N, "trecho": "..."}}; o trecho é cópia
+  LITERAL e contínua de até 25 palavras do parágrafo indicado (sem reticências, sem aspas extras).
+- Todo marcador usado no texto existe em "citacoes" do mesmo parágrafo, e toda citação é usada no texto.
+- Nenhum número que não esteja na lista de números permitidos. Números no padrão brasileiro (13,75%).
+Linguagem de mercado, direta, sem jargão sem explicação. Não é recomendação de investimento: não diga para
+comprar, vender ou investir em nada.
 
-Responda APENAS com um JSON:
-{{"mudancas": [{{"paragrafo": 0, "trecho": "", "efeito": "", "explicacao": "", "tipo": ""}}], "impacto": ""}}"""
+Responda APENAS com o JSON:
+{{"manchete": "", "linha_fina": "", "secoes": [{{"id": "mudou", "titulo": "O que mudou na comunicação do Copom", "paragrafos": [{{"texto": "Frase [[c1]].", "citacoes": [{{"id": "c1", "ata": {atual}, "paragrafo": 1, "trecho": ""}}]}}]}}, {{"id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": []}}, {{"id": "observar", "titulo": "O que observar até a próxima reunião", "paragrafos": []}}]}}"""
 
 PROMPT_REESCRITA = """Sua resposta anterior teve problemas verificados por código:
 {erros}
 
-Corrija só o que falhou, mantendo as regras: trecho = cópia literal e contínua de até 25 palavras do
-parágrafo indicado; nenhum número que não esteja nos dados fornecidos. Responda APENAS com o JSON completo
-no mesmo formato: {{"mudancas": [...], "impacto": "..."}}
+Corrija o que falhou mantendo todas as regras (toda sentença com marcador [[cN]] antes do ponto; trecho =
+cópia literal de até 25 palavras do parágrafo indicado; só números permitidos; manchete com a previsão
+"{previsto}" e a data da próxima reunião). Responda APENAS com o JSON completo.
 
 Sua resposta anterior:
 {anterior}"""
 
-RE_NUM = re.compile(r"\d+(?:[.,]\d+)*")
 
+# ---------------------------------------------------------------- dados
+
+def ler(p: Path):
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+
+
+def br(x: float, casas: int = 2) -> str:
+    return f"{x:.{casas}f}".replace(".", ",")
+
+
+def pct(x: float | None) -> str:
+    return "—" if x is None else f"{round(x * 100)}%"
+
+
+def data_br(iso: str | None, ano: bool = False) -> str | None:
+    if not iso:
+        return None
+    d = date.fromisoformat(iso[:10])
+    return d.strftime("%d/%m/%Y" if ano else "%d/%m")
+
+
+def paragrafos_de(ata: int) -> dict[int, dict]:
+    out = {}
+    with ARQ_PARAGRAFOS.open(encoding="utf-8") as f:
+        for l in f:
+            if l.strip():
+                p = json.loads(l)
+                if p["ata"] == ata:
+                    out[p["paragrafo"]] = p
+    return out
+
+
+def notas_de(ata: int) -> dict[int, int]:
+    out = {}
+    if ARQ_ROTULOS.exists():
+        with ARQ_ROTULOS.open(encoding="utf-8") as f:
+            for l in f:
+                if l.strip():
+                    r = json.loads(l)
+                    if r["ata"] == ata:
+                        out[r["paragrafo"]] = r["nota"]          # última linha vence
+    return out
+
+
+def indices_por_ata() -> dict[int, float | None]:
+    arq = ARQ_INDICE_MODELO if ARQ_INDICE_MODELO.exists() else ARQ_INDICE
+    return {a["ata"]: a.get("indice") for a in ler(arq)["atas"]}
+
+
+def dados_mercado() -> tuple[str, str | None, str | None]:
+    """Texto com Selic/Focus/câmbio/IPCA e datas; devolve (texto, data_selic, data_focus)."""
+    sgs = pd.read_csv(ARQ_SGS)
+    linhas = []
+    sel = sgs[sgs["serie"] == "selic_meta"].sort_values("data").iloc[-1]
+    data_selic = str(sel["data"])
+    linhas.append(f"- Selic meta em {data_selic}: {br(sel['valor'])}% ao ano")
+    ipca = sgs[sgs["serie"] == "ipca_12m"].sort_values("data")
+    if len(ipca):
+        i = ipca.iloc[-1]
+        linhas.append(f"- IPCA acumulado em 12 meses (mês {str(i['data'])[:7]}): {br(i['valor'])}%")
+    dol = sgs[sgs["serie"] == "dolar_ptax_venda"].sort_values("data")
+    if len(dol):
+        d = dol.iloc[-1]
+        linhas.append(f"- Dólar PTAX venda em {d['data']}: R$ {br(d['valor'])}")
+    focus = pd.read_csv(ARQ_FOCUS)
+    focus = focus[focus["baseCalculo"] == 0]
+    data_focus = str(focus["Data"].max())
+    ult = focus[focus["Data"] == data_focus]
+    ano = int(data_focus[:4])
+    nomes = {"Selic": "Selic no fim do ano (% a.a.)", "IPCA": "IPCA no ano (%)", "Câmbio": "Dólar no fim do ano (R$)"}
+    for ind, nome in nomes.items():
+        for ref in (ano, ano + 1):
+            sub = ult[(ult["Indicador"] == ind) & (ult["DataReferencia"].astype(str) == str(ref))]
+            if len(sub):
+                linhas.append(f"- Focus {data_focus}, mediana {nome}, {ref}: {br(float(sub['Mediana'].iloc[0]))}")
+    return "\n".join(linhas), data_selic, data_focus
+
+
+def texto_previsao(prev: dict) -> str:
+    p, u, f = prev.get("proxima_reuniao") or {}, prev.get("ultima_decisao") or {}, prev.get("focus_selic") or {}
+    l = [f"- Sinal: índice de tom {br(prev['indice'])} da ata {prev['base_ata']} (fonte {prev['fonte_indice']}); "
+         f"regra fixa: aperto se índice > 0,25, afrouxamento se < −0,25, senão manutenção.",
+         f"- Previsão do sinal para a próxima reunião: {prev['previsto']} ({NOME_PREV[prev['previsto']]} da Selic).",
+         f"- Próxima reunião: {p.get('numero')} em {p.get('data') or 'data indisponível'} (fonte: {p.get('fonte')})."]
+    if u:
+        l.append(f"- Última decisão conhecida: reunião {u.get('numero')} em {u.get('data')}, {u.get('decisao')} "
+                 f"({br(u.get('decisao_pp') or 0)} p.p.), Selic em {br(u.get('selic') or 0)}% ao ano"
+                 + ("; a ata desta reunião AINDA NÃO FOI PUBLICADA." if not u.get("ata_publicada") else "."))
+    if f:
+        l.append(f"- Focus (coleta de {f.get('data')}): mediana da Selic no fim de {f.get('ano_referencia')} "
+                 f"em {br(f['mediana'])}%.")
+    return "\n".join(l)
+
+
+def texto_acerto(prev: dict) -> str:
+    a = prev.get("acerto") or {}
+    i, g = a.get("indice") or {}, a.get("ingenua") or {}
+    return (f"- Nosso sinal de tom: acurácia {pct(i.get('acuracia'))} em {i.get('n')} reuniões; acerto de direção "
+            f"{pct(i.get('acerto_sinal'))} nas {i.get('n_direcionais')} previsões de alta ou corte.\n"
+            f"- Previsão ingênua (repete a última decisão): acurácia {pct(g.get('acuracia'))}; acerto de direção "
+            f"{pct(g.get('acerto_sinal'))} em {g.get('n_direcionais')} previsões. Hoje ela prevê: {g.get('previsto')}.")
+
+
+# ---------------------------------------------------------------- verificação
 
 def numeros(texto: str) -> set[float]:
     saida = set()
@@ -103,162 +239,195 @@ def numeros(texto: str) -> set[float]:
     return saida
 
 
-def paragrafos_de(ata: int) -> dict[int, str]:
-    out = {}
-    with ARQ_PARAGRAFOS.open(encoding="utf-8") as f:
-        for l in f:
-            if l.strip():
-                p = json.loads(l)
-                if p["ata"] == ata:
-                    out[p["paragrafo"]] = p["texto"]
-    return out
+def permitidos_de(dados: str) -> set[float]:
+    base = numeros(dados)
+    extra = set()
+    for x in base:
+        if abs(x) < 1:                                 # 0,844 → 84%, 84,4%; 0,25 p.p. → 25 pontos-base
+            extra |= {round(x * 100, 1), float(round(x * 100))}
+    return base | extra | {0.0, 1.0, 2.0}                # régua de notas −2..+2
 
 
-def dados_mercado() -> tuple[str, str, str]:
-    """Texto com Selic/Focus/câmbio/IPCA e datas; devolve (texto, data_selic, data_focus)."""
-    sgs = pd.read_csv(ARQ_SGS)
-    linhas = []
-    sel = sgs[sgs["serie"] == "selic_meta"].sort_values("data").iloc[-1]
-    data_selic = str(sel["data"])
-    linhas.append(f"- Selic meta em {data_selic}: {sel['valor']:.2f}% ao ano")
-    ipca = sgs[sgs["serie"] == "ipca_12m"].sort_values("data").iloc[-1]
-    linhas.append(f"- IPCA acumulado em 12 meses (mês {str(ipca['data'])[:7]}): {ipca['valor']:.2f}%")
-    dol = sgs[sgs["serie"] == "dolar_ptax_venda"].sort_values("data").iloc[-1]
-    linhas.append(f"- Dólar PTAX venda em {dol['data']}: R$ {dol['valor']:.2f}")
-
-    focus = pd.read_csv(ARQ_FOCUS)
-    focus = focus[focus["baseCalculo"] == 0]
-    data_focus = str(focus["Data"].max())
-    ult = focus[focus["Data"] == data_focus]
-    ano = int(data_focus[:4])
-    nomes = {"Selic": "Selic no fim do ano (% a.a.)", "IPCA": "IPCA no ano (%)", "Câmbio": "Dólar no fim do ano (R$)"}
-    for ind, nome in nomes.items():
-        for ref in (ano, ano + 1):
-            sub = ult[(ult["Indicador"] == ind) & (ult["DataReferencia"].astype(str) == str(ref))]
-            if len(sub):
-                linhas.append(f"- Focus {data_focus}, mediana {nome}, {ref}: {float(sub['Mediana'].iloc[0]):.2f}")
-    return "\n".join(linhas), data_selic, data_focus
+def limpar_referencias(texto: str, datas_ok: set[tuple[int, int]], erros: list[str]) -> str:
+    """Tira do texto datas dos dados, números de ata/parágrafo/reunião e anos; registra datas desconhecidas."""
+    def data_num(m):
+        d, mes = int(m.group(1)), int(m.group(2))
+        if (d, mes) not in datas_ok:
+            erros.append(f"data {m.group(0)} não está nos dados")
+        return " "
+    def data_ext(m):
+        d, mes = int(m.group(1)), MESES.index(m.group(2).lower()) + 1
+        if (d, mes) not in datas_ok:
+            erros.append(f"data {m.group(0)} não está nos dados")
+        return " "
+    t = RE_MARCA.sub(" ", texto)
+    t = re.sub(r"\b(\d{1,2})/(\d{1,2})(?:/\d{2,4})?\b", data_num, t)
+    t = re.sub(r"\b(\d{1,2})º? de (" + "|".join(MESES) + r")\b", data_ext, t, flags=re.I)
+    t = re.sub(r"(?i)\b(atas?|reuniões|reunião|parágrafos?|§)\s*(n[º°.]\s*)?\d+(\s*(,|e|a)\s*\d+)*", " ", t)
+    t = re.sub(r"§\s*\d+", " ", t)
+    t = re.sub(r"\b(19|20)\d{2}\b", " ", t)
+    return t
 
 
-def indices(atual: int, anterior: int) -> str:
-    arq = ARQ_INDICE_MODELO if ARQ_INDICE_MODELO.exists() else ARQ_INDICE
-    por = {a["ata"]: a for a in json.loads(arq.read_text(encoding="utf-8"))["atas"]}
-    atas = {a["numero"]: a for a in json.loads(ARQ_ATAS.read_text(encoding="utf-8"))}
-    out = []
-    for n in (anterior, atual):
-        i, a = por.get(n, {}), atas.get(n, {})
-        out.append(f"- Ata {n} (reunião {a.get('data_reuniao')}): índice {i.get('indice')}; decisão: "
-                   f"{a.get('decisao')} de {a.get('decisao_pp')} p.p., Selic após a reunião {a.get('selic_apos')}%")
-    return "\n".join(out)
+def sentencas(texto: str) -> list[str]:
+    partes = re.split(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ\"“(])", texto.strip())
+    return [p for p in (x.strip() for x in partes) if p]
 
 
-def verificar(resp: dict, par_atual: dict, par_anterior: dict, permitidos: set[float],
-              ignorar: set[float], tipos: dict) -> tuple[list[dict], str | None, list[str]]:
-    """Devolve (mudanças válidas, impacto válido ou None, lista de erros)."""
-    erros, validas = [], []
+def verificar(resp: dict, ctx: dict) -> list[str]:
+    erros: list[str] = []
+    prev, permitidos, datas_ok = ctx["prev"], ctx["permitidos"], ctx["datas_ok"]
+    pars = {ctx["atual"]: ctx["par_atual"], ctx["anterior"]: ctx["par_anterior"]}
 
-    def nums_ruins(txt: str) -> list[str]:
-        return [str(x) for x in numeros(txt) if x not in permitidos and x not in ignorar]
-
-    for i, m in enumerate((resp.get("mudancas") or [])[:3]):
-        tipo = m.get("tipo")
-        try:
-            n = int(m.get("paragrafo"))
-        except (TypeError, ValueError):
-            n = -1
-        fonte = par_anterior if tipo == "removido" else par_atual
-        prob = []
-        if tipo not in ("novo", "alterado", "removido"):
-            prob.append(f"tipo inválido {tipo!r}")
-        if m.get("efeito") not in ("endureceu", "suavizou"):
-            prob.append(f"efeito inválido {m.get('efeito')!r}")
-        if tipo in tipos and n not in tipos[tipo]:
-            prob.append(f"parágrafo {n} não está entre os {tipo}s do diff")
-        if n not in fonte:
-            prob.append(f"parágrafo {n} não existe na ata certa")
-        elif not claude_cli.trecho_ok(m.get("trecho", ""), fonte[n]):
-            prob.append("trecho não é cópia literal de até 25 palavras do parágrafo")
-        ruins = nums_ruins(m.get("explicacao", ""))
+    def nums(rotulo: str, txt: str):
+        e2: list[str] = []
+        limpo = limpar_referencias(txt, datas_ok, e2)
+        erros.extend(f"{rotulo}: {e}" for e in e2)
+        ruins = sorted(br(x).rstrip("0").rstrip(",") for x in numeros(limpo) if x not in permitidos)
         if ruins:
-            prob.append(f"números fora dos dados na explicação: {ruins}")
-        if prob:
-            erros.append(f"mudança {i + 1} (parágrafo {n}): " + "; ".join(prob))
-        else:
-            validas.append({"paragrafo": n, "trecho": claude_cli.normalizar(m["trecho"]), "efeito": m["efeito"],
-                            "explicacao": m["explicacao"].strip(), "tipo": tipo})
-    impacto = (resp.get("impacto") or "").strip()
-    ruins = nums_ruins(impacto)
-    if not impacto:
-        erros.append("impacto vazio")
-        impacto = None
-    elif ruins:
-        erros.append(f"números fora dos dados no impacto: {ruins}")
-        impacto = None
-    return validas, impacto, erros
+            erros.append(f"{rotulo}: números fora dos dados: {ruins}")
+
+    man, fina = (resp.get("manchete") or "").strip(), (resp.get("linha_fina") or "").strip()
+    if not man:
+        erros.append("manchete vazia")
+    else:
+        if not any(w in man.lower() for w in PALAVRAS_PREV[prev["previsto"]]):
+            erros.append(f"a manchete não menciona a previsão do sinal ({NOME_PREV[prev['previsto']]})")
+        data = (prev.get("proxima_reuniao") or {}).get("data")
+        if data and data_br(data) not in man:
+            erros.append(f"a manchete não traz a data da próxima reunião ({data_br(data)})")
+        nums("manchete", man)
+    if not fina:
+        erros.append("linha_fina vazia")
+    else:
+        nums("linha_fina", fina)
+
+    secoes = resp.get("secoes") or []
+    ids = [s.get("id") for s in secoes]
+    if ids != ["mudou", "efeito", "observar"]:
+        erros.append(f"as seções devem ser mudou, efeito, observar nesta ordem (veio {ids})")
+    total = sum(len(s.get("paragrafos") or []) for s in secoes)
+    if not 3 <= total <= 5:
+        erros.append(f"o relatório deve ter de 3 a 5 parágrafos no total (veio {total})")
+    for s in secoes:
+        if not s.get("paragrafos"):
+            erros.append(f"seção {s.get('id')} sem parágrafos")
+        for k, p in enumerate(s.get("paragrafos") or [], 1):
+            rot = f"{s.get('id')} §{k}"
+            txt = (p.get("texto") or "").strip()
+            if not txt:
+                erros.append(f"{rot}: texto vazio")
+                continue
+            for sent in sentencas(txt):
+                if not RE_MARCA.search(sent):
+                    erros.append(f"{rot}: sentença sem marcador [[cN]]: {sent[:80]!r}")
+            usados = set(RE_MARCA.findall(txt))
+            cits = p.get("citacoes") or []
+            dados_ids = [c.get("id") for c in cits]
+            if len(set(dados_ids)) != len(dados_ids):
+                erros.append(f"{rot}: ids de citação repetidos")
+            if usados - set(dados_ids):
+                erros.append(f"{rot}: marcadores sem citação: {sorted(usados - set(dados_ids))}")
+            if set(dados_ids) - usados:
+                erros.append(f"{rot}: citações não usadas no texto: {sorted(set(dados_ids) - usados)}")
+            for c in cits:
+                try:
+                    a, n = int(c.get("ata")), int(c.get("paragrafo"))
+                except (TypeError, ValueError):
+                    erros.append(f"{rot} {c.get('id')}: ata/parágrafo inválidos")
+                    continue
+                if a not in pars or n not in pars[a]:
+                    erros.append(f"{rot} {c.get('id')}: parágrafo {n} da ata {a} não está nos dados")
+                elif not claude_cli.trecho_ok(c.get("trecho", ""), pars[a][n]["texto"]):
+                    erros.append(f"{rot} {c.get('id')}: trecho não é cópia literal de até 25 palavras do "
+                                 f"parágrafo {n} da ata {a}")
+            nums(rot, txt)
+    return erros
 
 
-def br(x: float, casas: int = 2) -> str:
-    return f"{x:.{casas}f}".replace(".", ",")
+def finalizar(resp: dict) -> dict:
+    """Renumera as citações (c1..cN únicas no relatório) e normaliza trechos."""
+    k, secoes = 0, []
+    for s in resp["secoes"]:
+        ps = []
+        for p in s["paragrafos"]:
+            mapa, cits = {}, []
+            for c in p["citacoes"]:
+                k += 1
+                mapa[c["id"]] = f"c{k}"
+                cits.append({"id": f"c{k}", "ata": int(c["ata"]), "paragrafo": int(c["paragrafo"]),
+                             "trecho": claude_cli.normalizar(c["trecho"])})
+            txt = RE_MARCA.sub(lambda m: f"[[{mapa[m.group(1)]}]]", p["texto"].strip())
+            ps.append({"texto": txt, "citacoes": cits})
+        secoes.append({"id": s["id"], "titulo": s.get("titulo") or "", "paragrafos": ps})
+    return {"manchete": resp["manchete"].strip(), "linha_fina": resp["linha_fina"].strip(), "secoes": secoes}
 
 
-def notas_de(ata: int) -> dict[int, int]:
-    out = {}
-    if ARQ_ROTULOS.exists():
-        with ARQ_ROTULOS.open(encoding="utf-8") as f:
-            for l in f:
-                if l.strip():
-                    r = json.loads(l)
-                    if r["ata"] == ata:
-                        out[r["paragrafo"]] = r["nota"]          # última linha vence
-    return out
+# ---------------------------------------------------------------- plano B
+
+def recorte(texto: str, n: int = 25) -> str:
+    return " ".join(texto.split()[:n])
 
 
-def mudancas_automaticas(diff: dict, atual: int, anterior: int, par_atual: dict, par_anterior: dict) -> list[dict]:
-    """As 3 mudanças com maior |nota| (novos/removidos) ou maior variação de nota (alterados), por código."""
-    na, nb = notas_de(atual), notas_de(anterior)
+def candidatos_mudanca(ctx: dict) -> list[dict]:
+    """Mudanças do diff ordenadas por |nota| (novos/removidos) ou variação de nota (alterados)."""
+    diff, atual, anterior = ctx["diff"], ctx["atual"], ctx["anterior"]
+    na, nb, pa, pb = ctx["notas_atual"], ctx["notas_anterior"], ctx["par_atual"], ctx["par_anterior"]
     cand = []
     for x in diff["novos"]:
         n, v = x["paragrafo"], na.get(x["paragrafo"], 0)
-        if v and n in par_atual:
-            cand.append((abs(v), abs(v), {"paragrafo": n, "tipo": "novo", "efeito": "endureceu" if v > 0 else "suavizou",
-                         "trecho": modelo_base.primeira_oracao(par_atual[n]),
-                         "explicacao": f"Parágrafo novo na ata {atual}, com nota {v:+d} na régua de tom de -2 a +2. "
-                                       f"Por isso, ele deixa a comunicação do Copom mais "
-                                       f"{'dura' if v > 0 else 'branda'}."}))
+        if v and n in pa:
+            cand.append((abs(v), abs(v), {"paragrafo": n, "ata": atual, "tipo": "novo", "nota": v, "nota_antes": None,
+                                          "efeito": "endureceu" if v > 0 else "suavizou"}))
     for x in diff["alterados"]:
         n, m = x["paragrafo_atual"], x["paragrafo_anterior"]
         v, w = na.get(n, 0), nb.get(m, 0)
-        if v != w and n in par_atual:
-            cand.append((abs(v - w), abs(v), {"paragrafo": n, "tipo": "alterado",
-                         "efeito": "endureceu" if v > w else "suavizou",
-                         "trecho": modelo_base.primeira_oracao(par_atual[n]),
-                         "explicacao": f"O parágrafo foi reescrito e a nota de tom passou de {w:+d} na ata {anterior} "
-                                       f"para {v:+d} na ata {atual}. Por isso, a comunicação do Copom ficou mais "
-                                       f"{'dura' if v > w else 'branda'} neste ponto."}))
+        if v != w and n in pa:
+            cand.append((abs(v - w), abs(v), {"paragrafo": n, "ata": atual, "tipo": "alterado", "nota": v,
+                                              "nota_antes": w, "efeito": "endureceu" if v > w else "suavizou"}))
     for x in diff["removidos"]:
         n, w = x["paragrafo"], nb.get(x["paragrafo"], 0)
-        if w and n in par_anterior:
-            cand.append((abs(w), abs(w), {"paragrafo": n, "tipo": "removido", "efeito": "suavizou" if w > 0 else "endureceu",
-                         "trecho": modelo_base.primeira_oracao(par_anterior[n]),
-                         "explicacao": f"Este parágrafo da ata {anterior}, com nota {w:+d}, saiu da ata {atual}. "
-                                       f"Sem ele, a comunicação do Copom fica mais {'branda' if w > 0 else 'dura'}."}))
+        if w and n in pb:
+            cand.append((abs(w), abs(w), {"paragrafo": n, "ata": anterior, "tipo": "removido", "nota": None,
+                                          "nota_antes": w, "efeito": "suavizou" if w > 0 else "endureceu"}))
     cand.sort(key=lambda c: (c[0], c[1]), reverse=True)
-    return [c[2] for c in cand[:3]]
+    out = []
+    for _, _, c in cand[:3]:
+        fonte = pa if c["tipo"] != "removido" else pb
+        c["trecho"] = recorte(fonte[c["paragrafo"]]["texto"])
+        out.append(c)
+    return out
 
 
-def impacto_automatico(atual: int, anterior: int) -> str:
-    arq = ARQ_INDICE_MODELO if ARQ_INDICE_MODELO.exists() else ARQ_INDICE
-    por = {a["ata"]: a.get("indice") for a in json.loads(arq.read_text(encoding="utf-8"))["atas"]}
-    ata = {a["numero"]: a for a in json.loads(ARQ_ATAS.read_text(encoding="utf-8"))}.get(atual, {})
-    i, i0 = por.get(atual), por.get(anterior)
-    frases = []
-    d = None
+def mudancas_evidencia(ctx: dict) -> list[dict]:
+    atual, anterior = ctx["atual"], ctx["anterior"]
+    out = []
+    for c in candidatos_mudanca(ctx):
+        brando = c["efeito"] == "suavizou"
+        if c["tipo"] == "novo":
+            exp = (f"Parágrafo novo na ata {atual}, com nota {c['nota']:+d} na régua de tom de -2 a +2. "
+                   f"Por isso, ele deixa a comunicação do Copom mais {'branda' if brando else 'dura'}.")
+        elif c["tipo"] == "alterado":
+            exp = (f"O parágrafo foi reescrito e a nota de tom passou de {c['nota_antes']:+d} na ata {anterior} "
+                   f"para {c['nota']:+d} na ata {atual}. Por isso, a comunicação do Copom ficou mais "
+                   f"{'branda' if brando else 'dura'} neste ponto.")
+        else:
+            exp = (f"Este parágrafo da ata {anterior}, com nota {c['nota_antes']:+d}, saiu da ata {atual}. "
+                   f"Sem ele, a comunicação do Copom fica mais {'branda' if brando else 'dura'}.")
+        out.append({"paragrafo": c["paragrafo"], "trecho": c["trecho"], "efeito": c["efeito"], "explicacao": exp,
+                    "tipo": c["tipo"]})
+    return out
+
+
+def impacto_evidencia(ctx: dict) -> str:
+    atual, anterior = ctx["atual"], ctx["anterior"]
+    i, i0 = ctx["indices"].get(atual), ctx["indices"].get(anterior)
+    ata = ctx["atas"].get(atual, {})
+    frases, d = [], None
     if i is not None and i0 is not None:
         d = round(i - i0, 2)
         frases.append(f"O índice de tom da ata {atual} ficou em {br(i)}, contra {br(i0)} na ata {anterior}, "
                       f"uma variação de {'+' if d >= 0 else '-'}{br(abs(d))} na escala de -2 a +2.")
-    elif i is not None:
-        frases.append(f"O índice de tom da ata {atual} ficou em {br(i)} na escala de -2 a +2.")
     pp, selic, dec = ata.get("decisao_pp"), ata.get("selic_apos"), ata.get("decisao")
     if dec and selic is not None:
         acao = {"alta": f"subir a Selic em {br(abs(pp or 0))} ponto percentual",
@@ -277,92 +446,202 @@ def impacto_automatico(atual: int, anterior: int) -> str:
     return " ".join(frases)
 
 
-def via_claude(diff: dict, atual: int, anterior: int, par_atual: dict, par_anterior: dict, mercado: str):
-    """Devolve (mudanças válidas, impacto válido ou None, erros, reescritas)."""
-    fmt = lambda xs: "\n\n".join(f"[{x['paragrafo']}] {x['texto']}" for x in xs) or "(nenhum)"
-    alterados = "\n\n".join(f"[{x['paragrafo_atual']}] {par_atual.get(x['paragrafo_atual'], '')}\nDIFF: {x['diff']}"
-                            for x in diff["alterados"]) or "(nenhum)"
-    prompt = PROMPT.format(atual=atual, anterior=anterior, indices=indices(atual, anterior), mercado=mercado,
-                           novos=fmt(diff["novos"]), removidos=fmt(diff["removidos"]), alterados=alterados)
-    permitidos = numeros(prompt)
-    permitidos |= {abs(x) for x in permitidos}
-    ignorar = {float(a) for a in range(2000, 2041)} | {float(atual), float(anterior)}
-    ignorar |= {float(n) for n in par_atual} | {float(n) for n in par_anterior}
-    tipos = {"novo": {x["paragrafo"] for x in diff["novos"]},
-             "removido": {x["paragrafo"] for x in diff["removidos"]},
-             "alterado": {x["paragrafo_atual"] for x in diff["alterados"]}}
-    texto = claude_cli.chamar(prompt)
+def maior_nota(ctx: dict, filtro) -> int | None:
+    pa, na = ctx["par_atual"], ctx["notas_atual"]
+    cand = [(abs(na.get(n, 0)), -n, n) for n, p in pa.items() if filtro(p) and na.get(n, 0)]
+    return max(cand)[2] if cand else None
+
+
+def plano_b(ctx: dict) -> dict:
+    prev, atual, anterior = ctx["prev"], ctx["atual"], ctx["anterior"]
+    i, i0 = ctx["indices"].get(atual), ctx["indices"].get(anterior)
+    d = (i - i0) if i is not None and i0 is not None else 0
+    verbo = "endurece" if d > 0.1 else "suaviza" if d < -0.1 else "mantém"
+    prox = prev.get("proxima_reuniao") or {}
+    quando = f"em {data_br(prox['data'])}" if prox.get("data") else "na próxima reunião"
+    nome = NOME_PREV[prev["previsto"]]
+    manchete = f"Copom {verbo} o tom na ata {atual} e o sinal aponta {nome} da Selic {quando}"
+    ac = prev.get("acerto") or {}
+    g = ac.get("ingenua") or {}
+    u = prev.get("ultima_decisao") or {}
+    fina = (f"O índice de tom ficou em {br(i)} na ata {atual}" + (f", contra {br(i0)} na ata {anterior}" if i0 is not None else "")
+            + f"; a previsão ingênua, que repete a última decisão ({NOME_PREV.get(g.get('previsto'), '—')}), "
+              f"acertou {pct(g.get('acuracia'))} das reuniões no histórico.")
+
+    # mudou
+    cits, frases = [], []
+    for k, c in enumerate(candidatos_mudanca(ctx)[:3], 1):
+        mais = "mais branda" if c["efeito"] == "suavizou" else "mais dura"
+        if c["tipo"] == "novo":
+            f = f"Um trecho novo da ata {atual} deixa a comunicação {mais}, com nota {c['nota']:+d} na régua de -2 a +2 [[c{k}]]."
+        elif c["tipo"] == "alterado":
+            f = (f"Um parágrafo reescrito na ata {atual} passou de nota {c['nota_antes']:+d} para {c['nota']:+d}, "
+                 f"o que torna a comunicação {mais} [[c{k}]].")
+        else:
+            f = (f"Saiu da ata {atual} um trecho da ata {anterior} com nota {c['nota_antes']:+d}, o que torna a "
+                 f"comunicação {mais} [[c{k}]].")
+        frases.append(f)
+        cits.append({"id": f"c{k}", "ata": c["ata"], "paragrafo": c["paragrafo"], "trecho": c["trecho"]})
+    mudou = [{"texto": " ".join(frases), "citacoes": cits}] if frases else []
+
+    # efeito
+    pa = ctx["par_atual"]
+    n_dec = maior_nota(ctx, lambda p: re.search(r"(?i)decis|condução", p.get("secao") or "")) \
+        or maior_nota(ctx, lambda p: True)
+    cond = {"aperto": ("o sinal de tom aponta alta da Selic", "os juros futuros tendem a subir, o real pode ganhar "
+                       "apoio e o crédito tende a ficar mais caro"),
+            "manutencao": ("o sinal de tom aponta manutenção da Selic", "os juros futuros tendem a oscilar pouco, "
+                           "o câmbio pode seguir mais ligado ao cenário externo e o crédito tende a continuar restrito"),
+            "afrouxamento": ("o sinal de tom aponta corte da Selic", "os juros futuros tendem a recuar, o real pode "
+                             "perder parte do diferencial de juros e o crédito tende a ficar menos caro")}[prev["previsto"]]
+    efeito = []
+    if n_dec:
+        efeito = [{"texto": f"Com o índice de tom em {br(i)}, {cond[0]} {quando} [[c1]]. Se o mercado ler a ata nessa "
+                            f"direção, {cond[1]}, com efeito sobre a inflação esperada [[c1]].",
+                   "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_dec, "trecho": recorte(pa[n_dec]["texto"])}]}]
+    # observar
+    n_risco = maior_nota(ctx, lambda p: re.search(r"(?i)risco", (p.get("secao") or "") + " " + p["texto"])) or n_dec
+    observar = []
+    if n_risco:
+        observar = [{"texto": f"Até a próxima reunião, o ponto a observar são os riscos que o Copom destacou na ata "
+                              f"{atual}, que podem confirmar ou mudar o sinal [[c1]].",
+                     "citacoes": [{"id": "c1", "ata": atual, "paragrafo": n_risco,
+                                   "trecho": recorte(pa[n_risco]["texto"])}]}]
+    return {"manchete": manchete, "linha_fina": fina,
+            "secoes": [{"id": "mudou", "titulo": "O que mudou na comunicação do Copom", "paragrafos": mudou},
+                       {"id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": efeito},
+                       {"id": "observar", "titulo": "O que observar até a próxima reunião", "paragrafos": observar}]}
+
+
+# ---------------------------------------------------------------- Claude
+
+def contexto() -> dict:
+    diff = ler(ARQ_DIFF)
+    atual, anterior = diff["ata_atual"], diff["ata_anterior"]
+    prev = ler(ARQ_PREVISAO)
+    if not prev:
+        raise RuntimeError("banco/previsao.json não existe; rode pipeline/previsao.py antes")
+    atas = {a["numero"]: a for a in ler(ARQ_ATAS)}
+    ctx = {"diff": diff, "atual": atual, "anterior": anterior, "prev": prev, "atas": atas,
+           "par_atual": paragrafos_de(atual), "par_anterior": paragrafos_de(anterior),
+           "notas_atual": notas_de(atual), "notas_anterior": notas_de(anterior), "indices": indices_por_ata()}
+    try:
+        ctx["mercado"], ctx["data_selic"], ctx["data_focus"] = dados_mercado()
+    except Exception as e:
+        print(f"  aviso: sem dados de mercado ({e})")
+        ctx["mercado"], ctx["data_selic"], ctx["data_focus"] = "(indisponível)", None, None
+
+    def lista_par(n_ata, pars, notas):
+        return "\n\n".join(f"[{n_ata} §{n} | nota {notas.get(n, 0):+d} | {p.get('secao') or '-'}] {p['texto']}"
+                           for n, p in sorted(pars.items()))
+    ult6 = sorted(a for a in ctx["indices"] if a <= atual)[-6:]
+    indices_txt = "\n".join(f"- Ata {n} (reunião {atas.get(n, {}).get('data_reuniao')}): índice "
+                            f"{br(ctx['indices'][n]) if ctx['indices'][n] is not None else '—'}; decisão: "
+                            f"{atas.get(n, {}).get('decisao')} de {br(atas.get(n, {}).get('decisao_pp') or 0)} p.p., "
+                            f"Selic após {br(atas.get(n, {}).get('selic_apos') or 0)}%" for n in ult6)
+    per = (prev.get("acerto") or {}).get("periodo") or {}
+    campos = dict(previsao=texto_previsao(prev), acerto=texto_acerto(prev), ini=per.get("inicio"), fim=per.get("fim"),
+                  indices=indices_txt, mercado=ctx["mercado"], atual=atual, anterior=anterior,
+                  novos=", ".join(f"§{x['paragrafo']}" for x in diff["novos"]) or "nenhum",
+                  removidos=", ".join(f"§{x['paragrafo']}" for x in diff["removidos"]) or "nenhum",
+                  alterados=", ".join(f"§{x['paragrafo_atual']} ← §{x['paragrafo_anterior']}" for x in diff["alterados"]) or "nenhum",
+                  data_atual=atas.get(atual, {}).get("data_reuniao"), data_anterior=atas.get(anterior, {}).get("data_reuniao"),
+                  par_atual=lista_par(atual, ctx["par_atual"], ctx["notas_atual"]),
+                  par_anterior=lista_par(anterior, ctx["par_anterior"], ctx["notas_anterior"]),
+                  previsto=prev["previsto"])
+    dados = "\n".join(str(v) for k, v in campos.items() if k not in ("atual", "anterior"))
+    ctx["permitidos"] = permitidos_de(dados)
+    datas = set(re.findall(r"\d{4}-\d{2}-\d{2}", dados + json.dumps(prev)))
+    ctx["datas_ok"] = {(int(x[8:10]), int(x[5:7])) for x in datas}
+    lista = sorted(x for x in ctx["permitidos"] if not (1900 <= x <= 2100))
+    campos["permitidos"] = ", ".join(br(x, 4).rstrip("0").rstrip(",") for x in lista)
+    ctx["prompt"] = PROMPT.format(**campos)
+    return ctx
+
+
+def via_claude(ctx: dict):
+    """Devolve (resposta verificada ou None, erros, reescritas)."""
+    texto = claude_cli.chamar(ctx["prompt"])
     reescritas = 0
     while True:
         try:
             resp = claude_cli.extrair_json(texto)
-            validas, impacto, erros = verificar(resp, par_atual, par_anterior, permitidos, ignorar, tipos)
+            erros = verificar(resp, ctx)
         except Exception as e:
-            resp, validas, impacto, erros = {}, [], None, [f"JSON inválido: {e}"]
-        if not erros or reescritas >= MAX_REESCRITAS:
-            break
+            resp, erros = None, [f"JSON inválido: {e}"]
+        if not erros:
+            return resp, [], reescritas
+        if reescritas >= MAX_REESCRITAS:
+            return None, erros, reescritas
         reescritas += 1
         print(f"Reescrita {reescritas}: {erros}", flush=True)
-        texto = claude_cli.chamar(prompt + "\n\n" + PROMPT_REESCRITA.format(erros="\n".join(f"- {e}" for e in erros),
-                                                                              anterior=texto))
-    return validas, impacto, erros, reescritas
+        texto = claude_cli.chamar(ctx["prompt"] + "\n\n" + PROMPT_REESCRITA.format(
+            erros="\n".join(f"- {e}" for e in erros[:30]), previsto=ctx["prev"]["previsto"], anterior=texto))
+
+
+def hash_entrada(atual: int, anterior: int) -> str:
+    prev = {k: v for k, v in (ler(ARQ_PREVISAO) or {}).items() if k != "gerado_em"}
+    s = json.dumps([VERSAO, atual, anterior, prev], sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--forcar", action="store_true")
-    ap.add_argument("--sem-claude", action="store_true", help="gera só a versão automática")
+    ap.add_argument("--sem-claude", action="store_true", help="gera só a versão automática (plano B)")
+    ap.add_argument("--saida", type=Path, default=ARQ_SAIDA)
     args = ap.parse_args()
 
-    diff = json.loads(ARQ_DIFF.read_text(encoding="utf-8"))
+    diff = ler(ARQ_DIFF)
     atual, anterior = diff["ata_atual"], diff["ata_anterior"]
-    if ARQ_SAIDA.exists() and not args.forcar:
-        velho = json.loads(ARQ_SAIDA.read_text(encoding="utf-8"))
-        if velho.get("ata_atual") == atual and velho.get("ata_anterior") == anterior:
-            print(f"Textos já gerados para a ata {atual}; não chama o Claude.")
+    h = hash_entrada(atual, anterior)
+    sem_claude = args.sem_claude or not claude_cli.disponivel()
+    velho = ler(args.saida) or {}
+    if not args.forcar and velho.get("hash_entrada") == h:
+        refazer = velho.get("origem") == "automatico" and velho.get("motivo_automatico") == "indisponivel" \
+            and not sem_claude
+        if not refazer:
+            print(f"Textos já gerados para esta entrada (ata {atual}, hash {h}); não chama o Claude.")
             return 0
+        print("Claude voltou: refaz o relatório que estava no plano B.")
 
-    par_atual, par_anterior = paragrafos_de(atual), paragrafos_de(anterior)
-    try:
-        mercado, data_selic, data_focus = dados_mercado()
-    except Exception as e:
-        print(f"  aviso: sem dados de mercado ({e})")
-        mercado, data_selic, data_focus = "(indisponível)", None, None
-
-    validas, impacto, erros, reescritas = [], None, [], 0
-    if args.sem_claude or not claude_cli.disponivel():
-        erros = ["Claude indisponível (sem CLAUDE_CODE_OAUTH_TOKEN)"]
-        print("Sem Claude: textos automáticos (plano B).")
+    ctx = contexto()
+    resp, erros, reescritas, origem, motivo = None, [], 0, "claude", None
+    if sem_claude:
+        motivo = "indisponivel"
+        print("Sem Claude: relatório automático (plano B).")
     else:
         try:
-            validas, impacto, erros, reescritas = via_claude(diff, atual, anterior, par_atual, par_anterior, mercado)
+            resp, erros, reescritas = via_claude(ctx)
+            if resp is None:
+                motivo = "reprovado"
+                print(f"Reprovado após {reescritas} reescritas: {erros}")
         except Exception as e:
-            erros = [f"Claude falhou: {e}"]
-            print(f"Claude falhou ({e}); textos automáticos (plano B).")
-    if erros:
-        print(f"Descartados após {reescritas} reescritas: {erros}")
+            motivo, erros = "indisponivel", [f"Claude falhou: {e}"]
+            print(f"Claude falhou ({e}); relatório automático (plano B).")
+    if resp is None:
+        origem = "automatico"
+        resp = plano_b(ctx)
+        erros_b = verificar(resp, ctx)
+        if erros_b:                                   # não deveria acontecer; registra e segue
+            print(f"!! plano B com problemas na verificação: {erros_b}")
+            erros = erros + [f"plano B: {e}" for e in erros_b]
+    final = finalizar(resp)
 
-    origem = "claude"
-    if not validas:
-        validas, origem = mudancas_automaticas(diff, atual, anterior, par_atual, par_anterior), "automatico"
-    origem_impacto = "claude"
-    if not impacto:
-        impacto, origem_impacto = impacto_automatico(atual, anterior), "automatico"
-
-    if origem == origem_impacto == "automatico" and ARQ_SAIDA.exists():
-        velho = json.loads(ARQ_SAIDA.read_text(encoding="utf-8"))
-        chave = (velho.get("ata_atual"), velho.get("ata_anterior"), velho.get("mudancas"),
-                 (velho.get("impacto") or {}).get("texto"))
-        if chave == (atual, anterior, validas, impacto):
-            print("Textos automáticos iguais aos já gravados; nada muda.")
-            return 0
     saida = {"ata_atual": atual, "ata_anterior": anterior,
-             "gerado_em": datetime.now(timezone(timedelta(hours=-3))).isoformat(timespec="seconds"),
-             "origem": origem, "mudancas": validas,
-             "impacto": {"texto": impacto, "data_selic": data_selic, "data_focus": data_focus, "origem": origem_impacto},
+             "gerado_em": datetime.now(FUSO).isoformat(timespec="seconds"),
+             "origem": origem, "motivo_automatico": motivo, "tentativas": reescritas + (0 if sem_claude else 1),
+             "reescritas": reescritas, "hash_entrada": h, "previsto": ctx["prev"]["previsto"],
+             "proxima_reuniao": ctx["prev"].get("proxima_reuniao"),
+             **final,
+             "mudancas": mudancas_evidencia(ctx),
+             "impacto": {"texto": impacto_evidencia(ctx), "data_selic": ctx["data_selic"],
+                         "data_focus": ctx["data_focus"], "origem": "automatico"},
              "verificacao": {"reescritas": reescritas, "descartados": erros, "chamadas_claude": claude_cli.CHAMADAS}}
-    ARQ_SAIDA.write_text(json.dumps(saida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"saida/textos.json: {len(validas)} mudanças ({origem}), impacto {origem_impacto}, {reescritas} reescritas")
+    args.saida.parent.mkdir(parents=True, exist_ok=True)
+    args.saida.write_text(json.dumps(saida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    n = sum(len(s["paragrafos"]) for s in final["secoes"])
+    print(f"{args.saida.name}: relatório {origem} ({n} parágrafos, {reescritas} reescritas). Manchete: {final['manchete']}")
     return 0
 
 

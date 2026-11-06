@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T13:02:22-03:00",
+  "gerado_em": "2026-11-06T13:06:53-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T13:02:22-03:00",
+  "ultima_verificacao": "2026-11-06T13:06:53-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -394,33 +394,33 @@
   ],
   "mudancas": [
     {
-      "paragrafo": 9,
-      "trecho": "Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta.",
-      "efeito": "suavizou",
-      "explicacao": "A ata agora diz que tanto a inflação cheia quanto as medidas que filtram oscilações pontuais estão dentro do limite de tolerância. Isso mostra que o Banco Central vê a inflação mais perto de onde quer, o que alivia a pressão por juros altos.",
-      "tipo": "novo"
-    },
-    {
-      "paragrafo": 9,
-      "trecho": "nas divulgações mais recentes as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo.",
+      "paragrafo": 4,
+      "trecho": "A incerteza com relação ao cenário externo segue em níveis elevados. A continuidade de indefinições em relação aos desdobramentos das tensões geopolíticas e seus efeitos",
       "efeito": "endureceu",
-      "explicacao": "Antes, os preços cobrados pelos produtores estavam recuando, e agora eles aceleraram em bens intermediários e de consumo. Isso pode chegar aos preços para o consumidor mais adiante e pede cautela do Banco Central.",
+      "explicacao": "Parágrafo novo na ata 281, com nota +1 na régua de tom de -2 a +2. Por isso, ele deixa a comunicação do Copom mais dura.",
       "tipo": "novo"
     },
     {
       "paragrafo": 5,
-      "trecho": "revelou que o movimento foi mais intenso nas atividades econômicas e nos componentes da demanda mais sensíveis ao ciclo econômico.",
+      "trecho": "A atividade econômica doméstica manteve trajetória de moderação, tal como antecipado pelo Comitê. A leitura mais recente do PIB, referente ao segundo trimestre de 2026,",
       "efeito": "suavizou",
-      "explicacao": "A ata agora confirma, com o resultado do PIB, que a economia desacelerou de fato, especialmente nas áreas mais sensíveis aos juros. Isso reforça a visão de que os juros altos estão funcionando para esfriar a demanda e a inflação.",
+      "explicacao": "Parágrafo novo na ata 281, com nota -1 na régua de tom de -2 a +2. Por isso, ele deixa a comunicação do Copom mais branda.",
+      "tipo": "novo"
+    },
+    {
+      "paragrafo": 6,
+      "trecho": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento, em meio a uma política",
+      "efeito": "suavizou",
+      "explicacao": "Parágrafo novo na ata 281, com nota -1 na régua de tom de -2 a +2. Por isso, ele deixa a comunicação do Copom mais branda.",
       "tipo": "novo"
     }
   ],
   "mudancas_origem": "claude",
   "impacto": {
-    "texto": "A ata 281 tem tom um pouco menos duro que a 280 (índice de 0,62 contra 0,9), o que tende a ser coerente com a continuidade de cortes graduais da Selic, hoje em 13,75% ao ano. Se a desaceleração da atividade se confirmar e a inflação seguir perto do limite de tolerância, os juros futuros podem recuar, em linha com a mediana do Focus para a Selic no fim de 2026 (13,50%). Já a aceleração dos preços aos produtores pode reduzir o espaço para cortes mais rápidos e manter a inflação esperada pressionada (Focus de 5,22% para 2026), com possível efeito sobre o câmbio se o cenário externo seguir incerto.",
+    "texto": "O índice de tom da ata 281 ficou em 0,62, contra 0,90 na ata 280, uma variação de -0,28 na escala de -2 a +2. Na reunião, o Copom decidiu cortar a Selic em 0,25 ponto percentual, e a meta passou a 13,75% ao ano. Se esse tom mais brando se mantiver, os juros futuros tendem a recuar e a próxima decisão pode trazer novo corte da Selic.",
     "data_selic": "2026-11-06",
     "data_focus": "2026-10-30",
-    "origem": "claude"
+    "origem": "automatico"
   },
   "atas": [
     {
@@ -4275,6 +4275,197 @@
       "ano_referencia": 2026,
       "data": "2026-10-30"
     }
+  },
+  "manchete": {
+    "texto": "Copom suaviza o tom sobre a inflação e o sinal aponta aperto da Selic em 09/12",
+    "linha_fina": "A previsão ingênua, que repete a última decisão, indica manutenção, e o Focus de 30/10 projeta Selic mediana de 13,5% no fim de 2026.",
+    "origem": "claude"
+  },
+  "relatorio": {
+    "origem": "claude",
+    "gerado_em": "2026-11-06T13:06:12-03:00",
+    "reescritas": 0,
+    "secoes": [
+      {
+        "id": "mudou",
+        "titulo": "O que mudou na comunicação do Copom",
+        "paragrafos": [
+          {
+            "texto": "A ata 281 passou a registrar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Na ata anterior, o texto falava em sinais mistos entre setores, e a ata 281 passou a apontar a moderação principalmente nos setores mais cíclicos [[c2]][[c3]]. A inflação cheia, que antes estava acima do limite superior da meta, agora aparece abaixo desse limite, mas ainda acima da meta [[c4]][[c5]].",
+            "citacoes": [
+              {
+                "id": "c1",
+                "ata": 281,
+                "paragrafo": 5,
+                "trecho": "A leitura mais recente do PIB, referente ao segundo trimestre de 2026, confirmou a desaceleração apontada por outros indicadores",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c2",
+                "ata": 280,
+                "paragrafo": 2,
+                "trecho": "com sinais mistos entre setores, e mercado de trabalho aquecido",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
+                "data_reuniao": "2026-08-05"
+              },
+              {
+                "id": "c3",
+                "ata": 281,
+                "paragrafo": 2,
+                "trecho": "principalmente em setores mais cíclicos, embora ainda em patamar resiliente e mercado de trabalho aquecido",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c4",
+                "ata": 280,
+                "paragrafo": 2,
+                "trecho": "a inflação cheia desacelerou, porém ainda acima do limite superior da meta",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
+                "data_reuniao": "2026-08-05"
+              },
+              {
+                "id": "c5",
+                "ata": 281,
+                "paragrafo": 2,
+                "trecho": "situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              }
+            ]
+          },
+          {
+            "texto": "O tom suavizou, mas segue duro: o Comitê diz que, com expectativas desancoradas, exige-se uma restrição monetária maior e por mais tempo [[c6]]. O índice de tom caiu de 0,9 na ata 280 para 0,62 na ata 281, e o texto segue falando em política monetária de caráter restritivo [[c7]]. A ata 281 acrescentou a leitura de que o crédito de prazo mais longo recuou, sinal de transmissão da política restritiva [[c8]].",
+            "citacoes": [
+              {
+                "id": "c6",
+                "ata": 281,
+                "paragrafo": 10,
+                "trecho": "em um ambiente de expectativas desancoradas, como é o caso do atual, exige-se uma restrição monetária maior e por mais tempo",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c7",
+                "ata": 281,
+                "paragrafo": 15,
+                "trecho": "exigindo que a política monetária mantenha caráter restritivo",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c8",
+                "ata": 281,
+                "paragrafo": 6,
+                "trecho": "redução nas modalidades de mais longo prazo",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "efeito",
+        "titulo": "O efeito provável no mercado",
+        "paragrafos": [
+          {
+            "texto": "Como o Comitê ainda vê riscos para a inflação com assimetria altista, a Selic pode ficar mais tempo em patamar restritivo [[c9]]. Os juros futuros tendem a reagir à cautela do Comitê, que diz ajustar a magnitude do ciclo de calibração à luz da evolução do cenário [[c10]]. O câmbio pode ficar sensível, porque o Comitê cita uma taxa de câmbio persistentemente mais depreciada como risco de alta para a inflação [[c11]].",
+            "citacoes": [
+              {
+                "id": "c9",
+                "ata": 281,
+                "paragrafo": 13,
+                "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c10",
+                "ata": 281,
+                "paragrafo": 17,
+                "trecho": "a magnitude do ciclo de calibração será ajustada à luz da evolução do cenário",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c11",
+                "ata": 281,
+                "paragrafo": 13,
+                "trecho": "por meio de uma taxa de câmbio persistentemente mais depreciada",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              }
+            ]
+          },
+          {
+            "texto": "A inflação esperada pode seguir pressionada, já que as expectativas permanecem acima da meta em todos os horizontes [[c12]]. O crédito livre tende a perder fôlego nas modalidades mais sensíveis aos juros, enquanto o crédito direcionado pode continuar crescendo [[c13]].",
+            "citacoes": [
+              {
+                "id": "c12",
+                "ata": 281,
+                "paragrafo": 10,
+                "trecho": "permanecem acima da meta de inflação em todos os horizontes",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c13",
+                "ata": 281,
+                "paragrafo": 6,
+                "trecho": "recursos direcionados mantiveram trajetória de expansão para pessoas físicas",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "observar",
+        "titulo": "O que observar até a próxima reunião",
+        "paragrafos": [
+          {
+            "texto": "Vale acompanhar se aparecem efeitos de segunda ordem dos choques de oferta, pois o Copom diz que reagiria com firmeza [[c14]]. Também importa ver se os preços aos produtores, que aceleraram, chegam ao consumidor [[c15]]. A ata da reunião 282 ainda não foi publicada e deve mostrar se o Comitê mantém o tom de cautela [[c16]]. Nosso sinal aponta aperto para 09/12, mas ele acertou 40% das reuniões, contra 84% da previsão ingênua, que repete a última decisão e hoje indica manutenção [[c17]].",
+            "citacoes": [
+              {
+                "id": "c14",
+                "ata": 281,
+                "paragrafo": 16,
+                "trecho": "reagir com firmeza caso esses efeitos se materializem",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c15",
+                "ata": 281,
+                "paragrafo": 9,
+                "trecho": "as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c16",
+                "ata": 281,
+                "paragrafo": 19,
+                "trecho": "demanda serenidade e cautela na condução da política monetária",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c17",
+                "ata": 281,
+                "paragrafo": 19,
+                "trecho": "O Comitê seguirá incorporando novas informações e acompanhando a evolução do cenário",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "como_medimos": {
     "regua": "Cada parágrafo numerado das atas recebe uma nota inteira de −2 a +2: +2 muito duro (sinaliza alta de juros ou juros altos por mais tempo, com ênfase), +1 duro, 0 neutro ou descritivo, −1 brando, −2 muito brando (sinaliza corte de juros, com ênfase). As notas são dadas pelo Claude (Sonnet), uma ata por vez, com a mesma régua para todas as atas, e vêm com um trecho de até 25 palavras copiado do parágrafo que justifica a nota.",

@@ -3,7 +3,7 @@ Comando único do pipeline. Rode da raiz do repositório:
     .venv/Scripts/python.exe pipeline/rodar.py [--modelo]
 
 atualizar_banco → extrair → diff → selic → rotular (só atas novas) → indice → metricas →
-textos (só se a última ata mudou desde saida/textos.json) → gerar_dados_site.
+previsao → textos (só se a última ata ou banco/previsao.json mudaram; hash em saida/textos.json) → gerar_dados_site.
 Idempotente: sem ata nova, não chama o Claude e não baixa PDFs (só consulta a lista do BC;
 Selic/Focus só são baixados uma vez por dia).
 Planos B (o pipeline nunca para): nota = modelo do parceiro > Claude > TF-IDF de base;
@@ -33,17 +33,6 @@ def ultima_ata() -> int | None:
     return max(atas) if atas else None
 
 
-def textos_desatualizados() -> bool:
-    arq = RAIZ / "saida" / "textos.json"
-    if not arq.exists():
-        return True
-    t = json.loads(arq.read_text(encoding="utf-8"))
-    if t.get("ata_atual") != ultima_ata():
-        return True
-    automatico = t.get("origem") == "automatico" or (t.get("impacto") or {}).get("origem") == "automatico"
-    return automatico and claude_cli.disponivel()          # refaz o plano B quando o Claude voltar
-
-
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--modelo", action="store_true", help="exige o modelo do parceiro para rotular (sem isso, escolhe sozinho)")
@@ -66,14 +55,10 @@ def main() -> int:
               ("indice", ["pipeline/indice.py"]),
               ("metricas", ["pipeline/metricas.py"]),
               ("previsao", ["pipeline/previsao.py"]),
-              ("textos", ["pipeline/textos.py"] + (["--forcar"] if textos_desatualizados() else [])),
+              ("textos", ["pipeline/textos.py"]),      # textos.py decide pelo hash da entrada
               ("gerar_dados_site", ["pipeline/gerar_dados_site.py"])]
     tempos, falhas = {}, []
     for nome, cmd in etapas:
-        if nome == "textos" and not textos_desatualizados():
-            print("== textos: última ata não mudou; pulando (sem chamada ao Claude)")
-            tempos[nome] = 0.0
-            continue
         print(f"== {nome}", flush=True)
         t0 = time.time()
         r = subprocess.run([PY, *cmd], cwd=RAIZ, env=env)

@@ -162,22 +162,67 @@ Escreve: `pipeline/diff.py`. Comparação da última ata com a anterior.
 }
 ```
 
-## saida/textos.json
+## banco/previsao.json
 
-Escreve: `pipeline/textos.py` (uma chamada `claude -p --model sonnet`, verificada por código).
+Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metricas`). Previsão do nosso sinal para a **próxima reunião ainda não realizada**.
 
 ```json
 {
-  "ata_atual": 281, "ata_anterior": 280, "gerado_em": "2026-11-06T13:20:00",
-  "mudancas": [
-    { "paragrafo": 12, "trecho": "até 25 palavras copiadas do parágrafo", "efeito": "endureceu", "explicacao": "Duas frases simples.", "tipo": "alterado" }
-  ],
-  "origem": "claude",
-  "impacto": { "texto": "Dois ou três períodos em linguagem condicional.", "data_selic": "2026-11-05", "data_focus": "2026-10-31", "origem": "claude" }
+  "gerado_em": "2026-11-06T13:02:10-03:00",
+  "base_ata": 281, "base_data_reuniao": "2026-09-16", "fonte_indice": "simples", "indice": 0.62,
+  "regra": { "aperto": "indice > 0.25", "afrouxamento": "indice < -0.25" },
+  "previsto": "aperto",
+  "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)" },
+  "ultima_decisao_conhecida": { "numero": 282, "data": "2026-11-04", "selic": 13.75, "decisao_pp": 0.0, "decisao": "manutencao", "ata_publicada": false, "fonte": "BCB, histórico das taxas de juros (...)", "confere_sgs432": true },
+  "ultima_decisao": { "...": "mesmo formato; sempre preenchido, mesmo com a ata publicada" },
+  "acerto": {
+    "indice": { "acuracia": 0.4, "acerto_sinal": 0.429, "n": 45, "n_direcionais": 42 },
+    "ingenua": { "acuracia": 0.844, "acerto_sinal": 0.9, "n": 45, "n_direcionais": 30, "previsto": "manutencao" },
+    "periodo": { "inicio": "2021-01-20", "fim": "2026-08-05" }, "melhor": "ingenua"
+  },
+  "focus_selic": { "mediana": 13.5, "ano_referencia": 2026, "data": "2026-10-30" }
 }
 ```
 
-`mudancas` tem no máximo 3 itens; `efeito` ∈ `"endureceu"`, `"suavizou"`; `tipo` ∈ `"novo"`, `"alterado"`, `"removido"`. Só entram itens cujo trecho existe no parágrafo e cujos números existem nos dados. `origem` (das mudanças) e `impacto.origem` ∈ `"claude"`, `"automatico"`. Plano B sem LLM, quando o Claude não está disponível, falha ou reprova após 2 reescritas: as 3 mudanças são escolhidas por código no diff (maior \|nota\| em novos e removidos, maior variação de nota em alterados), com `trecho` = primeira oração do parágrafo e `explicacao` de modelo fixo com as notas; o `impacto` vem de modelo fixo com índice, variação, decisão e Selic. Por isso sempre há texto. Campo extra `verificacao: {reescritas, descartados, chamadas_claude}` registra a checagem.
+- `indice`/`base_ata`: índice da última ata com índice (`indice_modelo.json` se existir, senão `indice.json`). Regra fixa de ±0,25, a mesma de `metricas_previsao.json`; não é ajustada.
+- `proxima_reuniao`: calendário oficial do BC (`https://www.bcb.gov.br/api/servico/sitebcb/calendario/anual`, lista "Reuniões do Copom", a mesma do "Calendário do Copom" em bcb.gov.br/controleinflacao/copom). A data é o 2º dia da reunião (dia da decisão): a primeira posterior à última decisão conhecida e não anterior a hoje. `numero` = número da última decisão conhecida + 1. Se o calendário falhar e não houver data futura já gravada: `data` e `numero` null e `fonte: "indisponível"`. Nunca se inventa data.
+- `ultima_decisao_conhecida`: preenchido só quando há decisão oficial **sem ata publicada** (`ata_publicada: false`); senão null. Fonte: tabela oficial `historicotaxasjuros` (reuniões ordinárias), conferida com a SGS 432 (`confere_sgs432`). `ultima_decisao` tem a mesma estrutura e vem sempre.
+- `acerto`: copiado de `banco/metricas_previsao.json` (`n` = nº de atas avaliadas). `ingenua.previsto` = última decisão conhecida no vocabulário da previsão (`alta → aperto`, `corte → afrouxamento`).
+- `focus_selic`: mediana do Focus (Selic, `baseCalculo=0`) para o fim do ano da próxima reunião, na coleta mais recente (`data`).
+- O arquivo só é regravado quando algo além de `gerado_em` muda.
+
+## saida/textos.json
+
+Escreve: `pipeline/textos.py`. Relatório de mercado (manchete, linha fina e 3 seções), com uma chamada `claude -p --model sonnet` verificada por código, ou plano B determinístico.
+
+```json
+{
+  "ata_atual": 281, "ata_anterior": 280, "gerado_em": "2026-11-06T13:20:00-03:00",
+  "origem": "claude", "motivo_automatico": null, "tentativas": 1, "reescritas": 0,
+  "hash_entrada": "9f2c...", "previsto": "aperto", "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "..." },
+  "manchete": "Copom suaviza o tom sobre a inflação e o sinal aponta aperto da Selic em 09/12",
+  "linha_fina": "Uma frase de apoio.",
+  "secoes": [
+    { "id": "mudou", "titulo": "O que mudou na comunicação do Copom",
+      "paragrafos": [ { "texto": "Frase com afirmação [[c1]]. Outra frase [[c2]][[c3]].",
+                        "citacoes": [ { "id": "c1", "ata": 281, "paragrafo": 9, "trecho": "até 25 palavras copiadas literalmente" } ] } ] },
+    { "id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": [] },
+    { "id": "observar", "titulo": "O que observar até a próxima reunião", "paragrafos": [] }
+  ],
+  "mudancas": [ { "paragrafo": 12, "trecho": "até 25 palavras", "efeito": "endureceu", "explicacao": "Duas frases.", "tipo": "alterado" } ],
+  "impacto": { "texto": "Dois ou três períodos condicionais.", "data_selic": "2026-11-06", "data_focus": "2026-10-30", "origem": "automatico" },
+  "verificacao": { "reescritas": 0, "descartados": [], "chamadas_claude": 1 }
+}
+```
+
+**Marcador de citação `[[cN]]`.** Dentro de `texto`, cada sentença termina com um ou mais marcadores `[[c1]]`, `[[c2]]`… colados antes do ponto final (`... decisão [[c1]][[c2]].`). Cada marcador aponta para um item de `citacoes` do mesmo parágrafo, `{id, ata, paragrafo, trecho}`. Os ids são únicos no relatório inteiro (c1…cN, renumerados por código, na ordem de leitura) e o mesmo marcador pode aparecer em mais de uma sentença. Regex: `\[\[(c\d+)\]\]`. O site troca cada marcador por uma referência clicável (ata e parágrafo) e mostra o trecho.
+
+- 3 seções fixas, nesta ordem: `mudou`, `efeito`, `observar`; de 3 a 5 parágrafos no total, pelo menos 1 por seção. A seção `efeito` usa linguagem condicional (Selic, juros futuros, câmbio, inflação esperada, crédito). Não é recomendação de investimento.
+- `manchete`: uma frase que junta a mudança de tom do Copom e a previsão do sinal para a próxima reunião, com a data em DD/MM.
+- Verificação por código (vale para o Claude e para o plano B): toda sentença tem marcador; marcadores e citações batem nos dois sentidos; todo trecho é cópia literal (espaços e aspas tipográficas normalizados) de até 25 palavras do parágrafo indicado da ata atual ou da anterior; todo número da manchete, da linha fina e dos textos existe nos dados enviados (vírgula decimal e % normalizados; ignorados números de ata, de parágrafo, de reunião, anos e datas presentes nos dados); a manchete menciona a previsão de `previsao.json` e a data da próxima reunião. Até 2 reescritas com os erros.
+- `origem` ∈ `"claude"`, `"automatico"`. `motivo_automatico` ∈ `null`, `"indisponivel"` (sem Claude, erro ou timeout), `"reprovado"` (falhou na verificação após 2 reescritas). Plano B: manchete por modelo fixo ("Copom {endurece|suaviza|mantém} o tom na ata N e o sinal aponta {alta|manutenção|corte} da Selic em DD/MM"); `mudou` = até 3 mudanças do diff com maior \|nota\| ou maior variação de nota; `efeito` = frase condicional fixa pela previsão, citando o parágrafo de maior \|nota\| das seções de condução/decisão; `observar` = frase fixa citando o parágrafo de maior \|nota\| que fala de riscos. No plano B o trecho é recortado por código: as primeiras até 25 palavras do parágrafo.
+- `mudancas` e `impacto` (seção de Evidência) vêm sempre do código: as mesmas até 3 mudanças do plano B, com `explicacao` de modelo fixo, e o impacto de modelo fixo com índice, variação, decisão e Selic.
+- Idempotência: `hash_entrada` = hash de (versão do formato, ata atual, ata anterior, `previsao.json` sem `gerado_em`). Com o mesmo hash, `textos.py` não faz nada; a exceção é `origem: "automatico"` com `motivo_automatico: "indisponivel"` quando o Claude volta. Um plano B por reprovação só é refeito quando a entrada muda.
 
 ## saida/dados_site.json → site/data/dados_site.json
 
@@ -208,12 +253,18 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
   "metricas_modelo": null,
   "validacao_humana": null,
   "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" },
+  "previsao": { "...": "cópia de banco/previsao.json" },
+  "manchete": { "texto": "Copom suaviza o tom ... e o sinal aponta aperto da Selic em 09/12", "linha_fina": "...", "origem": "claude" },
+  "relatorio": { "origem": "claude", "gerado_em": "2026-11-06T13:20:00-03:00", "reescritas": 0,
+    "secoes": [ { "id": "mudou", "titulo": "O que mudou na comunicação do Copom",
+      "paragrafos": [ { "texto": "Frase [[c1]].", "citacoes": [ { "id": "c1", "ata": 281, "paragrafo": 9, "trecho": "...", "url_pdf": "https://...", "data_reuniao": "2026-09-16" } ] } ] } ] },
   "conferencia_selic": { "verificado_em": "2026-11-06T13:00:00-03:00", "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros", "n_comparadas": 46, "divergencias": [] }
 }
 ```
 
 - `exemplo: true` faz o site mostrar a faixa "EXEMPLO".
 - `ultima_verificacao`: data e hora ISO, com fuso de Brasília (ex.: `"2026-11-06T13:30:00-03:00"`), da última vez que o pipeline conferiu se há ata nova. Muda só quando o pipeline publica uma ata; a verificação de cada execução fica em `saida/status.json`. `gerado_em` também vai com o fuso.
+- `previsao` = conteúdo de `banco/previsao.json` ou null. `manchete` e `relatorio` vêm de `saida/textos.json` (null se os textos forem de outra ata); cada citação do relatório ganha `url_pdf` e `data_reuniao` da ata citada. Formato do marcador `[[cN]]`: ver `saida/textos.json`. Nenhum texto completo de parágrafo entra aqui, só trechos de até 25 palavras (o gerador para com erro se achar um maior).
 - `textos_pendentes`: sempre `false` desde os textos automáticos (plano B); o campo continua para compatibilidade. `mudancas_origem` e `impacto.origem` ∈ `"claude"`, `"automatico"` (o site mostra "texto automático").
 - `conferencia_selic` = conteúdo de `saida/conferencia_selic.json` ou null; `status` = conteúdo de `saida/status.json` ou null (na hora em que o pipeline publicou).
 - `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).

@@ -58,6 +58,32 @@ def datas_dados() -> dict:
     return out
 
 
+def manchete(textos: dict, ult: int) -> dict | None:
+    if textos.get("ata_atual") != ult or not textos.get("manchete"):
+        return None
+    return {"texto": textos["manchete"], "linha_fina": textos.get("linha_fina"), "origem": textos.get("origem")}
+
+
+def relatorio(textos: dict, ult: int, por_num: dict) -> dict | None:
+    """Seções do relatório; cada citação ganha url_pdf e data_reuniao. Só trechos ≤ 25 palavras."""
+    if textos.get("ata_atual") != ult or not textos.get("secoes"):
+        return None
+    secoes = []
+    for s in textos["secoes"]:
+        pars = []
+        for p in s["paragrafos"]:
+            cits = []
+            for c in p["citacoes"]:
+                if len(c["trecho"].split()) > 25:
+                    raise RuntimeError(f"trecho longo demais no relatório: ata {c['ata']} §{c['paragrafo']}")
+                a = por_num.get(c["ata"], {})
+                cits.append({**c, "url_pdf": a.get("url_pdf"), "data_reuniao": a.get("data_reuniao")})
+            pars.append({"texto": p["texto"], "citacoes": cits})
+        secoes.append({"id": s["id"], "titulo": s["titulo"], "paragrafos": pars})
+    return {"origem": textos.get("origem"), "gerado_em": textos.get("gerado_em"), "reescritas": textos.get("reescritas"),
+            "secoes": secoes}
+
+
 def main() -> int:
     atas = sorted(ler(B / "atas.json"), key=lambda a: a["numero"])
     por_num = {a["numero"]: a for a in atas}
@@ -104,7 +130,7 @@ def main() -> int:
         "gerado_em": agora,
         "exemplo": False,
         "ultima_verificacao": agora,
-        "textos_pendentes": textos.get("ata_atual") != ult["numero"],
+        "textos_pendentes": False,
         "fonte_indice": fonte,
         "resumo": {
             "ultima_ata": {"numero": ult["numero"], "data_reuniao": ult["data_reuniao"], "decisao": ult.get("decisao"),
@@ -120,6 +146,8 @@ def main() -> int:
         "impacto": textos.get("impacto") if textos.get("ata_atual") == ult["numero"] else None,
         "atas": lista,
         "previsao": ler(B / "previsao.json"),
+        "manchete": manchete(textos, ult["numero"]),
+        "relatorio": relatorio(textos, ult["numero"], por_num),
         "como_medimos": como,
         "metricas_previsao": ler(B / "metricas_previsao.json"),
         "metricas_modelo": ler(B / "metricas_modelo.json"),
