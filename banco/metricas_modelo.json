@@ -1,0 +1,3545 @@
+{
+  "metodo": "modelo de decisão por ata (modelo/treinar.py), sem IA no treino",
+  "gerado_em": "2026-11-06T14:37:31",
+  "n_atas": 46,
+  "variaveis": [
+    "decisao_atual_alta",
+    "decisao_atual_manutencao",
+    "decisao_atual_corte",
+    "tom_nivel",
+    "tom_variacao",
+    "tom_orientacao",
+    "saldo_duro_brando",
+    "sinais_virada",
+    "distancia_focus",
+    "hiato_inflacao"
+  ],
+  "hiperparametros": {
+    "logistica": "StandardScaler + LogisticRegression(C=0.5, max_iter=2000)",
+    "floresta": "RandomForestClassifier(n_estimators=300, max_depth=3, random_state=42)",
+    "arvore": "DecisionTreeClassifier(max_depth=2, random_state=42)"
+  },
+  "validacao_tempo": {
+    "inicio_ata": 251,
+    "fim_ata": 281,
+    "n": 31,
+    "metodos": {
+      "ingenua": {
+        "acuracia": 0.806,
+        "acuracia_balanceada": 0.813,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              6,
+              1,
+              0
+            ],
+            [
+              1,
+              9,
+              2
+            ],
+            [
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 0,
+          "total": 6
+        },
+        "previsoes": [
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          }
+        ]
+      },
+      "arvore": {
+        "acuracia": 0.71,
+        "acuracia_balanceada": 0.71,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              5,
+              2,
+              0
+            ],
+            [
+              1,
+              9,
+              2
+            ],
+            [
+              0,
+              4,
+              8
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 1,
+          "total": 6
+        },
+        "previsoes": [
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.875,
+              "corte": 0.125
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.778,
+              "corte": 0.222
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.7,
+              "corte": 0.3
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.182,
+              "manutencao": 0.727,
+              "corte": 0.091
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.167,
+              "manutencao": 0.75,
+              "corte": 0.083
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.231,
+              "manutencao": 0.692,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.75,
+              "manutencao": 0.25,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.1,
+              "manutencao": 0.8,
+              "corte": 0.1
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.091,
+              "manutencao": 0.818,
+              "corte": 0.091
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.833,
+              "corte": 0.083
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.143,
+              "manutencao": 0.0,
+              "corte": 0.857
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.125,
+              "manutencao": 0.0,
+              "corte": 0.875
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.111,
+              "manutencao": 0.0,
+              "corte": 0.889
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.1,
+              "manutencao": 0.0,
+              "corte": 0.9
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.091,
+              "manutencao": 0.0,
+              "corte": 0.909
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.0,
+              "corte": 0.917
+            }
+          }
+        ]
+      },
+      "logistica": {
+        "acuracia": 0.806,
+        "acuracia_balanceada": 0.813,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              6,
+              1,
+              0
+            ],
+            [
+              1,
+              9,
+              2
+            ],
+            [
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 1,
+          "total": 6
+        },
+        "previsoes": [
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.262,
+              "manutencao": 0.738,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.065,
+              "manutencao": 0.935,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.093,
+              "manutencao": 0.907,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.06,
+              "manutencao": 0.94,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.075,
+              "manutencao": 0.925,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.065,
+              "manutencao": 0.883,
+              "corte": 0.052
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.053,
+              "manutencao": 0.113,
+              "corte": 0.834
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.075,
+              "manutencao": 0.139,
+              "corte": 0.786
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.078,
+              "corte": 0.839
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.007,
+              "manutencao": 0.073,
+              "corte": 0.92
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.019,
+              "manutencao": 0.083,
+              "corte": 0.898
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.096,
+              "manutencao": 0.096,
+              "corte": 0.808
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.027,
+              "manutencao": 0.969,
+              "corte": 0.004
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.052,
+              "manutencao": 0.933,
+              "corte": 0.015
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.839,
+              "manutencao": 0.147,
+              "corte": 0.014
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.875,
+              "manutencao": 0.118,
+              "corte": 0.007
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.66,
+              "manutencao": 0.334,
+              "corte": 0.006
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.977,
+              "manutencao": 0.023,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.915,
+              "manutencao": 0.083,
+              "corte": 0.003
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.858,
+              "manutencao": 0.104,
+              "corte": 0.039
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.533,
+              "manutencao": 0.425,
+              "corte": 0.042
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.058,
+              "manutencao": 0.937,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.175,
+              "manutencao": 0.816,
+              "corte": 0.009
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.208,
+              "manutencao": 0.744,
+              "corte": 0.048
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.099,
+              "manutencao": 0.872,
+              "corte": 0.029
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.004,
+              "manutencao": 0.303,
+              "corte": 0.693
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.002,
+              "manutencao": 0.031,
+              "corte": 0.967
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.01,
+              "manutencao": 0.038,
+              "corte": 0.952
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.066,
+              "manutencao": 0.055,
+              "corte": 0.879
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.107,
+              "manutencao": 0.123,
+              "corte": 0.77
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.11,
+              "manutencao": 0.039,
+              "corte": 0.851
+            }
+          }
+        ]
+      },
+      "floresta": {
+        "acuracia": 0.774,
+        "acuracia_balanceada": 0.786,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              6,
+              1,
+              0
+            ],
+            [
+              1,
+              9,
+              2
+            ],
+            [
+              0,
+              3,
+              9
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 1,
+          "total": 6
+        },
+        "previsoes": [
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.268,
+              "manutencao": 0.732,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.169,
+              "manutencao": 0.831,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.182,
+              "manutencao": 0.818,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.251,
+              "manutencao": 0.749,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.125,
+              "manutencao": 0.875,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.363,
+              "manutencao": 0.604,
+              "corte": 0.034
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.215,
+              "manutencao": 0.497,
+              "corte": 0.288
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.17,
+              "manutencao": 0.388,
+              "corte": 0.442
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.111,
+              "manutencao": 0.178,
+              "corte": 0.711
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.025,
+              "manutencao": 0.117,
+              "corte": 0.858
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.101,
+              "manutencao": 0.363,
+              "corte": 0.536
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.161,
+              "manutencao": 0.289,
+              "corte": 0.55
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.145,
+              "manutencao": 0.761,
+              "corte": 0.095
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.05,
+              "manutencao": 0.897,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.72,
+              "manutencao": 0.251,
+              "corte": 0.029
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.817,
+              "manutencao": 0.172,
+              "corte": 0.011
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.636,
+              "manutencao": 0.344,
+              "corte": 0.02
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.944,
+              "manutencao": 0.05,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.952,
+              "manutencao": 0.048,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.615,
+              "manutencao": 0.319,
+              "corte": 0.066
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.669,
+              "manutencao": 0.313,
+              "corte": 0.018
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.319,
+              "manutencao": 0.647,
+              "corte": 0.034
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.216,
+              "manutencao": 0.755,
+              "corte": 0.029
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.29,
+              "manutencao": 0.577,
+              "corte": 0.133
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.14,
+              "manutencao": 0.765,
+              "corte": 0.095
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.192,
+              "manutencao": 0.318,
+              "corte": 0.49
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.061,
+              "manutencao": 0.178,
+              "corte": 0.76
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.043,
+              "manutencao": 0.088,
+              "corte": 0.869
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.093,
+              "manutencao": 0.106,
+              "corte": 0.801
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.08,
+              "manutencao": 0.29,
+              "corte": 0.63
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.102,
+              "manutencao": 0.099,
+              "corte": 0.799
+            }
+          }
+        ]
+      }
+    }
+  },
+  "validacao_loo": {
+    "n": 46,
+    "metodos": {
+      "ingenua": {
+        "acuracia": 0.826,
+        "acuracia_balanceada": 0.82,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              17,
+              2,
+              0
+            ],
+            [
+              2,
+              11,
+              2
+            ],
+            [
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 0,
+          "total": 8
+        },
+        "previsoes": [
+          {
+            "ata": 236,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 237,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 238,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 239,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 240,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 241,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 242,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 243,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 244,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 245,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 246,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 247,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 248,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 249,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 250,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 1.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.0,
+              "corte": 1.0
+            }
+          }
+        ]
+      },
+      "arvore": {
+        "acuracia": 0.761,
+        "acuracia_balanceada": 0.773,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              13,
+              5,
+              1
+            ],
+            [
+              2,
+              12,
+              1
+            ],
+            [
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 2,
+          "total": 8
+        },
+        "previsoes": [
+          {
+            "ata": 236,
+            "previsto": "corte",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.083,
+              "corte": 0.917
+            }
+          },
+          {
+            "ata": 237,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 238,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 239,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 240,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 241,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 242,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 243,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.211,
+              "manutencao": 0.737,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 244,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 245,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 246,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 247,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.211,
+              "manutencao": 0.737,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 248,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 1.0,
+              "manutencao": 0.0,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 249,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 250,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.923,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.133,
+              "manutencao": 0.8,
+              "corte": 0.067
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.0,
+              "manutencao": 0.923,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.211,
+              "manutencao": 0.737,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.941,
+              "manutencao": 0.059,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.211,
+              "manutencao": 0.737,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.75,
+              "manutencao": 0.25,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.077,
+              "manutencao": 0.846,
+              "corte": 0.077
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.083,
+              "corte": 0.833
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.083,
+              "manutencao": 0.0,
+              "corte": 0.917
+            }
+          }
+        ]
+      },
+      "logistica": {
+        "acuracia": 0.848,
+        "acuracia_balanceada": 0.843,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              17,
+              2,
+              0
+            ],
+            [
+              2,
+              12,
+              1
+            ],
+            [
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 1,
+          "total": 8
+        },
+        "previsoes": [
+          {
+            "ata": 236,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.093,
+              "manutencao": 0.568,
+              "corte": 0.339
+            }
+          },
+          {
+            "ata": 237,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.56,
+              "manutencao": 0.433,
+              "corte": 0.007
+            }
+          },
+          {
+            "ata": 238,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.99,
+              "manutencao": 0.009,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 239,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.989,
+              "manutencao": 0.011,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 240,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.953,
+              "manutencao": 0.046,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 241,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.982,
+              "manutencao": 0.018,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 242,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.875,
+              "manutencao": 0.124,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 243,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.919,
+              "manutencao": 0.078,
+              "corte": 0.002
+            }
+          },
+          {
+            "ata": 244,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.938,
+              "manutencao": 0.061,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 245,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.879,
+              "manutencao": 0.121,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 246,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.868,
+              "manutencao": 0.125,
+              "corte": 0.006
+            }
+          },
+          {
+            "ata": 247,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.772,
+              "manutencao": 0.206,
+              "corte": 0.023
+            }
+          },
+          {
+            "ata": 248,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.84,
+              "manutencao": 0.141,
+              "corte": 0.018
+            }
+          },
+          {
+            "ata": 249,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.27,
+              "manutencao": 0.704,
+              "corte": 0.026
+            }
+          },
+          {
+            "ata": 250,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.285,
+              "manutencao": 0.613,
+              "corte": 0.102
+            }
+          },
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.13,
+              "manutencao": 0.784,
+              "corte": 0.087
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.067,
+              "manutencao": 0.851,
+              "corte": 0.082
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.094,
+              "manutencao": 0.802,
+              "corte": 0.103
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.037,
+              "manutencao": 0.521,
+              "corte": 0.443
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.052,
+              "manutencao": 0.798,
+              "corte": 0.15
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.001,
+              "manutencao": 0.04,
+              "corte": 0.958
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.002,
+              "manutencao": 0.055,
+              "corte": 0.943
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.011,
+              "manutencao": 0.149,
+              "corte": 0.84
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.018,
+              "manutencao": 0.151,
+              "corte": 0.831
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.001,
+              "manutencao": 0.07,
+              "corte": 0.929
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.006,
+              "manutencao": 0.27,
+              "corte": 0.724
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.172,
+              "manutencao": 0.418,
+              "corte": 0.41
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.204,
+              "manutencao": 0.791,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.096,
+              "manutencao": 0.892,
+              "corte": 0.012
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.91,
+              "manutencao": 0.085,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.896,
+              "manutencao": 0.101,
+              "corte": 0.003
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.73,
+              "manutencao": 0.267,
+              "corte": 0.003
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.975,
+              "manutencao": 0.024,
+              "corte": 0.0
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.889,
+              "manutencao": 0.11,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.751,
+              "manutencao": 0.209,
+              "corte": 0.04
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.529,
+              "manutencao": 0.403,
+              "corte": 0.068
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.059,
+              "manutencao": 0.936,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.159,
+              "manutencao": 0.833,
+              "corte": 0.007
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.166,
+              "manutencao": 0.791,
+              "corte": 0.043
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.096,
+              "manutencao": 0.869,
+              "corte": 0.036
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.007,
+              "manutencao": 0.526,
+              "corte": 0.467
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.001,
+              "manutencao": 0.028,
+              "corte": 0.971
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.006,
+              "manutencao": 0.074,
+              "corte": 0.92
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.054,
+              "manutencao": 0.159,
+              "corte": 0.787
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.089,
+              "manutencao": 0.361,
+              "corte": 0.55
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.11,
+              "manutencao": 0.039,
+              "corte": 0.851
+            }
+          }
+        ]
+      },
+      "floresta": {
+        "acuracia": 0.761,
+        "acuracia_balanceada": 0.753,
+        "matriz_confusao": {
+          "rotulos": [
+            "alta",
+            "manutencao",
+            "corte"
+          ],
+          "linhas": "realizado",
+          "colunas": "previsto",
+          "valores": [
+            [
+              16,
+              2,
+              1
+            ],
+            [
+              2,
+              10,
+              3
+            ],
+            [
+              0,
+              3,
+              9
+            ]
+          ]
+        },
+        "viradas": {
+          "acertos": 1,
+          "total": 8
+        },
+        "previsoes": [
+          {
+            "ata": 236,
+            "previsto": "corte",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.234,
+              "manutencao": 0.355,
+              "corte": 0.411
+            }
+          },
+          {
+            "ata": 237,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.863,
+              "manutencao": 0.135,
+              "corte": 0.002
+            }
+          },
+          {
+            "ata": 238,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.789,
+              "manutencao": 0.187,
+              "corte": 0.024
+            }
+          },
+          {
+            "ata": 239,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.946,
+              "manutencao": 0.052,
+              "corte": 0.002
+            }
+          },
+          {
+            "ata": 240,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.91,
+              "manutencao": 0.089,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 241,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.925,
+              "manutencao": 0.072,
+              "corte": 0.004
+            }
+          },
+          {
+            "ata": 242,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.935,
+              "manutencao": 0.064,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 243,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.712,
+              "manutencao": 0.278,
+              "corte": 0.01
+            }
+          },
+          {
+            "ata": 244,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.968,
+              "manutencao": 0.031,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 245,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.957,
+              "manutencao": 0.042,
+              "corte": 0.001
+            }
+          },
+          {
+            "ata": 246,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.789,
+              "manutencao": 0.193,
+              "corte": 0.018
+            }
+          },
+          {
+            "ata": 247,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.599,
+              "manutencao": 0.353,
+              "corte": 0.048
+            }
+          },
+          {
+            "ata": 248,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.815,
+              "manutencao": 0.173,
+              "corte": 0.012
+            }
+          },
+          {
+            "ata": 249,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.239,
+              "manutencao": 0.716,
+              "corte": 0.045
+            }
+          },
+          {
+            "ata": 250,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.203,
+              "manutencao": 0.529,
+              "corte": 0.269
+            }
+          },
+          {
+            "ata": 251,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.145,
+              "manutencao": 0.754,
+              "corte": 0.101
+            }
+          },
+          {
+            "ata": 252,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.157,
+              "manutencao": 0.69,
+              "corte": 0.153
+            }
+          },
+          {
+            "ata": 253,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.14,
+              "manutencao": 0.641,
+              "corte": 0.219
+            }
+          },
+          {
+            "ata": 254,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.188,
+              "manutencao": 0.333,
+              "corte": 0.479
+            }
+          },
+          {
+            "ata": 255,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.154,
+              "manutencao": 0.7,
+              "corte": 0.147
+            }
+          },
+          {
+            "ata": 256,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.04,
+              "manutencao": 0.106,
+              "corte": 0.853
+            }
+          },
+          {
+            "ata": 257,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.038,
+              "manutencao": 0.175,
+              "corte": 0.786
+            }
+          },
+          {
+            "ata": 258,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.034,
+              "manutencao": 0.224,
+              "corte": 0.742
+            }
+          },
+          {
+            "ata": 259,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.08,
+              "manutencao": 0.236,
+              "corte": 0.684
+            }
+          },
+          {
+            "ata": 260,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.018,
+              "manutencao": 0.089,
+              "corte": 0.893
+            }
+          },
+          {
+            "ata": 261,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.108,
+              "manutencao": 0.529,
+              "corte": 0.363
+            }
+          },
+          {
+            "ata": 262,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.147,
+              "manutencao": 0.341,
+              "corte": 0.512
+            }
+          },
+          {
+            "ata": 263,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.257,
+              "manutencao": 0.674,
+              "corte": 0.069
+            }
+          },
+          {
+            "ata": 264,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.054,
+              "manutencao": 0.894,
+              "corte": 0.053
+            }
+          },
+          {
+            "ata": 265,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.832,
+              "manutencao": 0.154,
+              "corte": 0.014
+            }
+          },
+          {
+            "ata": 266,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.85,
+              "manutencao": 0.146,
+              "corte": 0.004
+            }
+          },
+          {
+            "ata": 267,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.574,
+              "manutencao": 0.395,
+              "corte": 0.031
+            }
+          },
+          {
+            "ata": 268,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.932,
+              "manutencao": 0.063,
+              "corte": 0.005
+            }
+          },
+          {
+            "ata": 269,
+            "previsto": "alta",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.924,
+              "manutencao": 0.074,
+              "corte": 0.003
+            }
+          },
+          {
+            "ata": 270,
+            "previsto": "manutencao",
+            "realizado": "alta",
+            "probabilidades": {
+              "alta": 0.474,
+              "manutencao": 0.486,
+              "corte": 0.04
+            }
+          },
+          {
+            "ata": 271,
+            "previsto": "alta",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.58,
+              "manutencao": 0.382,
+              "corte": 0.038
+            }
+          },
+          {
+            "ata": 272,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.195,
+              "manutencao": 0.776,
+              "corte": 0.029
+            }
+          },
+          {
+            "ata": 273,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.182,
+              "manutencao": 0.78,
+              "corte": 0.038
+            }
+          },
+          {
+            "ata": 274,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.191,
+              "manutencao": 0.716,
+              "corte": 0.093
+            }
+          },
+          {
+            "ata": 275,
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.14,
+              "manutencao": 0.743,
+              "corte": 0.117
+            }
+          },
+          {
+            "ata": 276,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.162,
+              "manutencao": 0.338,
+              "corte": 0.5
+            }
+          },
+          {
+            "ata": 277,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.009,
+              "manutencao": 0.072,
+              "corte": 0.919
+            }
+          },
+          {
+            "ata": 278,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.013,
+              "manutencao": 0.08,
+              "corte": 0.907
+            }
+          },
+          {
+            "ata": 279,
+            "previsto": "corte",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.053,
+              "manutencao": 0.232,
+              "corte": 0.715
+            }
+          },
+          {
+            "ata": 280,
+            "previsto": "manutencao",
+            "realizado": "corte",
+            "probabilidades": {
+              "alta": 0.089,
+              "manutencao": 0.506,
+              "corte": 0.405
+            }
+          },
+          {
+            "ata": 281,
+            "previsto": "corte",
+            "realizado": "manutencao",
+            "probabilidades": {
+              "alta": 0.102,
+              "manutencao": 0.099,
+              "corte": 0.799
+            }
+          }
+        ]
+      }
+    }
+  },
+  "melhor": "ingenua",
+  "melhor_nao_ingenuo": "logistica",
+  "destaque_viradas": {
+    "metodo": "logistica",
+    "acuracia": 0.806,
+    "viradas": {
+      "acertos": 1,
+      "total": 6
+    },
+    "viradas_ingenua": {
+      "acertos": 0,
+      "total": 6
+    }
+  },
+  "coeficientes_logistica": {
+    "alta": {
+      "decisao_atual_alta": 0.596,
+      "decisao_atual_manutencao": -0.16,
+      "decisao_atual_corte": -0.497,
+      "tom_nivel": -0.031,
+      "tom_variacao": -0.312,
+      "tom_orientacao": 0.362,
+      "saldo_duro_brando": 0.453,
+      "sinais_virada": -0.297,
+      "distancia_focus": -0.97,
+      "hiato_inflacao": 0.124
+    },
+    "corte": {
+      "decisao_atual_alta": -0.152,
+      "decisao_atual_manutencao": -0.244,
+      "decisao_atual_corte": 0.432,
+      "tom_nivel": -0.446,
+      "tom_variacao": 0.329,
+      "tom_orientacao": -0.5,
+      "saldo_duro_brando": -0.476,
+      "sinais_virada": 0.005,
+      "distancia_focus": 0.794,
+      "hiato_inflacao": -0.276
+    },
+    "manutencao": {
+      "decisao_atual_alta": -0.444,
+      "decisao_atual_manutencao": 0.405,
+      "decisao_atual_corte": 0.065,
+      "tom_nivel": 0.478,
+      "tom_variacao": -0.017,
+      "tom_orientacao": 0.138,
+      "saldo_duro_brando": 0.023,
+      "sinais_virada": 0.292,
+      "distancia_focus": 0.176,
+      "hiato_inflacao": 0.152
+    }
+  },
+  "importancias_floresta": [
+    {
+      "variavel": "decisao_atual_alta",
+      "importancia": 0.0536,
+      "desvio": 0.0311
+    },
+    {
+      "variavel": "distancia_focus",
+      "importancia": 0.0297,
+      "desvio": 0.0182
+    },
+    {
+      "variavel": "tom_orientacao",
+      "importancia": 0.0268,
+      "desvio": 0.0279
+    },
+    {
+      "variavel": "tom_variacao",
+      "importancia": 0.008,
+      "desvio": 0.0105
+    },
+    {
+      "variavel": "sinais_virada",
+      "importancia": 0.0,
+      "desvio": 0.0
+    },
+    {
+      "variavel": "hiato_inflacao",
+      "importancia": 0.0,
+      "desvio": 0.0
+    },
+    {
+      "variavel": "saldo_duro_brando",
+      "importancia": -0.0072,
+      "desvio": 0.0102
+    },
+    {
+      "variavel": "tom_nivel",
+      "importancia": -0.0123,
+      "desvio": 0.0121
+    },
+    {
+      "variavel": "decisao_atual_corte",
+      "importancia": -0.0181,
+      "desvio": 0.0149
+    },
+    {
+      "variavel": "decisao_atual_manutencao",
+      "importancia": -0.0326,
+      "desvio": 0.0166
+    }
+  ],
+  "regra_arvore_pt": "Se a decisão atual não é alta e tom da seção de decisão ≤ 0,27, prevê corte.\nSe a decisão atual não é alta e tom da seção de decisão > 0,27, prevê manutenção.\nSe a decisão atual é alta e termos de virada ≤ 7,50, prevê alta.\nSe a decisão atual é alta e termos de virada > 7,50, prevê manutenção.",
+  "regra_arvore_texto": "|--- decisao_atual_alta <= 0.50\n|   |--- tom_orientacao <= 0.27\n|   |   |--- class: corte\n|   |--- tom_orientacao >  0.27\n|   |   |--- class: manutencao\n|--- decisao_atual_alta >  0.50\n|   |--- sinais_virada <= 7.50\n|   |   |--- class: alta\n|   |--- sinais_virada >  7.50\n|   |   |--- class: manutencao\n",
+  "previsao_atual": {
+    "reuniao": 283,
+    "data": "2026-12-09",
+    "linha_base": {
+      "ata": 281,
+      "decisao_atual": "manutencao"
+    },
+    "modelo": "ingenua",
+    "probabilidades": {
+      "alta": 0.0,
+      "manutencao": 1.0,
+      "corte": 0.0
+    },
+    "por_modelo": {
+      "ingenua": {
+        "alta": 0.0,
+        "manutencao": 1.0,
+        "corte": 0.0
+      },
+      "arvore": {
+        "alta": 0.077,
+        "manutencao": 0.077,
+        "corte": 0.846
+      },
+      "logistica": {
+        "alta": 0.376,
+        "manutencao": 0.479,
+        "corte": 0.146
+      },
+      "floresta": {
+        "alta": 0.135,
+        "manutencao": 0.592,
+        "corte": 0.273
+      }
+    }
+  },
+  "acuracia_previsao_decisao": 0.806
+}

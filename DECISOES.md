@@ -28,3 +28,15 @@
 | modelo_parceiro | indisponível | — | — |
 
 Escolhido: `ingenua`. A mudança de tom (índice de 0,90 na ata 280 para 0,62 na 281) aparece nos textos só como explicação do que mudou na comunicação, nunca como previsão contraditória.
+
+## Modelo de decisão por ata (modelo/) — fixado antes de rodar qualquer modelo
+
+**Unidade e alvo.** Uma linha por ata (236 a 281). Alvo: `proxima_decisao` (alta, manutencao, corte). A ata 281 fica sem alvo no treino: a decisão da 282 (04/11/2026, manutenção) vem do endpoint oficial do BC, mas a 282 ainda não tem ata, então a 281 é usada só como linha de previsão para a 283, com `decisao_atual` = decisão da 282 (manutenção). Assim a linha da previsão tem o mesmo formato das linhas de treino (texto da ata mais recente + última decisão conhecida).
+
+**Termos fixos de `sinais_virada`** (normalizados sem acento, minúsculas, contagem de ocorrências como prefixo de palavra nos parágrafos da seção "D) Decisão de política monetária"): interrupcao, pausa, prolongad, magnitude, calibragem, calibracao, encerramento, continuidade, ritmo, ajuste, ciclo, interromper, antecipar, vigilante, perseveranca, serenidade. A lista não muda depois de ver resultados.
+
+**Seção de decisão.** Título que contém "decis" (todas as atas 236–281 têm a seção D). Se faltar, usa a média das últimas 3 seções.
+
+**Hiperparâmetros fixos (sem ajuste olhando o teste).** Logística: StandardScaler + LogisticRegression(C=0.5, max_iter=2000). Floresta: RandomForestClassifier(n_estimators=300, max_depth=3, random_state=42). Árvore: DecisionTreeClassifier(max_depth=2, random_state=42). Ingênua: repete `decisao_atual`.
+
+**Validação principal.** Janela crescente: para cada ata de índice t ≥ 15 (16ª ata em diante), treina com 0..t−1 e prevê t. Secundária: leave-one-out. Desempate: ingenua, variacao_tom, nivel_tom, arvore, logistica, floresta.
