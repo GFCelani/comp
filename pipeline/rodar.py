@@ -65,6 +65,7 @@ def main() -> int:
               ("modelo_base", ["pipeline/modelo_base.py"]),
               ("indice", ["pipeline/indice.py"]),
               ("metricas", ["pipeline/metricas.py"]),
+              ("previsao", ["pipeline/previsao.py"]),
               ("textos", ["pipeline/textos.py"] + (["--forcar"] if textos_desatualizados() else [])),
               ("gerar_dados_site", ["pipeline/gerar_dados_site.py"])]
     tempos, falhas = {}, []

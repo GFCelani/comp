@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T12:56:09-03:00",
+  "gerado_em": "2026-11-06T13:02:22-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T12:56:09-03:00",
+  "ultima_verificacao": "2026-11-06T13:02:22-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4214,6 +4214,68 @@
       ]
     }
   ],
+  "previsao": {
+    "gerado_em": "2026-11-06T13:02:10-03:00",
+    "base_ata": 281,
+    "base_data_reuniao": "2026-09-16",
+    "fonte_indice": "simples",
+    "indice": 0.62,
+    "regra": {
+      "aperto": "indice > 0.25",
+      "afrouxamento": "indice < -0.25"
+    },
+    "previsto": "aperto",
+    "proxima_reuniao": {
+      "numero": 283,
+      "data": "2026-12-09",
+      "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)"
+    },
+    "ultima_decisao_conhecida": {
+      "numero": 282,
+      "data": "2026-11-04",
+      "selic": 13.75,
+      "decisao_pp": 0.0,
+      "decisao": "manutencao",
+      "ata_publicada": false,
+      "fonte": "BCB, histórico das taxas de juros (bcb.gov.br/controleinflacao/historicotaxasjuros)",
+      "confere_sgs432": true
+    },
+    "ultima_decisao": {
+      "numero": 282,
+      "data": "2026-11-04",
+      "selic": 13.75,
+      "decisao_pp": 0.0,
+      "decisao": "manutencao",
+      "ata_publicada": false,
+      "fonte": "BCB, histórico das taxas de juros (bcb.gov.br/controleinflacao/historicotaxasjuros)",
+      "confere_sgs432": true
+    },
+    "acerto": {
+      "indice": {
+        "acuracia": 0.4,
+        "acerto_sinal": 0.429,
+        "n": 45,
+        "n_direcionais": 42
+      },
+      "ingenua": {
+        "acuracia": 0.844,
+        "acerto_sinal": 0.9,
+        "n": 45,
+        "n_direcionais": 30,
+        "previsto": "manutencao"
+      },
+      "periodo": {
+        "inicio": "2021-01-20",
+        "fim": "2026-08-05"
+      },
+      "melhor": "ingenua"
+    },
+    "focus_selic": {
+      "mediana": 13.5,
+      "ano_referencia": 2026,
+      "data": "2026-10-30"
+    }
+  },
   "como_medimos": {
     "regua": "Cada parágrafo numerado das atas recebe uma nota inteira de −2 a +2: +2 muito duro (sinaliza alta de juros ou juros altos por mais tempo, com ênfase), +1 duro, 0 neutro ou descritivo, −1 brando, −2 muito brando (sinaliza corte de juros, com ênfase). As notas são dadas pelo Claude (Sonnet), uma ata por vez, com a mesma régua para todas as atas, e vêm com um trecho de até 25 palavras copiado do parágrafo que justifica a nota.",
     "agregacao": "O índice de cada ata é a média das notas ignorando zeros: parágrafos neutros (fatos e dados) não diluem o sinal. Se nenhum parágrafo tiver nota diferente de zero, o índice fica vazio. A média simples de todas as notas também é calculada e guardada para comparação.",
@@ -5027,5 +5089,18 @@
     "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros",
     "n_comparadas": 46,
     "divergencias": []
+  },
+  "status": {
+    "ultima_verificacao": "2026-11-06T12:55:43-03:00",
+    "ultimo_commit_keepalive": "2026-11-06T12:55:43-03:00",
+    "token_cadastrado_em": null,
+    "token_expira_em": null,
+    "fluxo": {
+      "agenda": "dias úteis às 10h, 14h e 18h de Brasília (GitHub Actions)",
+      "ultima_ata_no_banco": 281,
+      "atas_novas": [],
+      "pendencias": [],
+      "token_no_ambiente": false
+    }
   }
 }

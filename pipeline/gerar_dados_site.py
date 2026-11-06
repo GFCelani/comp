@@ -119,6 +119,7 @@ def main() -> int:
         "mudancas_origem": textos.get("origem", "claude") if textos.get("ata_atual") == ult["numero"] else None,
         "impacto": textos.get("impacto") if textos.get("ata_atual") == ult["numero"] else None,
         "atas": lista,
+        "previsao": ler(B / "previsao.json"),
         "como_medimos": como,
         "metricas_previsao": ler(B / "metricas_previsao.json"),
         "metricas_modelo": ler(B / "metricas_modelo.json"),

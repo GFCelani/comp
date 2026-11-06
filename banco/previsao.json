@@ -1,0 +1,62 @@
+{
+  "gerado_em": "2026-11-06T13:02:10-03:00",
+  "base_ata": 281,
+  "base_data_reuniao": "2026-09-16",
+  "fonte_indice": "simples",
+  "indice": 0.62,
+  "regra": {
+    "aperto": "indice > 0.25",
+    "afrouxamento": "indice < -0.25"
+  },
+  "previsto": "aperto",
+  "proxima_reuniao": {
+    "numero": 283,
+    "data": "2026-12-09",
+    "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)"
+  },
+  "ultima_decisao_conhecida": {
+    "numero": 282,
+    "data": "2026-11-04",
+    "selic": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "ata_publicada": false,
+    "fonte": "BCB, histórico das taxas de juros (bcb.gov.br/controleinflacao/historicotaxasjuros)",
+    "confere_sgs432": true
+  },
+  "ultima_decisao": {
+    "numero": 282,
+    "data": "2026-11-04",
+    "selic": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "ata_publicada": false,
+    "fonte": "BCB, histórico das taxas de juros (bcb.gov.br/controleinflacao/historicotaxasjuros)",
+    "confere_sgs432": true
+  },
+  "acerto": {
+    "indice": {
+      "acuracia": 0.4,
+      "acerto_sinal": 0.429,
+      "n": 45,
+      "n_direcionais": 42
+    },
+    "ingenua": {
+      "acuracia": 0.844,
+      "acerto_sinal": 0.9,
+      "n": 45,
+      "n_direcionais": 30,
+      "previsto": "manutencao"
+    },
+    "periodo": {
+      "inicio": "2021-01-20",
+      "fim": "2026-08-05"
+    },
+    "melhor": "ingenua"
+  },
+  "focus_selic": {
+    "mediana": 13.5,
+    "ano_referencia": 2026,
+    "data": "2026-10-30"
+  }
+}
