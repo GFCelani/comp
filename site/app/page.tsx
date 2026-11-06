@@ -199,15 +199,15 @@ export default async function Pagina() {
               {/* Cartão: mesma altura do bloco de texto (grade esticada) */}
               <div className="relative">
               <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col lg:absolute lg:inset-0" aria-label="Destaques">
-                <div className="px-6 pt-4 pb-4 bg-fundo-petroleo">
+                <div className="px-5 py-3 bg-fundo-petroleo">
                   <p className="rotulo text-acento">Leia o relatório de hoje</p>
-                  <p className="titulo-serifa mt-1 text-[1.25rem] leading-[1.25]">
+                  <p className="titulo-serifa mt-0.5 text-[1.125rem] leading-[1.25]">
                     O que mudou na ata {ataRelatorio}
                     <br />e o que isso pode significar
                   </p>
                   <a
                     href="#relatorio"
-                    className="botao-brilho group mt-3 flex w-full items-center justify-center gap-2 rounded-[10px] bg-acento px-4 py-2.5 text-[0.9375rem] font-medium text-papel shadow-[0_1px_2px_rgb(16_19_23/0.12)] transition-[background-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-acento-2 hover:shadow-[0_10px_24px_-12px_rgb(17_100_107/0.6)]"
+                    className="botao-brilho group mt-2.5 flex w-full items-center justify-center gap-2 rounded-[10px] bg-acento px-4 py-2 text-[0.9375rem] font-medium text-papel shadow-[0_1px_2px_rgb(16_19_23/0.12)] transition-[background-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-acento-2 hover:shadow-[0_10px_24px_-12px_rgb(17_100_107/0.6)]"
                   >
                     Ler o relatório
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-y-0.5">
@@ -216,7 +216,7 @@ export default async function Pagina() {
                   </a>
                 </div>
 
-                <div id="previsao" className="flex-1 flex flex-col justify-between gap-3 border-t border-linha px-6 py-4">
+                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-2 border-t border-linha px-5 py-3">
                   <div className="flex items-baseline justify-between gap-3">
                     <p className="text-[0.875rem] font-medium text-tinta">
                       Previsão para a próxima reunião{proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
@@ -225,7 +225,7 @@ export default async function Pagina() {
                   </div>
                   {pv ? (
                     <>
-                      <p className={`titulo-serifa text-[1.75rem] leading-[1.1] entra-2 ${corPrevisto(pv.previsto)}`}>{fraseSelic}</p>
+                      <p className={`titulo-serifa text-[1.5rem] leading-[1.1] entra-2 ${corPrevisto(pv.previsto)}`}>{fraseSelic}</p>
 
                       {probs ? (
                         <div>
@@ -258,7 +258,7 @@ export default async function Pagina() {
 
                       {textoPublico && <p className="text-[0.8125rem] leading-snug text-tinta-2">{textoPublico}</p>}
 
-                      <div className="flex items-center gap-3 pt-3 border-t border-linha">
+                      <div className="flex items-center gap-3 pt-2 border-t border-linha">
                         <Medidor valor={pv.indice} className="h-[28px] w-[46px] shrink-0" />
                         <p className="text-[0.8125rem] text-tinta-2 leading-snug num">
                           Tom da ata {pv.base_ata}: <span className={corIndice(pv.indice)}>{fmtIndice(pv.indice)}</span>.{" "}
