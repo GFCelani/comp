@@ -3,6 +3,7 @@
 import { Fragment, useEffect, useId, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import { dataCurta } from "@/lib/formato";
 import { SimboloCopomAI } from "@/components/Logo";
+import { ParagrafoCitado } from "@/components/ParagrafoCitado";
 
 /** Formato de cada item devolvido por GET /api/busca (lib/busca.ts). A API não muda. */
 type Resultado = {
@@ -58,13 +59,16 @@ function destacar(texto: string, termos: Set<string>): ReactNode[] {
   );
 }
 
+type Citacao = { id: string; ata: number; paragrafo: number; trecho: string; url_pdf: string; data_reuniao?: string };
+type RespostaChat = { modo: string; resposta: string; citacoes: Citacao[]; fontes: Resultado[] };
+
 type Mensagem =
   | { id: number; de: "usuario"; texto: string; ata: string }
   | { id: number; de: "copom"; estado: "carregando" }
   | { id: number; de: "copom"; estado: "erro" }
-  | { id: number; de: "copom"; estado: "pronto"; q: string; resultados: Resultado[] };
+  | { id: number; de: "copom"; estado: "pronto"; q: string; r: RespostaChat };
 
-function Citacao({ r, termos }: { r: Resultado; termos: Set<string> }) {
+function CartaoFonte({ r, termos }: { r: Resultado; termos: Set<string> }) {
   return (
     <li className="rounded-[12px] border border-linha bg-papel px-4 py-3">
       <p className="text-xs text-tinta-3 num">
@@ -91,28 +95,28 @@ function Resposta({ m }: { m: Extract<Mensagem, { de: "copom" }> }) {
     );
   } else if (m.estado === "erro") {
     corpo = <p className="text-[0.9375rem] text-tinta-2">A busca não respondeu agora. Tente de novo em instantes.</p>;
-  } else if (m.resultados.length === 0) {
-    corpo = (
-      <p className="text-[0.9375rem] text-tinta-2">
-        Não encontrei trechos com essas palavras. Tente termos que aparecem nas atas, como “inflação”, “atividade” ou
-        “expectativas”, ou busque em todas as atas.
-      </p>
-    );
   } else {
     const termos = termosDa(m.q);
-    const visiveis = todos ? m.resultados : m.resultados.slice(0, 3);
     corpo = (
       <>
-        <p className="text-[0.9375rem] text-tinta">Encontrei estes trechos nas atas:</p>
-        <ul className="mt-2.5 grid gap-2">
-          {visiveis.map((r) => (
-            <Citacao key={`${r.ata}-${r.paragrafo}`} r={r} termos={termos} />
-          ))}
-        </ul>
-        {!todos && m.resultados.length > 3 && (
-          <button type="button" onClick={() => setTodos(true)} className="link mt-2 text-[0.8125rem] cursor-pointer">
-            ver mais trechos ({m.resultados.length - 3})
-          </button>
+        {m.r.citacoes.length ? (
+          <ParagrafoCitado texto={m.r.resposta} citacoes={m.r.citacoes} className="chat-resposta" />
+        ) : (
+          <p className="text-[0.9375rem] leading-[1.6] text-tinta">{m.r.resposta}</p>
+        )}
+        {m.r.fontes.length > 0 && (
+          <div className="mt-2">
+            <button type="button" onClick={() => setTodos((v) => !v)} aria-expanded={todos} className="link text-[0.8125rem] cursor-pointer">
+              {todos ? "esconder fontes" : `ver fontes (${m.r.fontes.length})`}
+            </button>
+            {todos && (
+              <ul className="mt-2.5 grid gap-2">
+                {m.r.fontes.map((r) => (
+                  <CartaoFonte key={`${r.ata}-${r.paragrafo}`} r={r} termos={termos} />
+                ))}
+              </ul>
+            )}
+          </div>
         )}
       </>
     );
@@ -128,9 +132,12 @@ function Resposta({ m }: { m: Extract<Mensagem, { de: "copom" }> }) {
 export function PergunteAsAtas({
   atas,
   sugestoes = SUGESTOES,
+  comIA = false,
 }: {
   atas: { numero: number; data_reuniao: string }[];
   sugestoes?: string[];
+  /** true quando o servidor tem ANTHROPIC_API_KEY (só muda a linha de aviso). */
+  comIA?: boolean;
 }) {
   const base = useId();
   const campoId = `${base}-msg`;
@@ -160,12 +167,17 @@ export function PergunteAsAtas({
     const meioSegundo = new Promise((ok) => setTimeout(ok, 500));
     let nova: Mensagem;
     try {
-      const params = new URLSearchParams({ q: pergunta });
-      if (ata) params.set("ata", ata);
-      const r = await fetch(`/api/busca?${params}`);
-      if (!r.ok) throw new Error(String(r.status));
-      const j = (await r.json()) as { resultados?: Resultado[] };
-      nova = { id: idR, de: "copom", estado: "pronto", q: pergunta, resultados: j.resultados ?? [] };
+      const r = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pergunta, ata: ata || null }),
+      });
+      const j = (await r.json().catch(() => ({}))) as Partial<RespostaChat> & { erro?: string };
+      if (!r.ok) {
+        nova = { id: idR, de: "copom", estado: "pronto", q: pergunta, r: { modo: "erro", resposta: j.erro ?? "A busca não respondeu agora. Tente de novo em instantes.", citacoes: [], fontes: [] } };
+      } else {
+        nova = { id: idR, de: "copom", estado: "pronto", q: pergunta, r: { modo: j.modo ?? "busca", resposta: j.resposta ?? "", citacoes: j.citacoes ?? [], fontes: j.fontes ?? [] } };
+      }
     } catch {
       nova = { id: idR, de: "copom", estado: "erro" };
     }
@@ -193,18 +205,24 @@ export function PergunteAsAtas({
   return (
     <div>
       <div className="relative flex h-[min(520px,78svh)] flex-col overflow-hidden rounded-[18px] border border-linha bg-papel shadow-[var(--sombra-2)]">
-        {!vazio && (
-          <button
-            type="button"
-            onClick={() => setMsgs([])}
-            className="absolute right-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-linha bg-papel/90 px-3 py-1 text-xs text-tinta-2 backdrop-blur hover:text-tinta hover:border-linha-2"
-          >
-            <svg aria-hidden width="12" height="12" viewBox="0 0 16 16" fill="none">
-              <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-            nova conversa
-          </button>
-        )}
+        <div className="flex h-11 shrink-0 items-center justify-between border-b border-linha px-4 sm:px-5">
+          <span className="flex items-center gap-2 text-[0.8125rem] font-medium text-tinta-2">
+            <SimboloCopomAI className="h-5 w-5" />
+            Pergunte às atas
+          </span>
+          {!vazio && (
+            <button
+              type="button"
+              onClick={() => setMsgs([])}
+              className="inline-flex items-center gap-1.5 rounded-full border border-linha px-3 py-1 text-xs text-tinta-2 hover:border-linha-2 hover:text-tinta cursor-pointer"
+            >
+              <svg aria-hidden width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+              nova conversa
+            </button>
+          )}
+        </div>
 
         <div ref={rolagem} className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-6 pt-5 pb-4" aria-live="polite">
           {vazio ? (
@@ -295,7 +313,9 @@ export function PergunteAsAtas({
           </div>
         </form>
       </div>
-      <p className="mt-3 text-xs text-tinta-3">As respostas são trechos exatos das atas, não interpretação.</p>
+      <p className="mt-3 text-xs text-tinta-3">
+        {comIA ? "Respostas geradas a partir das atas, com fontes." : "Respostas baseadas nas atas, com fontes."}
+      </p>
     </div>
   );
 }

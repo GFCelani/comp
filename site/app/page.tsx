@@ -515,7 +515,7 @@ export default async function Pagina() {
                 A resposta é sempre um trecho da ata, com o número do parágrafo e o link para o PDF oficial.
               </p>
               <div className="mt-6">
-                <PergunteAsAtas atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
+                <PergunteAsAtas comIA={Boolean(process.env.ANTHROPIC_API_KEY)} atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
               </div>
             </div>
             <div id="atas" className="cartao p-5 sm:p-8">

@@ -91,29 +91,94 @@ export function textoDoParagrafo(ata: number, paragrafo: number): string | null 
   return p ? p.texto : null;
 }
 
-export function buscar(q: string, ata?: number | null, limite = 5): Resultado[] {
-  const termos = Array.from(new Set(tokenizar(q)));
-  if (termos.length === 0) return [];
+const ATA_MIN = docs.reduce((m, d) => Math.min(m, d.p.ata), Infinity);
+const ATA_MAX = docs.reduce((m, d) => Math.max(m, d.p.ata), -Infinity);
 
-  const pontuados: { d: Doc; score: number }[] = [];
+/** Bônus de proximidade: termos da pergunta juntos (vizinhos ou a até 4 palavras). */
+function proximidade(termosDoc: string[], termos: string[]): number {
+  if (termos.length < 2) return 0;
+  const alvo = new Set(termos);
+  const posicoes: { t: string; i: number }[] = [];
+  termosDoc.forEach((t, i) => {
+    if (alvo.has(t)) posicoes.push({ t, i });
+  });
+  let bonus = 0;
+  for (let k = 1; k < posicoes.length; k++) {
+    const a = posicoes[k - 1];
+    const b = posicoes[k];
+    if (a.t === b.t) continue;
+    const dist = b.i - a.i;
+    if (dist === 1) bonus += 0.35;
+    else if (dist <= 4) bonus += 0.15;
+  }
+  return Math.min(bonus, 1);
+}
+
+function jaccard(a: Set<string>, b: Set<string>): number {
+  let inter = 0;
+  for (const t of a) if (b.has(t)) inter++;
+  return inter / (a.size + b.size - inter || 1);
+}
+
+type Pontuado = { d: Doc; score: number; conjunto: Set<string> };
+
+function pontuar(q: string, ata?: number | null): { termos: string[]; lista: Pontuado[] } {
+  const termos = Array.from(new Set(tokenizar(q)));
+  if (termos.length === 0) return { termos, lista: [] };
+
+  const pontuados: Pontuado[] = [];
   for (const d of docs) {
     if (ata && d.p.ata !== ata) continue;
     let score = 0;
+    let achados = 0;
     const dl = d.termos.length;
     for (const t of termos) {
       const f = d.tf.get(t);
       if (!f) continue;
+      achados++;
       score += idf(t) * ((f * (K1 + 1)) / (f + K1 * (1 - B + (B * dl) / avgdl)));
     }
-    if (score > 0) pontuados.push({ d, score });
+    if (score <= 0) continue;
+    // mais termos diferentes da pergunta no mesmo parágrafo e termos juntos pesam mais
+    score *= 1 + 0.25 * ((achados - 1) / Math.max(1, termos.length - 1)) + proximidade(d.termos, termos);
+    // atas mais recentes primeiro (até +35% para a mais nova)
+    const recencia = ATA_MAX > ATA_MIN ? (d.p.ata - ATA_MIN) / (ATA_MAX - ATA_MIN) : 1;
+    score *= 1 + 0.35 * recencia;
+    pontuados.push({ d, score, conjunto: new Set(d.termos) });
   }
-
   pontuados.sort((a, b) => b.score - a.score || b.d.p.ata - a.d.p.ata);
-  return pontuados.slice(0, limite).map(({ d, score }) => ({
+
+  // trechos quase idênticos em atas diferentes: fica o da ata mais recente, na posição do melhor
+  const mantidos: Pontuado[] = [];
+  for (const c of pontuados.slice(0, 80)) {
+    const i = mantidos.findIndex((m) => jaccard(m.conjunto, c.conjunto) >= 0.75);
+    if (i === -1) mantidos.push(c);
+    else if (c.d.p.ata > mantidos[i].d.p.ata) mantidos[i] = { ...c, score: mantidos[i].score };
+  }
+  return { termos, lista: mantidos };
+}
+
+export function buscar(q: string, ata?: number | null, limite = 5): Resultado[] {
+  const { termos, lista } = pontuar(q, ata);
+  return lista.slice(0, limite).map(({ d, score }) => ({
     ata: d.p.ata,
     data_reuniao: d.p.data_reuniao,
     paragrafo: d.p.paragrafo,
     texto: recorte(d.p.texto, termos),
+    url_pdf: d.p.url_pdf,
+    score: Math.round(score * 100) / 100,
+  }));
+}
+
+/** Parágrafos completos mais relevantes (só no servidor, para a rota /api/chat). */
+export function buscarCompletos(q: string, ata?: number | null, limite = 8): (Resultado & { completo: string })[] {
+  const { termos, lista } = pontuar(q, ata);
+  return lista.slice(0, limite).map(({ d, score }) => ({
+    ata: d.p.ata,
+    data_reuniao: d.p.data_reuniao,
+    paragrafo: d.p.paragrafo,
+    texto: recorte(d.p.texto, termos),
+    completo: d.p.texto,
     url_pdf: d.p.url_pdf,
     score: Math.round(score * 100) / 100,
   }));

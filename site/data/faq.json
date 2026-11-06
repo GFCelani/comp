@@ -1,0 +1,494 @@
+{
+  "gerado_em": "2026-11-06T15:09:55-03:00",
+  "modelo": "sonnet",
+  "itens": [
+    {
+      "id": "inflacao-servicos",
+      "pergunta": "O que o Copom disse sobre a inflação de serviços?",
+      "variantes": [
+        "inflação de serviços",
+        "inflacao de servicos",
+        "serviços",
+        "preços de serviços"
+      ],
+      "resposta": "Na ata 281, o Copom lista como risco de alta para a inflação uma resiliência maior da inflação de serviços do que a projetada [[c1]]. Isso ocorreria por causa de um hiato do produto mais positivo, ou seja, uma economia mais aquecida [[c1]]. Em ata anterior (279), o Comitê já dizia que a inflação de serviços mostrava algum arrefecimento, ainda que mais resiliente [[c2]]. Segundo essa ata, ela respondia a um mercado de trabalho dinâmico e a uma atividade em moderação gradual [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "uma maior resiliência na inflação de serviços do que a projetada em função de um hiato do produto mais positivo",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 279,
+          "paragrafo": 10,
+          "trecho": "A inflação de serviços também apresentava algum arrefecimento, ainda que mais resiliente",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom279-not20260617279.pdf",
+          "data_reuniao": "2026-06-17"
+        },
+        {
+          "id": "c3",
+          "ata": 279,
+          "paragrafo": 10,
+          "trecho": "respondendo a um mercado de trabalho que segue dinâmico e a uma atividade que tem apresentado moderação gradual",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom279-not20260617279.pdf",
+          "data_reuniao": "2026-06-17"
+        }
+      ]
+    },
+    {
+      "id": "expectativas-desancoradas",
+      "pergunta": "O que o Copom disse sobre as expectativas desancoradas?",
+      "variantes": [
+        "expectativas desancoradas",
+        "desancoragem",
+        "expectativas de inflação",
+        "ancoragem das expectativas"
+      ],
+      "resposta": "Na ata 281, o Copom afirma que as expectativas de inflação continuam acima da meta em todos os horizontes [[c1]]. A pesquisa Focus indica 4,9% para 2026 e 4,3% para 2027, valores acima da meta [[c2]]. O Comitê acompanha com atenção a desancoragem para prazos mais longos e diz que perseverança, firmeza e serenidade ajudarão a reancorar as expectativas [[c3]]. Todos os membros concluíram que, com expectativas desancoradas, é preciso uma restrição monetária maior e por mais tempo do que seria apropriado antes [[c4]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 10,
+          "trecho": "permanecem acima da meta de inflação em todos os horizontes",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 3,
+          "trecho": "permanecem em valores acima da meta, situando-se em 4,9% e 4,3%, respectivamente",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 10,
+          "trecho": "perseverança, firmeza e serenidade na condução da política monetária contribuirão para a reancoragem das expectativas",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c4",
+          "ata": 281,
+          "paragrafo": 10,
+          "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "ultima-decisao",
+      "pergunta": "Qual foi a última decisão do Copom?",
+      "variantes": [
+        "última decisão",
+        "ultima decisao",
+        "decisão mais recente",
+        "o que o Copom decidiu",
+        "Selic atual"
+      ],
+      "resposta": "Na ata 281, o Copom decidiu reduzir a taxa básica de juros (Selic) para 13,75% ao ano [[c1]]. O Comitê entende que essa decisão é compatível com a estratégia de convergência da inflação para o redor da meta [[c2]]. Na reunião anterior (ata 280), a taxa havia sido reduzida para 14,00% [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 18,
+          "trecho": "O Copom decidiu reduzir a taxa básica de juros para 13,75% a.a",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 18,
+          "trecho": "essa decisão é compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 280,
+          "paragrafo": 17,
+          "trecho": "O Copom decidiu reduzir a taxa básica de juros para 14,00% a.a",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
+          "data_reuniao": "2026-08-05"
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "pergunta": "O que o Copom disse sobre o câmbio?",
+      "variantes": [
+        "câmbio",
+        "cambio",
+        "dólar",
+        "taxa de câmbio",
+        "real"
+      ],
+      "resposta": "No cenário de referência da ata 281, a taxa de câmbio parte de R$5,15 por dólar e evolui segundo a paridade do poder de compra [[c1]]. Entre os riscos de alta para a inflação, o Comitê cita uma taxa de câmbio persistentemente mais depreciada [[c2]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 11,
+          "trecho": "a taxa de câmbio parte de R$5,15/US$2, evoluindo segundo a paridade do poder de compra (PPC)",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "uma taxa de câmbio persistentemente mais depreciada",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "meta-inflacao",
+      "pergunta": "O que o Copom disse sobre a meta de inflação?",
+      "variantes": [
+        "meta de inflação",
+        "meta de inflacao",
+        "meta",
+        "convergência para a meta"
+      ],
+      "resposta": "Na ata 281, o Copom diz que as expectativas de inflação seguem acima da meta em todos os horizontes [[c1]]. Para o Comitê, o arrefecimento da demanda é essencial para a convergência da inflação à meta [[c2]]. O Copom reitera que manterá a restrição adequada para assegurar essa convergência [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 10,
+          "trecho": "permanecem acima da meta de inflação em todos os horizontes",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 5,
+          "trecho": "o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 17,
+          "trecho": "de forma a manter a restrição adequada para assegurar a convergência da inflação à meta",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "mercado-trabalho",
+      "pergunta": "O que o Copom disse sobre o mercado de trabalho?",
+      "variantes": [
+        "mercado de trabalho",
+        "emprego",
+        "desemprego",
+        "salários"
+      ],
+      "resposta": "Na ata 281, o Copom diz que a taxa de desemprego segue historicamente baixa, enquanto o crescimento da ocupação vem desacelerando [[c1]]. Os rendimentos médios desaceleraram, mas ainda crescem em termos reais acima da produtividade do trabalho [[c2]]. O Comitê descreve o mercado de trabalho como aquecido [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 7,
+          "trecho": "A taxa de desemprego mantém-se em patamares historicamente baixos, enquanto o crescimento da taxa de ocupação vem apresentando desaceleração",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 7,
+          "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 2,
+          "trecho": "mercado de trabalho aquecido",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "politica-fiscal",
+      "pergunta": "O que o Copom disse sobre a política fiscal?",
+      "variantes": [
+        "política fiscal",
+        "politica fiscal",
+        "fiscal",
+        "contas públicas",
+        "gastos do governo"
+      ],
+      "resposta": "Na ata 281, o Copom afirma que uma política fiscal contracíclica, que reduza o prêmio de risco, favorece a convergência da inflação à meta [[c1]]. O Comitê vê o esmorecimento das reformas e da disciplina fiscal, entre outros fatores, como capaz de elevar a taxa de juros neutra [[c2]]. Por isso, reforça a necessidade de políticas fiscal e monetária harmoniosas [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 8,
+          "trecho": "Uma política fiscal que atue de forma contracíclica e contribua para a redução do prêmio de risco favorece a convergência da inflação à meta",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 8,
+          "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 8,
+          "trecho": "a necessidade de políticas fiscal e monetária harmoniosas",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "cortes-continuar",
+      "pergunta": "Os cortes de juros vão continuar?",
+      "variantes": [
+        "cortes de juros",
+        "próximos cortes",
+        "a Selic vai cair",
+        "juros vão cair",
+        "ritmo de cortes"
+      ],
+      "resposta": "Na ata 281, o Copom diz que a magnitude do ciclo de calibração será ajustada à luz da evolução do cenário [[c1]]. Ele cita incerteza elevada e riscos assimétricos na direção altista para os preços [[c2]]. O Comitê também lembra que o arrefecimento da demanda é essencial para a convergência da inflação à meta [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 17,
+          "trecho": "a magnitude do ciclo de calibração será ajustada à luz da evolução do cenário",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 17,
+          "trecho": "riscos assimétricos na direção altista para os preços",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 5,
+          "trecho": "o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "atividade",
+      "pergunta": "Como está a atividade econômica?",
+      "variantes": [
+        "atividade econômica",
+        "atividade economica",
+        "PIB",
+        "crescimento",
+        "economia"
+      ],
+      "resposta": "Na ata 281, o Copom diz que a atividade econômica doméstica manteve trajetória de moderação, como antecipado [[c1]]. O PIB do segundo trimestre de 2026 confirmou a desaceleração apontada por outros indicadores [[c2]]. Ainda assim, a atividade segue em patamar resiliente, com mercado de trabalho aquecido [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 5,
+          "trecho": "A atividade econômica doméstica manteve trajetória de moderação, tal como antecipado pelo Comitê",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 5,
+          "trecho": "confirmou a desaceleração apontada por outros indicadores",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 2,
+          "trecho": "moderação gradual da atividade econômica, principalmente em setores mais cíclicos, embora ainda em patamar resiliente e mercado de trabalho aquecido",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "cenario-externo",
+      "pergunta": "O que o Copom disse sobre o cenário externo?",
+      "variantes": [
+        "cenário externo",
+        "cenario externo",
+        "exterior",
+        "economia mundial",
+        "Estados Unidos"
+      ],
+      "resposta": "Na ata 281, o Copom diz que o ambiente externo permanece incerto por causa da indefinição sobre os conflitos armados no Oriente Médio [[c1]]. Pesa também a incerteza sobre a política monetária em algumas economias avançadas [[c2]]. O Comitê afirma que a incerteza externa segue em níveis elevados [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 1,
+          "trecho": "O ambiente externo permanece incerto em função da indefinição acerca dos conflitos armados no Oriente Médio",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 1,
+          "trecho": "incerteza sobre a política monetária em algumas economias avançadas",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 4,
+          "trecho": "A incerteza com relação ao cenário externo segue em níveis elevados",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "riscos-inflacao",
+      "pergunta": "Quais são os riscos para a inflação?",
+      "variantes": [
+        "riscos",
+        "riscos para a inflação",
+        "balanço de riscos",
+        "riscos de alta"
+      ],
+      "resposta": "Na ata 281, o Copom avalia que os riscos para a inflação, de alta e de baixa, seguem mais elevados que o usual, com assimetria altista [[c1]]. Entre os riscos de alta está a desancoragem das expectativas de inflação por período mais prolongado [[c2]]. Entre os de baixa está uma desaceleração da atividade doméstica mais acentuada do que a projetada [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "uma desancoragem das expectativas de inflação por período mais prolongado",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "uma eventual desaceleração da atividade econômica doméstica mais acentuada do que a projetada",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "credito",
+      "pergunta": "O que o Copom disse sobre o crédito?",
+      "variantes": [
+        "crédito",
+        "credito",
+        "empréstimos",
+        "concessões de crédito"
+      ],
+      "resposta": "Na ata 281, o Copom diz que o crédito bancário com recursos livres é consistente com um quadro de desaceleração do crescimento [[c1]]. Já os créditos com recursos direcionados mantiveram a expansão para pessoas físicas e para empresas [[c2]]. O Comitê cita ainda o aumento de crédito direcionado entre os fatores com potencial de elevar a taxa de juros neutra [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 6,
+          "trecho": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 6,
+          "trecho": "mantiveram trajetória de expansão para pessoas físicas, na linha do crédito imobiliário, e para empresas",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 8,
+          "trecho": "o aumento de crédito direcionado e as incertezas sobre a estabilização da dívida pública",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "juros-altos-tempo",
+      "pergunta": "Por quanto tempo os juros ficarão altos?",
+      "variantes": [
+        "juros altos",
+        "quanto tempo",
+        "Selic alta",
+        "juros elevados",
+        "política restritiva"
+      ],
+      "resposta": "Na ata 281, o Copom diz que a inflação segue pressionada pela demanda, o que exige que a política monetária mantenha caráter restritivo [[c1]]. O Comitê vê a atividade em moderação gradual, mas ainda resiliente e com mercado de trabalho aquecido [[c2]]. Os riscos para a inflação permanecem mais elevados que o usual, com assimetria altista [[c3]].",
+      "citacoes": [
+        {
+          "id": "c1",
+          "ata": 281,
+          "paragrafo": 15,
+          "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c2",
+          "ata": 281,
+          "paragrafo": 2,
+          "trecho": "ainda em patamar resiliente e mercado de trabalho aquecido",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        },
+        {
+          "id": "c3",
+          "ata": 281,
+          "paragrafo": 13,
+          "trecho": "permanecem mais elevados que o usual, com assimetria altista",
+          "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+          "data_reuniao": "2026-09-16"
+        }
+      ]
+    }
+  ]
+}
