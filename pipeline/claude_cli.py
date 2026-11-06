@@ -24,6 +24,18 @@ def _executavel() -> str:
     return exe
 
 
+def disponivel() -> bool:
+    """Há como chamar o Claude? Na nuvem (GitHub Actions) só com CLAUDE_CODE_OAUTH_TOKEN no ambiente;
+    localmente basta o comando `claude` logado. COPOM_SEM_CLAUDE=1 simula a ausência."""
+    if os.environ.get("COPOM_SEM_CLAUDE"):
+        return False
+    if os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
+        return True
+    if os.environ.get("GITHUB_ACTIONS"):
+        return False
+    return bool(shutil.which("claude") or shutil.which("claude.cmd") or shutil.which("claude.exe"))
+
+
 def chamar(prompt: str, tentativas: int = 2) -> str:
     """Devolve o texto da resposta (campo `result`). Levanta RuntimeError após as tentativas."""
     global CHAMADAS

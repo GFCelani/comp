@@ -205,6 +205,11 @@ def main() -> int:
             print(f"Textos já gerados para a ata {atual}; não chama o Claude.")
             return 0
 
+    if not claude_cli.disponivel():
+        print(f"Sem Claude (falta CLAUDE_CODE_OAUTH_TOKEN): textos da ata {atual} ficam pendentes "
+              "(textos_pendentes: true em dados_site.json).")
+        return 0
+
     par_atual, par_anterior = paragrafos_de(atual), paragrafos_de(anterior)
     mercado, data_selic, data_focus = dados_mercado()
     fmt = lambda xs: "\n\n".join(f"[{x['paragrafo']}] {x['texto']}" for x in xs) or "(nenhum)"

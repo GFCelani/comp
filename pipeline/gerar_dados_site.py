@@ -11,7 +11,7 @@ que o site lê apenas no servidor.
 import json
 import shutil
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -94,7 +94,7 @@ def main() -> int:
                       "n_nao_zero": i.get("n_nao_zero", len(nz)), "paragrafos": nz})
 
     ult = atas[-1]
-    agora = datetime.now().isoformat(timespec="seconds")
+    agora = datetime.now(timezone(timedelta(hours=-3))).isoformat(timespec="seconds")   # Brasília, também no runner (UTC)
     validacao = ler(RAIZ / "validacao" / "resultado.json")
     como = dict(COMO_MEDIMOS)
     if validacao:

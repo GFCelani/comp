@@ -53,7 +53,7 @@ Escreve: `pipeline/extrair.py`. Uma linha por parágrafo, sem cabeçalho, rodap�
 
 ## banco/rotulos.jsonl
 
-Escreve: `pipeline/rotular.py` (uma chamada `claude -p --model sonnet` por ata). Uma linha por parágrafo rotulado.
+Escreve: `pipeline/rotular.py` (uma chamada `claude -p --model sonnet` por ata; ou o modelo do parceiro, se existir `banco/modelo.pkl` ou `prever()` em `modelo/*.py`, com `modelo` = origem e `trecho` = 25 primeiras palavras). Uma linha por parágrafo rotulado.
 
 ```json
 {"ata": 281, "paragrafo": 12, "nota": 1, "trecho": "o Comitê seguirá vigilante e avaliará se a estratégia", "trecho_valido": true, "modelo": "sonnet", "rotulado_em": "2026-11-06T13:05:00"}
@@ -205,8 +205,8 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 ```
 
 - `exemplo: true` faz o site mostrar a faixa "EXEMPLO".
-- `ultima_verificacao`: data e hora ISO da última vez que o pipeline conferiu se há ata nova.
-- `textos_pendentes`: `true` quando `saida/textos.json` não é da última ata (aí `mudancas` = `[]` e `impacto` = null).
+- `ultima_verificacao`: data e hora ISO, com fuso de Brasília (ex.: `"2026-11-06T13:30:00-03:00"`), da última vez que o pipeline conferiu se há ata nova. Também gravado sozinho por `pipeline/verificar_nova.py` (workflow `atualizar_atas.yml`, dias úteis às 10h, 14h e 18h), que não mexe em mais nenhum campo. `gerado_em` também vai com o fuso.
+- `textos_pendentes`: `true` quando `saida/textos.json` não é da última ata (aí `mudancas` = `[]` e `impacto` = null). Na nuvem sem modelo do parceiro nem `CLAUDE_CODE_OAUTH_TOKEN`, a ata nova entra sem nota: `indice` null, `paragrafos` vazio e fora de `metricas_previsao`; o workflow abre uma issue.
 - `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).
 - `fonte_indice` ∈ `"simples"`, `"modelo"`: de onde vêm `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice`. Usa `banco/indice_modelo.json` quando existir, senão `banco/indice.json`.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).

@@ -4,7 +4,11 @@ Rotula o tom de cada parágrafo das atas → banco/rotulos.jsonl.
 Rode da raiz do repositório:
     .venv/Scripts/python.exe pipeline/rotular.py            # só atas ainda sem rótulos
     .venv/Scripts/python.exe pipeline/rotular.py --push 10  # commit + push a cada 10 atas
-    .venv/Scripts/python.exe pipeline/rotular.py --modelo   # usa o modelo do parceiro, sem Claude
+    .venv/Scripts/python.exe pipeline/rotular.py --modelo   # exige o modelo do parceiro, sem Claude
+
+Sem --modelo, usa o modelo do parceiro se existir (banco/modelo.pkl ou prever() em modelo/*.py);
+senão o Claude; se nenhum estiver disponível (nuvem sem CLAUDE_CODE_OAUTH_TOKEN), não rotula
+e sai com código 3 (SEM_ROTULADOR).
 
 Uma chamada `claude -p --model sonnet` por ata (nunca por parágrafo), até 3 em paralelo
 (2 se a RAM passar de 90%). Régua de avancado/case2_copom/classificar_tom.py.
@@ -31,6 +35,7 @@ ARQ_PARAGRAFOS = RAIZ / "banco" / "paragrafos.jsonl"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 PRIMEIRAS = [281, 280, 279, 278, 277, 276]
 LOCK = threading.Lock()
+SEM_ROTULADOR = 3   # código de saída: há atas sem nota e nada para rotulá-las (rodar.py lê)
 
 REGUA = """ +2 = muito duro (hawkish): sinaliza alta de juros ou juros altos por mais tempo com ênfase
  +1 = duro
@@ -216,8 +221,21 @@ def main() -> int:
         return 0
     print(f"Rotulando {len(pendentes)} atas: {pendentes}", flush=True)
 
-    if args.modelo:
-        prever, nome = carregar_modelo_parceiro()
+    # Prioridade: modelo do parceiro (sem Claude) > Claude (local logado ou CLAUDE_CODE_OAUTH_TOKEN) > nenhum
+    modelo = None
+    try:
+        modelo = carregar_modelo_parceiro()
+    except Exception as e:
+        if args.modelo:
+            raise
+        print(f"  modelo do parceiro indisponível ({e})", flush=True)
+    if modelo is None and not claude_cli.disponivel():
+        print(f"SEM ROTULADOR: nem modelo do parceiro nem Claude (CLAUDE_CODE_OAUTH_TOKEN); "
+              f"atas {pendentes} entram sem nota (índice null, fora das métricas).", flush=True)
+        return SEM_ROTULADOR
+
+    if modelo is not None:
+        prever, nome = modelo
         for ata in pendentes:
             gravar(rotular_modelo(prever, nome, ata, por_ata[ata]))
             print(f"  ata {ata}: rotulada por {nome}", flush=True)
