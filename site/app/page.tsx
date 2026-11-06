@@ -152,7 +152,7 @@ export default async function Pagina() {
       <main id="conteudo" className="flex-1">
         {/* 1. Capa: altura da tela menos o header, conteúdo centralizado */}
         <section className="relative lg:min-h-[100svh] lg:flex lg:flex-col pt-[104px] sm:pt-[112px] lg:pt-[92px]" aria-labelledby="manchete">
-          {/* conjunto centralizado entre o header e o fim da primeira tela */}
+          {/* conjunto um pouco acima do centro: espaço acima : abaixo = 1 : 1,5 */}
           <div aria-hidden className="hidden lg:block lg:flex-[1]" />
           <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
           <div className="envelope relative w-full">
@@ -281,7 +281,7 @@ export default async function Pagina() {
 
             </div>
           </div>
-          <div aria-hidden className="hidden lg:block lg:flex-[1]" />
+          <div aria-hidden className="hidden lg:block lg:flex-[1.5]" />
         </section>
 
         {/* 2. Relatório */}
