@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description: "Acurácia da previsão a partir do tom, matriz de confusão, comparação com uma previsão ingênua, modelo do parceiro e validação humana.",
 };
 
-function Destaque({ rotulo, valor, nota }: { rotulo: string; valor: string; nota?: string }) {
+function Destaque({ rotulo, valor, nota, menor }: { rotulo: string; valor: string; nota?: string; menor?: boolean }) {
   return (
     <div className="cartao p-4">
       <p className="rotulo">{rotulo}</p>
-      <p className="mt-1 text-2xl sm:text-3xl font-semibold num">{valor}</p>
+      <p className={`mt-1 font-semibold num ${menor ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>{valor}</p>
       {nota && <p className="text-xs text-texto-2 mt-1">{nota}</p>}
     </div>
   );
@@ -140,6 +140,7 @@ export default function Painel() {
                 <Destaque
                   rotulo="período"
                   valor={`${dataCurta(mp.periodo.inicio)} a ${dataCurta(mp.periodo.fim)}`}
+                  menor
                 />
               </div>
 
