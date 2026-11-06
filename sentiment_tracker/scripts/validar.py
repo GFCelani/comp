@@ -15,7 +15,8 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[1]
 LOTES = RAIZ / "dados" / "lotes"
-ROTULOS = RAIZ / "dados" / "rotulos"
+import os
+ROTULOS = RAIZ / "dados" / os.environ.get("TOM_ROTULOS", "rotulos")
 DIMENSOES = {"inflacao_corrente", "expectativas", "balanco_riscos", "atividade_trabalho", "fiscal_credito",
              "externo", "orientacao_futura", "decisao_votacao", "outro"}
 
@@ -84,7 +85,10 @@ def checar(n: int) -> list[str]:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--trechos", nargs="*", type=int)
+    ap.add_argument("--dir", help="pasta de rótulos dentro de dados/ (padrão: rotulos)")
     a = ap.parse_args()
+    if a.dir:
+        ROTULOS = RAIZ / "dados" / a.dir
     nums = a.trechos or sorted(int(p.stem.split("_")[1]) for p in ROTULOS.glob("ata_*.json"))
     total = []
     for n in nums:

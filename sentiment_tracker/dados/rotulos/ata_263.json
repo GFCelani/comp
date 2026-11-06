@@ -1,0 +1,335 @@
+{
+ "ata": 263,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mostra-se mais adverso",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê avalia que o cenário segue exigindo cautela por parte de países emergentes.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "tem apresentado maior dinamismo do que o esperado.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As expectativas de inflação para 2024 e 2025 apuradas pela pesquisa Focus encontram-se em torno de 4,0% e 3,8%",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em 4,0% para 2024 e 3,4% para 2025",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "um cenário alternativo com a manutenção de juros constante",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "um cenário de maior incerteza global sugere maior cautela na condução da política monetária doméstica",
+   "padroes": [
+    "P14",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o hiato do produto, que se encontrava levemente negativo na última avaliação divulgada",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "fiscal_credito",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "o Comitê elevou marginalmente a hipótese de taxa de juros real neutra em seus modelos para 4,75%",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê monitora com atenção como os desenvolvimentos recentes da política fiscal impactam a política monetária",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê unanimemente avalia que se deve perseguir a reancoragem das expectativas de inflação",
+   "padroes": [
+    "P11",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "segue forte a demanda por crédito por pessoas físicas",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a inflação de serviços, que tem maior inércia, assume papel preponderante na dinâmica desinflacionária no estágio atual",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "inflacao_corrente",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "concluiu-se unanimemente pela necessidade de uma política monetária mais contracionista e mais cautelosa",
+   "padroes": [
+    "P08",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o Comitê majoritariamente decidiu por manter o balanço de riscos simétrico nessa reunião.",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê optou unanimemente pela manutenção da taxa Selic em 10,50%.",
+   "padroes": [
+    "P06",
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "a política monetária deve se manter contracionista por tempo suficiente em patamar que consolide não apenas o processo de desinflação",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu manter a taxa básica de juros em 10,50%",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "ampliação da desancoragem das expectativas de inflação",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "optou por interromper o ciclo de queda de juros",
+   "padroes": [
+    "P01",
+    "P04",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.7
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": 8,
+   "direcao": 2,
+   "trecho": "o Comitê elevou marginalmente a hipótese de taxa de juros real neutra em seus modelos para 4,75%",
+   "padroes": [
+    "P07"
+   ],
+   "explicacao": "Juro neutro maior significa que a mesma Selic aperta menos: exige juros mais altos."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 21,
+   "paragrafo_anterior": 22,
+   "direcao": 2,
+   "trecho": "optou por interromper o ciclo de queda de juros",
+   "padroes": [
+    "P01",
+    "P06"
+   ],
+   "explicacao": "Ciclo de cortes interrompido por unanimidade."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 19,
+   "direcao": 1,
+   "trecho": "por tempo suficiente em patamar que consolide não apenas o processo de desinflação,",
+   "padroes": [
+    "P04"
+   ],
+   "explicacao": "Passa a falar em juros contracionistas 'por tempo suficiente', sugerindo pausa longa."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 8,
+   "paragrafo_anterior": 7,
+   "direcao": 1,
+   "trecho": "está agora em torno da neutralidade.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Hiato do produto revisado de negativo para neutro: economia mais aquecida."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 15,
+   "paragrafo_anterior": 14,
+   "direcao": -1,
+   "trecho": "o Comitê majoritariamente decidiu por manter o balanço de riscos simétrico nessa reunião.",
+   "padroes": [
+    "P03"
+   ],
+   "explicacao": "Apesar do debate, a maioria manteve riscos equilibrados, não assimétricos para cima."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 21,
+   "direcao": 1,
+   "trecho": "ampliação da desancoragem das expectativas de inflação",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Destaca que a desancoragem das expectativas aumentou."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 6,
+   "paragrafo_anterior": null,
+   "direcao": 0,
+   "trecho": "Em tal cenário, as projeções para a inflação situam-se em 4,0% e 3,1% para 2024 e 2025",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Mesmo com juros parados, inflação projetada fica acima da meta em 2025."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.0,
+  "surpresa": 0.5,
+  "explicacao": "Pausa unânime em 10,50% com orientação de juros contracionistas 'por tempo suficiente', juro neutro revisado para 4,75% e hiato zerado; balanço de riscos mantido simétrico. Mais dura que a anterior."
+ }
+}

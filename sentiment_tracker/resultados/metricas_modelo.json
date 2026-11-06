@@ -1,0 +1,335 @@
+{
+ "metodo": "reserva_tfidf_ridge (sem IA) treinado nos rótulos da Skill tom-copom",
+ "gerado_em": "2026-11-06T13:02:18-03:00",
+ "n_paragrafos": 674,
+ "acuracia": 0.662,
+ "acuracia_1ponto": 0.961,
+ "erro_medio_abs": 0.377,
+ "matriz_confusao": {
+  "rotulos": [
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "valores": [
+   [
+    0,
+    3,
+    3,
+    0,
+    0
+   ],
+   [
+    0,
+    23,
+    56,
+    17,
+    0
+   ],
+   [
+    0,
+    1,
+    173,
+    29,
+    0
+   ],
+   [
+    0,
+    0,
+    84,
+    232,
+    2
+   ],
+   [
+    0,
+    0,
+    6,
+    27,
+    18
+   ]
+  ]
+ },
+ "validacao_leave_one_out": [
+  {
+   "ata": 248,
+   "acuracia": 0.5,
+   "acuracia_1ponto": 0.917,
+   "erro_medio_abs": 0.583
+  },
+  {
+   "ata": 249,
+   "acuracia": 0.583,
+   "acuracia_1ponto": 0.917,
+   "erro_medio_abs": 0.5
+  },
+  {
+   "ata": 250,
+   "acuracia": 0.667,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.333
+  },
+  {
+   "ata": 251,
+   "acuracia": 0.696,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.304
+  },
+  {
+   "ata": 252,
+   "acuracia": 0.625,
+   "acuracia_1ponto": 0.969,
+   "erro_medio_abs": 0.406
+  },
+  {
+   "ata": 253,
+   "acuracia": 0.536,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.464
+  },
+  {
+   "ata": 254,
+   "acuracia": 0.609,
+   "acuracia_1ponto": 0.957,
+   "erro_medio_abs": 0.435
+  },
+  {
+   "ata": 255,
+   "acuracia": 0.565,
+   "acuracia_1ponto": 0.826,
+   "erro_medio_abs": 0.609
+  },
+  {
+   "ata": 256,
+   "acuracia": 0.696,
+   "acuracia_1ponto": 0.957,
+   "erro_medio_abs": 0.348
+  },
+  {
+   "ata": 257,
+   "acuracia": 0.741,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.259
+  },
+  {
+   "ata": 258,
+   "acuracia": 0.679,
+   "acuracia_1ponto": 0.964,
+   "erro_medio_abs": 0.357
+  },
+  {
+   "ata": 260,
+   "acuracia": 0.708,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.292
+  },
+  {
+   "ata": 261,
+   "acuracia": 0.621,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.379
+  },
+  {
+   "ata": 262,
+   "acuracia": 0.652,
+   "acuracia_1ponto": 0.957,
+   "erro_medio_abs": 0.391
+  },
+  {
+   "ata": 263,
+   "acuracia": 0.545,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.455
+  },
+  {
+   "ata": 264,
+   "acuracia": 0.793,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.207
+  },
+  {
+   "ata": 265,
+   "acuracia": 0.6,
+   "acuracia_1ponto": 0.96,
+   "erro_medio_abs": 0.44
+  },
+  {
+   "ata": 266,
+   "acuracia": 0.783,
+   "acuracia_1ponto": 0.957,
+   "erro_medio_abs": 0.261
+  },
+  {
+   "ata": 267,
+   "acuracia": 0.778,
+   "acuracia_1ponto": 0.926,
+   "erro_medio_abs": 0.296
+  },
+  {
+   "ata": 268,
+   "acuracia": 0.692,
+   "acuracia_1ponto": 0.923,
+   "erro_medio_abs": 0.385
+  },
+  {
+   "ata": 272,
+   "acuracia": 0.615,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.385
+  },
+  {
+   "ata": 273,
+   "acuracia": 0.682,
+   "acuracia_1ponto": 0.955,
+   "erro_medio_abs": 0.364
+  },
+  {
+   "ata": 274,
+   "acuracia": 0.81,
+   "acuracia_1ponto": 0.952,
+   "erro_medio_abs": 0.238
+  },
+  {
+   "ata": 275,
+   "acuracia": 0.632,
+   "acuracia_1ponto": 0.895,
+   "erro_medio_abs": 0.474
+  },
+  {
+   "ata": 278,
+   "acuracia": 0.722,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.278
+  },
+  {
+   "ata": 279,
+   "acuracia": 0.44,
+   "acuracia_1ponto": 0.88,
+   "erro_medio_abs": 0.68
+  },
+  {
+   "ata": 280,
+   "acuracia": 0.842,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.158
+  },
+  {
+   "ata": 281,
+   "acuracia": 0.8,
+   "acuracia_1ponto": 1.0,
+   "erro_medio_abs": 0.2
+  }
+ ],
+ "base_sempre_zero": {
+  "acuracia": 0.301,
+  "acuracia_1ponto": 0.915,
+  "erro_medio_abs": 0.783
+ },
+ "comparacao_rotulos_pipeline": {
+  "n": 674,
+  "skill_vs_sonnet": {
+   "acuracia": 0.685,
+   "acuracia_1ponto": 0.975,
+   "erro_medio_abs": 0.34,
+   "matriz_confusao": {
+    "rotulos": [
+     -2,
+     -1,
+     0,
+     1,
+     2
+    ],
+    "valores": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      45,
+      12,
+      1,
+      0
+     ],
+     [
+      0,
+      37,
+      151,
+      61,
+      2
+     ],
+     [
+      0,
+      14,
+      40,
+      229,
+      12
+     ],
+     [
+      0,
+      0,
+      0,
+      27,
+      37
+     ]
+    ]
+   }
+  },
+  "reserva_vs_sonnet": {
+   "acuracia": 0.632,
+   "acuracia_1ponto": 0.981,
+   "erro_medio_abs": 0.387,
+   "matriz_confusao": {
+    "rotulos": [
+     -2,
+     -1,
+     0,
+     1,
+     2
+    ],
+    "valores": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      18,
+      40,
+      6,
+      0
+     ],
+     [
+      0,
+      8,
+      188,
+      55,
+      0
+     ],
+     [
+      0,
+      1,
+      88,
+      203,
+      3
+     ],
+     [
+      0,
+      0,
+      6,
+      41,
+      17
+     ]
+    ]
+   }
+  }
+ },
+ "nota": "Métricas do modelo reserva contra os rótulos do Claude (Skill tom-copom), deixando uma ata inteira de fora por vez. 'comparacao_rotulos_pipeline' compara com banco/rotulos.jsonl."
+}

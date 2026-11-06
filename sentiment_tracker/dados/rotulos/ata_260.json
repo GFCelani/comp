@@ -1,0 +1,353 @@
+{
+ "ata": 260,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "debate sobre o início do processo de flexibilização da política monetária nas principais economias",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê avalia que o cenário segue exigindo cautela por parte de países emergentes.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "mercado de trabalho segue aquecido e com aceleração nos rendimentos reais",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A inflação ao consumidor segue a trajetória esperada de desinflação.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de inflação do Copom situam-se em 3,5% para 2024 e 3,2% para 2025",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê manteve a avaliação de que é apropriado adotar uma postura de cautela, principalmente em países emergentes",
+   "padroes": [
+    "P14",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "uma atenuação da desaceleração da atividade antecipada em função do aumento da renda das famílias",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "dos rendimentos reais, que apresentaram maior crescimento nos últimos meses.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "já se observa a transmissão do ciclo de afrouxamento monetário para o mercado de crédito",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê reafirma a importância da firme persecução dessas metas.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "há alguns aspectos na dinâmica inflacionária recente que requerem maior escrutínio.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As expectativas de inflação seguem desancoradas e são um fator de preocupação.",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "permanecem fatores de risco em ambas as direções.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "ainda há um caminho longo a percorrer para a ancoragem das expectativas e o retorno da inflação à meta",
+   "padroes": [
+    "P18",
+    "P14"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "as projeções de inflação no horizonte relevante não se alteraram significativamente, mantendo-se acima da meta.",
+   "padroes": [
+    "P08",
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "todos os membros concordaram que era apropriado reduzir a taxa Selic em 0,50 ponto percentual",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "concordaram unanimemente com a expectativa de cortes de 0,50 ponto percentual nas próximas reuniões",
+   "padroes": [
+    "P01",
+    "P02",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê percebe a necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0,50 ponto percentual",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê reforça a necessidade de perseverar com uma política monetária contracionista",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "unanimemente, anteveem redução de mesma magnitude nas próximas reuniões",
+   "padroes": [
+    "P01",
+    "P02",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "Votaram por uma redução de 0,50 ponto percentual",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "paragrafo_anterior": 3,
+   "direcao": 1,
+   "trecho": "aquecido e com aceleração nos rendimentos reais, embora o mercado tenha apresentado",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Passa a destacar aceleração dos salários reais, sinal de pressão sobre a inflação de serviços."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 9,
+   "paragrafo_anterior": 9,
+   "direcao": 1,
+   "trecho": "dos rendimentos reais, que apresentaram maior crescimento nos últimos meses.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Retira a frase de que não havia pressão salarial elevada e destaca o crescimento dos rendimentos."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 12,
+   "paragrafo_anterior": 12,
+   "direcao": 1,
+   "trecho": "há alguns aspectos na dinâmica inflacionária recente que requerem maior escrutínio.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Troca a menção a surpresa para baixo nos serviços por aspectos que exigem mais escrutínio."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 7,
+   "paragrafo_anterior": 7,
+   "direcao": 1,
+   "trecho": "uma atenuação da desaceleração da atividade antecipada em função do aumento da renda das famílias",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Discute que a economia pode desacelerar menos que o previsto, por renda maior das famílias."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 7,
+   "direcao": -1,
+   "trecho": "Alguns membros avaliaram que a persistência de uma conjunção de maior resiliência do consumo e queda no investimento poderia provocar",
+   "padroes": [
+    "P06",
+    "P13"
+   ],
+   "explicacao": "Sai o alerta de alguns membros sobre excesso de demanda futuro."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 6,
+   "paragrafo_anterior": 6,
+   "direcao": 0,
+   "trecho": "não há relação mecânica entre a condução da política monetária norte-americana e a determinação da taxa básica de juros doméstica",
+   "padroes": [
+    "P14"
+   ],
+   "explicacao": "Diz que juros americanos não determinam mecanicamente a Selic, contendo leituras em qualquer direção."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 1,
+   "paragrafo_anterior": 1,
+   "direcao": 0,
+   "trecho": "debate sobre o início do processo de flexibilização da política monetária nas principais economias",
+   "padroes": [],
+   "explicacao": "Exterior deixa de ser 'menos adverso', mas passa a citar cortes de juros lá fora."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -0.6,
+  "surpresa": 0.3,
+  "explicacao": "Corte de 0,50 com orientação de cortes iguais nas próximas reuniões, unânime. Diagnóstico mais duro em salários, atividade e serviços sob escrutínio, sem alterar a orientação: ata levemente mais dura que a anterior."
+ }
+}

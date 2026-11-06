@@ -1,0 +1,307 @@
+{
+ "ata": 242,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o ambiente tem se tornado menos favorável, refletindo a persistência do processo inflacionário e a consequente reação dos bancos centrais",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "indicadores recentemente divulgados da produção industrial e do comércio apresentaram resultados negativos e abaixo do esperado",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "o Copom avalia que o crescimento tende a ser beneficiado por três fatores",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A inflação ao consumidor segue elevada e tem se mostrado mais persistente que o antecipado",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 9,5% para 2021, 4,1% para 2022 e 3,1% para 2023",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "uma possível reversão, ainda que parcial, do aumento recente nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "novos prolongamentos das políticas fiscais de resposta à pandemia que pressionem a demanda agregada e piorem a trajetória fiscal podem elevar os prêmios",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "elevaram o risco de desancoragem das expectativas de inflação, aumentando a assimetria altista no balanço de riscos",
+   "padroes": [
+    "P03",
+    "P11",
+    "P12"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "fiscal_credito",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "alterações de caráter permanente no processo de ajuste das contas públicas podem elevar a taxa de juros estrutural da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o grau apropriado de aperto monetário é s ignificativamente mais contracionista do que o utilizado no cenário básico",
+   "padroes": [
+    "P10",
+    "P03"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "motivando o Copom a escolher uma trajetória de elevação de juros compatível com a convergência da inflação para a meta ainda em 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "O Comitê avaliou, inclusive, cenários com ritmos de ajuste maiores do que 1,50 ponto percentual.",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 7,75% a.a.",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "indicam ser apropriado que o ciclo de aperto monetário avance ainda mais no território contracionista",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude.",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "paragrafo_anterior": 13,
+   "direcao": 2,
+   "trecho": "o grau apropriado de aperto monetário é s ignificativamente mais contracionista do que o utilizado no cenário básico",
+   "padroes": [
+    "P10",
+    "P03"
+   ],
+   "explicacao": "Passa a dizer que o aperto adequado é significativamente mais forte que o precificado, com viés de alta maior."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "explicacao": "Risco fiscal leva o Copom a considerar juro neutro mais alto."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 10,
+   "paragrafo_anterior": 9,
+   "direcao": 1,
+   "trecho": "aumentando a assimetria altista no balanço de riscos",
+   "padroes": [
+    "P03",
+    "P11"
+   ],
+   "explicacao": "Questionamento fiscal ampliou o risco de inflação acima do projetado."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 14,
+   "direcao": 1,
+   "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Some a frase de que o ritmo antigo bastava; o ritmo foi acelerado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 15,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "O Comitê avaliou, inclusive, cenários com ritmos de ajuste maiores do que 1,50 ponto percentual.",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Admite ter estudado altas ainda maiores que 1,50 ponto."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 17,
+   "paragrafo_anterior": 17,
+   "direcao": 1,
+   "trecho": "diante da deterioração no balanço de riscos e do aumento de suas projeções",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Justifica o ritmo pela piora dos riscos e quer avançar ainda mais no aperto."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "compatível com a convergência da inflação para a meta ainda em 2022",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Mantém o compromisso de trazer a inflação à meta já em 2022."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 1,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o ambiente tem se tornado menos favorável",
+   "padroes": [],
+   "explicacao": "Cenário externo passou de favorável a menos favorável."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.7,
+  "surpresa": 1.3,
+  "explicacao": "Ata muito dura: aperto significativamente mais contracionista que o precificado, assimetria altista ampliada pelo fiscal, juro neutro maior, ritmos acima de 1,50 avaliados e nova alta de 1,50 sinalizada."
+ }
+}

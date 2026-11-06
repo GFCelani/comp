@@ -1,0 +1,363 @@
+{
+ "ata": 262,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mostra-se mais adverso",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê avalia que o cenário segue exigindo cautela por parte de países emergentes.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "tem apresentado maior dinamismo do que o esperado.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "medidas de inflação subjacente se situaram acima da meta para a inflação nas divulgações mais recentes",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em 3,8% para 2024 e 3,3% para 2025",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "reforça-se a necessidade de maior cautela na condução da política monetária doméstica",
+   "padroes": [
+    "P14",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a atividade revela-se de fato mais forte ao longo do ano.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "expectativas",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "o Comitê unanimemente avalia que se deve perseguir a reancoragem das expectativas de inflação independentemente de quai s sejam as fontes",
+   "padroes": [
+    "P11",
+    "P12",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "corroboram um cenário de mercado de trabalho apertado.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "a recente elevação nas taxas de maior prazo pode levar a um menor dinamismo no mercado de crédito",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "os dados referentes à inflação corrente se mostraram benignos",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "inflacao_corrente",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "concluiu-se unanimemente pela necessidade de uma política monetária mais contracionista e mais cautelosa",
+   "padroes": [
+    "P08",
+    "P06",
+    "P10"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Alguns membros observaram mérito no debate de um balanço de riscos assimétrico para cima.",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "observou-se elevação na projeção de inflação para o horizonte relevante de política monetária",
+   "padroes": [
+    "P08",
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a maioria do Comitê avaliou que era apropriado reduzir a taxa Selic em 0,25 ponto percentual",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "a redução de 0,50 ponto percentual ainda manteria a política monetária suficientemente contracionista",
+   "padroes": [
+    "P06",
+    "P09"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "uma política monetária mais contracionista, mais cautelosa e sem indicações futuras sobre os próximos movimentos mostrava-se mais apropriada",
+   "padroes": [
+    "P02",
+    "P06",
+    "P01"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0, 25 ponto percentual",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "expectativas de inflação desancoradas e um cenário global desafiador",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a extensão e a adequação de ajustes futuros na taxa de juros serão ditadas pelo firme compromisso de convergência da inflação à meta.",
+   "padroes": [
+    "P06",
+    "P02",
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.6
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 19,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "mais contracionista, mais cautelosa e sem indicações futuras sobre os próximos movimentos",
+   "padroes": [
+    "P02",
+    "P01"
+   ],
+   "explicacao": "Fim da sinalização de próximos passos e política 'mais contracionista': cortes podem parar."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Alguns membros observaram mérito no debate de um balanço de riscos assimétrico para cima.",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "explicacao": "Parte do Comitê já vê riscos de inflação pesando mais para cima."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 13,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "necessidade de uma política monetária mais contracionista e mais cautelosa",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Antes bastava 'contracionista e cautelosa'; agora 'mais' de ambos: endurecimento explícito."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Comitê unanimemente avalia que se deve perseguir a reancoragem das expectativas de inflação",
+   "padroes": [
+    "P11",
+    "P12"
+   ],
+   "explicacao": "Reconhece nova desancoragem, cita o fiscal e promete buscar reancoragem qualquer que seja a causa."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "as expectativas de inflação para o mesmo horizonte, que se mostravam desancoradas em patamar estável nos últimos trimestres, se elevaram",
+   "padroes": [
+    "P11",
+    "P08"
+   ],
+   "explicacao": "Expectativas e projeção de inflação no horizonte relevante subiram."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 7,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "a atividade revela-se de fato mais forte ao longo do ano.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Atividade passa de desaceleração gradual a mais forte que o esperado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "a redução de 0,50 ponto percentual ainda manteria a política monetária suficientemente contracionista",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Quatro membros queriam corte maior: revela ala mais branda no Comitê."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 23,
+   "direcao": 1,
+   "trecho": "um ritmo mais lento de distensão monetária pode revelar-se apropriado",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Some a ideia de apenas desacelerar os cortes, substituída por política mais contracionista."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.8,
+  "surpresa": 1.2,
+  "explicacao": "Corte de 0,25 dividido, mas ata dura: retira orientação futura, pede política 'mais contracionista', alguns veem riscos assimétricos para cima, expectativas e projeções subiram, atividade e trabalho mais fortes."
+ }
+}

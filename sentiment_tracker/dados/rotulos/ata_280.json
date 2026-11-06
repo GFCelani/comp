@@ -1,0 +1,300 @@
+{
+ "ata": 280,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "da incerteza sobre a política monetária em algumas economias avançadas",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "a inflação cheia desacelerou, porém ainda acima do limite superior da meta",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "situa-se em 3,2% no cenário de referência",
+   "padroes": [
+    "P08",
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A incerteza com relação ao cenário externo segue em níveis elevados",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Indicadores correntes apontam para desaceleração na passagem do primeiro para o segundo trimestre de 2026",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o crescimento da taxa de ocupação vem apresentando desaceleração",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P12",
+    "P07"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A inflação para os consumidores desacelerou nas leituras mais recentes do índice cheio",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê monitora com atenção a desancoragem adicional das expectativas de inflação para prazos mais longos",
+   "padroes": [
+    "P11",
+    "P04",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Comitê se debruçou então sobre as projeções",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "são, respectivamente, 5,1%, 3,8%, e 3,2%",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "permanecem mais elevados que o usual, com assimetria altista",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "reagir com firmeza caso esses efeitos se materializem",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "de forma a manter a restrição adequada para assegurar a convergência da inflação à meta",
+   "padroes": [
+    "P01",
+    "P03"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "O Copom decidiu reduzir a taxa básica de juros para 14,00% a.a.",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "de forma a manter a restrição adequada para assegurar a convergência da inflação à meta",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 2,
+   "paragrafo_anterior": 2,
+   "direcao": -1,
+   "trecho": "desacelerou, porém ainda acima do limite superior da meta",
+   "padroes": [],
+   "explicacao": "Inflação cheia e núcleos passaram a desacelerar."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 11,
+   "paragrafo_anterior": 12,
+   "direcao": -1,
+   "trecho": "são, respectivamente, 5,1%, 3,8%, e 3,2%",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção no horizonte relevante caiu de 3,7% para 3,2%."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 9,
+   "paragrafo_anterior": 9,
+   "direcao": -1,
+   "trecho": "contribuirão para a reancoragem das expectativas",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Saiu a frase de desancoragem evidente; fala em monitorar e reancorar."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
+   "padroes": [
+    "P04"
+   ],
+   "explicacao": "Afirma que a inflação é de demanda e a política deve seguir restritiva."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 15,
+   "paragrafo_anterior": null,
+   "direcao": 0,
+   "trecho": "não deve reagir aos efeitos primários de choques dessa natureza",
+   "padroes": [
+    "P17"
+   ],
+   "explicacao": "Não reage ao choque direto, mas reagirá com firmeza a efeitos de segunda ordem."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 22,
+   "direcao": 1,
+   "trecho": "manter a restrição adequada para",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Cortes condicionados a manter a política restritiva, limitando a extensão do ciclo."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 20,
+   "direcao": -1,
+   "trecho": "Essas trajetória s contemplavam cenários com combinações de diferentes momentos de pausa e retomada do ciclo de calibração",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Some a menção a possíveis pausas nos cortes."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 17,
+   "paragrafo_anterior": 23,
+   "direcao": -1,
+   "trecho": "meta ao longo do horizonte relevante",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Decisão volta a ser compatível com a meta no horizonte, sem ressalva."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.3,
+  "surpresa": 0.0,
+  "explicacao": "Novo corte de 0,25 p.p. com inflação e projeção melhores (3,2%) e menos ênfase na desancoragem, mas reforça que a política seguirá restritiva e mantém assimetria altista. Saldo neutro frente à ata anterior."
+ }
+}

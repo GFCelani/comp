@@ -1,0 +1,232 @@
+{
+ "ata": 236,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "A presença de ociosidade, assim como a comunicação dos principais bancos centrais, sugere que os estímulos monetários terão longa duração, permitindo um",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "indicadores referentes ao final do ano passado têm surpreendido positivamente, mas não contemplam os possíveis efeitos do recente aumento no",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se em níveis acima do intervalo compatível com o cumprimento da meta para a",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "As expectativas de inflação para 2021, 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 3,4%, 3,5% e",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Apesar da pressão inflacionária mais forte no curto prazo, o Comitê mantém o diagnóstico de que os choques atuais são temporários, ainda",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 3,6% para 2021 e",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado, notadamente quando",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O risco fiscal elevado segue criando uma assimetria altista no balanço de riscos, ou seja, com trajetórias para a inflação",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O Comitê concluiu que, por ora, a resultante desse conjunto de fatores é um ambiente favorável às economias emergentes.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "podem implicar um cenário doméstico caracterizado por mais gradualismo ou até uma reversão temporária da retomada econômica.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Alguns membros do Comitê refletiram que os dados do mercado do trabalho formal sugerem que a ociosidade da economia como",
+   "padroes": [
+    "P06",
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Como consequência, o Comitê decidiu interromper o forward guidance. Assim,",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê ponderou ainda que os riscos fiscais geram um viés de alta nessas projeções, potencialmente justificando trajetória com elevação dos juros anterior à assumida",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Por conseguinte, esses membros julgam que o Copom deveria considerar o início de um processo de normalização parcial, reduzindo o grau “extraordinário” dos estímulos monetários.",
+   "padroes": [
+    "P06",
+    "P01"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "Por isso, o Copom julgou apropriado manter, neste momento, o grau extraordinariamente elevado de estímulo",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, manter a taxa básica de juros em 2,00%",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê ressalta, ainda, que ques tionamentos sobre a continuidade das reformas e alterações de caráter permanente no processo de ajuste das",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Como consequência, o forward guidance deixa de existir e a condução da política monetár ia seguirá, doravante, a análise usual",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "O Comitê reitera que o fim do forward guidance não implica mecanicamente uma elevação da taxa de juros pois a",
+   "padroes": [
+    "P14"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membr os do Comitê:",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [],
+ "resumo": {
+  "tom_nivel": 0.5,
+  "surpresa": 0.5,
+  "explicacao": "Mantém a Selic e o estímulo extraordinário, mas encerra o forward guidance, vê assimetria altista fiscal e revela membros defendendo início da normalização: viés de alta à frente."
+ }
+}

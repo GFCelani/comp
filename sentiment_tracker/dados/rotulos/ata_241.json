@@ -1,0 +1,297 @@
+{
+ "ata": 241,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "No cenário externo, os estímulos monetários de longa duração e a reabertura das principais economias ainda sustentam um ambiente favorável para países emergentes.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Em relação à atividade econômica brasileira, a divulgação do PIB do segundo trimestre, assim como os indicadores mais recentes, continua mostrando evolução positiva e não",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "As expectativas de inflação para 2021, 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 8,3%, 4,1% e",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A alta nos preços dos bens industriais – decorrente de repasses de custos, das restrições de oferta e do redirecionamento da demanda em direção a",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 8,5% para 2021, 3,7% para 2022 e 3,2%",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Por um lado, uma possível reversão, ainda que parcial, do aumento recente nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o risco fiscal elevado segue criando uma assimetria altista no balanço de",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "observam-se dois fatores adicionais de risco para o crescimento das economias emergentes.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "seguiram-se divulgações de alta frequência marginalmente mais negativas, ainda que",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "sugerem hiato remanescente no mercado de trabalho. Diante",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "as projeções de inflação estão ligeiramente acima da meta para 2022 e ao redor da meta para 2023. O Comitê ponderou que os riscos fiscais",
+   "padroes": [
+    "P08",
+    "P03"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista e garantir a convergência da inflação para a meta em",
+   "padroes": [
+    "P09",
+    "P10",
+    "P01"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "associada ao aumento da magnitude do ciclo de ajuste da política monetária para patamar significativamente",
+   "padroes": [
+    "P10",
+    "P07"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,00 ponto",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Neste momento, o cenário básico e o balanço de riscos do Copom indicam ser apropriado que o ciclo de aperto monetário avance no território contracionista.",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitud",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "direcao": -1,
+   "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista e garantir a convergência da inflação para a meta em",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Diz que o ritmo atual de alta basta: afasta aceleração acima de 1 ponto."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 15,
+   "direcao": 1,
+   "trecho": "associada ao aumento da magnitude do ciclo de ajuste da política monetária para patamar significativamente",
+   "padroes": [
+    "P10",
+    "P07"
+   ],
+   "explicacao": "Ciclo de alta maior, até patamar 'significativamente contracionista', em vez de mais rápido.",
+   "paragrafo_anterior": 17
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "direcao": 1,
+   "trecho": "Neste momento, o cenário básico e o balanço de riscos do Copom indicam ser apropriado que o ciclo de aperto monetário avance no território contracionista.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Aperto deve avançar dentro do território contracionista."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "direcao": 1,
+   "trecho": "as projeções de inflação estão ligeiramente acima da meta para 2022 e ao redor da meta para 2023. O Comitê ponderou que os riscos fiscais",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção de 2022 passou de alinhada para ligeiramente acima da meta.",
+   "paragrafo_anterior": 13
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "direcao": -1,
+   "trecho": "o Copom avaliou que a piora recente em componentes inerciais dos índices de preços, em meio à reabertura do setor de serviços, poderia provocar uma",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Saiu a ênfase na piora adicional das expectativas de inflação.",
+   "paragrafo_anterior": 16
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "direcao": -1,
+   "trecho": "O Copom considera que, neste momento, a estratégia de ser mais te mpestivo no ajuste da política monetária é a",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Saiu a defesa de ser 'mais tempestivo' no ajuste dos juros.",
+   "paragrafo_anterior": 18
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 12,
+   "direcao": -1,
+   "trecho": "sugerem hiato remanescente no mercado de trabalho. Diante",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Nota folga ainda existente no mercado de trabalho."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "direcao": -1,
+   "trecho": "seguiram-se divulgações de alta frequência marginalmente mais negativas, ainda que",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Dados recentes de atividade um pouco mais fracos."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.6,
+  "surpresa": 0.5,
+  "explicacao": "Mantém altas de 1 ponto e diz que o ritmo basta, mas eleva a magnitude do ciclo a patamar 'significativamente contracionista' e vê projeção acima da meta: terminal mais alta."
+ }
+}

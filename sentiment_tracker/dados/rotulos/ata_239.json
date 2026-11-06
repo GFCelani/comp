@@ -1,0 +1,320 @@
+{
+ "ata": 239,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Contudo, a incerteza segue elevada e uma nova rodada de questionamentos dos mercados a respeito dos riscos inflacionários nessas economias pode tornar o ambiente desafiador",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Os riscos para a recuperação econômica reduziram-se significativamente.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "As expectativas de inflação para 2021, 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 5,8%, 3,8% e",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A persistência da pressão inflacionária revela-se maior que o esperado, sobretudo entre",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 5,8% para 2021 e",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Por um lado, uma possível reversão, ainda que parcial, do aumento recente nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o risco fiscal elevado segue criando uma assimetria altista no balanço de",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "criando um novo risco baixista para a inflação.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê também avaliou que os riscos baixistas para a inflação oriundos de fatores que podem afetar a recuperação econômica reduziram-se significativamente.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Copom avalia que os dados de atividade e do mercado de trabalho formal sugerem que a ociosidade da economia como um todo se reduziu",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Essa assimetria no balanço de riscos afeta o grau apropriado de estímulo monetário, justificando assim uma trajetória para a política monetária menos estimulativa do que",
+   "padroes": [
+    "P03",
+    "P08"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Sendo assim, tornou-se apropriada a normalização da taxa de juros para esse",
+   "padroes": [
+    "P01",
+    "P07"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Frente à revisão da trajetória de política monetária implícita nas suas projeções, o Comitê avaliou uma redução mais tempestiva dos estímulos monetários",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Primeira, acumular mais informações sobre os tradicionais determinantes da inflação e, em particular, de alguns",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Segunda, esclarecer a distinção entre transparência sobre as projeções condicionais e intenções invariantes de política",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada a normalização da taxa de juros para patamar considerado neutro. Esse ajuste é necessário para",
+   "padroes": [
+    "P01",
+    "P07"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Contudo, uma deterioração das expectativas de inflação para o horizonte relevante pode exigir uma redução mais tempestiva dos estímulos monetários.",
+   "padroes": [
+    "P01",
+    "P11"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os segui ntes membros",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 19,
+   "direcao": 2,
+   "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada a normalização da taxa de juros para patamar considerado neutro. Esse ajuste é necessário para",
+   "padroes": [
+    "P01",
+    "P07"
+   ],
+   "explicacao": "Normalização deixou de ser 'parcial': juros devem subir até o patamar neutro.",
+   "paragrafo_anterior": 17
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 14,
+   "direcao": 2,
+   "trecho": "Sendo assim, tornou-se apropriada a normalização da taxa de juros para esse",
+   "padroes": [
+    "P01",
+    "P07"
+   ],
+   "explicacao": "Altas até o neutro agora levam a inflação à meta, por isso o ciclo vai até lá.",
+   "paragrafo_anterior": 14
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 15,
+   "direcao": 2,
+   "trecho": "Frente à revisão da trajetória de política monetária implícita nas suas projeções, o Comitê avaliou uma redução mais tempestiva dos estímulos monetários",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Comitê avaliou subir os juros mais rápido já nesta reunião."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 20,
+   "direcao": 1,
+   "trecho": "Contudo, uma deterioração das expectativas de inflação para o horizonte relevante pode exigir uma redução mais tempestiva dos estímulos monetários.",
+   "padroes": [
+    "P01",
+    "P11"
+   ],
+   "explicacao": "Avisa que piora das expectativas pode exigir altas maiores na próxima reunião."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "direcao": 1,
+   "trecho": "Essa assimetria no balanço de riscos afeta o grau apropriado de estímulo monetário, justificando assim uma trajetória para a política monetária menos estimulativa do que",
+   "padroes": [
+    "P03",
+    "P08"
+   ],
+   "explicacao": "Riscos fiscais justificam política menos estimulativa que o cenário de mercado; projeção agora alinhada à meta.",
+   "paragrafo_anterior": 13
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "direcao": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Núcleos voltaram de 'no topo' para 'acima' do intervalo compatível com a meta.",
+   "paragrafo_anterior": 3
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "direcao": 1,
+   "trecho": "O Comitê também avaliou que os riscos baixistas para a inflação oriundos de fatores que podem afetar a recuperação econômica reduziram-se significativamente.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Riscos de baixa ligados à recuperação da economia diminuíram bastante."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 10,
+   "direcao": -1,
+   "trecho": "O Copom n otou que a inflação de bens comercializáveis no Brasil foi superior à observada em vários de seus pares e que esse processo",
+   "padroes": [],
+   "explicacao": "Novo risco de baixa: inflação de bens comercializáveis pode se inverter."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.8,
+  "surpresa": 0.8,
+  "explicacao": "Abandona a normalização parcial: juros até o neutro, discute alta maior já nesta reunião e sinaliza aceleração se expectativas piorarem. Bem mais dura que a ata anterior."
+ }
+}

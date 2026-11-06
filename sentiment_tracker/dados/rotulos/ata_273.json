@@ -1,0 +1,327 @@
+{
+ "ata": 273,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ambiente externo se mantém incerto em função da conjuntura e da política econômica nos Estados Unidos.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "certa moderação no crescimento, mas o mercado de trabalho ainda mostra dinamismo.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "mantiveram-se acima da meta para a inflação.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O cenário prospectivo de inflação segue desafiador em diversas dimensões.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Sobressai, assim, o debate sobre o início do ciclo de corte por parte do Federal Reserve",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Tal conjuntura traz maior convicção de que o cenário delineado pelo Comitê está, até agora, se concretizando.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Mercados mais sensíveis às condições financeiras, como o mercado de crédito, têm apresentado moderação mais nítida",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P12",
+    "P07"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "um incipiente movimento de queda nas expectativas de inflação medidas pelo Focus",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "expectativas",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado.",
+   "padroes": [
+    "P11",
+    "P04",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "As leituras recentes de inflação mostram dinâmica mais benigna em relação ao que se previa no início do ano.",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Comitê se debruçou então sobre as projeções.",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção de inflação utilizando o cenário de referência extraído da pesquisa Focus se manteve acima da meta de inflação, em 3,4%.",
+   "padroes": [
+    "P08",
+    "P09"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "riscos mais elevados do que o usual tanto de alta quanto de baixa para o cenário de inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Tal cenário prescreve uma política monetária em patamar significativamente contracionista por período bastante prolongado",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Comitê inicia um novo estágio em que opta por manter a taxa inalterada",
+   "padroes": [
+    "P01",
+    "P04",
+    "P09"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "certa diminuição da inflação corrente e alguma redução nas expectativas",
+   "padroes": [
+    "P05",
+    "P10",
+    "P11"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "exige-se uma política monetária em patamar significativamente contracionista por período bastante prolongado.",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+   "padroes": [
+    "P05",
+    "P04",
+    "P09"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 5,
+   "paragrafo_anterior": 6,
+   "direcao": -1,
+   "trecho": "O cenário externo se mantém incerto.",
+   "padroes": [
+    "P18"
+   ],
+   "explicacao": "O exterior deixou de ser descrito como 'mais adverso'; entra o debate sobre cortes do Fed e câmbio mais apreciado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 6,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "Tal conjuntura traz maior convicção de que o cenário delineado pelo Comitê está, até agora, se concretizando.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "O Comitê ganha convicção de que a atividade desacelera como esperado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 9,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "um incipiente movimento de queda nas expectativas de inflação medidas pelo Focus",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Reconhece, pela primeira vez, início de queda nas expectativas do Focus."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 11,
+   "paragrafo_anterior": 16,
+   "direcao": -1,
+   "trecho": "As leituras recentes de inflação mostram dinâmica mais benigna em relação ao que se previa no início do ano.",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "A inflação corrente passa a ser descrita como mais benigna, embora serviços sigam resilientes."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "o Comitê inicia um novo estágio em que opta por manter a taxa inalterada",
+   "padroes": [
+    "P01",
+    "P04"
+   ],
+   "explicacao": "Declara novo estágio: o foco passa de avaliar mais altas para manter os juros parados por longo período."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "certa diminuição da inflação corrente e alguma redução nas expectativas",
+   "padroes": [
+    "P10",
+    "P11",
+    "P05"
+   ],
+   "explicacao": "Reconhece queda da inflação e das expectativas, mas mantém a ameaça de retomar altas."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.9,
+  "surpresa": -0.3,
+  "explicacao": "Manutenção em 15% com 'período bastante prolongado' e cláusula de retomada mantidas, mas a ata reconhece inflação mais benigna, queda incipiente de expectativas e declara novo estágio de manutenção."
+ }
+}

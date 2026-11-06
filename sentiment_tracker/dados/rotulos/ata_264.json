@@ -1,0 +1,421 @@
+{
+ "ata": 264,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mantém-se adverso",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue exigindo cautela por parte de países emergentes.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue apresentando dinamismo maior do que o esperado.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As expectativas de inflação para 2024 e 2025 apuradas pela pesquisa Focus encontram-se em torno de 4,1% e 4,0%",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Em cenário alternativo apresentado, utiliza- se a hipótese de taxa de juros constante",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "o horizonte relevante para a política monetária é de seis trimestres à frente",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção para o horizonte relevante está acima da meta de inflação de 3%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação situam-se em 4,2% para 2024 e 3,4% para 2025.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "vislumbra-se um cenário de redução gradual da inflação e da atividade e um início cauteloso da flexibilização monetária.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As taxas de câmbio de países emergentes tiveram depreciação no período recent e",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "um cenário de maior incerteza global e de movimentos cambiais mais abruptos exige maior cautela",
+   "padroes": [
+    "P14",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "tornando mais desafiador o processo de convergência da inflação à meta.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "vem tendo impactos relevantes sobre os preços de ativos e as expectativas.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "continuará tomando decisões que salvaguardem a credibilidade",
+   "padroes": [
+    "P11",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o momento é de acompanhamento diligente dos condicionantes da inflação e de maior vigilância perante um cenário mais desafiador.",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ciclo de crédito segue benigno com expansão em volume e redução de taxas",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Concluiu-se que o processo desinflacionário arrefeceu",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Concluiu-se unanimemente pela necessidade de uma política monetária ainda mais cautelosa",
+   "padroes": [
+    "P06",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria do balanço de riscos.",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as conjunturas doméstica e internacional exigem ainda maior cautela na condução da política monetária.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê optou unanimemente pela manutenção da taxa Selic em 10,50%.",
+   "padroes": [
+    "P06",
+    "P08"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a política monetária deve se manter contracionista por tempo suficiente",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Comitê, unanimemente, reforçou que não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta",
+   "padroes": [
+    "P01",
+    "P06"
+   ],
+   "confianca": 0.95
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu manter a taxa básica de juros em 10,50% a.a.",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 27,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "ampliação da desancoragem das expectativas de inflação",
+   "padroes": [
+    "P11",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 28,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "demandam acompanhamento diligente e ainda maior cautela.",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 29,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.6
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 25,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "o Comitê, unanimemente, reforçou que não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta",
+   "padroes": [
+    "P01",
+    "P06"
+   ],
+   "explicacao": "Abre explicitamente a possibilidade de voltar a subir a Selic."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 15,
+   "direcao": 2,
+   "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria do balanço de riscos.",
+   "padroes": [
+    "P03",
+    "P06"
+   ],
+   "explicacao": "Balanço deixa de ser simétrico: todos veem mais riscos de alta."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "uma conjunção de políticas econômicas externa e interna que tenham impacto inflacionário, por exemplo, por meio de uma taxa de câmbio persistentemente mais depreciada.",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Novos riscos de alta: câmbio depreciado e políticas internas inflacionárias."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 7,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "a projeção para o horizonte relevante está acima da meta de inflação de 3%.",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Mesmo com juros parados, a inflação projetada fica acima da meta."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 13,
+   "direcao": 1,
+   "trecho": "Concluiu-se que o processo desinflacionário arrefeceu",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Diz que a queda da inflação perdeu força."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": 10,
+   "direcao": 1,
+   "trecho": "vem tendo impactos relevantes sobre os preços de ativos e as expectativas.",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Percepção fiscal pior já afeta ativos e expectativas."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "maior vigilância perante um cenário mais desafiador.",
+   "padroes": [
+    "P18",
+    "P11"
+   ],
+   "explicacao": "Câmbio e expectativas, se persistentes, serão incorporados: pede maior vigilância."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 28,
+   "paragrafo_anterior": 21,
+   "direcao": 1,
+   "trecho": "demandam acompanhamento diligente e ainda maior cautela.",
+   "padroes": [
+    "P18",
+    "P10"
+   ],
+   "explicacao": "De 'maior cautela' para 'ainda maior cautela'."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.4,
+  "surpresa": 1.5,
+  "explicacao": "Manutenção unânime, mas com 'não hesitará em elevar' os juros, todos vendo riscos para cima, projeção no horizonte relevante acima da meta e desinflação arrefecendo. Bem mais dura que a anterior."
+ }
+}

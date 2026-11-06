@@ -1,0 +1,363 @@
+{
+ "ata": 257,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ambiente externo mostra-se mais incerto",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê notou a elevação das taxas de juros de longo prazo dos Estados Unidos",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o conjunto de indicadores recentes indica um cenário de maior resiliência da atividade econômica",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "exibindo desaceleração tanto na inflação de serviços quanto nos núcleos de inflação",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Nesse cenário, as projeções de inflação do Copom situam-se em 5,0% para 2023, 3,5% para 2024 e 3,1% para 2025.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o aperto monetário global pode ter impacto sobre os ativos domésticos, o que levaria a um processo desinflacionário interno mais lento",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "alguns membros seguiram enfatizando os riscos de uma desaceleração sincronizada",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê deu maior ênfase às perspectivas fiscais, em particular nos Estados Unidos",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Alguns memb ros notaram impactos latentes de impulsos fiscais ainda elevados em importantes economias.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê travou um amplo debate sobre os motivos de observarmos crescimento mais resiliente nos últimos trimestres",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o possível impacto que poderia ocorrer sobre a dinâmica da inflação de serviços em caso de um crescimento sustentado pela renda e pelo consumo",
+   "padroes": [
+    "P13",
+    "P07"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O Comitê concordou que não há evidência de pressões salariais elevadas nas negociações trabalhistas.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê julga que o hiato do produto está mais apertado do que o estimado anteriormente",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O Comitê segue avaliando que a desaceleração na concessão de crédito está em linha com a postura de política monetária.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "atualmente se refere mais à execução das medidas de receita e despesas compatíveis com o arcabouço e o atingimento das metas fiscais",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "concluiu- se unanimemente pela necessidade de uma política monetária contracionista e cautelosa",
+   "padroes": [
+    "P17",
+    "P18"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As expectativas de inflação, após apresentarem reancoragem parcial, seguem sendo um fator de preocupação.",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "permanecem fatores de risco em ambas as direções",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "houve uma elevação das projeções no cenário de referência em função principalmente de um hiato do produto mais apertado",
+   "padroes": [
+    "P08",
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "O Comitê julga como pouco provável uma intensificação adicional do ritmo de ajustes",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a necessidade de se manter uma política monetária ainda contracionista pelo horizonte relevante",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu reduzir a taxa básica de juros em 0,50 ponto percentual, para 12,75% a.a.",
+   "padroes": [],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê reforça a necessidade de perseverar com uma política monetária contracionista",
+   "padroes": [
+    "P04",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 26,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "os membros do Comitê, unanimemente, anteveem redução de mesma magnitude nas próximas reuniões",
+   "padroes": [
+    "P01",
+    "P02",
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 27,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "Votaram por uma redução de 0,50 ponto percentual os seguintes membros do Comitê",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.6
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "atualmente se refere mais à execução das medidas de receita e despesas compatíveis com o arcabouço e o atingimento das metas fiscais",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Foco fiscal passa da aprovação do arcabouço para a execução das metas, cobrança mais dura."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Comitê julga que o hiato do produto está mais apertado do que o estimado anteriormente",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Economia mais aquecida que o previsto pressiona a inflação."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 3,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o conjunto de indicadores recentes indica um cenário de maior resiliência da atividade econômica",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Atividade passa de desaceleração gradual para maior resiliência."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 21,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "houve uma elevação das projeções no cenário de referência",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeções de inflação subiram desde a última reunião."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Desse modo, o Comitê avalia que a redução das expectativas virá por meio de uma atuação firme",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Expectativas seguem preocupando e exigem atuação firme do BC."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 2,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "O Comitê notou a elevação das taxas de juros de longo prazo dos Estados Unidos",
+   "padroes": [],
+   "explicacao": "Juros longos americanos subindo tornam o cenário externo mais adverso."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -0.4,
+  "surpresa": 0.5,
+  "explicacao": "Mantém corte de 0,50 e orientação de mesmo ritmo, mas diagnóstico endurece: atividade resiliente, hiato mais apertado, projeções em alta, cobrança pela execução das metas fiscais e preocupação com expectativas."
+ }
+}

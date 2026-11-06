@@ -1,0 +1,327 @@
+{
+ "ata": 244,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A maior persistência inflacionária aumenta o risco de um aperto monetário mais célere nos EUA",
+   "padroes": [],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "indicadores relativos ao comércio e serviços mostraram evolução ligeiramente melhor que a esperada em novembro",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "os índices de confiança divulgados desde a última reunião seguem mostrando deterioração",
+   "padroes": [],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a surpresa ocorreu tanto nos componentes mais voláteis como, principalmente, nos mais associados à inflação subjacente",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "As expectativas de inflação para 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 5,4% e 3,5%",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 5,4% para 2022 e 3,2% para 2023",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a revisão se deveu majoritariamente ao forte avanço nas cotações do petróleo desde a última reunião do Comitê",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário de referência do Copom para a inflação envolve fatores de risco em ambas",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "políticas fiscais que impliquem impulso adicional da demanda agregada ou piorem a trajetória fiscal futura podem impactar negativamente preços de ativos importantes",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "segue mantendo elevado o risco de desancoragem das expectativas de inflação, e, portanto, a assimetria altista no balanço de riscos",
+   "padroes": [
+    "P03",
+    "P11"
+   ],
+   "confianca": 0.75
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "mesmo políticas fiscais que tenham efeitos baixistas sobre a inflação no curto prazo podem causar deterioração nos prêmios de risco",
+   "padroes": [
+    "P12",
+    "P07"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação estão acima do limite superior do intervalo de tolerância da meta para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "novamente o Copom concluiu que o ciclo de aperto monetário deverá ser mais contracionista do que o utilizado no cenário de referência",
+   "padroes": [
+    "P03",
+    "P08"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "pressupunham trajetória da taxa de juros superior à s utilizadas no cenário de referência",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "seguido de ajustes adicionais em ritmo menor nas próximas reuniões",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "fez o Comitê considerar mais adequado, neste momento, não sinalizar a magnitude dos seus próximos ajustes",
+   "padroes": [
+    "P02"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 10,75% a.a.",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "O Comitê enfatiza que irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação",
+   "padroes": [
+    "P04",
+    "P10"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 20,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Troca 'outro ajuste igual' por redução do ritmo das altas."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "seguido de ajustes adicionais em ritmo menor nas próximas reuniões",
+   "padroes": [
+    "P02",
+    "P01"
+   ],
+   "explicacao": "Promete mais de uma alta adicional, ainda que menores."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "não sinalizar a magnitude dos seus próximos ajustes",
+   "padroes": [
+    "P02"
+   ],
+   "explicacao": "Deixa de indicar o tamanho da próxima alta, ganhando liberdade."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "paragrafo_anterior": 12,
+   "direcao": 1,
+   "trecho": "acima do limite superior do intervalo de tolerância da meta para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção de 2022 já estoura o teto da meta."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 12,
+   "paragrafo_anterior": 11,
+   "direcao": 1,
+   "trecho": "mesmo políticas fiscais que tenham efeitos baixistas sobre a inflação no curto prazo podem causar deterioração nos prêmios de risco",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Alerta que cortes de impostos podem elevar a inflação futura via risco."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 16,
+   "direcao": -1,
+   "trecho": "e, em grau maior, de 2023",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Foco passa para 2023, aceitando inflação de 2022 fora da meta."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 15,
+   "paragrafo_anterior": 14,
+   "direcao": 1,
+   "trecho": "pressupunham trajetória da taxa de juros superior à s utilizadas no cenário de referência",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Juros necessários seguem acima do que o mercado espera."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 1,
+   "paragrafo_anterior": 1,
+   "direcao": 1,
+   "trecho": "A maior persistência inflacionária aumenta o risco de um aperto monetário mais célere nos EUA",
+   "padroes": [],
+   "explicacao": "Risco de Fed mais duro piora o cenário externo."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.2,
+  "surpresa": 0.2,
+  "explicacao": "Sinaliza redução do ritmo, já esperada, mas com ajustes adicionais no plural, projeção de 2022 acima do teto, juros necessários acima do precificado e alerta fiscal; mensagem segue dura."
+ }
+}

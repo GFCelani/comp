@@ -1,0 +1,329 @@
+{
+ "ata": 247,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "em um ambiente de fortes e persistentes pressões inflacionárias",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O crescimento de grandes economias tem sido revisado para baixo, tanto para este quanto para o próximo ano",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Bancos centrais de países desenvolvidos e emergentes têm adotado uma postura mais contracionista em reação ao avanço da inflação",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "indica um crescimento acima do que era esperado pelo Comitê",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as diversas medidas de inflação subjacente aceleraram, mantendo-se acima do intervalo compatível com o cumprimento da meta para a inflação",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em 8,8% para 2022, 4,0% para 2023 e 2,7% para 2024",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "trazem um risco adicional para as pressões inflacionárias globais",
+   "padroes": [],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O Comitê já antecipa uma desaceleração da atividade global nos próximos trimestres",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Nesse contexto de desaceleração global, o Comitê avalia que há possibilidade de reversão, ainda que parcial",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "políticas fiscais que sustentem a demanda agregada podem trazer um risco de alta para o cenário inflacionário",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O Comitê avalia que a atividade deve desacelerar nos próximos trimestres",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "permanecem fatores de risco em ambas as direções",
+   "padroes": [
+    "P03",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o ciclo de aperto monetário corrente foi bastante intenso e tempestivo",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "ocorreu deterioração tanto na dinâmica inflacionária de curto prazo quanto em suas projeções mais longas",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "taxa de juros terminal acima da utilizada no cenário de referência e, de outro, manutenção da taxa de juros em território significativamente contracionista",
+   "padroes": [
+    "P07",
+    "P08",
+    "P04"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Concluiu-se que um novo ajuste de 0,50 ponto percentual era apropriado",
+   "padroes": [],
+   "confianca": 0.65
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "somente a perspectiva de manutenção da taxa básica de juros por um período suficientemente longo não asseguraria, neste momento, a convergência da inflação",
+   "padroes": [
+    "P09",
+    "P01"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,50 ponto percentual, para 13,25% a.a.",
+   "padroes": [
+    "P06",
+    "P08"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "O Comitê enfatiza que irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação",
+   "padroes": [
+    "P04",
+    "P10"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Comitê antevê um novo ajuste, de igual ou menor magnitude",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "taxa de juros terminal acima da utilizada no cenário de referência",
+   "padroes": [
+    "P07",
+    "P08",
+    "P04"
+   ],
+   "explicacao": "Diz que precisará de juro final maior e mantido por mais tempo que o esperado pelo mercado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "somente a perspectiva de manutenção da taxa básica de juros por um período suficientemente longo não asseguraria",
+   "padroes": [
+    "P09",
+    "P01"
+   ],
+   "explicacao": "Parar agora e esperar não bastaria; justifica nova alta."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 21,
+   "paragrafo_anterior": 19,
+   "direcao": 1,
+   "trecho": "um novo ajuste, de igual ou menor magnitude",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Admite repetir a alta de 0,50, não só uma menor."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 19,
+   "paragrafo_anterior": 17,
+   "direcao": 1,
+   "trecho": "compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Exige inflação ao redor da meta, sem aceitar desvio."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 15,
+   "paragrafo_anterior": 14,
+   "direcao": 1,
+   "trecho": "ocorreu deterioração tanto na dinâmica inflacionária de curto prazo quanto em suas projeções mais longas",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "A piora da inflação deixa de ser 'marginal'."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 5,
+   "paragrafo_anterior": 4,
+   "direcao": 1,
+   "trecho": "as diversas medidas de inflação subjacente aceleraram",
+   "padroes": [],
+   "explicacao": "Núcleos de inflação aceleraram."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "O Comitê avalia que a atividade deve desacelerar nos próximos trimestres",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Espera desaceleração quando os juros fizerem efeito."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 8,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "O Comitê já antecipa uma desaceleração da atividade global nos próximos trimestres",
+   "padroes": [],
+   "explicacao": "Desaceleração global prevista pode aliviar a inflação."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.3,
+  "surpresa": 1.0,
+  "explicacao": "Alta menor (0,50), mas a ata exige juro terminal acima do precificado e mantido por mais tempo, diz que só manter não basta e admite nova alta igual; mais dura que o esperado."
+ }
+}

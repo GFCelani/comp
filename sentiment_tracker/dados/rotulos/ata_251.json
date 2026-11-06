@@ -1,0 +1,332 @@
+{
+ "ata": 251,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "marcado pela perspectiva de crescimento global abaixo do potencial no próximo ano.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "sugere que pressões inflacionárias no setor de serviços devem demorar a se dissipar.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Esse ambiente requer maior cautela na condução das políticas econômicas também por parte de países emergentes.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "corrobora o cenário de desaceleração do crescimento esperado pelo Comitê.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "a inflação ao consumidor continua elevada.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a projeção de inflação acumulada em doze meses situa- se em 3, 3%.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o processo de desin flação deve ser não linear e mais lento do que o observado em episódios recentes.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "com taxas de juros ao final do ciclo de aperto mantidas por um período suficientemente longo em patamares contracionistas,",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "podem impact ar também os ativos de países emergentes de forma mais pronunciada.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "reforçam a expectativa do Comitê de desaceleração do ritmo da atividade econômica, que deve se acentuar nos próximos trimestres.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a desinflação de serviços e d os núcleos de inflação, componentes de maior inércia, demandarão maior atenção e perseverança na condução da política monetária.",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "mudanças em políticas parafiscais ou a reversão de reformas estruturais que levem a u ma alocação menos eficiente de recursos podem reduzir a potência da política monetária.",
+   "padroes": [
+    "P12",
+    "P07"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "há ainda muita incerteza sobre o cenário fiscal prospectivo e que o momento requer serenidade na avaliação de riscos.",
+   "padroes": [
+    "P12",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê acompanhará com especial atenção os desenvolvimentos futuros da política fiscal",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "segue compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante.",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "o Copom avalia que não haverá impactos relevantes sobre a condução de política monetária",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o Comitê notou com preocupação uma elevação na média das expectativas.",
+   "padroes": [
+    "P11",
+    "P08"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "era apropriado manter a taxa de juros no patamar de 13,75% a.a.",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê enfatiza que não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado.",
+   "padroes": [
+    "P05"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "o Copom decidiu manter a taxa básica de juros em 13,75% a.a.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "avaliando se a estratégia de manutenção da taxa básica de juros por período suficientemente prolongado será capaz de assegurar a convergência da inflação.",
+   "padroes": [
+    "P04",
+    "P05",
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 12,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "mudanças em políticas parafiscais ou a reversão de reformas estruturais que levem a u ma alocação menos eficiente de recursos podem reduzir a potência da política monetária.",
+   "padroes": [
+    "P12",
+    "P07"
+   ],
+   "explicacao": "Alerta que parafiscal e reversão de reformas podem enfraquecer o efeito dos juros, exigindo juros mais altos."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 12,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Em ambiente de hiato do produto reduzido, o impacto de estímulos fiscais significativos sobre a trajetória de inflação tende a se sobrepor",
+   "padroes": [
+    "P12"
+   ],
+   "explicacao": "Com pouca folga na economia, estímulo fiscal vira mais inflação do que crescimento."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Comitê notou com preocupação uma elevação na média das expectativas.",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Preocupação explícita com alta das expectativas de inflação para 2024."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "As projeções de inflação do Copom apresentaram um leve aumento no horizonte relevante",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "As projeções no horizonte relevante subiram de novo."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 14,
+   "paragrafo_anterior": 12,
+   "direcao": 1,
+   "trecho": "O Comitê acompanhará com especial atenção os desenvolvimentos futuros da política fiscal",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "explicacao": "Balanço de riscos ganha ênfase fiscal e 'elevada incerteza' sobre o arcabouço."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 7,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o processo de desin flação deve ser não linear e mais lento do que o observado em episódios recentes.",
+   "padroes": [],
+   "explicacao": "A desinflação global deve ser mais lenta por causa dos serviços."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 10,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "reforçam a expectativa do Comitê de desaceleração do ritmo da atividade econômica, que deve se acentuar nos próximos trimestres.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "PIB mais fraco confirma desaceleração, o que ajuda a inflação a cair."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.6,
+  "surpresa": 0.4,
+  "explicacao": "Manutenção em 13,75% com cláusula de retomada, mas ata mais dura que a anterior: longa discussão fiscal e parafiscal reduzindo a potência da política, projeções em alta e preocupação com expectativas."
+ }
+}

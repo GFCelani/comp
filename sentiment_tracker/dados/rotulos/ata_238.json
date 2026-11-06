@@ -1,0 +1,289 @@
+{
+ "ata": 238,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.0",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Contudo, questionamentos dos mercados a respeito de riscos inflacionários nessas economias podem tornar o ambiente desafiador para países emergentes.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "indicadores recentes mostram uma evolução mais positiva do que o esperado, apesar de a",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se no topo do intervalo compatível com o cumprimento",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "As expectativas de inflação para 2021, 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 5,0%, 3,6% e",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Além disso, a transição para patamares mais elevados de bandeira tarifária de energia elétrica deve manter a inflação pressionada no curto prazo.",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 5,1% para 2021 e",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "pode ser mais lento do que o estimado, produzindo trajetória de inflação abaixo do",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O risco fiscal elevado segue criando uma assimetria altista no balanço de",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Contudo, a discussão sobre “reflação”, em particular sobre o risco de um aumento duradouro da inflação nos Estados Unidos, poderia tornar o ambiente para as",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "os últimos dados disponíveis de atividade têm surpreendido positivamente. Para",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Copom avalia que os dados de atividade e do mercado de trabalho formal sugerem que a ociosidade da economia como um todo se reduziu",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê ponderou que os riscos fiscais de curto prazo seguem elevados, implicando um viés de alta nessas projeções. Essa assimetria no balanço de riscos",
+   "padroes": [
+    "P03",
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "Adicionalmente, observou que elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções consideravelmente abaixo da meta",
+   "padroes": [
+    "P07",
+    "P09"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "Os membros do Comitê apontaram que “normalização parcial” reflete suas opiniões sobre a política monetária adequada para a convergência da",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada uma normalização parcial da taxa de juros, com a manutenção de algum estímulo monetário ao",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.55
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "Para a próxima reunião, o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Com itê:",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "direcao": -1,
+   "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada uma normalização parcial da taxa de juros, com a manutenção de algum estímulo monetário ao",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Explicita que a normalização é parcial, mantendo algum estímulo durante a recuperação."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "direcao": -1,
+   "trecho": "Adicionalmente, observou que elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções consideravelmente abaixo da meta",
+   "padroes": [
+    "P07",
+    "P09"
+   ],
+   "explicacao": "Subir juros até o neutro levaria a inflação bem abaixo da meta: alta deve parar antes."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "direcao": 1,
+   "trecho": "Para a próxima reunião, o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste",
+   "padroes": [
+    "P02"
+   ],
+   "explicacao": "Retirou a ressalva 'a menos de mudança significativa': compromisso com a próxima alta ficou mais firme.",
+   "paragrafo_anterior": 22
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 13,
+   "direcao": -1,
+   "trecho": "De acordo com o cenário básico, que utiliza a trajetória para a taxa de juros extraída da pesquisa Focus, as projeções de inflação estão levemente",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Projeção para 2022 passou a levemente abaixo da meta, antes ao redor dela."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "direcao": -1,
+   "trecho": "As diversas medidas de inflação subjacente apresentam-se no topo do intervalo compatível com o cumprimento",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Núcleos passaram de 'acima' para 'no topo' do intervalo compatível com a meta.",
+   "paragrafo_anterior": 3
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "direcao": -1,
+   "trecho": "Diversos membros também ressaltaram que as pressões inflacionárias observadas em 2021 podem contaminar as expectativas de inflação para 2022, gerando risco de uma desancoragem das",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Saiu a menção ao risco de desancoragem das expectativas de 2022.",
+   "paragrafo_anterior": 15
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 2,
+   "direcao": 1,
+   "trecho": "Em relação à atividade econômica brasileira, indicadores recentes mostram uma evolução mais positiva do que o esperado, apesar de a",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Atividade melhor que o esperado mesmo com segunda onda mais forte."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.9,
+  "surpresa": -0.4,
+  "explicacao": "Nova alta de 0,75 com orientação de outra igual, mas reforça que a normalização é parcial e que subir até o neutro deixaria a inflação abaixo da meta: limita o ciclo."
+ }
+}

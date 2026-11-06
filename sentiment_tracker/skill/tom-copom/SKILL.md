@@ -14,7 +14,9 @@ Um lote JSON (`dados/lotes/ata_<n>.json`, gerado por `scripts/preparar.py`):
   (`igual` | `alterado` | `novo` | `sem_anterior`) e, se alterado, `diff` (`~~saiu~~ **entrou**`).
 - `removidos[]`: parágrafos da ata anterior sem correspondente.
 
-Leia também `resultados/padroes.md` (padrões P01–P18 com exemplos reais). Use os códigos.
+Leia também `skill/tom-copom/regras.md` (padrões P01–P18, versão cega). Use os códigos.
+**Não** leia `resultados/padroes.md`, `dados/analistas/`, `dados/reacao.csv` nem `dados/mercado.csv`:
+trazem reação de mercado e veredito de analistas por ata (o gabarito da validação).
 
 ## Tarefa 1 — rotular TODOS os parágrafos
 Para cada parágrafo:
@@ -30,7 +32,7 @@ Para cada parágrafo:
 - `sinal`: 0 = descritivo, 1 = diagnóstico com implicação, 2 = orientação/decisão sobre a Selic.
 - `trecho`: até 25 palavras **copiadas literalmente** do `texto` (mesma grafia e pontuação, sem
   reticências no meio). É o trecho que justifica o tom. Será conferido por código.
-- `padroes`: lista de códigos de `padroes.md` que se aplicam (pode ser vazia).
+- `padroes`: lista de códigos de `regras.md` que se aplicam (pode ser vazia).
 - `confianca`: 0.0–1.0, sua confiança no `tom`.
 
 ## Tarefa 2 — mudanças relevantes vs a ata anterior
@@ -60,9 +62,9 @@ implicação). Para cada uma:
 ## Saída
 Somente JSON (sem texto em volta), salvo em `dados/rotulos/ata_<n>.json`:
 ```json
-{"ata": 281, "rotulador": "claude-<modelo>", "skill_versao": "1.0",
+{"ata": 281, "rotulador": "claude-<modelo>", "skill_versao": "1.1-cega",
  "paragrafos": [{"paragrafo": 1, "dimensao": "externo", "tom": 0, "sinal": 0, "trecho": "...", "padroes": [], "confianca": 0.8}],
  "mudancas": [{"tipo": "alterado", "paragrafo": 17, "paragrafo_anterior": 16, "direcao": -1, "trecho": "...", "padroes": ["P09"], "explicacao": "..."}],
  "resumo": {"tom_nivel": 0.4, "surpresa": -0.5, "explicacao": "..."}}
 ```
-Depois rode `python scripts/validar.py --trechos <n>` e corrija os trechos inválidos.
+Depois rode `python scripts/validar.py --trechos <n>` (com `--dir` se gravou em outra pasta) e corrija os trechos inválidos.
