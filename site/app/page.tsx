@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { obterDados } from "@/lib/edicoes";
-import type { Previsao } from "@/lib/dados";
 import {
   data,
   dataCurta,
@@ -8,11 +7,12 @@ import {
   selic as fmtSelic,
   decisao as fmtDecisao,
   pct,
+  previsaoRotulo,
   tomRotulo,
 } from "@/lib/formato";
 import { camposNovos, relatorioDeReserva } from "@/lib/previsao";
 import { Termometro } from "@/components/Termometro";
-import { GraficoIndice } from "@/components/GraficoIndice";
+import { GraficoTomSelic } from "@/components/GraficoTomSelic";
 import { ExplorarAtas } from "@/components/ExplorarAtas";
 import { PergunteAsAtas } from "@/components/PergunteAsAtas";
 import { Rodape } from "@/components/Rodape";
@@ -21,47 +21,40 @@ import { ParagrafoCitado } from "@/components/ParagrafoCitado";
 
 export const revalidate = 60;
 
-const verboPrevisto: Record<Previsao, string> = {
-  aperto: "subir",
-  manutencao: "manter",
-  afrouxamento: "cortar",
-};
-const nomePrevisto: Record<Previsao, string> = {
-  aperto: "alta",
-  manutencao: "manutenção",
-  afrouxamento: "corte",
-};
+type Acerto = { acuracia: number; acerto_sinal: number | null; n: number; n_direcionais?: number | null; previsto?: string | null };
 
-function Revisado() {
-  return <span className="etiqueta etiqueta-sem-ponto text-brando">revisado pelo time</span>;
+function Aguardando({ texto = "aguardando" }: { texto?: string }) {
+  return <span className="aguardando">{texto}</span>;
 }
 
 function OrigemTexto({ origem }: { origem?: string | null }) {
-  if (origem === "automatico") return <span className="etiqueta etiqueta-sem-ponto">texto automático (sem IA)</span>;
-  if (origem === "claude") return <span className="etiqueta etiqueta-sem-ponto">gerado pelo Claude e verificado por código</span>;
+  if (origem === "automatico") return <span className="selo">texto automático, sem IA</span>;
+  if (origem === "claude") return <span className="selo">escrito pelo Claude, verificado por código</span>;
   return null;
 }
 
-function Bloco({ titulo, children }: { titulo: string; children: React.ReactNode }) {
+function maiuscula(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function Numero({ valor, rotulo, contexto, destaque }: { valor: React.ReactNode; rotulo: string; contexto: React.ReactNode; destaque?: boolean }) {
   return (
-    <div className="border-t border-borda pt-4">
-      <p className="etiqueta etiqueta-sem-ponto">{titulo}</p>
-      <div className="mt-2">{children}</div>
+    <div className="py-6 sm:py-0 sm:px-8 first:sm:pl-0 border-b sm:border-b-0 sm:border-l first:sm:border-l-0 border-linha last:border-b-0">
+      <p className={`num text-[2.75rem] sm:text-[3.25rem] leading-none font-medium tracking-[-0.03em] ${destaque ? "text-acento" : "text-tinta"}`}>{valor}</p>
+      <p className="mt-3 text-[0.9375rem] font-medium text-tinta">{rotulo}</p>
+      <p className="mt-1 text-sm text-tinta-3 leading-snug max-w-[30ch]">{contexto}</p>
     </div>
   );
 }
 
-function Ferramenta({ id, kicker, titulo, linhaFina, children }: { id: string; kicker: string; titulo: string; linhaFina: string; children: React.ReactNode }) {
+function TituloSecao({ id, rotulo, children }: { id: string; rotulo: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="mt-16" aria-labelledby={`${id}-titulo`}>
-      <p className="etiqueta">{kicker}</p>
-      <h2 id={`${id}-titulo`} className="mt-3 text-2xl sm:text-3xl font-semibold leading-tight">
-        {titulo}
+    <header className="max-w-[760px]">
+      <p className="rotulo">{rotulo}</p>
+      <h2 id={id} className="titulo-serifa mt-3 text-[2.1rem] sm:text-[2.75rem] leading-[1.08]">
+        {children}
       </h2>
-      <p className="mt-2 text-texto-2 max-w-[64ch]">{linhaFina}</p>
-      <hr className="regua mt-5" />
-      <div className="mt-6">{children}</div>
-    </section>
+    </header>
   );
 }
 
@@ -73,237 +66,412 @@ export default async function Pagina() {
   const pv = campos.previsao;
   const mp = dados.metricas_previsao;
   const relatorio = campos.relatorio ?? relatorioDeReserva(dados);
-  const usandoReserva = !campos.relatorio;
-
-  // Manchete: a previsão quando existir; senão, a leitura da última ata.
   const proxima = pv?.proxima_reuniao;
-  const manchete = campos.manchete?.texto
-    ? campos.manchete.texto
-    : pv
-      ? `Copom deve ${verboPrevisto[pv.previsto]} a Selic na próxima reunião`
-      : `Copom ${u.decisao === "corte" ? "cortou" : u.decisao === "alta" ? "subiu" : "manteve"} a Selic ${u.decisao === "manutencao" ? "em" : "para"} ${fmtSelic(u.selic_apos)}; a ata veio com tom ${tomRotulo(u.indice)}`;
-  const linhaFina =
-    campos.manchete?.linha_fina ??
-    (pv
-      ? `Sinal de ${nomePrevisto[pv.previsto]} a partir da ${pv.base_ata}ª ata (índice ${fmtIndice(pv.indice)}). Abaixo, o porquê, com o trecho exato da ata em cada afirmação.`
-      : `Leitura da ${u.numero}ª ata, de ${data(u.data_reuniao)}. A previsão para a próxima reunião ainda está sendo gerada pelo pipeline.`);
-
-  const acertoIndice = pv?.acerto?.indice ?? (mp ? { acuracia: mp.indice.acuracia, acerto_sinal: mp.indice.acerto_sinal, n: mp.n_atas } : null);
-  const acertoIngenua = pv?.acerto?.ingenua ?? (mp ? { acuracia: mp.ingenua.acuracia, acerto_sinal: mp.ingenua.acerto_sinal, n: mp.n_atas } : null);
   const ud = pv?.ultima_decisao_conhecida;
+
+  const manchete = campos.manchete?.texto ?? null;
+  const linhaFina = campos.manchete?.linha_fina ?? null;
+
+  const acertoIndice: Acerto | null =
+    (pv?.acerto?.indice as Acerto | undefined) ??
+    (mp ? { acuracia: mp.indice.acuracia, acerto_sinal: mp.indice.acerto_sinal, n: mp.n_atas } : null);
+  const acertoIngenua: Acerto | null =
+    (pv?.acerto?.ingenua as Acerto | undefined) ??
+    (mp ? { acuracia: mp.ingenua.acuracia, acerto_sinal: mp.ingenua.acerto_sinal, n: mp.n_atas } : null);
+  const periodo =
+    (pv?.acerto as { periodo?: { inicio: string; fim: string } } | null | undefined)?.periodo ?? mp?.periodo ?? null;
+  const fraseMelhor =
+    acertoIndice && acertoIngenua
+      ? acertoIndice.acuracia < acertoIngenua.acuracia
+        ? "Até aqui, repetir a última decisão acertou mais que o nosso índice."
+        : acertoIndice.acuracia > acertoIngenua.acuracia
+          ? "Até aqui, o nosso índice acertou mais que repetir a última decisão."
+          : "Até aqui, os dois métodos empatam."
+      : null;
+
+  const anterior = serie.length > 1 ? serie[serie.length - 2] : null;
+  const ataRelatorio = pv?.base_ata ?? u.numero;
 
   return (
     <>
       {exemplo && (
-        <div role="status" className="bg-acento text-[#1a1000] text-center text-sm font-semibold px-4 py-2">
-          EXEMPLO — manchete, previsão e relatório ilustrativos (teste local).
+        <div role="status" className="bg-alerta-suave text-alerta text-center text-sm font-medium px-4 py-2">
+          Exemplo: manchete, previsão e relatório ilustrativos (teste local).
         </div>
       )}
-      <Cabecalho atual="site" />
-      <main id="conteudo" className="mx-auto w-full max-w-[1180px] px-4 pb-8">
-        {/* 1. Manchete: a previsão */}
-        <header className="pt-10 sm:pt-14 grid gap-10 lg:grid-cols-[1.7fr_1fr]">
-          <div>
-            <span className="pilula">
-              {pv
-                ? `${proxima?.numero ? `próxima reunião: ${proxima.numero}ª` : "próxima reunião"} · ${
-                    proxima?.data ? data(proxima.data) : "data da próxima reunião indisponível"
-                  }`
-                : `edição da ${u.numero}ª ata · ${data(u.data_reuniao)}`}
-            </span>
-            <h1 className="mt-5 text-[2.3rem] leading-[1.03] sm:text-6xl font-semibold max-w-[18ch]">{manchete}</h1>
-            <p className="mt-5 text-lg sm:text-xl text-texto-2 max-w-[58ch] leading-relaxed">{linhaFina}</p>
-            {ud && !ud.ata_publicada && (
-              <p className="mt-4 text-sm text-texto num">
-                Na reunião de {dataCurta(ud.data).slice(0, 5)} o Copom{" "}
-                {ud.decisao === "manutencao"
-                  ? `manteve a Selic em ${fmtSelic(ud.selic)}`
-                  : `${fmtDecisao(ud.decisao, ud.decisao_pp)}, para ${fmtSelic(ud.selic)}`}
-                ; a ata ainda não foi publicada.
+      <Cabecalho />
+      <main id="conteudo" className="flex-1">
+        {/* 1. Capa */}
+        <section className="envelope pt-10 sm:pt-16 lg:pt-20" aria-labelledby="manchete">
+          <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_380px] items-start">
+            <div>
+              <p className="rotulo num">
+                Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
               </p>
-            )}
-            <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-texto-2 num">
-              <span>
-                última ata: {u.numero}ª, reunião de {data(u.data_reuniao)}
-              </span>
-              <span aria-hidden="true" className="text-texto-3">|</span>
-              <span>Selic {fmtSelic(u.selic_apos)} ({fmtDecisao(u.decisao, u.decisao_pp)})</span>
-              <span aria-hidden="true" className="text-texto-3">|</span>
-              <a href={u.url_pdf} target="_blank" rel="noopener noreferrer" className="link">
-                ata original
-              </a>
+              <h1 id="manchete" className="titulo-serifa mt-5 text-[2.5rem] leading-[1.06] sm:text-[3.5rem] lg:text-[4.15rem] lg:leading-[1.03] tracking-[-0.025em] max-w-[17ch]">
+                {manchete ?? <>A manchete desta ata está sendo escrita</>}
+              </h1>
+              {linhaFina ? (
+                <p className="mt-6 text-lg sm:text-[1.3125rem] leading-[1.55] text-tinta-2 max-w-[58ch]">{linhaFina}</p>
+              ) : (
+                <p className="mt-6">
+                  <Aguardando texto="linha fina aguardando o pipeline" />
+                </p>
+              )}
+              <dl className="mt-8 pt-5 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
+                <div>
+                  <dt className="text-tinta-3">Selic após a reunião</dt>
+                  <dd className="mt-0.5 font-medium">
+                    {fmtSelic(u.selic_apos)} <span className="text-tinta-2 font-normal">({fmtDecisao(u.decisao, u.decisao_pp)})</span>
+                  </dd>
+                </div>
+                {ud && !ud.ata_publicada && (
+                  <div>
+                    <dt className="text-tinta-3">Decisão de {dataCurta(ud.data)}</dt>
+                    <dd className="mt-0.5 font-medium">
+                      {ud.decisao === "manutencao"
+                        ? `manteve em ${fmtSelic(ud.selic)}`
+                        : `${fmtDecisao(ud.decisao, ud.decisao_pp)}, para ${fmtSelic(ud.selic)}`}
+                      <span className="text-tinta-2 font-normal">, ata ainda não publicada</span>
+                    </dd>
+                  </div>
+                )}
+                <div>
+                  <dt className="text-tinta-3">Documento</dt>
+                  <dd className="mt-0.5">
+                    <a href={u.url_pdf} target="_blank" rel="noopener noreferrer" className="link">
+                      ata original em PDF
+                    </a>
+                  </dd>
+                </div>
+              </dl>
             </div>
-          </div>
 
-          <aside className="grid gap-6 content-start" aria-label="Contexto da previsão">
-            <Bloco titulo="quanto o sinal acertou">
-              {acertoIndice && acertoIngenua ? (
-                <>
-                  <dl className="grid grid-cols-2 gap-4 num">
-                    <div>
-                      <dt className="text-xs text-texto-2">nosso índice</dt>
-                      <dd className="text-3xl font-semibold tracking-tight text-acento">{pct(acertoIndice.acuracia)}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs text-texto-2">repetir a última decisão</dt>
-                      <dd className="text-3xl font-semibold tracking-tight">{pct(acertoIngenua.acuracia)}</dd>
-                    </div>
-                  </dl>
-                  <p className="mt-2 text-xs text-texto-2 num">
-                    Acertos da direção da Selic na reunião seguinte, em {acertoIndice.n} atas.{" "}
-                    {acertoIndice.acuracia < acertoIngenua.acuracia
-                      ? "Até aqui, repetir a última decisão acertou mais."
-                      : acertoIndice.acuracia > acertoIngenua.acuracia
-                        ? "Até aqui, o índice acertou mais."
-                        : "Até aqui, empatados."}{" "}
-                    <Link href="/painel" className="link">
-                      detalhes
-                    </Link>
+            {/* Cartão de destaque: dois chamados */}
+            <aside className="cartao-destaque overflow-hidden" aria-label="Destaques">
+              <a href="#relatorio" className="group block p-6 sm:p-7 hover:bg-papel-2 transition-colors">
+                <p className="rotulo">Leia o relatório de hoje</p>
+                <p className="titulo-serifa mt-2 text-[1.5rem] leading-[1.2]">
+                  O que mudou na ata {ataRelatorio}
+                  <br />e o que isso pode significar
+                </p>
+                {relatorio && (
+                  <ol className="mt-4 grid gap-1.5 text-sm text-tinta-2">
+                    {relatorio.secoes.map((s, i) => (
+                      <li key={s.id} className="flex gap-3">
+                        <span className="num text-tinta-3 w-4 shrink-0">{i + 1}</span>
+                        <span>{s.titulo}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-acento">
+                  ler o relatório
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-y-0.5">
+                    <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+
+              <div className="border-t border-linha p-6 sm:p-7 bg-papel">
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="rotulo">Nossa previsão</p>
+                  <p className="text-xs text-tinta-3 num">
+                    {proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}
                   </p>
-                </>
-              ) : (
-                <p className="text-texto-2 text-sm">aguardando</p>
-              )}
-            </Bloco>
-            <Bloco titulo="o que o Focus espera">
-              {pv?.focus_selic ? (
-                <>
-                  <p className="text-3xl font-semibold tracking-tight num">{fmtSelic(pv.focus_selic.mediana)}</p>
-                  <p className="mt-1 text-xs text-texto-2 num">
-                    Mediana da Selic para o fim de {pv.focus_selic.ano_referencia}, Relatório Focus de{" "}
-                    {dataCurta(pv.focus_selic.data)}.
+                </div>
+                {pv ? (
+                  <>
+                    <p className="mt-2 flex items-baseline gap-3 flex-wrap">
+                      <span className="titulo-serifa text-[2.75rem] leading-none text-acento">{maiuscula(previsaoRotulo[pv.previsto])}</span>
+                      <span className="text-tinta-2">da Selic</span>
+                    </p>
+                    <p className="mt-2 text-sm text-tinta-2 num">
+                      Decisão em {proxima?.data ? <strong className="font-medium text-tinta">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
+                    </p>
+                    <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] gap-5 items-start">
+                      <div>
+                        <p className="text-xs text-tinta-3">Método</p>
+                        <p className="mt-1 text-[0.8125rem] leading-snug text-tinta-2 num">
+                          Índice de tom da ata {pv.base_ata}: <span className="text-tinta font-medium">{fmtIndice(pv.indice)}</span>. Acima de +0,25 indica alta; abaixo de −0,25, corte; entre os dois, manutenção.
+                        </p>
+                      </div>
+                      <div className="text-right border-l border-linha pl-5">
+                        <p className="text-xs text-tinta-3">Acurácia</p>
+                        {acertoIndice ? (
+                          <>
+                            <p className="mt-1 num text-[1.75rem] leading-none font-medium tracking-tight">{pct(acertoIndice.acuracia)}</p>
+                            <p className="mt-1 text-xs text-tinta-3 num">em {acertoIndice.n} reuniões</p>
+                          </>
+                        ) : (
+                          <Aguardando />
+                        )}
+                      </div>
+                    </div>
+                    {acertoIngenua && (
+                      <p className="mt-4 pt-4 border-t border-linha text-xs leading-relaxed text-tinta-2 num">
+                        Repetir a última decisão acertou {pct(acertoIngenua.acuracia)} no mesmo período
+                        {acertoIngenua.previsto ? ` e hoje indica ${previsaoRotulo[acertoIngenua.previsto as keyof typeof previsaoRotulo]}` : ""}.{" "}
+                        <a href="#numeros" className="link">ver os números</a>
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="mt-3">
+                    <Aguardando texto="previsão aguardando o pipeline" />
                   </p>
-                </>
-              ) : (
-                <p className="text-texto-2 text-sm">aguardando o dado do Focus</p>
-              )}
-            </Bloco>
-          </aside>
-        </header>
-        <hr className="regua-forte mt-10" />
+                )}
+              </div>
+            </aside>
+          </div>
+        </section>
 
         {/* 2. Relatório */}
-        <article id="relatorio" className="mt-12 max-w-[760px]" aria-label="Relatório">
-          <div className="flex flex-wrap items-center gap-3">
-            <p className="etiqueta">relatório da {pv?.base_ata ?? u.numero}ª ata</p>
-            <OrigemTexto origem={relatorio?.origem} />
-            {usandoReserva && (revisados.impacto || revisados.mudancas.size > 0) && <Revisado />}
-          </div>
-          {dados.textos_pendentes ? (
-            <div className="cartao p-5 border-dashed text-texto-2 mt-6" role="status">
-              <p className="font-semibold text-texto">textos da ata nova em revisão</p>
-            </div>
-          ) : !relatorio ? (
-            <p className="mt-6 text-texto-2">O relatório desta ata ainda não foi gerado.</p>
-          ) : (
-            relatorio.secoes.map((s) => (
-              <section key={s.id} id={`rel-${s.id}`} className="mt-10" aria-labelledby={`rel-${s.id}-t`}>
-                <h2 id={`rel-${s.id}-t`} className="text-2xl sm:text-3xl font-semibold leading-tight">
-                  {s.titulo}
-                </h2>
-                <div className="mt-4 grid gap-5">
-                  {s.paragrafos.map((p, i) => (
-                    <ParagrafoCitado key={i} texto={p.texto} citacoes={p.citacoes} />
-                  ))}
-                </div>
-              </section>
-            ))
-          )}
-          <p className="mt-8 text-xs text-texto-2">
-            Interpretação, não previsão garantida. Clique nas marcas “§ · ata” para ver o trecho exato.
-          </p>
-        </article>
+        <section id="relatorio" className="envelope mt-24 sm:mt-32" aria-labelledby="relatorio-t">
+          <hr className="regua-forte" />
+          <div className="mt-10 grid gap-10 lg:grid-cols-[240px_minmax(0,680px)] lg:gap-20">
+            <aside className="lg:sticky lg:top-24 self-start">
+              <p className="rotulo">Relatório</p>
+              <h2 id="relatorio-t" className="titulo-serifa mt-3 text-[2.1rem] sm:text-[2.5rem] leading-[1.08]">
+                A ata {ataRelatorio}
+                <br />
+                em três partes
+              </h2>
+              {relatorio && (
+                <nav aria-label="Partes do relatório" className="mt-6 hidden lg:block">
+                  <ol className="grid gap-2 text-sm">
+                    {relatorio.secoes.map((s, i) => (
+                      <li key={s.id}>
+                        <a href={`#rel-${s.id}`} className="flex gap-3 text-tinta-2 hover:text-tinta">
+                          <span className="num text-tinta-3 w-4 shrink-0">{i + 1}</span>
+                          {s.titulo}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              )}
+              <div className="mt-6 flex flex-wrap gap-2">
+                <OrigemTexto origem={relatorio?.origem} />
+                {!campos.relatorio && (revisados.impacto || revisados.mudancas.size > 0) && (
+                  <span className="selo selo-ok">revisado pelo time</span>
+                )}
+              </div>
+            </aside>
 
-        {/* 3. Faixa do índice de tom: visível, secundária */}
-        <section id="tom" className="mt-14 cartao p-5 sm:p-6 grid gap-6 lg:grid-cols-[1fr_2fr] items-center" aria-labelledby="tom-t">
-          <div>
-            <p className="etiqueta" id="tom-t">índice de tom da {u.numero}ª ata</p>
-            <p className="mt-2 text-4xl font-semibold num tracking-tight text-acento">
-              {fmtIndice(u.indice)} <span className="text-base font-normal text-texto-2">{tomRotulo(u.indice)}</span>
-            </p>
-            <div className="mt-3 max-w-[300px]">
-              <Termometro valor={u.indice} />
-            </div>
-            <p className="mt-2 text-xs text-texto-2">Régua de −2 (muito brando) a +2 (muito duro), parágrafo a parágrafo.</p>
+            <article aria-label="Relatório da ata">
+              {!relatorio ? (
+                <p>
+                  <Aguardando texto="relatório desta ata aguardando o pipeline" />
+                </p>
+              ) : (
+                relatorio.secoes.map((s, i) => (
+                  <section key={s.id} id={`rel-${s.id}`} className={i > 0 ? "mt-14" : ""} aria-labelledby={`rel-${s.id}-t`}>
+                    <h3 id={`rel-${s.id}-t`} className="flex items-baseline gap-4 text-[1.375rem] sm:text-[1.625rem] leading-tight titulo-serifa">
+                      <span className="num font-sans text-sm text-tinta-3 tracking-normal w-5 shrink-0">{i + 1}</span>
+                      {s.titulo}
+                    </h3>
+                    <div className="mt-5 grid gap-6 sm:pl-9">
+                      {s.paragrafos.map((p, j) => (
+                        <ParagrafoCitado key={j} texto={p.texto} citacoes={p.citacoes} />
+                      ))}
+                    </div>
+                  </section>
+                ))
+              )}
+              <p className="mt-12 sm:pl-9 text-sm text-tinta-3 max-w-[60ch]">
+                Interpretação de texto, não previsão garantida. Toque nas marcas § para ver o trecho exato da ata e o link
+                para o PDF oficial.
+              </p>
+            </article>
           </div>
-          <div className="min-w-0">
-            <p className="text-sm text-texto-2">Últimas {Math.min(10, serie.length)} reuniões: índice (âmbar) e Selic meta (tracejada).</p>
-            <div className="mt-2">
-              <GraficoIndice serie={serie.slice(-10)} compacto />
+        </section>
+
+        {/* 3. Dados */}
+        <section id="tom" className="mt-24 sm:mt-32 bg-papel-2 border-y border-linha" aria-labelledby="tom-t">
+          <div className="envelope py-16 sm:py-24">
+            <TituloSecao id="tom-t" rotulo="Os dados">
+              O tom das atas
+              <br />e a Selic
+            </TituloSecao>
+
+            <div className="mt-12 grid gap-8 lg:grid-cols-[340px_minmax(0,1fr)]">
+              <div className="cartao p-6 sm:p-7 self-start">
+                <p className="rotulo">Índice de tom da ata {u.numero}</p>
+                <p className="mt-3 flex items-baseline gap-3">
+                  <span className="num text-[3.5rem] leading-none font-medium tracking-[-0.035em] text-acento">{fmtIndice(u.indice)}</span>
+                  <span className="text-lg text-tinta-2">{tomRotulo(u.indice)}</span>
+                </p>
+                <div className="mt-8">
+                  <Termometro valor={u.indice} anterior={anterior?.indice ?? null} rotuloAnterior={anterior ? `ata ${anterior.ata}` : undefined} />
+                </div>
+                <p className="mt-6 text-sm text-tinta-2 leading-relaxed">
+                  Média das notas dos parágrafos que puxam para algum lado, numa régua de −2 (muito brando) a +2 (muito
+                  duro). Acima de zero, o texto pende para juros mais altos.
+                </p>
+              </div>
+              <div className="cartao p-5 sm:p-7 min-w-0">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <p className="font-medium">Tom de cada ata e Selic depois da reunião</p>
+                  <p className="text-sm text-tinta-3 num">
+                    {serie.length} reuniões, {dataCurta(serie[0]?.data_reuniao)} a {dataCurta(serie[serie.length - 1]?.data_reuniao)}
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <GraficoTomSelic serie={serie} />
+                </div>
+              </div>
+            </div>
+
+            <div id="numeros" className="mt-16">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 className="titulo-serifa text-[1.625rem] leading-tight">Quanto o sinal acertou</h3>
+                {periodo && (
+                  <p className="text-sm text-tinta-3 num">
+                    Direção da Selic na reunião seguinte, {dataCurta(periodo.inicio)} a {dataCurta(periodo.fim)}
+                  </p>
+                )}
+              </div>
+              <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-y-8">
+                <Numero
+                  destaque
+                  valor={acertoIndice ? pct(acertoIndice.acuracia) : <Aguardando />}
+                  rotulo="Nosso índice de tom"
+                  contexto={acertoIndice ? `Acertou a direção em ${acertoIndice.n} reuniões avaliadas.` : "Aguardando as métricas do pipeline."}
+                />
+                <Numero
+                  valor={acertoIngenua ? pct(acertoIngenua.acuracia) : <Aguardando />}
+                  rotulo="Repetir a última decisão"
+                  contexto={fraseMelhor ?? "A base de comparação, sem ler a ata."}
+                />
+                <Numero
+                  valor={acertoIndice?.acerto_sinal != null ? pct(acertoIndice.acerto_sinal) : <Aguardando />}
+                  rotulo="Acerto de sinal"
+                  contexto={
+                    acertoIndice?.n_direcionais
+                      ? `Nas ${acertoIndice.n_direcionais} vezes em que o índice apontou alta ou corte.`
+                      : "Quando o índice apontou alta ou corte."
+                  }
+                />
+                <Numero
+                  valor={pv?.focus_selic ? fmtSelic(pv.focus_selic.mediana) : <Aguardando />}
+                  rotulo={pv?.focus_selic ? `Focus: Selic no fim de ${pv.focus_selic.ano_referencia}` : "Focus"}
+                  contexto={pv?.focus_selic ? `Mediana do mercado, coleta de ${dataCurta(pv.focus_selic.data)}.` : "Aguardando o dado do Focus."}
+                />
+              </div>
+              <p className="mt-10 text-sm text-tinta-3">
+                Detalhes, matriz de confusão e validação no{" "}
+                <Link href="/painel" className="link-tinta">
+                  painel do time
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </section>
 
-        {/* 4. Evidência detalhada, recolhida */}
-        <details id="evidencia" className="mt-6 cartao group">
-          <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4 rounded-[0.9rem]">
-            <span>
-              <span className="etiqueta">evidência</span>
-              <span className="block mt-2 text-lg font-semibold">Mudanças parágrafo a parágrafo e a régua</span>
-            </span>
-            <span className="botao text-xs shrink-0">
-              <span className="group-open:hidden">mostrar</span>
-              <span className="hidden group-open:inline">esconder</span>
-            </span>
-          </summary>
-          <div className="px-5 pb-6 grid gap-10">
-            <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <h3 className="font-semibold">O que mudou, parágrafo a parágrafo</h3>
-                <OrigemTexto origem={dados.textos_origem ?? dados.mudancas_origem} />
-              </div>
-              {mudancas.length === 0 ? (
-                <p className="text-texto-2 text-sm mt-2">Nenhuma mudança relevante registrada.</p>
-              ) : (
-                <ol className="mt-3 divide-y divide-borda">
+        {/* 4. Evidência, recolhida */}
+        <section id="evidencia" className="envelope mt-24 sm:mt-32" aria-labelledby="evidencia-t">
+          <TituloSecao id="evidencia-t" rotulo="Evidência">
+            De onde vem
+            <br />
+            cada conclusão
+          </TituloSecao>
+          <div className="mt-10 border-t border-tinta">
+            <details className="group border-b border-linha">
+              <summary className="cursor-pointer py-6 flex items-center justify-between gap-6">
+                <span>
+                  <span className="block text-lg sm:text-xl font-medium">Mudanças parágrafo a parágrafo</span>
+                  <span className="block mt-1 text-sm text-tinta-3 num">
+                    {mudancas.length
+                      ? `${mudancas.length} parágrafos da ata ${u.numero} que mudaram em relação à anterior`
+                      : "Nenhuma mudança relevante registrada"}
+                  </span>
+                </span>
+                <span className="botao shrink-0" aria-hidden="true">
+                  <span className="group-open:hidden">abrir</span>
+                  <span className="hidden group-open:inline">fechar</span>
+                </span>
+              </summary>
+              <div className="pb-8">
+                <div className="mb-4 flex flex-wrap gap-2">
+                  <OrigemTexto origem={dados.textos_origem ?? dados.mudancas_origem} />
+                </div>
+                <ol className="divide-y divide-linha">
                   {mudancas.map((mu, i) => (
-                    <li key={`${mu.paragrafo}-${i}`} className="py-3 grid gap-1 sm:grid-cols-[7rem_6rem_1fr] sm:gap-4">
-                      <span className="text-xs text-texto-2 num">
-                        § {mu.paragrafo} · {mu.tipo}
-                      </span>
-                      <span className={`text-xs font-semibold ${mu.efeito === "endureceu" ? "text-duro" : "text-brando"}`}>
-                        {mu.efeito}
-                      </span>
-                      <span className="trecho text-sm break-words">
-                        “{mu.trecho}”{revisados.mudancas.has(i) && <span className="not-italic ml-2 text-xs text-brando">revisado pelo time</span>}
-                      </span>
+                    <li key={`${mu.paragrafo}-${i}`} className="py-5 grid gap-2 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-8">
+                      <div className="flex sm:flex-col gap-2 sm:gap-1.5 items-baseline sm:items-start">
+                        <span className="num text-sm font-medium">§ {mu.paragrafo}</span>
+                        <span className="text-sm text-tinta-3">{mu.tipo}</span>
+                        <span className={`selo ${mu.efeito === "endureceu" ? "text-acento" : ""}`}>{mu.efeito}</span>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="trecho text-[1.0625rem] leading-relaxed border-l-2 border-acento pl-4 break-words">“{mu.trecho}”</p>
+                        <p className="mt-2 text-sm text-tinta-2 leading-relaxed">{mu.explicacao}</p>
+                        {revisados.mudancas.has(i) && <span className="selo selo-ok mt-2">revisado pelo time</span>}
+                      </div>
                     </li>
                   ))}
                 </ol>
-              )}
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h3 className="font-semibold">A régua</h3>
-                <p className="coluna-texto mt-1">{como_medimos.regua}</p>
               </div>
-              <div>
-                <h3 className="font-semibold">Como juntamos num número</h3>
-                <p className="coluna-texto mt-1">{como_medimos.agregacao}</p>
+            </details>
+            <details className="group border-b border-linha">
+              <summary className="cursor-pointer py-6 flex items-center justify-between gap-6">
+                <span>
+                  <span className="block text-lg sm:text-xl font-medium">A régua e como medimos</span>
+                  <span className="block mt-1 text-sm text-tinta-3">Como cada parágrafo vira uma nota e as notas viram um índice</span>
+                </span>
+                <span className="botao shrink-0" aria-hidden="true">
+                  <span className="group-open:hidden">abrir</span>
+                  <span className="hidden group-open:inline">fechar</span>
+                </span>
+              </summary>
+              <div className="pb-8 grid gap-8 md:grid-cols-3">
+                <div>
+                  <h3 className="font-medium">A régua</h3>
+                  <p className="mt-2 texto-2">{como_medimos.regua}</p>
+                </div>
+                <div>
+                  <h3 className="font-medium">Do parágrafo ao índice</h3>
+                  <p className="mt-2 texto-2">{como_medimos.agregacao}</p>
+                </div>
+                <div>
+                  <h3 className="font-medium">Validação</h3>
+                  <p className="mt-2 texto-2">{como_medimos.validacao}</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        {/* 5. Ferramentas */}
+        <section id="ferramentas" className="envelope mt-24 sm:mt-32" aria-labelledby="ferramentas-t">
+          <TituloSecao id="ferramentas-t" rotulo="Ferramentas">
+            Leia as atas
+            <br />
+            por conta própria
+          </TituloSecao>
+          <div className="mt-10 grid gap-8">
+            <div id="perguntar" className="cartao p-5 sm:p-8">
+              <h3 className="titulo-serifa text-[1.625rem] leading-tight">Pergunte às atas</h3>
+              <p className="mt-2 text-tinta-2 max-w-[62ch]">
+                A resposta é sempre um trecho da ata, com o número do parágrafo e o link para o PDF oficial.
+              </p>
+              <div className="mt-6">
+                <PergunteAsAtas atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
+              </div>
+            </div>
+            <div id="atas" className="cartao p-5 sm:p-8">
+              <h3 className="titulo-serifa text-[1.625rem] leading-tight">Explorar as atas</h3>
+              <p className="mt-2 text-tinta-2 max-w-[62ch]">
+                Escolha uma reunião para ver os parágrafos que puxaram o tom para cima ou para baixo, com a nota e o trecho.
+              </p>
+              <div className="mt-6">
+                <ExplorarAtas atas={atas} revisadas={[...revisados.notas]} />
               </div>
             </div>
           </div>
-        </details>
-
-        {/* 4. Ferramentas */}
-        <Ferramenta
-          id="perguntar"
-          kicker="ferramenta"
-          titulo="Pergunte às atas"
-          linhaFina="A resposta é sempre um trecho da ata, com o número do parágrafo e o link para o PDF oficial."
-        >
-          <PergunteAsAtas atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
-        </Ferramenta>
-
-        <Ferramenta
-          id="atas"
-          kicker="ferramenta"
-          titulo="Explorar as atas"
-          linhaFina="Escolha uma reunião para ver os parágrafos que puxaram o tom para cima ou para baixo, com a nota e o trecho."
-        >
-          <ExplorarAtas atas={atas} revisadas={[...revisados.notas]} />
-        </Ferramenta>
+        </section>
       </main>
       <Rodape />
     </>

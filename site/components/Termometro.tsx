@@ -1,85 +1,135 @@
+import type { CSSProperties } from "react";
 import { indice as fmtIndice, tomRotulo } from "@/lib/formato";
 
-export function Termometro({ valor }: { valor: number | null }) {
-  const largura = 320;
-  const altura = 84;
-  const margem = 14;
-  const trilhaY = 34;
-  const trilhaH = 14;
-  const escala = (v: number) => margem + ((v + 2) / 4) * (largura - 2 * margem);
-  const x = valor === null ? null : escala(Math.max(-2, Math.min(2, valor)));
+const MARCAS = [-2, -1, 0, 1, 2];
+
+/** posição em % na régua de −2 a +2 (valores fora da régua ficam na ponta) */
+function posicao(v: number): number {
+  return ((Math.max(-2, Math.min(2, v)) + 2) / 4) * 100;
+}
+
+/** centraliza o rótulo no ponto, mas encosta na borda perto das pontas para não vazar */
+function ancorado(p: number): CSSProperties {
+  let t = -50;
+  if (p < 12) t = -(p / 12) * 50;
+  else if (p > 88) t = -50 - ((p - 88) / 12) * 50;
+  return { left: `${p}%`, transform: `translateX(${t}%)` };
+}
+
+function rotuloMarca(v: number): string {
+  if (v > 0) return `+${v}`;
+  if (v < 0) return `−${Math.abs(v)}`;
+  return "0";
+}
+
+export function Termometro({
+  valor,
+  anterior,
+  rotuloAnterior,
+}: {
+  valor: number | null;
+  anterior?: number | null;
+  rotuloAnterior?: string;
+}) {
+  if (valor === null) return <span className="aguardando">aguardando</span>;
+
+  const x = posicao(valor);
+  const temAnterior = anterior !== null && anterior !== undefined;
+  const xa = temAnterior ? posicao(anterior) : null;
+  const rotA = rotuloAnterior ?? "leitura anterior";
+  // rótulos em cima colidem quando os pontos estão perto: o do anterior desce
+  const perto = xa !== null && Math.abs(xa - x) < 16;
+  const inicio = Math.min(50, x);
+  const comprimento = Math.abs(x - 50);
+
+  const descricao =
+    `Índice de tom ${fmtIndice(valor)} (${tomRotulo(valor)}), numa régua de −2 (mais brando) a +2 (mais duro)` +
+    (temAnterior ? `; ${rotA}: ${fmtIndice(anterior)}` : "") +
+    ".";
 
   return (
-    <figure className="w-full max-w-[360px]">
-      <svg
-        viewBox={`0 0 ${largura} ${altura}`}
-        className="w-full h-auto"
-        role="img"
-        aria-label={`Termômetro do tom: ${fmtIndice(valor)} em uma régua de −2 a +2, ${tomRotulo(valor)}`}
-      >
-        <defs>
-          <linearGradient id="termo-grad" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="var(--brando)" />
-            <stop offset="50%" stopColor="#3a4766" />
-            <stop offset="100%" stopColor="var(--duro)" />
-          </linearGradient>
-        </defs>
-        <rect
-          x={margem}
-          y={trilhaY}
-          width={largura - 2 * margem}
-          height={trilhaH}
-          rx={trilhaH / 2}
-          fill="url(#termo-grad)"
-        />
-        {[-2, -1, 0, 1, 2].map((v) => (
-          <g key={v}>
-            <line
-              x1={escala(v)}
-              x2={escala(v)}
-              y1={trilhaY + trilhaH + 4}
-              y2={trilhaY + trilhaH + 9}
-              stroke="var(--texto-3)"
-              strokeWidth={1}
-            />
-            <text
-              x={escala(v)}
-              y={trilhaY + trilhaH + 22}
-              textAnchor="middle"
-              fontSize="11"
-              fill="var(--texto-2)"
-              className="num"
+    <div role="img" aria-label={descricao} className="w-full select-none">
+      <div className="relative mx-2.5">
+        {/* rótulos acima da régua */}
+        <div className="relative h-7" aria-hidden="true">
+          {xa !== null && !perto && (
+            <span
+              className="absolute bottom-2 whitespace-nowrap text-xs leading-none text-tinta-3"
+              style={ancorado(xa)}
             >
-              {v > 0 ? `+${v}` : v < 0 ? `−${Math.abs(v)}` : "0"}
-            </text>
-          </g>
-        ))}
-        <text x={margem} y={14} fontSize="10" fill="var(--texto-2)">
-          muito brando
-        </text>
-        <text x={largura - margem} y={14} fontSize="10" fill="var(--texto-2)" textAnchor="end">
-          muito duro
-        </text>
-        {x !== null && (
-          <g>
-            <polygon
-              points={`${x - 7},${trilhaY - 10} ${x + 7},${trilhaY - 10} ${x},${trilhaY - 1}`}
-              fill="var(--texto)"
+              {rotA}
+            </span>
+          )}
+          <span
+            className="num absolute bottom-1.5 whitespace-nowrap text-[15px] font-semibold leading-none text-acento"
+            style={ancorado(x)}
+          >
+            {fmtIndice(valor)}
+          </span>
+        </div>
+
+        {/* trilho, marcas, preenchimento e marcadores */}
+        <div className="relative h-3.5" aria-hidden="true">
+          <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-papel-3" />
+          {MARCAS.map((v) => (
+            <span
+              key={v}
+              className={`absolute top-1/2 w-px -translate-x-1/2 -translate-y-1/2 ${
+                v === 0 ? "h-3 bg-tinta-3" : "h-2 bg-linha-2"
+              }`}
+              style={{ left: `${posicao(v)}%` }}
             />
-            <line
-              x1={x}
-              x2={x}
-              y1={trilhaY - 1}
-              y2={trilhaY + trilhaH + 1}
-              stroke="var(--texto)"
-              strokeWidth={2.5}
+          ))}
+          <div
+            className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-acento"
+            style={{ left: `${inicio}%`, width: `${comprimento}%` }}
+          />
+          {xa !== null && (
+            <span
+              className="absolute top-1/2 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] border-tinta-3 bg-papel"
+              style={{ left: `${xa}%` }}
             />
-          </g>
+          )}
+          <span
+            className="absolute top-1/2 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-acento"
+            style={{
+              left: `${x}%`,
+              boxShadow:
+                "0 0 0 3px var(--papel), 0 1px 4px 2px color-mix(in srgb, var(--tinta) 12%, transparent)",
+            }}
+          />
+        </div>
+
+        {/* rótulo do anterior embaixo quando os dois pontos estão perto */}
+        {xa !== null && perto && (
+          <div className="relative h-5" aria-hidden="true">
+            <span
+              className="absolute top-1.5 whitespace-nowrap text-xs leading-none text-tinta-3"
+              style={ancorado(xa)}
+            >
+              {rotA}
+            </span>
+          </div>
         )}
-      </svg>
-      <figcaption className="sr-only">
-        Régua de −2 (muito brando) a +2 (muito duro).
-      </figcaption>
-    </figure>
+
+        {/* números da escala */}
+        <div className="relative mt-2 h-4" aria-hidden="true">
+          {MARCAS.map((v) => (
+            <span
+              key={v}
+              className="num absolute top-0 text-xs leading-none text-tinta-3"
+              style={ancorado(posicao(v))}
+            >
+              {rotuloMarca(v)}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-1.5 flex justify-between text-xs text-tinta-3" aria-hidden="true">
+          <span>mais brando</span>
+          <span>mais duro</span>
+        </div>
+      </div>
+    </div>
   );
 }

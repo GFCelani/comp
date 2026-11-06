@@ -1,53 +1,63 @@
 import Link from "next/link";
 import { dados } from "@/lib/dados";
-import { dataCurta } from "@/lib/formato";
+import { dataCurta, dataHora } from "@/lib/formato";
 import { fraseUltimaVerificacao } from "@/lib/verificacao";
 
 export async function Rodape() {
   const verificacao = await fraseUltimaVerificacao();
+  const gerado = dataHora(dados.gerado_em);
   return (
-    <footer className="mt-20 bg-fundo-2 border-t border-borda">
-      <div className="mx-auto max-w-[1180px] px-4 py-10 grid gap-8 md:grid-cols-[1.4fr_1fr_1fr] text-sm text-texto-2">
+    <footer className="mt-28 sm:mt-36 border-t border-tinta">
+      <div className="envelope py-12 sm:py-16 grid gap-10 md:grid-cols-[1.3fr_1fr_1fr] text-sm text-tinta-2">
         <div>
-          <p className="font-semibold text-texto">Tradutor do Copom</p>
-          <p className="mt-2 max-w-[48ch]">
-            Leitura automática das atas do Comitê de Política Monetária, parágrafo por parágrafo, sempre com o trecho
-            exato que sustenta cada conclusão.
+          <p className="titulo-serifa text-xl font-semibold text-tinta">Tradutor do Copom</p>
+          <p className="mt-3 max-w-[44ch] leading-relaxed">
+            Leitura das atas do Comitê de Política Monetária, parágrafo por parágrafo, sempre com o trecho exato que
+            sustenta cada conclusão. O site se atualiza sozinho quando o Banco Central publica uma ata nova.
           </p>
-          <p className="mt-3 num">
-            {verificacao}{" "}
-            O site se atualiza sozinho quando o Banco Central publica uma ata nova.
-          </p>
+          <p className="mt-5 text-tinta font-medium">Não é recomendação de investimento.</p>
+          <p className="mt-1 max-w-[44ch]">É interpretação de texto público, com método e acertos abertos.</p>
         </div>
         <div>
-          <p className="etiqueta etiqueta-sem-ponto mb-3">fonte dos dados</p>
-          <p>
-            Banco Central do Brasil,{" "}
-            <a href="https://www.bcb.gov.br/publicacoes/atascopom" target="_blank" rel="noopener noreferrer" className="link">
-              atas do Copom
-            </a>
-            ; Selic meta (SGS 432) e Relatório Focus.
-          </p>
-          <p className="num mt-2">
-            Selic até {dataCurta(dados.datas_dados.selic)} · Focus de {dataCurta(dados.datas_dados.focus)} · gerado em{" "}
-            {dataCurta(dados.gerado_em.slice(0, 10))}
-          </p>
-        </div>
-        <div>
-          <p className="etiqueta etiqueta-sem-ponto mb-3">mais</p>
-          <ul className="space-y-1">
+          <p className="font-medium text-tinta">Fontes</p>
+          <ul className="mt-3 grid gap-2">
             <li>
-              <Link href="/painel" className="link">
-                painel de verificação
-              </Link>
-            </li>
-            <li>
-              <a href="https://github.com/GFCelani/comp" target="_blank" rel="noopener noreferrer" className="link">
-                código e dados no GitHub
+              <a href="https://www.bcb.gov.br/publicacoes/atascopom" target="_blank" rel="noopener noreferrer" className="link-tinta">
+                Atas do Copom, Banco Central
               </a>
             </li>
+            <li>Selic meta, série SGS 432 do BC</li>
+            <li>Relatório Focus, mediana da Selic</li>
+            <li>Calendário oficial do Copom</li>
           </ul>
-          <p className="mt-4 text-texto-3">Isto é interpretação de texto, não recomendação de investimento.</p>
+        </div>
+        <div>
+          <p className="font-medium text-tinta">Datas dos dados</p>
+          <dl className="mt-3 grid gap-2 num">
+            <div className="flex justify-between gap-4">
+              <dt>Selic até</dt>
+              <dd className="text-tinta">{dataCurta(dados.datas_dados.selic)}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt>Focus de</dt>
+              <dd className="text-tinta">{dataCurta(dados.datas_dados.focus)}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt>Dados gerados em</dt>
+              <dd className="text-tinta">{gerado ?? "aguardando"}</dd>
+            </div>
+          </dl>
+          <p className="mt-4 leading-relaxed">{verificacao}</p>
+        </div>
+      </div>
+      <div className="border-t border-linha">
+        <div className="envelope py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-tinta-3">
+          <a href="https://github.com/GFCelani/comp" target="_blank" rel="noopener noreferrer" className="link-tinta">
+            código e dados no GitHub
+          </a>
+          <Link href="/painel" className="link-tinta">
+            painel
+          </Link>
         </div>
       </div>
     </footer>

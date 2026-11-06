@@ -1,17 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 import { dados } from "@/lib/dados";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
 });
 
-const mono = Geist_Mono({
-  variable: "--font-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
 });
 
@@ -22,22 +30,22 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0e13",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${mono.variable} h-full antialiased`}>
+    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable} ${newsreader.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-acento focus:px-3 focus:py-2 focus:text-[#1a1000]"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-tinta focus:px-4 focus:py-2 focus:text-papel"
         >
           ir para o conteúdo
         </a>
         {dados.exemplo && (
-          <div role="status" className="bg-acento text-[#1a1000] text-center text-sm font-semibold px-4 py-2">
-            EXEMPLO — dados ilustrativos. Índices, trechos e textos abaixo não vêm das atas reais.
+          <div role="status" className="bg-alerta-suave text-alerta text-center text-sm font-medium px-4 py-2">
+            Exemplo: dados ilustrativos. Índices, trechos e textos abaixo não vêm das atas reais.
           </div>
         )}
         {children}
