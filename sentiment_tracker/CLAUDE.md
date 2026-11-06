@@ -85,64 +85,30 @@ export TOM_ROTULOS=rotulos_cego
 
 ## ESTADO DO TRABALHO E PRÓXIMOS PASSOS (handoff — leia isto primeiro)
 
-### Onde paramos (06/11)
-Pronto e validado: 46 atas rotuladas às cegas (`dados/rotulos_cego/`), índice oficial, melhorias A/B/C,
-teste fora da amostra com 2020 (`dados/holdout/`), modelo reserva, `avaliar_ata.py --reserva` testado,
-relatório `resultados/validacao.md`. Notas sempre em −2..+2 (`indice.py` falha se sair da faixa).
+### Concluído (06/11)
+- 46 atas rotuladas às cegas; índice oficial (`TOM_ROTULOS=rotulos_cego`); melhorias A/B/C; direção em
+  3 classes com zona neutra (limiar por leave-one-out aninhado); teste fora da amostra (2020).
+- 2ª leitura só do diff (53 atas, `dados/segunda_leitura/`): **medida e rejeitada** — piorou correlação e
+  direção (ver `resultados/validacao.md`, seção 6c). Não reativar sem nova evidência.
+- **Integrado**: `banco/indice_modelo.json` e `banco/metricas_modelo.json` copiados (formato do
+  CONTRATO.md conferido com `pipeline/gerar_dados_site.py` e `pipeline/metricas.py`). Notas em −2..+2.
+- Números finais: `resultados/validacao.md`.
 
-Em andamento quando a sessão parou: **2ª leitura independente focada em DIREÇÃO**. Entradas prontas em
-`dados/segunda_leitura/entrada/ata_<n>.txt` (só o que mudou vs a ata anterior). Saídas esperadas em
-`dados/segunda_leitura/ata_<n>.json`. O código que usa essas saídas já está pronto (`indice.py` cria o
-candidato `duas_leituras`; `teste_fora.py` usa o mesmo; o classificador de direção com zona neutra e
-limiar por leave-one-out aninhado já roda).
-
-Linha de base da direção SEM a 2ª leitura (fora da amostra): acerto 3 classes 54% (sempre "em linha": 50%),
-precisão quando aponta direção 53%, sentido trocado 1 em 46.
-
-### Passo 1 — terminar a 2ª leitura
-Ver quais faltam: `ls dados/segunda_leitura/*.json` (precisa de 236–281 menos 236, e 228–235).
-Rodar subagentes em paralelo (~13 atas cada) com este prompt (troque a lista):
-> Segunda leitura independente de atas do Copom, focada em DIREÇÃO. Atas: <LISTA>. Leia primeiro
-> `sentiment_tracker/skill/tom-copom/regras.md`. Para cada ata N leia SÓ
-> `sentiment_tracker/dados/segunda_leitura/entrada/ata_N.txt` (só o que mudou vs a anterior: ALTERADO com
-> ~~saiu~~ **entrou**, NOVO, REMOVIDO) e responda: comparada à anterior, a mensagem ficou mais dura, em
-> linha ou mais branda? O padrão é em_linha; só aponte direção se houver mudança relevante para os juros
-> (orientação, balanço de riscos, cláusulas de retomada/duração, suficiência da taxa, qualificadores, quem
-> concorda). Dados atualizados, estilo e repetição não contam. Sinais opostos: pese ação acima do diagnóstico;
-> se ambíguo, em_linha. Não use o que aconteceu depois; não leia outros arquivos de dados/, resultados/,
-> banco/; sem web. Grave `sentiment_tracker/dados/segunda_leitura/ata_N.json`:
-> {"ata": N, "direcao": "mais_dura"|"em_linha"|"mais_branda", "surpresa": -2..2 (0 em linha; ±0.5 leve;
-> ±1 clara; ±2 forte), "confianca": 0-1, "evidencias": [{"trecho": "≤25 palavras do texto, sem ~~ e **",
-> "efeito": "+"|"-"}], "explicacao": "≤30 palavras"}. Sem commit.
-
-### Passo 2 — medir e escolher
-```bash
-cd sentiment_tracker && export TOM_ROTULOS=rotulos_cego
-.venv/bin/python scripts/indice.py        # escolhe o estimador (inclui duas_leituras) por LOO e mede a direção
-cd scripts && ../.venv/bin/python teste_fora.py && cd ..   # 2020, modelo congelado
-.venv/bin/python scripts/relatorio.py     # atualiza resultados/validacao.md (seção 6b = direção)
-```
-Critério: a 2ª leitura só fica se melhorar a direção fora da amostra (`calibracao.json` → `direcao`:
-acurácia 3 classes, precisão quando aponta direção, sentido trocado) sem piorar a correlação. Commit + push.
-
-### Passo 3 — integrar ao site do time
-```bash
-cp resultados/indice_modelo.json resultados/metricas_modelo.json ../banco/
-```
-Pelo `../CONTRATO.md`, o site passa a usar este índice (`indice` = nível −2..+2; extras: `surpresa`
-−2..+2, `direcao`, `confianca`, `ic95`, `mudancas` com trecho). Avisar o colega da infra. Commit + push.
-
-### Passo 4 — ata 282 (publicação prevista 10/11)
-Depois que o pipeline do time extrair a ata para `banco/paragrafos.jsonl`:
-`TOM_ROTULOS=rotulos_cego .venv/bin/python scripts/avaliar_ata.py 282` (caminho com `claude -p` ainda não
-testado; `--reserva` testado). Para a 2ª leitura da 282: `scripts/preparar_diff.py` e um subagente com o
-prompt do Passo 1. Rodar `indice.py` de novo e copiar para `../banco/`.
-
-### Ideias depois disso
-- Ampliar o teste fora da amostra para 2019 (PDFs 220–227 já em `dados/holdout/atas/`; falta rotular e
-  coletar analistas).
-- O modelo superestima a surpresa de atas "em linha" no teste de 2020: a zona neutra deve ajudar; conferir.
+### Próximos passos
+1. **Rodar o pipeline do site** para refletir o índice novo: `python pipeline/gerar_dados_site.py` e
+   `python pipeline/metricas.py` (na raiz do repo; são do colega — combinar com ele antes).
+2. **Ata 282** (publicação prevista 10/11), depois que o pipeline extrair para `banco/paragrafos.jsonl`:
+   `cd sentiment_tracker && TOM_ROTULOS=rotulos_cego .venv/bin/python scripts/avaliar_ata.py 282`
+   (o caminho com `claude -p` ainda não foi testado; `--reserva` foi). Depois copiar
+   `resultados/indice_modelo.json` para `../banco/` de novo.
+3. **Direção** (onde está o diferencial): o erro dominante é chamar "em linha" quando o gabarito tem
+   direção (10 atas "mais duras" classificadas como "em linha"); sentido trocado é raro (1 em 46). Ideias:
+   (a) ampliar o gabarito para 2019 (PDFs 220–227 em `dados/holdout/atas/`) para escolher o limiar com mais
+   dados; (b) usar `confianca_calibrada` no site: só destacar a direção quando a confiança for alta
+   (83% de acerto nessa faixa).
+4. Expor no site: `direcao`, `surpresa`, `confianca` e `mudancas` (com trecho) já estão em
+   `banco/indice_modelo.json`.
 
 ### Regras
 Commit + push a cada passo (`git push -u origin sentiment-tracker`). Nunca dar ao rotulador o gabarito
-(`resultados/`, `dados/analistas/`, `dados/reacao.csv`, `dados/mercado.csv`).
+(`resultados/`, `dados/analistas/`, `dados/reacao.csv`, `dados/mercado.csv`). Notas sempre em −2..+2.
