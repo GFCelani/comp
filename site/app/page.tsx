@@ -115,8 +115,11 @@ export default async function Pagina() {
             <p className="mt-5 text-lg sm:text-xl text-texto-2 max-w-[58ch] leading-relaxed">{linhaFina}</p>
             {ud && !ud.ata_publicada && (
               <p className="mt-4 text-sm text-texto num">
-                Na reunião de {dataCurta(ud.data).slice(0, 5)} o Copom {fmtDecisao(ud.decisao, ud.decisao_pp)} (Selic em{" "}
-                {fmtSelic(ud.selic)}); a ata ainda não foi publicada.
+                Na reunião de {dataCurta(ud.data).slice(0, 5)} o Copom{" "}
+                {ud.decisao === "manutencao"
+                  ? `manteve a Selic em ${fmtSelic(ud.selic)}`
+                  : `${fmtDecisao(ud.decisao, ud.decisao_pp)}, para ${fmtSelic(ud.selic)}`}
+                ; a ata ainda não foi publicada.
               </p>
             )}
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-texto-2 num">
