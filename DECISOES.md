@@ -123,3 +123,18 @@ Escolhido pelo critério: A-log C=0,3 (empate com B-log, desempate pelo mais sim
 **Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Como o escolhido é o próprio atual, só ele foi rodado. Soma 16 + 7 = 23 de 31, igual ao publicado (74,2%).
 
 **Decisão.** Mantido o modelo publicado (logística C=0,3, conjunto A). banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.
+
+## Modelo v3: candidatos (fixados às 15h13, antes de testar)
+
+**Variáveis novas de histórico recente (de `banco/atas.json`):**
+- `variacao_taxa_atual`: `decisao_pp` da reunião da ata;
+- `decisao_anterior`: one-hot (alta, manutenção, corte) da decisão da reunião anterior;
+- `variacao_taxa_anterior`: `decisao_pp` da reunião anterior;
+- `reunioes_na_mesma_direcao`: reuniões seguidas com a mesma decisão até a atual, incluída.
+Na 1ª ata (236) a reunião 235 não está em `validacao/selic_oficial.csv` (começa na 236) e não houve tempo de consultar o endpoint; usamos manutenção, 0 e 1.
+
+**Conjuntos.** D = A + as 4 novas. E = `decisao_registrada_na_ata` + as 4 novas + `tom_nivel` + `tom_variacao`.
+
+**Combinações (6 + A como referência):** D e E com logística C=0,3, logística C=0,1 e floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42).
+
+**Protocolo.** Igual ao v2: janela crescente; escolha nas atas 251–270 (acurácia → balanceada → mais simples, A na disputa); confirmação única nas 271–281 do escolhido e de A; troca só se melhor que A na escolha e não pior na confirmação.
