@@ -1,18 +1,15 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
 /*
  * Cabeçalho portado do Header do cartoes-nfc (mesma estrutura, medidas, histerese,
  * cápsula de vidro, curva e duração), com o conteúdo do CopomAI.
- * No topo fica solto sobre o hero, sem fundo nem borda; depois de rolar, a cápsula
- * de vidro acende atrás dos mesmos itens e o conjunto sobe um pouco.
+ * Estático: fica no topo da página, sem fundo nem borda, e rola junto com o conteúdo.
+ * A cápsula de vidro só aparece com o menu do celular aberto.
  */
-
-/* histerese: vira cápsula passando de 64px e só volta abaixo de 24px */
-const ENTRA = 64;
-const SAI = 24;
 
 const cn = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).join(" ");
 
@@ -22,10 +19,10 @@ const FOCO =
 const VIDRO = "border border-[rgba(16,19,23,0.1)] backdrop-blur-[20px] backdrop-saturate-[130%]";
 
 const ITENS = [
-  { href: "/#relatorio", nome: "Relatório", num: "01" },
-  { href: "/#previsao", nome: "Previsão", num: "02" },
-  { href: "/#tom", nome: "Dados", num: "03" },
-  { href: "/#ferramentas", nome: "Ferramentas", num: "04" },
+  { href: "#relatorio", nome: "Relatório", num: "01" },
+  { href: "#previsao", nome: "Previsão", num: "02" },
+  { href: "#tom", nome: "Dados", num: "03" },
+  { href: "#ferramentas", nome: "Ferramentas", num: "04" },
 ];
 
 const ITEM =
@@ -40,32 +37,17 @@ function Num({ children }: { children: string }) {
 }
 
 /** `atual` fica por compatibilidade; o painel tem o próprio cabeçalho. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function Cabecalho(_props: { atual?: "site" | "painel" } = {}) {
-  const [rolado, setRolado] = useState(false);
   const [pronto, setPronto] = useState(false);
   const [menu, setMenu] = useState(false);
-  const frame = useRef(0);
   const botaoMenu = useRef<HTMLButtonElement>(null);
   const idMenu = useId();
 
   useEffect(() => {
-    const ler = () => {
-      frame.current = 0;
-      const y = window.scrollY;
-      setRolado((antes) => (antes ? y >= SAI : y > ENTRA));
-    };
-    const onScroll = () => {
-      if (!frame.current) frame.current = requestAnimationFrame(ler);
-    };
-    ler();
-    /* a transição só liga depois do primeiro estado medido */
+    /* a transição do menu só liga depois da primeira pintura */
     const t = requestAnimationFrame(() => setPronto(true));
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      cancelAnimationFrame(t);
-      if (frame.current) cancelAnimationFrame(frame.current);
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => cancelAnimationFrame(t);
   }, []);
 
   useEffect(() => {
@@ -99,9 +81,7 @@ export function Cabecalho(_props: { atual?: "site" | "painel" } = {}) {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 px-3 pt-4 lg:px-6 lg:pt-[22px]",
-          pronto && cn("transition-[translate]", trans),
-          rolado && "-translate-y-1.5 lg:-translate-y-3",
+          "absolute inset-x-0 top-0 z-40 px-3 pt-4 lg:px-6 lg:pt-[22px]",
         )}
       >
         <div className="relative mx-auto flex h-16 max-w-[1162px] items-center justify-between px-5 lg:grid lg:h-[70px] lg:grid-cols-[1fr_auto_1fr] lg:gap-x-[19px] lg:px-[26px]">
@@ -112,15 +92,15 @@ export function Cabecalho(_props: { atual?: "site" | "painel" } = {}) {
               VIDRO,
               "pointer-events-none absolute inset-y-1 rounded-[12px] bg-[rgba(255,255,255,0.74)] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_18px_44px_-28px_rgba(16,19,23,0.35)] lg:inset-y-[7px]",
               pronto && cn("transition-[opacity,visibility]", trans),
-              rolado || menu ? "visible opacity-100" : "invisible opacity-0",
+              menu ? "visible opacity-100" : "invisible opacity-0",
             )}
           />
 
-          <a href="/" className={cn("relative flex min-h-11 items-center rounded-[4px] lg:justify-self-start", FOCO)}>
+          <Link href="/" className={cn("relative flex min-h-11 items-center rounded-[4px] lg:justify-self-start", FOCO)}>
             <Logo tamanho="md" className="lg:hidden" />
             <Logo tamanho="lg" className="max-lg:hidden" />
             <span className="sr-only">, início</span>
-          </a>
+          </Link>
 
           <nav aria-label="Principal" className="max-lg:hidden lg:justify-self-center">
             <ul className="flex items-center gap-[2px] xl:gap-[3.75px]">
@@ -136,7 +116,7 @@ export function Cabecalho(_props: { atual?: "site" | "painel" } = {}) {
           </nav>
 
           <a
-            href="/#relatorio"
+            href="#relatorio"
             className={cn(
               "relative flex h-[42px] items-center rounded-[10px] border border-acento bg-acento px-[15px] text-[13.125px] leading-none font-medium whitespace-nowrap text-papel transition-colors duration-200 hover:bg-acento-2 hover:border-acento-2 max-lg:hidden lg:justify-self-end",
               FOCO,
@@ -213,7 +193,7 @@ export function Cabecalho(_props: { atual?: "site" | "painel" } = {}) {
             ))}
           </ul>
           <a
-            href="/#relatorio"
+            href="#relatorio"
             onClick={() => setMenu(false)}
             className={cn(
               "mt-6 flex h-12 items-center justify-center rounded-[10px] bg-acento text-[15px] font-medium text-papel hover:bg-acento-2",

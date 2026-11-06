@@ -1,121 +1,54 @@
-# Claude Lab · Economia & Finanças — PUC-Rio 2026
+# CopomAI — Case 2: Tradutor do Copom
 
-## Fluxo automático
+> Claude Lab · Economia & Finanças · PUC-Rio · 06/11/2026
 
-O Tradutor do Copom se atualiza sozinho. O workflow `.github/workflows/atualizar_atas.yml` roda no GitHub Actions nos dias úteis às 10h, 14h e 18h de Brasília. A cada execução, ele:
+O CopomAI lê as atas do Copom e mostra o tom de cada ata, o que mudou de uma para outra e uma previsão para a próxima reunião. Cada afirmação vem com a citação da ata conferida.
 
-1. consulta o Banco Central e vê se saiu ata nova;
-2. confere a Selic do banco de dados com a tabela oficial do BC;
-3. com ata nova, baixa o PDF, extrai os parágrafos, dá a nota de tom, recalcula o índice e as métricas, gera os textos e os dados do site;
-4. só publica se passar no portão de qualidade (nº e numeração dos parágrafos, trechos válidos e build do site); senão, não muda nada e abre uma issue.
+- **🔗 Site:** https://tradutor-copom.vercel.app
+- **🔐 Painel:** https://tradutor-copom.vercel.app/painel. Senha de demonstração: `12345`. Ela será trocada depois da avaliação.
+- **🎬 Vídeo (2 min):** LINK_DO_VIDEO
 
-Planos B, para nunca parar:
-- nota de tom: modelo do parceiro, depois o Claude (Sonnet), depois um modelo TF-IDF de base treinado nas notas do Claude;
-- textos: Claude; se ele faltar ou reprovar na checagem, um texto automático montado por código, marcado como "texto automático" no site.
+## Equipe
 
-Problemas viram issues no repositório, sem duplicar: Selic divergente, publicação reprovada, token com falha ou perto de expirar.
-
-Configuração manual, uma única vez:
-1. rodar `claude setup-token` no terminal e salvar o valor como `CLAUDE_CODE_OAUTH_TOKEN` em Settings → Secrets and variables → Actions;
-2. informar a data do cadastro em `token_cadastrado_em` de `saida/status.json` (formato `AAAA-MM-DD`), para o aviso de renovação depois de 1 ano.
-
-**PUC-Rio · sexta, 6 de novembro de 2026 · 08h00 às 18h00 · Sala F300**
-
-Um dia de mão na massa: resolvam, com o **Claude**, problemas reais de análise econômica e financeira, usando **dados públicos brasileiros** (Banco Central, IBGE, CVM e relatórios de empresas), com **mentoria** de quem constrói agentes de IA no mercado e apresentação dos resultados no fim do dia.
-
-Este repositório é o ponto de partida de todos os times: aqui estão os **cases**, os **dados**, as **regras** e as instruções de **entrega**.
-
-> **Com apoio de:**  departamento de economia da PUC-Rio 
-
----
-
-## Como funciona
-
-1. **Forme o time** 4/5 pessoas, e **escolha um case**.
-2. **Leia o README do case inteiro antes de começar.** Os dados têm armadilhas, e metade do desafio é interpretá-los certo.
-3. **Construa com o Claude.** Explorar dado, escrever código, montar relatório, criar um app: o que fizer o problema andar.
-4. **Verifique.** Confira os números do Claude contra a fonte. Isso vale ponto (ver [regras](REGRAS_E_AVALIACAO.md)).
-5. **Entregue** até o horário-limite: **vídeo de 2 min**, **artefato público** e **GitHub público** do time.
-
-Nunca usou GitHub ou o Claude? Comece por **[COMO_COMECAR.md](COMO_COMECAR.md)**.
-
-## Os 3 cases
-
-| # | Case | Pergunta central | Dados 
-|---|------|------------------|-------|
-| 1 | **[Termômetro do Focus](data/case1_focus/README.md)** | Um agente que, toda semana, baixa o Relatório Focus, analisa o que mudou nas expectativas e envia a análise por e-mail | Focus (BCB) + séries do SGS |
-| 2 | **[Tradutor do Copom](data/case2_copom/README.md)** | Um site que lê as atas do Copom, mede o tom do Banco Central num índice e explica o que mudou e qual pode ser o principal impacto dessa mudança | Atas do Copom (PDF) + Selic e Focus 
-| 3 | **[Comparativo de resultados](data/case3_resultados/README.md)** | Uma apresentação executiva que compara os resultados do 3º trimestre de 2026 da Gerdau e da Usiminas, para o diretor levar ao comitê | ITRs das duas empresas (PDF), já incluídos |
-
-Os três cases buscam resolver problemas de pessoas de dentro do mercado financeiro, de forma que a solução seja realmente uma ferramenta útil no dia a dia. O objetivo é despertar a curiosidade com IA para que vocês sejam capazes de automatizar processos. Por isso, todos os cases são resolvidos pelo **[caminho avançado](avancado/README.md)**, com código de partida em Python, Claude Code, Skills e fluxos automáticos que verificam os próprios números.
-
-## Onde estão os dados
-
-Tudo em **[`data/`](data/)**, uma pasta por case. Cada uma tem um `README.md` com o problema, o dicionário dos dados, os **cuidados de interpretação** e perguntas de partida. Os dados do Banco Central foram baixados com o script em [`scripts/`](scripts/), que você pode rodar de novo para atualizar. Leia **[USO-DOS-DADOS.md](USO-DOS-DADOS.md)** antes de publicar qualquer resultado.
-
-## Cronograma — sexta, 06/11 (Sala F300)
-
-| Horário | Atividade |
+| Nome | Papel |
 |---|---|
-| 08h00 – 09h00 | Coffee break · aproveitem para conferir o login no Claude e no GitHub |
-| 09h00 – 10h30 | **Palestra de abertura** — introdução ao Claude, apresentação dos participantes e dos cases do dia · com os palestrantes do workshop (ver [Organização](#organização)) |
-| 10h30 – 13h00 | **Mão na massa, parte 1** — os times desenvolvem os cases com o Claude (mentoria Taicor · MGV Tech · Visagio) |
-| 13h00 – 13h30 | Almoço |
-| 13h30 – 14h00 | **Palestra** — apresentação de insights dentro do Claude · Visagio ou MGV Tech, a confirmar |
-| 14h00 – 16h30 | **Mão na massa, parte 2** — finalização e entrega dos cases (mentoria Taicor · MGV Tech · Visagio) |
-| **16h00** | **Deadline da entrega** (vídeo + artefato + GitHub) |
-| 16h30 – 17h00 | Coffee break · banca seleciona os **3 finalistas** |
-| 17h00 – 17h30 | Apresentação dos finalistas, anúncio do campeão e encerramento |
+| NOME | |
+| NOME | |
+| NOME | |
 
-## Entrega e avaliação
+## O problema
 
-Três itens, todos **públicos**, até **16h00**:
+As atas do Copom são longas e técnicas. Pequenas mudanças de redação sinalizam mudanças de rumo dos juros, e quem não acompanha o BC todo dia não tem tempo de ler e comparar cada ata.
 
-1. **Vídeo de até 2 minutos** mostrando o problema e a solução funcionando.
-2. **Artefato público**: o link publicado do que vocês construíram (app, dashboard, relatório interativo).
-3. **GitHub público do time**, com README detalhado do projeto e da equipe (use o [modelo](modelo-repositorio-time/README.md)).
+## A solução
 
-**Entreguem pelo [formulário de entrega](https://github.com/jplucas29/claude-lab-financas-puc2026/issues/new?template=entrega.yml)** até 16h00 (é preciso estar logado no GitHub).
+Um site público feito a partir de 46 atas, da reunião 236 (20/01/2021) à 281 (16/09/2026), com 1060 parágrafos. Ele mostra:
+- manchete e relatório com citações;
+- índice de tom por ata, de −2 a +2, ao lado da Selic;
+- o que mudou em relação à ata anterior;
+- previsão da próxima reunião;
+- "Pergunte às atas", com respostas que citam as fontes.
 
-Detalhes, critérios e pesos em **[REGRAS_E_AVALIACAO.md](REGRAS_E_AVALIACAO.md)**. Checklist em **[entrega/CHECKLIST_ENTREGA.md](entrega/CHECKLIST_ENTREGA.md)**. Os links de todos os times ficam em **[ENTREGAS.md](ENTREGAS.md)**.
+Um GitHub Actions roda nos dias úteis às 10h, 14h e 18h. Ele baixa as atas novas, dá as notas, recalcula tudo e publica. Cada etapa tem plano B: para a nota, o modelo do parceiro, depois o Claude e depois um TF-IDF; para o texto, o Claude e depois um texto automático sem IA.
 
-## Organização
+A previsão vem de uma regressão logística (C = 0,3) com variáveis tiradas só das atas e das notas de tom. Na validação no tempo (atas 251 a 281, n = 31), acertou 74,2% e 2 de 6 viradas. Para a reunião 283 (09/12/2026), as probabilidades são: corte 56,2%, manutenção 28,5% e alta 15,2%. Detalhes em `DECISOES.md` e `STATUS.md`.
 
-**Organizadores:** [PREENCHER: nomes e cursos]
-**Palestrantes, mentoria e banca:**
+## Como verificamos
 
-- [João Henrique Lisboa](https://www.linkedin.com/in/joaolisboa/), Co-Founder da Taicor e Claude Ambassador
-- [Diogo Miranda](https://www.linkedin.com/in/d1ogo-miranda/), Co-Founder da MGV Tech
-- Visagio, consultoria que aplica IA em seus processos
-- [Marco Cauduro](https://www.linkedin.com/in/marcocauduro/), criador da DeepStack, ferramenta voltada para investimentos
-- [Igor Peres](https://www.linkedin.com/in/goriperes/), supervisor do LIA e professor do Departamento de Engenharia Industrial da PUC-Rio
+- **Trechos citados conferidos por código:** cada nota e cada citação precisam trazer um trecho que existe no parágrafo citado. Dos 1060 parágrafos, só 1 tem trecho inválido (ata 236 §19, palavra quebrada no PDF).
+- **Selic contra o histórico oficial do BC** (`historicotaxasjuros`): 46 reuniões, 0 divergências. Se surgir divergência, o workflow abre uma issue.
+- **Validação no tempo:** cada ata é prevista só com as anteriores. Os modelos novos (v2 e v3) tiveram as variáveis fixadas antes de rodar, com um período de escolha (atas 251–270) e uma confirmação rodada uma única vez (atas 271–281). Nenhum dos dois superou o modelo atual.
+- **Portão de qualidade (`pipeline/portao.py`):** antes de publicar, confere três coisas: o número de parágrafos é plausível, a numeração vai de 1 a n e os trechos inválidos não passam de 10% dos rótulos. Também confere o build do site. Se reprovar, nada é publicado.
 
-**Apoio institucional:**  Departamento de Economia da PUC-Rio 
+## Limitações
 
+- **A regra ingênua acerta mais:** repetir a última decisão acerta 80,6% no mesmo período, contra 74,2% do modelo publicado, que só acerta 2 viradas a mais.
+- **Erra nas viradas:** acerta 2 de 6 (33%), contra 21 de 25 nas continuações. Também é confiante demais: com probabilidade acima de 75%, acerta 75%. Detalhes em `modelo/analise_erros.md`.
+- **Amostra pequena:** 31 previsões e só 6 viradas.
+- **Ainda não testado em produção:** a edição pelo painel e o workflow com o token do Claude cadastrado.
 
-## Estrutura do repositório
+## Aviso
 
-```
-claude-lab-financas-puc2026/
-├── README.md                    você está aqui
-├── COMO_COMECAR.md              setup do Claude e do GitHub — comece aqui
-├── REGRAS_E_AVALIACAO.md        regras, horário-limite, critérios e pesos
-├── USO-DOS-DADOS.md             fontes, créditos e uso responsável
-├── ENTREGAS.md                  links finais de todos os times
-├── data/
-│   ├── case1_focus/             expectativas Focus + séries SGS (CSV)
-│   ├── case2_copom/             atas do Copom (PDF)
-│   └── case3_resultados/        ITRs da Gerdau e da Usiminas (PDF)
-├── avancado/                    caminho avançado dos cases 1, 2 e 3
-│   ├── case1_focus/             análise, acurácia e alertas do Focus
-│   ├── case2_copom/             extração, diff e índice de tom das atas
-│   ├── case3_resultados/        extrair → verificar → comparar → apresentar
-│   └── skills_exemplo/          Skill de exemplo (bcb-sgs)
-├── requirements.txt             bibliotecas do caminho avançado
-├── scripts/
-│   └── baixar_dados_bcb.py      baixa/atualiza os dados do Banco Central
-├── modelo-repositorio-time/
-│   └── README.md                modelo do README do GitHub de cada time
-└── entrega/
-    └── CHECKLIST_ENTREGA.md
-```
+Projeto acadêmico desenvolvido em workshop. **Não constitui recomendação de investimento.**
+
+**Feito com:** Claude (Claude Code, Sonnet e Haiku), Python, scikit-learn, Next.js, Vercel e GitHub Actions.

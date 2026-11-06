@@ -119,10 +119,16 @@ export default async function Pagina() {
   }) | null | undefined;
   const provisoria = Boolean(pvy?.provisoria ?? pvy?.provisorio);
   const textoPublico = pvy?.texto_publico ?? pvy?.explicacao_publica ?? null;
+  // texto público sem número (o acerto já aparece em "Acertou X de Y")
+  const textoCurto = textoPublico
+    ? /\d/.test(textoPublico)
+      ? `Previsão do nosso modelo, treinado com as atas do Copom desde ${serie[0]?.data_reuniao.slice(0, 4) ?? ""}.`
+      : textoPublico
+    : null;
   const probs = escolhido?.probabilidades ?? pvy?.probabilidades ?? null;
-  const porTempo = pvy?.criterio_escolha === "acuracia_tempo" && escolhido?.acuracia_tempo != null && escolhido?.n_tempo;
-  const testadas = porTempo ? (escolhido?.n_tempo ?? null) : nEscolhido;
-  const acuraciaPublicada = porTempo ? (escolhido?.acuracia_tempo ?? null) : acuraciaEscolhido;
+  // modelo publicado: acurácia e reuniões da validação no tempo
+  const testadas = escolhido?.n_tempo ?? nEscolhido;
+  const acuraciaPublicada = acuraciaEscolhido ?? escolhido?.acuracia_tempo ?? null;
   const acertos = acuraciaPublicada != null && testadas ? Math.round(acuraciaPublicada * testadas) : null;
   const selicHoje = pvy?.ultima_decisao?.selic ?? ud?.selic ?? u.selic_apos;
   const fraseSelic =
@@ -151,7 +157,7 @@ export default async function Pagina() {
           <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
           <div className="envelope relative w-full">
             <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
-              <div className="min-w-0">
+              <div className="min-w-0 flex flex-col">
                 <p className="rotulo num entra-0">
                   Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
                 </p>
@@ -167,7 +173,7 @@ export default async function Pagina() {
                     <Aguardando texto="linha fina aguardando o pipeline" />
                   </p>
                 )}
-                <dl className="entra-2 mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
+                <dl className="entra-2 mt-6 lg:mt-auto pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
                   <div>
                     <dt className="text-tinta-3">Selic após a reunião</dt>
                     <dd className="mt-0.5 font-medium">
@@ -203,7 +209,6 @@ export default async function Pagina() {
                   <p className="rotulo text-acento">Leia o relatório de hoje</p>
                   <p className="titulo-serifa mt-0.5 text-[1.125rem] leading-[1.25]">
                     O que mudou na ata {ataRelatorio}
-                    <br />e o que isso pode significar
                   </p>
                   <a
                     href="#relatorio"
@@ -216,7 +221,7 @@ export default async function Pagina() {
                   </a>
                 </div>
 
-                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-2 border-t border-linha px-5 py-3">
+                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-1.5 border-t border-linha px-5 py-3">
                   <div className="flex items-baseline justify-between gap-3">
                     <p className="text-[0.875rem] font-medium text-tinta">
                       Previsão para a próxima reunião{proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
@@ -256,7 +261,7 @@ export default async function Pagina() {
                         </p>
                       ) : null}
 
-                      {textoPublico && <p className="text-[0.8125rem] leading-snug text-tinta-2">{textoPublico}</p>}
+                      {textoCurto && <p className="text-[0.8125rem] leading-snug text-tinta-2">{textoCurto}</p>}
 
                       <div className="flex items-center gap-3 pt-2 border-t border-linha">
                         <Medidor valor={pv.indice} className="h-[28px] w-[46px] shrink-0" />
@@ -510,7 +515,7 @@ export default async function Pagina() {
                 A resposta é sempre um trecho da ata, com o número do parágrafo e o link para o PDF oficial.
               </p>
               <div className="mt-6">
-                <PergunteAsAtas atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
+                <PergunteAsAtas comIA={Boolean(process.env.ANTHROPIC_API_KEY)} atas={atas.map((a) => ({ numero: a.numero, data_reuniao: a.data_reuniao }))} />
               </div>
             </div>
             <div id="atas" className="cartao p-5 sm:p-8">

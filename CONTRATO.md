@@ -118,6 +118,35 @@ Modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágr
 
 `viradas` = atas em que a decisão seguinte ≠ decisão registrada na ata. `importancia` = importância por permutação (n_repeats=30, random_state=42) do modelo publicado treinado em todas as atas com alvo. `modelo_publicado`, `importancias`, `descricoes_variaveis` e `validacao_tempo` existem para o painel atual. A previsão ingênua não entra neste arquivo (só em DECISOES.md).
 
+## modelo/forcas_fraquezas.json → dados_site.json `forcas_fraquezas` — escrito por modelo/analise_erros.py
+
+Análise das 31 previsões da validação no tempo (`previsoes_ata_a_ata` de banco/metricas_modelo.json). Só lê banco/ e modelo/base_modelo.csv; não altera o modelo. `pipeline/gerar_dados_site.py` copia o arquivo inteiro para `forcas_fraquezas` (null se não existir). Também gera `modelo/analise_erros.md`.
+
+```json
+{
+  "gerado_em": "...", "modelo": "logistica", "hiperparametros": "...",
+  "periodo": { "atas": "251–281", "inicio": "2022-12-07", "fim": "2026-09-16", "n": 31 },
+  "acuracia_geral": { "n": 31, "acertos": 23, "acuracia": 0.742 },
+  "por_classe": [{ "classe": "alta", "n_previsto": 7, "n_realizado": 7, "acertos": 5, "precisao": 0.714, "cobertura": 0.714 }],
+  "viradas": { "n": 6, "acertos": 2, "acuracia": 0.333,
+               "demora": [{ "ata": 255, "data_reuniao": "...", "de": "manutencao", "para": "corte", "previsto_na_virada": "manutencao", "reunioes_ate_perceber": 2 }] },
+  "continuacoes": { "n": 25, "acertos": 21, "acuracia": 0.84 },
+  "por_fase": [{ "fase": "ciclo de cortes 2023–2024", "decisao": "corte", "inicio": "...", "fim": "...", "atas": "256–262",
+                 "n_atas_na_fase": 7, "n_previsoes_testadas": 7, "n": 7, "acertos": 5, "acuracia": 0.714, "fora_do_teste": false, "parcial": false }],
+  "confianca": { "limiar": 0.6, "acima": { "n": 25, "acertos": 19, "acuracia": 0.76 }, "abaixo": { "n": 6, "acertos": 4, "acuracia": 0.667 },
+                 "calibracao": [{ "faixa": ">75%", "n": 20, "prob_media": 0.876, "acerto": 0.75 }],
+                 "brier": 0.399, "brier_ingenua": 0.387, "aviso": "amostra pequena..." },
+  "erros": [{ "ata": 256, "data_reuniao": "...", "decisao_registrada": "corte", "previsto": "manutencao", "realizado": "corte",
+              "probabilidades": { "alta": 0.136, "manutencao": 0.622, "corte": 0.241 },
+              "puxaram_errado": [{ "variavel": "termos de virada na seção de decisão", "codigo": "sinais_virada", "contribuicao": 0.627 }],
+              "nota": null }],
+  "conferencia_reajuste": { "max_diferenca_prob": 0.0005 },
+  "conclusao": { "confiavel": "...", "falha": "...", "porque": "...", "proximos_passos": ["...", "...", "..."] }
+}
+```
+
+`reunioes_ate_perceber`: 0 = acertou na própria virada; k = passou a prever a nova decisão k reuniões depois; `"não percebeu"` = não previu antes de o regime acabar ou o período terminar. Fases: sequências de decisões iguais em banco/atas.json; cada previsão conta na fase da reunião que ela prevê (ata seguinte). `puxaram_errado`: até 3 maiores valores positivos de coef(prevista)·z − coef(realizada)·z na logística da própria janela; null com `nota` quando a classe realizada não existia no treino da janela. `brier` = Brier multiclasse (soma nas 3 classes, média nas atas); `brier_ingenua` = mesma conta para "repetir a decisão registrada" com probabilidade 1.
+
 ## banco/modelo_base.pkl e banco/metricas_modelo_base.json
 
 Escreve: `pipeline/modelo_base.py`. TF-IDF (1–2 gramas) + regressão logística treinados só nos rótulos `sonnet` de `banco/rotulos.jsonl`; retreina quando o número desses rótulos muda. As métricas vêm de validação cruzada estratificada de 5 folds (semente 42), no formato de `banco/metricas_modelo.json` sem `validacao_leave_one_out`, com o campo extra `validacao` (texto).
@@ -219,15 +248,15 @@ Escreve: `pipeline/previsao.py`. Previsão para a **próxima reunião ainda não
 
 ## saida/textos.json
 
-Escreve: `pipeline/textos.py`. Relatório de mercado (manchete, linha fina e 3 seções), com uma chamada `claude -p --model sonnet` verificada por código, ou plano B determinístico.
+Escreve: `pipeline/textos.py`. Relatório de mercado: manchete e linha fina montadas por código (modelo de texto fixo, sem o Claude) e 3 seções escritas por uma chamada `claude -p --model sonnet` verificada por código, ou pelo plano B determinístico.
 
 ```json
 {
   "ata_atual": 281, "ata_anterior": 280, "gerado_em": "2026-11-06T13:20:00-03:00",
   "origem": "claude", "motivo_automatico": null, "tentativas": 1, "reescritas": 0,
   "hash_entrada": "9f2c...", "previsto": "aperto", "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "..." },
-  "manchete": "Copom suaviza o tom sobre a inflação e o sinal aponta aperto da Selic em 09/12",
-  "linha_fina": "Uma frase de apoio.",
+  "manchete": "Selic deve cair na reunião de 9 de dezembro, prevê o CopomAI",
+  "linha_fina": "Probabilidade estimada de 56% de corte; o modelo acertou 23 de 31 reuniões desde dezembro de 2022. A ata 281 trouxe tom menos duro, com destaque para a desaceleração da atividade.",
   "secoes": [
     { "id": "mudou", "titulo": "O que mudou na comunicação do Copom",
       "paragrafos": [ { "texto": "Frase com afirmação [[c1]]. Outra frase [[c2]][[c3]].",
@@ -244,9 +273,15 @@ Escreve: `pipeline/textos.py`. Relatório de mercado (manchete, linha fina e 3 s
 **Marcador de citação `[[cN]]`.** Dentro de `texto`, cada sentença termina com um ou mais marcadores `[[c1]]`, `[[c2]]`… colados antes do ponto final (`... decisão [[c1]][[c2]].`). Cada marcador aponta para um item de `citacoes` do mesmo parágrafo, `{id, ata, paragrafo, trecho}`. Os ids são únicos no relatório inteiro (c1…cN, renumerados por código, na ordem de leitura) e o mesmo marcador pode aparecer em mais de uma sentença. Regex: `\[\[(c\d+)\]\]`. O site troca cada marcador por uma referência clicável (ata e parágrafo) e mostra o trecho.
 
 - 3 seções fixas, nesta ordem: `mudou`, `efeito`, `observar`; de 3 a 5 parágrafos no total, pelo menos 1 por seção. A seção `efeito` usa linguagem condicional (Selic, juros futuros, câmbio, inflação esperada, crédito). Não é recomendação de investimento.
-- `manchete`: anuncia a previsão do **método escolhido** (`previsao.json` `previsto`) para a próxima reunião, com a data em DD/MM; a mudança de tom entra só como explicação do que mudou na comunicação (ex.: "Copom deve manter a Selic em 09/12; ata 281 mostra tom menos duro"). Manchete e linha fina são reprovadas se citarem termos de outra direção (`TERMOS_CONTRA` em `textos.py`: para manutenção, "alta", "aperto", "subir", "corte", "redução" etc.). `metodo_escolhido` também é gravado em `textos.json`. `VERSAO` = 4.
-- Verificação por código (vale para o Claude e para o plano B): toda sentença tem marcador; marcadores e citações batem nos dois sentidos; todo trecho é cópia literal (espaços e aspas tipográficas normalizados) de até 25 palavras do parágrafo indicado da ata atual ou da anterior; todo número da manchete, da linha fina e dos textos existe nos dados enviados (vírgula decimal e % normalizados; ignorados números de ata, de parágrafo, de reunião, anos e datas presentes nos dados); a manchete menciona a previsão de `previsao.json` e a data da próxima reunião; nas seções do relatório, nenhuma sentença fala dos nossos próprios dados (reprovadas as que contêm "acert", "previsão ingênua", "ingênua", "nosso sinal", "Focus" ou "não foi publicada"; manchete e linha fina podem); cada citação sustenta a sua sentença (ao menos uma palavra de 5+ letras fora das stopwords em comum entre a sentença e o trecho, sem acento e sem caixa). Até 2 reescritas com os erros.
-- `origem` ∈ `"claude"`, `"automatico"`. `motivo_automatico` ∈ `null`, `"indisponivel"` (sem Claude, erro ou timeout), `"reprovado"` (falhou na verificação após 2 reescritas). Plano B: manchete por modelo fixo ("Copom deve {subir|manter|cortar} a Selic em DD/MM; ata N mostra tom {mais duro|menos duro|sem grande mudança}"), linha fina com o método escolhido e sua acurácia; `mudou` = até 3 mudanças do diff com maior \|nota\| ou maior variação de nota, cada uma com um de 3 ou 4 modelos de frase por tipo (novo, alterado, removido) e efeito (endureceu, suavizou), escolhido pela posição, e com o tema tirado do trecho citado; `efeito` = frase condicional fixa pela previsão, citando o parágrafo de maior \|nota\| das seções de condução/decisão; `observar` = frase fixa citando o parágrafo de maior \|nota\| que fala de riscos. No plano B o trecho é recortado por código: as primeiras até 25 palavras do parágrafo.
+- `manchete` (modelo de texto fixo, `manchete_fixa` em `textos.py`, sem o Claude): sempre previsão, nunca certeza, e não fala de tom. Pela classe prevista do modelo publicado (`previsao.json` `previsto`):
+  - corte: "Selic deve cair na reunião de {data}, prevê o CopomAI";
+  - manutenção: "Selic deve ficar em {taxa}% em {data}, prevê o CopomAI";
+  - alta: "Selic deve subir na reunião de {data}, prevê o CopomAI".
+  `{data}` = `previsao.proxima_reuniao.data` por extenso (dia sem zero à esquerda e mês minúsculo, ex.: "9 de dezembro"); sem data, "na reunião de {data}"/"em {data}" vira "na próxima reunião". `{taxa}` = `previsao.ultima_decisao_conhecida.selic` (senão a `selic_apos` da última ata de `atas.json`), vírgula decimal e 2 casas.
+- `linha_fina` (modelo de texto fixo, `linha_fina_fixa`): "Probabilidade estimada de {P}% de {classe}; o modelo acertou {K} de {N} reuniões desde {mês} de {ano}. A ata {n} trouxe tom {menos duro|mais duro|estável}, com destaque para {tema}." `P` = probabilidade da classe prevista em `previsao.json` `probabilidades`, arredondada; `classe` ∈ corte, manutenção, alta; `N` = `metricas_modelo.json` `metricas.n`, `K` = round(`metricas.acuracia` × N), mês e ano de `metricas.periodo.inicio`. Tom pela variação do índice entre a ata atual e a anterior (limiar ±0,05). `tema` vem da 1ª mudança do diff com o mesmo efeito do tom (suavizou para menos duro, endureceu para mais duro; qualquer uma se estável), por palavras-chave no trecho: expectativas de inflação, mercado de trabalho, cenário externo, câmbio, crédito, atividade ("a desaceleração da atividade" quando o trecho fala de desaceleração ou moderação) e inflação. Sem tema, a frase termina em "tom {…}.". Sem "método", "ingênua" nem termos técnicos. Manchete e linha fina continuam reprovadas se citarem termos de outra direção (`TERMOS_CONTRA`). `metodo_escolhido` também é gravado em `textos.json`. `VERSAO` = 6.
+- Certeza sobre o futuro (verificação por código, lista `CERTEZA` em `textos.py`, vale para manchete, linha fina e toda sentença do relatório, do Claude e do plano B): reprovadas as frases com "vai", "vão", "irá", "irão", "será", "serão" (palavra inteira), "certamente", "com certeza", "sem dúvida" ou "garant…" (garante, garantir, garantia), sem acento e sem caixa. O relatório fala do futuro só com "prevê", "é esperado", "a projeção indica", "pode", "tende a". O prompt pede o mesmo.
+- Verificação por código (vale para o Claude e para o plano B): toda sentença tem marcador; marcadores e citações batem nos dois sentidos; todo trecho é cópia literal (espaços e aspas tipográficas normalizados) de até 25 palavras do parágrafo indicado da ata atual ou da anterior; todo número da manchete, da linha fina e dos textos existe nos dados enviados (vírgula decimal e % normalizados; ignorados números de ata, de parágrafo, de reunião, anos e datas presentes nos dados); manchete e linha fina são iguais às do modelo fixo (o Claude devolve só `secoes`; o código põe manchete e linha fina); nas seções do relatório, nenhuma sentença fala dos nossos próprios dados (reprovadas as que contêm "acert", "previsão ingênua", "ingênua", "nosso sinal", "Focus" ou "não foi publicada"; manchete e linha fina podem); cada citação sustenta a sua sentença (ao menos uma palavra de 5+ letras fora das stopwords em comum entre a sentença e o trecho, sem acento e sem caixa). Até 2 reescritas com os erros.
+- `origem` ∈ `"claude"`, `"automatico"`. `motivo_automatico` ∈ `null`, `"indisponivel"` (sem Claude, erro ou timeout), `"reprovado"` (falhou na verificação após 2 reescritas). Plano B: a mesma manchete e a mesma linha fina de modelo fixo; `mudou` = até 3 mudanças do diff com maior \|nota\| ou maior variação de nota, cada uma com um de 3 ou 4 modelos de frase por tipo (novo, alterado, removido) e efeito (endureceu, suavizou), escolhido pela posição, e com o tema tirado do trecho citado; `efeito` = frase condicional fixa pela previsão, citando o parágrafo de maior \|nota\| das seções de condução/decisão; `observar` = frase fixa citando o parágrafo de maior \|nota\| que fala de riscos. No plano B o trecho é recortado por código: as primeiras até 25 palavras do parágrafo.
 - `mudancas` e `impacto` (seção de Evidência) vêm sempre do código: as mesmas até 3 mudanças do plano B, com `explicacao` de modelo fixo, e o impacto de modelo fixo com índice, variação, decisão e Selic.
 - Idempotência: `hash_entrada` = hash de (versão do formato, ata atual, ata anterior, `previsao.json` sem `gerado_em`). Com o mesmo hash, `textos.py` não faz nada; a exceção é `origem: "automatico"` com `motivo_automatico: "indisponivel"` quando o Claude volta. Um plano B por reprovação só é refeito quando a entrada muda.
 
@@ -280,7 +315,7 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
   "checagens_automaticas": { "trechos": { "validos": 1059, "invalidos": 1, "total": 1060 }, "citacoes_relatorio": { "verificadas": 13, "total": 13, "ok": true }, "portao_qualidade": null },
   "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" },
   "previsao": { "...": "cópia de banco/previsao.json" },
-  "manchete": { "texto": "Copom suaviza o tom ... e o sinal aponta aperto da Selic em 09/12", "linha_fina": "...", "origem": "claude" },
+  "manchete": { "texto": "Selic deve cair na reunião de 9 de dezembro, prevê o CopomAI", "linha_fina": "...", "origem": "claude" },
   "relatorio": { "origem": "claude", "gerado_em": "2026-11-06T13:20:00-03:00", "reescritas": 0,
     "secoes": [ { "id": "mudou", "titulo": "O que mudou na comunicação do Copom",
       "paragrafos": [ { "texto": "Frase [[c1]].", "citacoes": [ { "id": "c1", "ata": 281, "paragrafo": 9, "trecho": "...", "url_pdf": "https://...", "data_reuniao": "2026-09-16" } ] } ] } ] },

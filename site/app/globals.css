@@ -558,3 +558,10 @@ html {
     transform: translateY(-2px);
   }
 }
+
+/* resposta do chat: texto corrido em sans, menor que o relatório */
+.chat-resposta .texto-leitura {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}

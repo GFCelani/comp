@@ -83,3 +83,80 @@ Escolhido: `ingenua`. A mudança de tom (índice de 0,90 na ata 280 para 0,62 na
 **Regra da árvore (todas as atas com alvo).** Se a decisão registrada na ata não é alta e a média do tom nas últimas 3 atas ≤ 0,64, prevê corte; se > 0,64, prevê manutenção. Se a decisão registrada na ata é alta e os termos de virada na seção de decisão ≤ 7,5, prevê alta; se > 7,5, prevê manutenção.
 
 **Validação humana cancelada** (decisão do usuário): saiu de dados_site.json; no lugar, `checagens_automaticas`.
+
+## Modelo v2: candidatos (fixados às 15h05, antes de testar)
+
+**Origem.** Branch `origin/sentiment-tracker` do parceiro (lida sem checkout). Copiados para `modelo/parceiro/`: `lexico.csv` (placar de palavras por ata, sem IA) e `indice_modelo_parceiro.json` (índice de tom por ata, rótulos cegos da Skill `tom-copom`). Cobrem as atas 236–281. Sem segredos (grep key/token/password/database_url/secret vazio).
+
+**Lista fechada de variáveis novas (uma linha por ata):**
+- `p_nivel`: `indice` do parceiro (nível de tom −2..+2);
+- `p_surpresa`: `surpresa` do parceiro (calibrada; atenção: a calibração usa reação de mercado de todas as atas em leave-one-out, possível vazamento leve);
+- `p_confianca`: `confianca` do parceiro (0–100);
+- `lex_nivel` e `lex_mudanca`: do `lexico.csv` do parceiro.
+Nada mais entra.
+
+**Conjuntos.** A = variáveis atuais (DECISOES acima). B = A + as 5 novas. C = `decisao_registrada_na_ata` (one-hot) + as 5 novas.
+
+**Combinações (8, hiperparâmetros fixos):** A-log C=0,3 (atual); B-log C=0,3; B-log C=0,1; B-floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42); B-árvore (prof. 2, random_state 42); C-log C=0,3; C-log C=0,1; C-floresta (mesmos hiperparâmetros).
+
+**Protocolo.** Janela crescente no tempo. Escolha: previsões das atas 251–270; maior acurácia → maior acurácia balanceada → mais simples (árvore < logística < floresta; C < B). Confirmação: atas 271–281, rodada uma única vez para o escolhido e para A-log C=0,3. Troca só se o escolhido for melhor que A-log C=0,3 na escolha e não pior na confirmação.
+
+## Modelo v2: resultado (15h05) — modelo publicado NÃO muda
+
+Script: `modelo/v2_comparar.py` → `modelo/v2_resultado.json`. Nenhuma chamada ao Claude.
+
+**Escolha (janela crescente, previsões das atas 251–270, n = 20):**
+
+| Combinação | Acertos | Acurácia | Acurácia balanceada |
+|---|---|---|---|
+| A-log C=0,3 (atual) | 16/20 | 80,0% | 81,0% |
+| B-log C=0,3 | 16/20 | 80,0% | 81,0% |
+| B-log C=0,1 | 16/20 | 80,0% | 81,0% |
+| B-floresta | 15/20 | 75,0% | 75,4% |
+| B-árvore | 15/20 | 75,0% | 74,6% |
+| C-log C=0,3 | 15/20 | 75,0% | 74,6% |
+| C-log C=0,1 | 14/20 | 70,0% | 69,0% |
+| C-floresta | 12/20 | 60,0% | 59,5% |
+
+Escolhido pelo critério: A-log C=0,3 (empate com B-log, desempate pelo mais simples). Nenhuma combinação com as variáveis do parceiro superou o atual no período de escolha, então a regra de troca não se aplica.
+
+**Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Como o escolhido é o próprio atual, só ele foi rodado. Soma 16 + 7 = 23 de 31, igual ao publicado (74,2%).
+
+**Decisão.** Mantido o modelo publicado (logística C=0,3, conjunto A). banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.
+
+## Modelo v3: candidatos (fixados às 15h13, antes de testar)
+
+**Variáveis novas de histórico recente (de `banco/atas.json`):**
+- `variacao_taxa_atual`: `decisao_pp` da reunião da ata;
+- `decisao_anterior`: one-hot (alta, manutenção, corte) da decisão da reunião anterior;
+- `variacao_taxa_anterior`: `decisao_pp` da reunião anterior;
+- `reunioes_na_mesma_direcao`: reuniões seguidas com a mesma decisão até a atual, incluída.
+Na 1ª ata (236) a reunião 235 não está em `validacao/selic_oficial.csv` (começa na 236) e não houve tempo de consultar o endpoint; usamos manutenção, 0 e 1.
+
+**Conjuntos.** D = A + as 4 novas. E = `decisao_registrada_na_ata` + as 4 novas + `tom_nivel` + `tom_variacao`.
+
+**Combinações (6 + A como referência):** D e E com logística C=0,3, logística C=0,1 e floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42).
+
+**Protocolo.** Igual ao v2: janela crescente; escolha nas atas 251–270 (acurácia → balanceada → mais simples, A na disputa); confirmação única nas 271–281 do escolhido e de A; troca só se melhor que A na escolha e não pior na confirmação.
+
+## Modelo v3: resultado (15h13) — modelo publicado NÃO muda
+
+Script: `modelo/v3_comparar.py` → `modelo/v3_resultado.json`. Nenhuma chamada ao Claude.
+
+**Escolha (janela crescente, previsões das atas 251–270, n = 20):**
+
+| Combinação | Acertos | Acurácia | Acurácia balanceada |
+|---|---|---|---|
+| A-log C=0,3 (atual) | 16/20 | 80,0% | 81,0% |
+| D-log C=0,3 | 16/20 | 80,0% | 81,0% |
+| D-log C=0,1 | 16/20 | 80,0% | 81,0% |
+| D-floresta | 14/20 | 70,0% | 70,6% |
+| E-log C=0,3 | 16/20 | 80,0% | 80,2% |
+| E-log C=0,1 | 15/20 | 75,0% | 74,6% |
+| E-floresta | 13/20 | 65,0% | 65,1% |
+
+Escolhido pelo critério: A-log C=0,3 (empate em acurácia e balanceada com D-log; desempate pelo mais simples, A tem menos variáveis). Nenhum candidato com histórico superou A, então a regra de troca não se aplica.
+
+**Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Total 23/31, igual ao publicado.
+
+**Decisão.** Mantido o modelo publicado. As variáveis de histórico foram só testadas e não entram no modelo nem na lista do README. banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.

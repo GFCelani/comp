@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T14:53:48-03:00",
+  "gerado_em": "2026-11-06T15:22:04-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T14:53:48-03:00",
+  "ultima_verificacao": "2026-11-06T15:22:04-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4215,7 +4215,7 @@
     }
   ],
   "previsao": {
-    "gerado_em": "2026-11-06T14:53:05-03:00",
+    "gerado_em": "2026-11-06T15:00:39-03:00",
     "base_ata": 281,
     "base_data_reuniao": "2026-09-16",
     "fonte_indice": "simples",
@@ -4228,7 +4228,7 @@
       "manutencao": 0.285,
       "corte": 0.562
     },
-    "texto_publico": "Nosso modelo, treinado com as atas desde 2021, acertou 74% das decisões seguintes.",
+    "texto_publico": "Nosso modelo acertou 23 de 31 reuniões testadas desde dezembro de 2022.",
     "observacao": "a ata da reunião 282 ainda não saiu; a previsão usa a última ata publicada (281)",
     "criterio_escolha": "maior acurácia na validação no tempo; empate: maior acurácia balanceada, depois o mais simples (árvore, logística, floresta)",
     "validacao_tempo": {
@@ -4290,13 +4290,13 @@
     }
   },
   "manchete": {
-    "texto": "Copom deve cortar a Selic em 09/12; ata mostra tom menos duro",
-    "linha_fina": "Nosso modelo prevê afrouxamento e acertou 74% das decisões seguintes desde 2021; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
+    "texto": "Selic deve cair na reunião de 9 de dezembro, prevê o CopomAI",
+    "linha_fina": "Probabilidade estimada de 56% de corte; o modelo acertou 23 de 31 reuniões desde dezembro de 2022. A ata 281 trouxe tom menos duro, com destaque para a desaceleração da atividade.",
     "origem": "claude"
   },
   "relatorio": {
     "origem": "claude",
-    "gerado_em": "2026-11-06T14:53:47-03:00",
+    "gerado_em": "2026-11-06T15:20:49-03:00",
     "reescritas": 0,
     "secoes": [
       {
@@ -4304,42 +4304,42 @@
         "titulo": "O que mudou na comunicação do Copom",
         "paragrafos": [
           {
-            "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Na ata 280, o texto ainda falava em sinais mistos advindos dos indicadores [[c2]].",
+            "texto": "O Copom descreve a atividade como em moderação gradual, principalmente em setores mais cíclicos [[c1]]. A leitura do PIB do segundo trimestre de 2026 mostrou movimento mais intenso nas atividades e nos componentes da demanda mais sensíveis ao ciclo [[c2]].",
             "citacoes": [
               {
                 "id": "c1",
                 "ata": 281,
-                "paragrafo": 5,
-                "trecho": "A leitura mais recente do PIB, referente ao segundo trimestre de 2026, confirmou a desaceleração apontada por outros indicadores",
+                "paragrafo": 2,
+                "trecho": "mostra uma moderação gradual da atividade econômica, principalmente em setores mais cíclicos",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c2",
-                "ata": 280,
+                "ata": 281,
                 "paragrafo": 5,
-                "trecho": "Naturalmente, em momentos de inflexão no ciclo econômico, observam-se sinais mistos advindos de indicadores econômicos.",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
-                "data_reuniao": "2026-08-05"
+                "trecho": "revelou que o movimento foi mais intenso nas atividades econômicas e nos componentes da demanda mais sensíveis ao ciclo econômico",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
               }
             ]
           },
           {
-            "texto": "A ata 281 incluiu um parágrafo sobre crédito, que mostra desaceleração do crescimento em meio a uma política monetária restritiva [[c3]]. A inflação, segundo a ata 281, desacelerou e ficou abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c4]].",
+            "texto": "A inflação cheia e a média das medidas subjacentes desaceleraram e ficam abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]]. O Comitê reiterou que expectativas desancoradas exigem restrição monetária maior e por mais tempo [[c4]].",
             "citacoes": [
               {
                 "id": "c3",
                 "ata": 281,
-                "paragrafo": 6,
-                "trecho": "consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva",
+                "paragrafo": 2,
+                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c4",
                 "ata": 281,
-                "paragrafo": 2,
-                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "paragrafo": 10,
+                "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4352,29 +4352,34 @@
         "titulo": "O efeito provável no mercado",
         "paragrafos": [
           {
-            "texto": "O acúmulo de evidências de que os juros altos chegam à atividade tende a sustentar a continuidade do afrouxamento da Selic [[c5]]. Isso pode limitar a queda dos juros futuros, porque a ata diz que a inflação permanece pressionada pela demanda [[c6]]. A leitura de que as expectativas seguem acima da meta em todos os horizontes pode deixar a inflação esperada sob pressão [[c7]]. O câmbio pode reagir a um eventual corte, pois a ata cita o risco de uma taxa de câmbio persistentemente mais depreciada [[c8]]. O crédito de mais longo prazo tende a seguir em redução, segundo a ata [[c9]].",
+            "texto": "A redução da taxa básica de juros para 13,75% ao ano é, segundo o Copom, compatível com a convergência da inflação para o redor da meta, o que pode favorecer cortes graduais [[c5]]. O aumento de crédito direcionado e as incertezas sobre a dívida pública têm o potencial de elevar a taxa de juros neutra, o que pode pressionar os juros futuros [[c6]].",
             "citacoes": [
               {
                 "id": "c5",
                 "ata": 281,
-                "paragrafo": 15,
-                "trecho": "O Comitê avalia que as evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente.",
+                "paragrafo": 18,
+                "trecho": "essa decisão é compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c6",
                 "ata": 281,
-                "paragrafo": 15,
-                "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
+                "paragrafo": 8,
+                "trecho": "o aumento de crédito direcionado e as incertezas sobre a estabilização da dívida pública têm o potencial de elevar a taxa de juros neutra",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
-              },
+              }
+            ]
+          },
+          {
+            "texto": "Expectativas de inflação acima da meta em todos os horizontes tendem a manter o Comitê cauteloso, o que pode limitar o alívio da inflação esperada [[c7]]. Uma taxa de câmbio persistentemente mais depreciada aparece entre os riscos de alta para a inflação, e por isso o dólar pode influenciar o ritmo dos cortes [[c8]]. O crédito bancário com recursos livres tende a seguir em desaceleração, em meio a uma política monetária restritiva [[c9]].",
+            "citacoes": [
               {
                 "id": "c7",
                 "ata": 281,
                 "paragrafo": 10,
-                "trecho": "As expectativas de inflação, medidas por diferentes instrumentos e obtidas de diferentes grupos de agentes permanecem acima da meta de inflação em todos os horizontes.",
+                "trecho": "permanecem acima da meta de inflação em todos os horizontes",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
@@ -4390,7 +4395,7 @@
                 "id": "c9",
                 "ata": 281,
                 "paragrafo": 6,
-                "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo",
+                "trecho": "é consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4403,26 +4408,10 @@
         "titulo": "O que observar até a próxima reunião",
         "paragrafos": [
           {
-            "texto": "Vale observar o mercado de trabalho, onde o desemprego segue em patamares historicamente baixos [[c10]]. Também importa ver se os rendimentos seguem crescendo em termos reais acima da produtividade do trabalho [[c11]]. Outro ponto é o risco de efeitos de segunda ordem dos choques de oferta, aos quais o Copom diz que reagiria com firmeza [[c12]]. A política fiscal também merece atenção, porque o esmorecimento das reformas pode elevar a taxa de juros neutra da economia [[c13]].",
+            "texto": "Vale acompanhar se surgem efeitos de segunda ordem dos choques de oferta, pois o Copom diz que reagiria com firmeza caso esses efeitos se materializem [[c10]]. Os rendimentos do trabalho ainda crescem em termos reais acima da produtividade, ponto que o Comitê segue acompanhando [[c11]].",
             "citacoes": [
               {
                 "id": "c10",
-                "ata": 281,
-                "paragrafo": 7,
-                "trecho": "A taxa de desemprego mantém-se em patamares historicamente baixos",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c11",
-                "ata": 281,
-                "paragrafo": 7,
-                "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c12",
                 "ata": 281,
                 "paragrafo": 16,
                 "trecho": "é necessário monitorar com atenção eventuais efeitos de segunda ordem, e reagir com firmeza caso esses efeitos se materializem",
@@ -4430,10 +4419,10 @@
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c13",
+                "id": "c11",
                 "ata": 281,
-                "paragrafo": 8,
-                "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+                "paragrafo": 7,
+                "trecho": "mas ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -7810,8 +7799,8 @@
       "total": 1060
     },
     "citacoes_relatorio": {
-      "verificadas": 13,
-      "total": 13,
+      "verificadas": 11,
+      "total": 11,
       "ok": true
     },
     "portao_qualidade": null
@@ -8368,6 +8357,503 @@
         }
       }
     ]
+  },
+  "forcas_fraquezas": {
+    "gerado_em": "2026-11-06T15:16:14",
+    "modelo": "logistica",
+    "hiperparametros": "StandardScaler + LogisticRegression(C=0.3, max_iter=5000)",
+    "periodo": {
+      "atas": "251–281",
+      "inicio": "2022-12-07",
+      "fim": "2026-09-16",
+      "n": 31
+    },
+    "acuracia_geral": {
+      "n": 31,
+      "acertos": 23,
+      "acuracia": 0.742
+    },
+    "por_classe": [
+      {
+        "classe": "alta",
+        "n_previsto": 7,
+        "n_realizado": 7,
+        "acertos": 5,
+        "precisao": 0.714,
+        "cobertura": 0.714
+      },
+      {
+        "classe": "manutencao",
+        "n_previsto": 14,
+        "n_realizado": 12,
+        "acertos": 9,
+        "precisao": 0.643,
+        "cobertura": 0.75
+      },
+      {
+        "classe": "corte",
+        "n_previsto": 10,
+        "n_realizado": 12,
+        "acertos": 9,
+        "precisao": 0.9,
+        "cobertura": 0.75
+      }
+    ],
+    "viradas": {
+      "n": 6,
+      "acertos": 2,
+      "acuracia": 0.333,
+      "demora": [
+        {
+          "ata": 255,
+          "data_reuniao": "2023-06-21",
+          "de": "manutencao",
+          "para": "corte",
+          "previsto_na_virada": "manutencao",
+          "reunioes_ate_perceber": 2
+        },
+        {
+          "ata": 262,
+          "data_reuniao": "2024-05-08",
+          "de": "corte",
+          "para": "manutencao",
+          "previsto_na_virada": "manutencao",
+          "reunioes_ate_perceber": 0
+        },
+        {
+          "ata": 264,
+          "data_reuniao": "2024-07-31",
+          "de": "manutencao",
+          "para": "alta",
+          "previsto_na_virada": "manutencao",
+          "reunioes_ate_perceber": 2
+        },
+        {
+          "ata": 271,
+          "data_reuniao": "2025-06-18",
+          "de": "alta",
+          "para": "manutencao",
+          "previsto_na_virada": "alta",
+          "reunioes_ate_perceber": 1
+        },
+        {
+          "ata": 276,
+          "data_reuniao": "2026-01-28",
+          "de": "manutencao",
+          "para": "corte",
+          "previsto_na_virada": "corte",
+          "reunioes_ate_perceber": 0
+        },
+        {
+          "ata": 281,
+          "data_reuniao": "2026-09-16",
+          "de": "corte",
+          "para": "manutencao",
+          "previsto_na_virada": "corte",
+          "reunioes_ate_perceber": "não percebeu"
+        }
+      ]
+    },
+    "continuacoes": {
+      "n": 25,
+      "acertos": 21,
+      "acuracia": 0.84
+    },
+    "por_fase": [
+      {
+        "fase": "manutenção inicial 2021",
+        "decisao": "manutencao",
+        "inicio": "2021-01-20",
+        "fim": "2021-01-20",
+        "atas": "236–236",
+        "n_atas_na_fase": 1,
+        "n_previsoes_testadas": 0,
+        "acertos": 0,
+        "acuracia": null,
+        "n": 0,
+        "fora_do_teste": true,
+        "parcial": false
+      },
+      {
+        "fase": "ciclo de altas 2021–2022",
+        "decisao": "alta",
+        "inicio": "2021-03-17",
+        "fim": "2022-08-03",
+        "atas": "237–248",
+        "n_atas_na_fase": 12,
+        "n_previsoes_testadas": 0,
+        "acertos": 0,
+        "acuracia": null,
+        "n": 0,
+        "fora_do_teste": true,
+        "parcial": false
+      },
+      {
+        "fase": "pausa 2022–2023",
+        "decisao": "manutencao",
+        "inicio": "2022-09-21",
+        "fim": "2023-06-21",
+        "atas": "249–255",
+        "n_atas_na_fase": 7,
+        "n_previsoes_testadas": 4,
+        "acertos": 4,
+        "acuracia": 1.0,
+        "n": 4,
+        "fora_do_teste": false,
+        "parcial": true
+      },
+      {
+        "fase": "ciclo de cortes 2023–2024",
+        "decisao": "corte",
+        "inicio": "2023-08-02",
+        "fim": "2024-05-08",
+        "atas": "256–262",
+        "n_atas_na_fase": 7,
+        "n_previsoes_testadas": 7,
+        "acertos": 5,
+        "acuracia": 0.714,
+        "n": 7,
+        "fora_do_teste": false,
+        "parcial": false
+      },
+      {
+        "fase": "pausa 2024",
+        "decisao": "manutencao",
+        "inicio": "2024-06-19",
+        "fim": "2024-07-31",
+        "atas": "263–264",
+        "n_atas_na_fase": 2,
+        "n_previsoes_testadas": 2,
+        "acertos": 2,
+        "acuracia": 1.0,
+        "n": 2,
+        "fora_do_teste": false,
+        "parcial": false
+      },
+      {
+        "fase": "retomada das altas 2024–2025",
+        "decisao": "alta",
+        "inicio": "2024-09-18",
+        "fim": "2025-06-18",
+        "atas": "265–271",
+        "n_atas_na_fase": 7,
+        "n_previsoes_testadas": 7,
+        "acertos": 5,
+        "acuracia": 0.714,
+        "n": 7,
+        "fora_do_teste": false,
+        "parcial": false
+      },
+      {
+        "fase": "pausa 2025–2026",
+        "decisao": "manutencao",
+        "inicio": "2025-07-30",
+        "fim": "2026-01-28",
+        "atas": "272–276",
+        "n_atas_na_fase": 5,
+        "n_previsoes_testadas": 5,
+        "acertos": 3,
+        "acuracia": 0.6,
+        "n": 5,
+        "fora_do_teste": false,
+        "parcial": false
+      },
+      {
+        "fase": "cortes de 2026",
+        "decisao": "corte",
+        "inicio": "2026-03-18",
+        "fim": "2026-09-16",
+        "atas": "277–281",
+        "n_atas_na_fase": 5,
+        "n_previsoes_testadas": 5,
+        "acertos": 4,
+        "acuracia": 0.8,
+        "n": 5,
+        "fora_do_teste": false,
+        "parcial": false
+      }
+    ],
+    "confianca": {
+      "limiar": 0.6,
+      "acima": {
+        "n": 25,
+        "acertos": 19,
+        "acuracia": 0.76
+      },
+      "abaixo": {
+        "n": 6,
+        "acertos": 4,
+        "acuracia": 0.667
+      },
+      "calibracao": [
+        {
+          "faixa": "<50%",
+          "n": 2,
+          "prob_media": 0.467,
+          "acerto": 0.5
+        },
+        {
+          "faixa": "50–60%",
+          "n": 4,
+          "prob_media": 0.562,
+          "acerto": 0.75
+        },
+        {
+          "faixa": "60–75%",
+          "n": 5,
+          "prob_media": 0.713,
+          "acerto": 0.8
+        },
+        {
+          "faixa": ">75%",
+          "n": 20,
+          "prob_media": 0.876,
+          "acerto": 0.75
+        }
+      ],
+      "brier": 0.399,
+      "brier_ingenua": 0.387,
+      "aviso": "amostra pequena: 31 previsões; diferenças de poucas atas mudam muito as taxas"
+    },
+    "erros": [
+      {
+        "ata": 255,
+        "data_reuniao": "2023-06-21",
+        "decisao_registrada": "manutencao",
+        "previsto": "manutencao",
+        "realizado": "corte",
+        "probabilidades": {
+          "alta": 0.08,
+          "manutencao": 0.92,
+          "corte": 0.0
+        },
+        "puxaram_errado": null,
+        "nota": "classe 'corte' ausente do treino desta janela: contribuição não calculável"
+      },
+      {
+        "ata": 256,
+        "data_reuniao": "2023-08-02",
+        "decisao_registrada": "corte",
+        "previsto": "manutencao",
+        "realizado": "corte",
+        "probabilidades": {
+          "alta": 0.136,
+          "manutencao": 0.622,
+          "corte": 0.241
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "termos de virada na seção de decisão",
+            "codigo": "sinais_virada",
+            "contribuicao": 0.627
+          },
+          {
+            "variavel": "termos de câmbio por mil palavras",
+            "codigo": "termos_cambio",
+            "contribuicao": 0.33
+          },
+          {
+            "variavel": "termos de atividade por mil palavras",
+            "codigo": "termos_atividade",
+            "contribuicao": 0.268
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 264,
+        "data_reuniao": "2024-07-31",
+        "decisao_registrada": "manutencao",
+        "previsto": "manutencao",
+        "realizado": "alta",
+        "probabilidades": {
+          "alta": 0.034,
+          "manutencao": 0.924,
+          "corte": 0.042
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "desvio-padrão das notas",
+            "codigo": "dispersao_notas",
+            "contribuicao": 1.222
+          },
+          {
+            "variavel": "número de parágrafos",
+            "codigo": "n_paragrafos",
+            "contribuicao": 0.836
+          },
+          {
+            "variavel": "decisão registrada na ata = manutencao",
+            "codigo": "decisao_registrada_na_ata_manutencao",
+            "contribuicao": 0.788
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 265,
+        "data_reuniao": "2024-09-18",
+        "decisao_registrada": "alta",
+        "previsto": "manutencao",
+        "realizado": "alta",
+        "probabilidades": {
+          "alta": 0.224,
+          "manutencao": 0.756,
+          "corte": 0.02
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "termos de atividade por mil palavras",
+            "codigo": "termos_atividade",
+            "contribuicao": 1.655
+          },
+          {
+            "variavel": "termos fiscais por mil palavras",
+            "codigo": "termos_fiscal",
+            "contribuicao": 0.632
+          },
+          {
+            "variavel": "termos de mercado de trabalho por mil palavras",
+            "codigo": "termos_mercado_trabalho",
+            "contribuicao": 0.587
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 271,
+        "data_reuniao": "2025-06-18",
+        "decisao_registrada": "alta",
+        "previsto": "alta",
+        "realizado": "manutencao",
+        "probabilidades": {
+          "alta": 0.835,
+          "manutencao": 0.149,
+          "corte": 0.015
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "termos de câmbio por mil palavras",
+            "codigo": "termos_cambio",
+            "contribuicao": 0.666
+          },
+          {
+            "variavel": "decisão registrada na ata = alta",
+            "codigo": "decisao_registrada_na_ata_alta",
+            "contribuicao": 0.607
+          },
+          {
+            "variavel": "termos de expectativas por mil palavras",
+            "codigo": "termos_expectativas",
+            "contribuicao": 0.507
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 274,
+        "data_reuniao": "2025-11-05",
+        "decisao_registrada": "manutencao",
+        "previsto": "alta",
+        "realizado": "manutencao",
+        "probabilidades": {
+          "alta": 0.523,
+          "manutencao": 0.438,
+          "corte": 0.04
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "termos de câmbio por mil palavras",
+            "codigo": "termos_cambio",
+            "contribuicao": 1.763
+          },
+          {
+            "variavel": "variação do tom contra a ata anterior",
+            "codigo": "tom_variacao",
+            "contribuicao": 0.301
+          },
+          {
+            "variavel": "termos de virada na seção de decisão",
+            "codigo": "sinais_virada",
+            "contribuicao": 0.258
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 280,
+        "data_reuniao": "2026-08-05",
+        "decisao_registrada": "corte",
+        "previsto": "manutencao",
+        "realizado": "corte",
+        "probabilidades": {
+          "alta": 0.142,
+          "manutencao": 0.443,
+          "corte": 0.415
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "variação do número de parágrafos",
+            "codigo": "var_n_paragrafos",
+            "contribuicao": 0.881
+          },
+          {
+            "variavel": "termos de inflação por mil palavras",
+            "codigo": "termos_inflacao",
+            "contribuicao": 0.45
+          },
+          {
+            "variavel": "variação do tom contra a ata anterior",
+            "codigo": "tom_variacao",
+            "contribuicao": 0.324
+          }
+        ],
+        "nota": null
+      },
+      {
+        "ata": 281,
+        "data_reuniao": "2026-09-16",
+        "decisao_registrada": "corte",
+        "previsto": "corte",
+        "realizado": "manutencao",
+        "probabilidades": {
+          "alta": 0.113,
+          "manutencao": 0.044,
+          "corte": 0.843
+        },
+        "puxaram_errado": [
+          {
+            "variavel": "termos de virada na seção de decisão",
+            "codigo": "sinais_virada",
+            "contribuicao": 1.377
+          },
+          {
+            "variavel": "decisão registrada na ata = corte",
+            "codigo": "decisao_registrada_na_ata_corte",
+            "contribuicao": 1.03
+          },
+          {
+            "variavel": "decisão registrada na ata = manutencao",
+            "codigo": "decisao_registrada_na_ata_manutencao",
+            "contribuicao": 0.49
+          }
+        ],
+        "nota": null
+      }
+    ],
+    "conferencia_reajuste": {
+      "max_diferenca_prob": 0.0005
+    },
+    "conclusao": {
+      "confiavel": "Nas continuações (a próxima decisão repete a da ata): 21 de 25 acertos (84%). Quando prevê corte, acerta 9 de 10 (precisão 90%).",
+      "falha": "Nas viradas de ciclo: 2 de 6 acertos (33%). Em geral percebe a mudança 1 ou 2 reuniões depois, e não percebeu a pausa que veio depois da ata 281. Com probabilidade acima de 75% acerta 75% (15 de 20), abaixo da confiança média de 88%: o modelo é confiante demais.",
+      "porque": "A variável mais forte é a decisão registrada na própria ata, que empurra para repetir a decisão. Nos erros, sinais_virada, termos de câmbio e de atividade puxaram para o lado errado. O Brier multiclasse (0,399) ficou pior que o da regra ingênua de repetir a decisão (0,387), e a regra ingênua acerta 25 de 31 (as continuações). Amostra pequena: 31 previsões e só 6 viradas.",
+      "proximos_passos": [
+        "Medir o modelo sempre ao lado da regra ingênua e só publicá-lo se ganhar dela na acurácia ou no Brier.",
+        "Calibrar as probabilidades (por exemplo, regularização mais forte ou calibração por temperatura na validação no tempo) para que 88% de confiança média corresponda a acerto parecido.",
+        "Criar e testar variáveis próprias de virada (mudança na orientação futura entre atas, Focus da Selic) e avaliar o modelo pela acurácia nas viradas, não só no total."
+      ]
+    }
   },
   "status": {
     "ultima_verificacao": "2026-11-06T12:55:43-03:00",
