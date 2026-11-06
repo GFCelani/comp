@@ -183,6 +183,7 @@ def main() -> int:
         "conferencia_selic": ler(S / "conferencia_selic.json"),
         "validacao_selic_oficial": ler(S / "validacao_selic_oficial.json"),
         "indice_modelo": ler(B / "indice_modelo.json"),
+        "forcas_fraquezas": ler(RAIZ / "modelo" / "forcas_fraquezas.json"),
         "status": ler(S / "status.json"),
     }
 

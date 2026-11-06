@@ -118,6 +118,35 @@ Modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágr
 
 `viradas` = atas em que a decisão seguinte ≠ decisão registrada na ata. `importancia` = importância por permutação (n_repeats=30, random_state=42) do modelo publicado treinado em todas as atas com alvo. `modelo_publicado`, `importancias`, `descricoes_variaveis` e `validacao_tempo` existem para o painel atual. A previsão ingênua não entra neste arquivo (só em DECISOES.md).
 
+## modelo/forcas_fraquezas.json → dados_site.json `forcas_fraquezas` — escrito por modelo/analise_erros.py
+
+Análise das 31 previsões da validação no tempo (`previsoes_ata_a_ata` de banco/metricas_modelo.json). Só lê banco/ e modelo/base_modelo.csv; não altera o modelo. `pipeline/gerar_dados_site.py` copia o arquivo inteiro para `forcas_fraquezas` (null se não existir). Também gera `modelo/analise_erros.md`.
+
+```json
+{
+  "gerado_em": "...", "modelo": "logistica", "hiperparametros": "...",
+  "periodo": { "atas": "251–281", "inicio": "2022-12-07", "fim": "2026-09-16", "n": 31 },
+  "acuracia_geral": { "n": 31, "acertos": 23, "acuracia": 0.742 },
+  "por_classe": [{ "classe": "alta", "n_previsto": 7, "n_realizado": 7, "acertos": 5, "precisao": 0.714, "cobertura": 0.714 }],
+  "viradas": { "n": 6, "acertos": 2, "acuracia": 0.333,
+               "demora": [{ "ata": 255, "data_reuniao": "...", "de": "manutencao", "para": "corte", "previsto_na_virada": "manutencao", "reunioes_ate_perceber": 2 }] },
+  "continuacoes": { "n": 25, "acertos": 21, "acuracia": 0.84 },
+  "por_fase": [{ "fase": "ciclo de cortes 2023–2024", "decisao": "corte", "inicio": "...", "fim": "...", "atas": "256–262",
+                 "n_atas_na_fase": 7, "n_previsoes_testadas": 7, "n": 7, "acertos": 5, "acuracia": 0.714, "fora_do_teste": false, "parcial": false }],
+  "confianca": { "limiar": 0.6, "acima": { "n": 25, "acertos": 19, "acuracia": 0.76 }, "abaixo": { "n": 6, "acertos": 4, "acuracia": 0.667 },
+                 "calibracao": [{ "faixa": ">75%", "n": 20, "prob_media": 0.876, "acerto": 0.75 }],
+                 "brier": 0.399, "brier_ingenua": 0.387, "aviso": "amostra pequena..." },
+  "erros": [{ "ata": 256, "data_reuniao": "...", "decisao_registrada": "corte", "previsto": "manutencao", "realizado": "corte",
+              "probabilidades": { "alta": 0.136, "manutencao": 0.622, "corte": 0.241 },
+              "puxaram_errado": [{ "variavel": "termos de virada na seção de decisão", "codigo": "sinais_virada", "contribuicao": 0.627 }],
+              "nota": null }],
+  "conferencia_reajuste": { "max_diferenca_prob": 0.0005 },
+  "conclusao": { "confiavel": "...", "falha": "...", "porque": "...", "proximos_passos": ["...", "...", "..."] }
+}
+```
+
+`reunioes_ate_perceber`: 0 = acertou na própria virada; k = passou a prever a nova decisão k reuniões depois; `"não percebeu"` = não previu antes de o regime acabar ou o período terminar. Fases: sequências de decisões iguais em banco/atas.json; cada previsão conta na fase da reunião que ela prevê (ata seguinte). `puxaram_errado`: até 3 maiores valores positivos de coef(prevista)·z − coef(realizada)·z na logística da própria janela; null com `nota` quando a classe realizada não existia no treino da janela. `brier` = Brier multiclasse (soma nas 3 classes, média nas atas); `brier_ingenua` = mesma conta para "repetir a decisão registrada" com probabilidade 1.
+
 ## banco/modelo_base.pkl e banco/metricas_modelo_base.json
 
 Escreve: `pipeline/modelo_base.py`. TF-IDF (1–2 gramas) + regressão logística treinados só nos rótulos `sonnet` de `banco/rotulos.jsonl`; retreina quando o número desses rótulos muda. As métricas vêm de validação cruzada estratificada de 5 folds (semente 42), no formato de `banco/metricas_modelo.json` sem `validacao_leave_one_out`, com o campo extra `validacao` (texto).

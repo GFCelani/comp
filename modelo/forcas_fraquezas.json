@@ -1,0 +1,497 @@
+{
+  "gerado_em": "2026-11-06T15:16:14",
+  "modelo": "logistica",
+  "hiperparametros": "StandardScaler + LogisticRegression(C=0.3, max_iter=5000)",
+  "periodo": {
+    "atas": "251–281",
+    "inicio": "2022-12-07",
+    "fim": "2026-09-16",
+    "n": 31
+  },
+  "acuracia_geral": {
+    "n": 31,
+    "acertos": 23,
+    "acuracia": 0.742
+  },
+  "por_classe": [
+    {
+      "classe": "alta",
+      "n_previsto": 7,
+      "n_realizado": 7,
+      "acertos": 5,
+      "precisao": 0.714,
+      "cobertura": 0.714
+    },
+    {
+      "classe": "manutencao",
+      "n_previsto": 14,
+      "n_realizado": 12,
+      "acertos": 9,
+      "precisao": 0.643,
+      "cobertura": 0.75
+    },
+    {
+      "classe": "corte",
+      "n_previsto": 10,
+      "n_realizado": 12,
+      "acertos": 9,
+      "precisao": 0.9,
+      "cobertura": 0.75
+    }
+  ],
+  "viradas": {
+    "n": 6,
+    "acertos": 2,
+    "acuracia": 0.333,
+    "demora": [
+      {
+        "ata": 255,
+        "data_reuniao": "2023-06-21",
+        "de": "manutencao",
+        "para": "corte",
+        "previsto_na_virada": "manutencao",
+        "reunioes_ate_perceber": 2
+      },
+      {
+        "ata": 262,
+        "data_reuniao": "2024-05-08",
+        "de": "corte",
+        "para": "manutencao",
+        "previsto_na_virada": "manutencao",
+        "reunioes_ate_perceber": 0
+      },
+      {
+        "ata": 264,
+        "data_reuniao": "2024-07-31",
+        "de": "manutencao",
+        "para": "alta",
+        "previsto_na_virada": "manutencao",
+        "reunioes_ate_perceber": 2
+      },
+      {
+        "ata": 271,
+        "data_reuniao": "2025-06-18",
+        "de": "alta",
+        "para": "manutencao",
+        "previsto_na_virada": "alta",
+        "reunioes_ate_perceber": 1
+      },
+      {
+        "ata": 276,
+        "data_reuniao": "2026-01-28",
+        "de": "manutencao",
+        "para": "corte",
+        "previsto_na_virada": "corte",
+        "reunioes_ate_perceber": 0
+      },
+      {
+        "ata": 281,
+        "data_reuniao": "2026-09-16",
+        "de": "corte",
+        "para": "manutencao",
+        "previsto_na_virada": "corte",
+        "reunioes_ate_perceber": "não percebeu"
+      }
+    ]
+  },
+  "continuacoes": {
+    "n": 25,
+    "acertos": 21,
+    "acuracia": 0.84
+  },
+  "por_fase": [
+    {
+      "fase": "manutenção inicial 2021",
+      "decisao": "manutencao",
+      "inicio": "2021-01-20",
+      "fim": "2021-01-20",
+      "atas": "236–236",
+      "n_atas_na_fase": 1,
+      "n_previsoes_testadas": 0,
+      "acertos": 0,
+      "acuracia": null,
+      "n": 0,
+      "fora_do_teste": true,
+      "parcial": false
+    },
+    {
+      "fase": "ciclo de altas 2021–2022",
+      "decisao": "alta",
+      "inicio": "2021-03-17",
+      "fim": "2022-08-03",
+      "atas": "237–248",
+      "n_atas_na_fase": 12,
+      "n_previsoes_testadas": 0,
+      "acertos": 0,
+      "acuracia": null,
+      "n": 0,
+      "fora_do_teste": true,
+      "parcial": false
+    },
+    {
+      "fase": "pausa 2022–2023",
+      "decisao": "manutencao",
+      "inicio": "2022-09-21",
+      "fim": "2023-06-21",
+      "atas": "249–255",
+      "n_atas_na_fase": 7,
+      "n_previsoes_testadas": 4,
+      "acertos": 4,
+      "acuracia": 1.0,
+      "n": 4,
+      "fora_do_teste": false,
+      "parcial": true
+    },
+    {
+      "fase": "ciclo de cortes 2023–2024",
+      "decisao": "corte",
+      "inicio": "2023-08-02",
+      "fim": "2024-05-08",
+      "atas": "256–262",
+      "n_atas_na_fase": 7,
+      "n_previsoes_testadas": 7,
+      "acertos": 5,
+      "acuracia": 0.714,
+      "n": 7,
+      "fora_do_teste": false,
+      "parcial": false
+    },
+    {
+      "fase": "pausa 2024",
+      "decisao": "manutencao",
+      "inicio": "2024-06-19",
+      "fim": "2024-07-31",
+      "atas": "263–264",
+      "n_atas_na_fase": 2,
+      "n_previsoes_testadas": 2,
+      "acertos": 2,
+      "acuracia": 1.0,
+      "n": 2,
+      "fora_do_teste": false,
+      "parcial": false
+    },
+    {
+      "fase": "retomada das altas 2024–2025",
+      "decisao": "alta",
+      "inicio": "2024-09-18",
+      "fim": "2025-06-18",
+      "atas": "265–271",
+      "n_atas_na_fase": 7,
+      "n_previsoes_testadas": 7,
+      "acertos": 5,
+      "acuracia": 0.714,
+      "n": 7,
+      "fora_do_teste": false,
+      "parcial": false
+    },
+    {
+      "fase": "pausa 2025–2026",
+      "decisao": "manutencao",
+      "inicio": "2025-07-30",
+      "fim": "2026-01-28",
+      "atas": "272–276",
+      "n_atas_na_fase": 5,
+      "n_previsoes_testadas": 5,
+      "acertos": 3,
+      "acuracia": 0.6,
+      "n": 5,
+      "fora_do_teste": false,
+      "parcial": false
+    },
+    {
+      "fase": "cortes de 2026",
+      "decisao": "corte",
+      "inicio": "2026-03-18",
+      "fim": "2026-09-16",
+      "atas": "277–281",
+      "n_atas_na_fase": 5,
+      "n_previsoes_testadas": 5,
+      "acertos": 4,
+      "acuracia": 0.8,
+      "n": 5,
+      "fora_do_teste": false,
+      "parcial": false
+    }
+  ],
+  "confianca": {
+    "limiar": 0.6,
+    "acima": {
+      "n": 25,
+      "acertos": 19,
+      "acuracia": 0.76
+    },
+    "abaixo": {
+      "n": 6,
+      "acertos": 4,
+      "acuracia": 0.667
+    },
+    "calibracao": [
+      {
+        "faixa": "<50%",
+        "n": 2,
+        "prob_media": 0.467,
+        "acerto": 0.5
+      },
+      {
+        "faixa": "50–60%",
+        "n": 4,
+        "prob_media": 0.562,
+        "acerto": 0.75
+      },
+      {
+        "faixa": "60–75%",
+        "n": 5,
+        "prob_media": 0.713,
+        "acerto": 0.8
+      },
+      {
+        "faixa": ">75%",
+        "n": 20,
+        "prob_media": 0.876,
+        "acerto": 0.75
+      }
+    ],
+    "brier": 0.399,
+    "brier_ingenua": 0.387,
+    "aviso": "amostra pequena: 31 previsões; diferenças de poucas atas mudam muito as taxas"
+  },
+  "erros": [
+    {
+      "ata": 255,
+      "data_reuniao": "2023-06-21",
+      "decisao_registrada": "manutencao",
+      "previsto": "manutencao",
+      "realizado": "corte",
+      "probabilidades": {
+        "alta": 0.08,
+        "manutencao": 0.92,
+        "corte": 0.0
+      },
+      "puxaram_errado": null,
+      "nota": "classe 'corte' ausente do treino desta janela: contribuição não calculável"
+    },
+    {
+      "ata": 256,
+      "data_reuniao": "2023-08-02",
+      "decisao_registrada": "corte",
+      "previsto": "manutencao",
+      "realizado": "corte",
+      "probabilidades": {
+        "alta": 0.136,
+        "manutencao": 0.622,
+        "corte": 0.241
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "termos de virada na seção de decisão",
+          "codigo": "sinais_virada",
+          "contribuicao": 0.627
+        },
+        {
+          "variavel": "termos de câmbio por mil palavras",
+          "codigo": "termos_cambio",
+          "contribuicao": 0.33
+        },
+        {
+          "variavel": "termos de atividade por mil palavras",
+          "codigo": "termos_atividade",
+          "contribuicao": 0.268
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 264,
+      "data_reuniao": "2024-07-31",
+      "decisao_registrada": "manutencao",
+      "previsto": "manutencao",
+      "realizado": "alta",
+      "probabilidades": {
+        "alta": 0.034,
+        "manutencao": 0.924,
+        "corte": 0.042
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "desvio-padrão das notas",
+          "codigo": "dispersao_notas",
+          "contribuicao": 1.222
+        },
+        {
+          "variavel": "número de parágrafos",
+          "codigo": "n_paragrafos",
+          "contribuicao": 0.836
+        },
+        {
+          "variavel": "decisão registrada na ata = manutencao",
+          "codigo": "decisao_registrada_na_ata_manutencao",
+          "contribuicao": 0.788
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 265,
+      "data_reuniao": "2024-09-18",
+      "decisao_registrada": "alta",
+      "previsto": "manutencao",
+      "realizado": "alta",
+      "probabilidades": {
+        "alta": 0.224,
+        "manutencao": 0.756,
+        "corte": 0.02
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "termos de atividade por mil palavras",
+          "codigo": "termos_atividade",
+          "contribuicao": 1.655
+        },
+        {
+          "variavel": "termos fiscais por mil palavras",
+          "codigo": "termos_fiscal",
+          "contribuicao": 0.632
+        },
+        {
+          "variavel": "termos de mercado de trabalho por mil palavras",
+          "codigo": "termos_mercado_trabalho",
+          "contribuicao": 0.587
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 271,
+      "data_reuniao": "2025-06-18",
+      "decisao_registrada": "alta",
+      "previsto": "alta",
+      "realizado": "manutencao",
+      "probabilidades": {
+        "alta": 0.835,
+        "manutencao": 0.149,
+        "corte": 0.015
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "termos de câmbio por mil palavras",
+          "codigo": "termos_cambio",
+          "contribuicao": 0.666
+        },
+        {
+          "variavel": "decisão registrada na ata = alta",
+          "codigo": "decisao_registrada_na_ata_alta",
+          "contribuicao": 0.607
+        },
+        {
+          "variavel": "termos de expectativas por mil palavras",
+          "codigo": "termos_expectativas",
+          "contribuicao": 0.507
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 274,
+      "data_reuniao": "2025-11-05",
+      "decisao_registrada": "manutencao",
+      "previsto": "alta",
+      "realizado": "manutencao",
+      "probabilidades": {
+        "alta": 0.523,
+        "manutencao": 0.438,
+        "corte": 0.04
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "termos de câmbio por mil palavras",
+          "codigo": "termos_cambio",
+          "contribuicao": 1.763
+        },
+        {
+          "variavel": "variação do tom contra a ata anterior",
+          "codigo": "tom_variacao",
+          "contribuicao": 0.301
+        },
+        {
+          "variavel": "termos de virada na seção de decisão",
+          "codigo": "sinais_virada",
+          "contribuicao": 0.258
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 280,
+      "data_reuniao": "2026-08-05",
+      "decisao_registrada": "corte",
+      "previsto": "manutencao",
+      "realizado": "corte",
+      "probabilidades": {
+        "alta": 0.142,
+        "manutencao": 0.443,
+        "corte": 0.415
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "variação do número de parágrafos",
+          "codigo": "var_n_paragrafos",
+          "contribuicao": 0.881
+        },
+        {
+          "variavel": "termos de inflação por mil palavras",
+          "codigo": "termos_inflacao",
+          "contribuicao": 0.45
+        },
+        {
+          "variavel": "variação do tom contra a ata anterior",
+          "codigo": "tom_variacao",
+          "contribuicao": 0.324
+        }
+      ],
+      "nota": null
+    },
+    {
+      "ata": 281,
+      "data_reuniao": "2026-09-16",
+      "decisao_registrada": "corte",
+      "previsto": "corte",
+      "realizado": "manutencao",
+      "probabilidades": {
+        "alta": 0.113,
+        "manutencao": 0.044,
+        "corte": 0.843
+      },
+      "puxaram_errado": [
+        {
+          "variavel": "termos de virada na seção de decisão",
+          "codigo": "sinais_virada",
+          "contribuicao": 1.377
+        },
+        {
+          "variavel": "decisão registrada na ata = corte",
+          "codigo": "decisao_registrada_na_ata_corte",
+          "contribuicao": 1.03
+        },
+        {
+          "variavel": "decisão registrada na ata = manutencao",
+          "codigo": "decisao_registrada_na_ata_manutencao",
+          "contribuicao": 0.49
+        }
+      ],
+      "nota": null
+    }
+  ],
+  "conferencia_reajuste": {
+    "max_diferenca_prob": 0.0005
+  },
+  "conclusao": {
+    "confiavel": "Nas continuações (a próxima decisão repete a da ata): 21 de 25 acertos (84%). Quando prevê corte, acerta 9 de 10 (precisão 90%).",
+    "falha": "Nas viradas de ciclo: 2 de 6 acertos (33%). Em geral percebe a mudança 1 ou 2 reuniões depois, e não percebeu a pausa que veio depois da ata 281. Com probabilidade acima de 75% acerta 75% (15 de 20), abaixo da confiança média de 88%: o modelo é confiante demais.",
+    "porque": "A variável mais forte é a decisão registrada na própria ata, que empurra para repetir a decisão. Nos erros, sinais_virada, termos de câmbio e de atividade puxaram para o lado errado. O Brier multiclasse (0,399) ficou pior que o da regra ingênua de repetir a decisão (0,387), e a regra ingênua acerta 25 de 31 (as continuações). Amostra pequena: 31 previsões e só 6 viradas.",
+    "proximos_passos": [
+      "Medir o modelo sempre ao lado da regra ingênua e só publicá-lo se ganhar dela na acurácia ou no Brier.",
+      "Calibrar as probabilidades (por exemplo, regularização mais forte ou calibração por temperatura na validação no tempo) para que 88% de confiança média corresponda a acerto parecido.",
+      "Criar e testar variáveis próprias de virada (mudança na orientação futura entre atas, Focus da Selic) e avaliar o modelo pela acurácia nas viradas, não só no total."
+    ]
+  }
+}
