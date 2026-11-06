@@ -6,7 +6,13 @@ Formato: data e hora · o que mudar · por quê · campo do `dados_site.json` en
 
 ## Abertos
 
-(nenhum)
+- 06/11 14h20 · **Capa e /painel: previsão pelo método de maior acurácia.**
+  - **Capa:** a manchete já vem coerente com o método escolhido. Ao lado, mostre o método (`previsao.metodos[nome == previsao.metodo_escolhido].rotulo_pt`) e a acurácia dele (`previsao.acuracia_escolhido`).
+  - **/painel:** todos os métodos lado a lado (`previsao.metodos[]`), mostrando para cada um `rotulo_pt`, `acuracia_loo`, `acerto_sinal`, `n` e `previsto_proxima`. Marque o escolhido. Quando `disponivel == false`, mostre "aguardando modelo do parceiro". Se `nivel_tom` ou `variacao_tom` tiverem acurácia menor que `ingenua`, mostre a frase clara: "O índice de tom, sozinho, acertou menos do que repetir a última decisão." As matrizes 3×3 e a lista por ata de cada método estão em `metricas_previsao.metodos.<nome>`.
+  - **Por quê:** credibilidade. O nível do tom acertou 40% e a previsão ingênua, 84%. A regra está em `DECISOES.md`.
+  - **Campos:** `previsao.metodo_escolhido`, `previsao.acuracia_escolhido`, `previsao.metodos`, `previsao.previsto`, `previsao.variacao_tom`, `metricas_previsao.metodos`.
+  - **Status:** aberto.
+- 06/11 14h20 · **Selo "revisado pelo time" na manchete e no relatório.** Use `revisados.manchete`, `revisados.linhaFina` e `revisados.relatorioParagrafos` (chaves `<ata>.<secao>.<i>`), que vêm de `obterDados()`. Por quê: as edições do painel já são aplicadas, mas a página ainda não marca o que foi revisado. Status: aberto.
 
 ## Feitos
 
