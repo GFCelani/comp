@@ -16,8 +16,30 @@ export type Edicao = {
   motivo: string | null;
 };
 
+/**
+ * A integração Neon da Vercel criou as variáveis com o prefixo `DATABASE_URL_`
+ * (ex.: DATABASE_URL_DATABASE_URL). Ordem: DATABASE_URL explícita e depois as URLs com pooling
+ * da integração. As versões sem pooling (UNPOOLED/NON_POOLING) ficam por último.
+ */
+const NOMES_URL = [
+  "DATABASE_URL",
+  "DATABASE_URL_DATABASE_URL",
+  "DATABASE_URL_POSTGRES_URL",
+  "POSTGRES_URL",
+  "DATABASE_URL_UNPOOLED",
+  "DATABASE_URL_POSTGRES_URL_NON_POOLING",
+];
+
+function urlDoBanco(): string | null {
+  for (const nome of NOMES_URL) {
+    const v = process.env[nome]?.trim();
+    if (v && /^postgres(ql)?:\/\//.test(v)) return v;
+  }
+  return null;
+}
+
 export function bancoConfigurado(): boolean {
-  return Boolean(process.env.DATABASE_URL?.trim());
+  return urlDoBanco() !== null;
 }
 
 /** O Neon põe `channel_binding=require` na URL, que o driver não aceita. */
@@ -36,8 +58,8 @@ let tabelasProntas: Promise<void> | null = null;
 
 function sql() {
   if (!cliente) {
-    const url = process.env.DATABASE_URL?.trim();
-    if (!url) throw new Error("DATABASE_URL ausente");
+    const url = urlDoBanco();
+    if (!url) throw new Error("URL do banco ausente");
     cliente = postgres(urlParaODriver(url), {
       max: 1,
       ssl: "require",
