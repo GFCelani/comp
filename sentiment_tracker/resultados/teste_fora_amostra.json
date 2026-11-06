@@ -42,6 +42,15 @@
   "erro_medio_abs": 0.425,
   "erro_base_zero": 0.125
  },
+ "direcao": {
+  "limiar_congelado": 0.32499999999999996,
+  "n": 8,
+  "acuracia_3_classes_vs_analistas": 0.625,
+  "base_sempre_em_linha": 0.875,
+  "erros_de_sinal_trocado": 0,
+  "direcoes_apontadas": 4,
+  "acertos_quando_aponta": 1
+ },
  "por_ata": [
   {
    "ata": 228,
@@ -55,7 +64,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": -0.73,
    "peso_mercado": 0.25,
-   "veredito": "misto"
+   "veredito": "misto",
+   "direcao_prevista": 0.0
   },
   {
    "ata": 229,
@@ -69,7 +79,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": -1.34,
    "peso_mercado": 0.0,
-   "veredito": "sem_fonte"
+   "veredito": "sem_fonte",
+   "direcao_prevista": 0.0
   },
   {
    "ata": 230,
@@ -83,7 +94,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": -0.31,
    "peso_mercado": 0.25,
-   "veredito": "em_linha"
+   "veredito": "em_linha",
+   "direcao_prevista": 0.0
   },
   {
    "ata": 231,
@@ -97,7 +109,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": 0.37,
    "peso_mercado": 0.12,
-   "veredito": "em_linha"
+   "veredito": "em_linha",
+   "direcao_prevista": 1.0
   },
   {
    "ata": 232,
@@ -111,7 +124,8 @@
    "rotulo_surpresa": -0.8,
    "z_mercado": 0.52,
    "peso_mercado": 0.25,
-   "veredito": "mais_branda"
+   "veredito": "mais_branda",
+   "direcao_prevista": -1.0
   },
   {
    "ata": 233,
@@ -125,7 +139,8 @@
    "rotulo_surpresa": -0.36,
    "z_mercado": -1.08,
    "peso_mercado": 0.5,
-   "veredito": "em_linha"
+   "veredito": "em_linha",
+   "direcao_prevista": 0.0
   },
   {
    "ata": 234,
@@ -139,7 +154,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": 0.4,
    "peso_mercado": 0.12,
-   "veredito": "em_linha"
+   "veredito": "em_linha",
+   "direcao_prevista": 1.0
   },
   {
    "ata": 235,
@@ -153,7 +169,8 @@
    "rotulo_surpresa": 0.0,
    "z_mercado": -0.07,
    "peso_mercado": 0.25,
-   "veredito": "em_linha"
+   "veredito": "em_linha",
+   "direcao_prevista": 1.0
   }
  ],
  "nota": "Modelo congelado com atas 2021–2026; atas de 2020 nunca vistas. n pequeno: ler como checagem de sanidade, não como estimativa precisa."

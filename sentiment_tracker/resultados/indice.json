@@ -1,13 +1,13 @@
 {
  "metodo": "tom_copom_multidimensional_v1",
- "gerado_em": "2026-11-06T14:51:29-03:00",
+ "gerado_em": "2026-11-06T14:57:06-03:00",
  "escala": {
   "nivel": "−2 (muito brando) a +2 (muito duro); nivel_100 = 50×nivel",
   "surpresa": "−2 (bem mais brando que o esperado) a +2 (bem mais duro); calibrada",
   "confianca": "0–100, concordância entre sinais independentes + precisão + rotulador"
  },
  "calibracao": {
-  "gerado_em": "2026-11-06T14:51:29-03:00",
+  "gerado_em": "2026-11-06T14:57:06-03:00",
   "alvo": "rotulo_surpresa = média de surpresa dos analistas (peso 1) e z da variação do prefixado 2 anos no dia da ata (peso 0 a 0,5 conforme contaminação por outros eventos)",
   "features": [
    "claude_surpresa",
@@ -21,7 +21,7 @@
    "claude_surpresa": 0.388,
    "claude_encolhida": 0.441,
    "claude_mudancas": 0.33,
-   "duas_leituras": 0.441,
+   "duas_leituras": 0.334,
    "ridge": 0.261
   },
   "regra_escolha": "maior correlação leave-one-out; ridge só se superar o melhor sem ajuste por > 0,03",
@@ -56,10 +56,10 @@
    },
    "duas_leituras": {
     "n": 46,
-    "correlacao": 0.441,
-    "acerto_direcao": 0.696,
+    "correlacao": 0.334,
+    "acerto_direcao": 0.652,
     "n_direcionais": 23,
-    "erro_medio_abs": 0.573
+    "erro_medio_abs": 0.66
    },
    "ridge": {
     "n": 46,

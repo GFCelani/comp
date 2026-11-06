@@ -126,6 +126,25 @@ def main():
                f"| mais branda | {v[0][0]} | {v[0][1]} | {v[0][2]} |",
                f"| em linha | {v[1][0]} | {v[1][1]} | {v[1][2]} |",
                f"| mais dura | {v[2][0]} | {v[2][1]} | {v[2][2]} |", ""]
+    # experimento: 2ª leitura independente (só o diff), avaliada e rejeitada pelo critério de LOO
+    seg = []
+    for a in (idx or {}).get("atas", []):
+        f = RAIZ / "dados" / "segunda_leitura" / f"ata_{a['ata']}.json"
+        if f.exists():
+            seg.append((json.loads(f.read_text(encoding="utf-8"))["surpresa"], a["ata"]))
+    if seg:
+        r = reac.set_index("ata")
+        s2 = pd.Series({n: v for v, n in seg})
+        y = r.loc[s2.index, "rotulo_surpresa"]
+        real = (y.abs() >= 0.5) * (y.apply(lambda v: 1 if v > 0 else -1))
+        p2 = s2.apply(lambda v: 0 if v == 0 else (1 if v > 0 else -1))
+        ch = p2 != 0
+        md += ["## 6c. Experimento rejeitado: 2ª leitura só do diff", "",
+               f"Uma 2ª leitura independente, só das partes alteradas de cada ata, teve correlação "
+               f"{num(s2.corr(y))} com o gabarito, precisão de {pct(float((p2 == real)[ch].mean()))} quando aponta direção "
+               f"e {int(((p2 * real) < 0).sum())} sentidos trocados (n={len(s2)}). Média com a 1ª leitura: correlação LOO "
+               f"{num(c['correlacao_loo_candidatos'].get('duas_leituras'))} contra {num(c['correlacao_loo_candidatos'].get(c['estimador_escolhido']))}. "
+               "Sem o contexto da ata inteira, o leitor vê direção onde os analistas viram \"em linha\". Fica fora do índice.", ""]
     md += ["## 7. Melhorias desta versão (medidas, não supostas)", ""]
     md += [f"- **A · gabarito de mercado menos ruidoso**: z médio do prefixado 1a e 2a, em 1 e 2 dias. "
            f"Correlação com a surpresa dos analistas: {num(reac['z_pre2'].corr(reac['surpresa_analistas'].astype(float)))} "

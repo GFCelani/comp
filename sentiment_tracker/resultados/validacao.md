@@ -1,6 +1,6 @@
 # Validação do Sentiment Tracker
 
-Gerado por `scripts/relatorio.py` em 2026-11-06T14:46:24-03:00. Todos os números vêm de `resultados/*.json` e `dados/reacao.csv`.
+Gerado por `scripts/relatorio.py` em 2026-11-06T14:57:06-03:00. Todos os números vêm de `resultados/*.json` e `dados/reacao.csv`.
 
 ## 1. Gabarito: o que conta como acerto
 
@@ -30,6 +30,7 @@ Candidatos (correlação leave-one-out com o gabarito):
 - `claude_surpresa`: 0.39
 - `claude_encolhida`: 0.44
 - `claude_mudancas`: 0.33
+- `duas_leituras`: 0.33
 - `ridge`: 0.26
 
 Sinais isolados (correlação com o gabarito):
@@ -79,6 +80,25 @@ Concordância entre dois rotuladores independentes — esta Skill (Claude Opus, 
 | 274 | +0.11 | -0.45 | 46 | mais_branda | -20.4 |
 | 261 | +0.17 | +0.43 | 40 | em_linha | 2.8 |
 
+## 6b. Direção: mais dura / em linha / mais branda
+
+Veredito em 3 classes com zona neutra: |surpresa| < 0.32 → "em linha". O limiar é escolhido por leave-one-out **aninhado** (cada ata é classificada com um limiar escolhido sem ela).
+
+- Acerto em 3 classes: **54%** (dizer sempre "em linha": 50%).
+- Quando aponta uma direção, acerta: **53%** (17 atas).
+- Atas que tiveram direção (pelo gabarito) e foram pegas: 39% de 23.
+- **Sentido trocado** (disse "mais dura" e foi "mais branda", ou o contrário): **1**.
+
+| real \ previsto | mais branda | em linha | mais dura |
+|---|---|---|---|
+| mais branda | 3 | 3 | 1 |
+| em linha | 2 | 16 | 5 |
+| mais dura | 0 | 10 | 6 |
+
+## 6c. Experimento rejeitado: 2ª leitura só do diff
+
+Uma 2ª leitura independente, só das partes alteradas de cada ata, teve correlação 0.27 com o gabarito, precisão de 37% quando aponta direção e 7 sentidos trocados (n=45). Média com a 1ª leitura: correlação LOO 0.33 contra 0.44. Sem o contexto da ata inteira, o leitor vê direção onde os analistas viram "em linha". Fica fora do índice.
+
 ## 7. Melhorias desta versão (medidas, não supostas)
 
 - **A · gabarito de mercado menos ruidoso**: z médio do prefixado 1a e 2a, em 1 e 2 dias. Correlação com a surpresa dos analistas: 0.41 (só 2a, 1 dia) → 0.50 (média).
@@ -100,6 +120,8 @@ Modelo congelado (estimador `claude_encolhida`, escalas de 2021+) aplicado às a
 | × gabarito combinado | 8 | 0.70 | 100% (1) | 0.32 | 0.14 |
 | × analistas | 8 | 0.63 | 100% (1) | 0.32 | 0.12 |
 | × mercado (dias limpos) | 7 | 0.09 | 33% (3) | 0.55 | 0.50 |
+
+Direção (limiar congelado 0.32) × analistas: acerto em 3 classes 62% (sempre "em linha": 88%); direções apontadas 4, acertos 1; sentido trocado 0.
 
 Leitura: em 2020 quase todas as atas foram "em linha" para os analistas (só 1 direcional), então o teste confirma a ordenação (correlação positiva) mas mostra que o modelo **superestima a surpresa** de atas em linha — erro médio maior que prever sempre 0. n = 8: checagem de sanidade, não estimativa precisa.
 
