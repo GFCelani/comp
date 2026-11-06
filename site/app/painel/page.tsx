@@ -175,7 +175,24 @@ export default function Painel() {
 
                 <div className="cartao p-5 min-w-0">
                   <h3 className="font-semibold mb-3">Linha do tempo</h3>
-                  <div className="overflow-x-auto">
+                  <ol className="sm:hidden divide-y divide-borda num" aria-label="Linha do tempo das previsões">
+                    {mp.indice.atas.map((a) => (
+                      <li key={a.ata} className="py-3 grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
+                        <span className="font-semibold">
+                          {a.ata}ª <span className="text-texto-2 text-xs font-normal">{data(a.data_reuniao)}</span>
+                        </span>
+                        <span className={`font-semibold text-sm ${a.acertou ? "text-brando" : "text-erro"}`}>
+                          {a.acertou ? "acertou" : "errou"}
+                        </span>
+                        <span className="text-sm text-texto-2 col-span-2">
+                          índice <span className="text-acento">{fmtIndice(a.indice)}</span> → previu{" "}
+                          <span className="text-texto">{previsaoRotulo[a.previsto]}</span>; Selic na seguinte{" "}
+                          <span className="text-texto">{pontos(a.variacao_pp)}</span> ({previsaoRotulo[a.realizado]})
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="hidden sm:block overflow-x-auto">
                     <table className="w-full text-sm num">
                       <thead>
                         <tr className="text-left text-xs text-texto-2">
