@@ -141,7 +141,7 @@ Base de comparação (`ingenua`): prevê para a reunião seguinte a mesma decis�
 }
 ```
 
-`acuracia` = acertos / n_atas. `acerto_sinal` = entre as atas em que a previsão foi `aperto` ou `afrouxamento`, a fração em que o realizado teve o mesmo sinal. `matriz_confusao.valores[i][j]` = nº de atas com previsto `rotulos[i]` e realizado `rotulos[j]`. `n_atas` exclui a última ata (sem decisão seguinte). `melhor` ∈ `"indice"`, `"ingenua"`, `"empate"`, pela acurácia. A regra de ±0,25 não é ajustada para vencer a base.
+`acuracia` = acertos / n_atas. `acerto_sinal` = entre as atas em que a previsão foi `aperto` ou `afrouxamento`, a fração em que o realizado teve o mesmo sinal. `matriz_confusao.valores[i][j]` = nº de atas com previsto `rotulos[i]` e realizado `rotulos[j]`. `n_atas` exclui a última ata (sem decisão seguinte). `melhor` ∈ `"indice"`, `"ingenua"`, `"empate"`, pela acurácia. A regra de ±0,25 não é ajustada para vencer a base. Cada bloco traz também `n_previsoes_direcionais` (nº de previsões `aperto`/`afrouxamento`, base do `acerto_sinal`, que é null se for 0). `indice` null numa ata (nenhuma nota ≠ 0) vira previsão `manutencao`.
 
 ## saida/diff_ultimas.json
 
@@ -171,7 +171,7 @@ Escreve: `pipeline/textos.py` (uma chamada `claude -p --model sonnet`, verificad
 }
 ```
 
-`mudancas` tem no máximo 3 itens; `efeito` ∈ `"endureceu"`, `"suavizou"`; `tipo` ∈ `"novo"`, `"alterado"`, `"removido"`. Só entram itens cujo trecho existe no parágrafo e cujos números existem nos dados.
+`mudancas` tem no máximo 3 itens; `efeito` ∈ `"endureceu"`, `"suavizou"`; `tipo` ∈ `"novo"`, `"alterado"`, `"removido"`. Só entram itens cujo trecho existe no parágrafo e cujos números existem nos dados. `impacto` é null se não passar na checagem após 2 reescritas. Campo extra `verificacao: {reescritas, descartados, chamadas_claude}` registra a checagem.
 
 ## saida/dados_site.json → site/data/dados_site.json
 
@@ -181,6 +181,8 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 {
   "gerado_em": "2026-11-06T13:30:00",
   "exemplo": false,
+  "ultima_verificacao": "2026-11-06T13:30:00",
+  "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
     "ultima_ata": { "numero": 281, "data_reuniao": "2026-09-16", "decisao": "corte", "decisao_pp": -0.25, "selic_apos": 13.75, "indice": 0.42, "url_pdf": "https://..." },
@@ -203,6 +205,9 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 ```
 
 - `exemplo: true` faz o site mostrar a faixa "EXEMPLO".
+- `ultima_verificacao`: data e hora ISO da última vez que o pipeline conferiu se há ata nova.
+- `textos_pendentes`: `true` quando `saida/textos.json` não é da última ata (aí `mudancas` = `[]` e `impacto` = null).
+- `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).
 - `fonte_indice` ∈ `"simples"`, `"modelo"`: de onde vêm `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice`. Usa `banco/indice_modelo.json` quando existir, senão `banco/indice.json`.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).
 - `metricas_previsao` = conteúdo de `banco/metricas_previsao.json` ou null; `metricas_modelo` = `banco/metricas_modelo.json` ou null; `validacao_humana` = `validacao/resultado.json` ou null.
