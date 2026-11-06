@@ -26,9 +26,9 @@ RE_CABECALHO = [
     re.compile(r"^\s*\d{1,3}[ªº°]?\s*Reuni[aã]o\s*$", re.I),
     re.compile(r"^\s*COPOM\s*$"),
     re.compile(r"^\s*\d{1,2}(\s*(e|a)\s*\d{1,2})?\s+de\s+[a-zç]+(\s+de\s+\d{4})?\s*$", re.I),
-    re.compile(r"^\s*\d{1,3}\s+bcb\.gov\.br\s*$", re.I),
-    re.compile(r"^\s*\d{1,3}\s*$"),                       # número de página isolado
+    re.compile(r"^\s*(\d{1,3}\s+)?bcb\.gov\.br\s*$", re.I),
 ]
+RE_NUMERO_SOZINHO = re.compile(r"^\s*\d{1,3}\s*$")        # número de página ou marca de nota de rodapé
 RE_PARAGRAFO = re.compile(r"^\s*(\d{1,3})\.\s+(\S.*)$")
 RE_SECAO = re.compile(r"^\s*([A-H])\)\s+(\S.*)$")
 RE_NOTA_RODAPE = re.compile(r"^\s*\d{1,2}\s+[A-ZÀ-ÚO]")  # "1 A menos de menção..."
@@ -42,14 +42,19 @@ def texto_do_pdf(caminho: Path) -> list[str]:
 def limpar_pagina(texto: str) -> list[str]:
     """Remove cabeçalho, número de página e notas de rodapé de uma página."""
     linhas = texto.split("\n")
-    linhas = [l for l in linhas if not any(r.match(l) for r in RE_CABECALHO)]
-    # Notas de rodapé: linha em branco seguida de "N Texto" (sem ponto) no terço final da página
+    # Notas de rodapé: linha em branco seguida de "N Texto" (sem ponto) ou de "N" sozinho
+    # seguido do texto da nota, no terço final da página
     corte = len(linhas)
     for i in range(max(1, int(len(linhas) * 0.6)), len(linhas)):
-        if linhas[i - 1].strip() == "" and RE_NOTA_RODAPE.match(linhas[i]) and not RE_PARAGRAFO.match(linhas[i]):
+        if linhas[i - 1].strip() != "" or RE_PARAGRAFO.match(linhas[i]):
+            continue
+        if RE_NOTA_RODAPE.match(linhas[i]) or (
+            RE_NUMERO_SOZINHO.match(linhas[i]) and i + 1 < len(linhas) and linhas[i + 1].strip()
+        ):
             corte = i
             break
-    return linhas[:corte]
+    linhas = linhas[:corte]
+    return [l for l in linhas if not any(r.match(l) for r in RE_CABECALHO) and not RE_NUMERO_SOZINHO.match(l)]
 
 
 def limpar_texto(t: str) -> str:
@@ -65,7 +70,9 @@ def paragrafos_da_ata(caminho: Path) -> list[dict]:
     for pag in texto_do_pdf(caminho):
         linhas += limpar_pagina(pag)
     texto = "\n".join(linhas)
-    texto = re.sub(r"-\n\s*(?=[a-zà-ú])", "", texto)   # hifenização de fim de linha
+    # Hífen em fim de linha: nestes PDFs (Word, sem hifenização automática) é hífen real
+    # quebrado na linha ("norte -\namericana"); junta mantendo o hífen.
+    texto = re.sub(r"\s*-\n\s*(?=[a-zà-ú])", "-", texto)
     resultado, atual, secao = [], None, ""
     for linha in texto.split("\n"):
         if RE_FIM.match(linha):
@@ -74,7 +81,7 @@ def paragrafos_da_ata(caminho: Path) -> list[dict]:
         if m_sec:
             if atual:
                 resultado.append(atual); atual = None
-            secao = re.sub(r"(?<=[a-zà-ú])\d$", "", limpar_texto(m_sec.group(0)))  # tira marca de nota ("Copom1")
+            secao = re.sub(r"(?<=[a-zà-ú])\s?\d$", "", limpar_texto(m_sec.group(0)))  # tira marca de nota ("Copom1")
             continue
         m_par = RE_PARAGRAFO.match(linha)
         if m_par and (atual is None or int(m_par.group(1)) == atual["paragrafo"] + 1):
@@ -120,7 +127,7 @@ def main() -> int:
                 f.write(json.dumps({"ata": ata, **p}, ensure_ascii=False) + "\n")
             total += len(pars)
             print(f"ata {ata}: {len(pars)} parágrafos, seções: {sorted({p['secao'][:2] for p in pars})}")
-    print(f"Total: {total} parágrafos de {len(pdfs)} atas → {ARQ_SAIDA}")
+    print(f"Total: {total} parágrafos de {len(pdfs)} atas -> {ARQ_SAIDA}")
     for a in avisos:
         print("AVISO", a)
     return 0
