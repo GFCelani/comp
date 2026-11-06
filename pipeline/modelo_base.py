@@ -59,10 +59,14 @@ def treinar(forcar: bool = False) -> dict:
     X, y = dados_treino()
     if len(X) < 50:
         raise RuntimeError(f"poucos rótulos do Claude para treinar ({len(X)})")
+    salvo = None
     if ARQ_PKL.exists() and not forcar:
-        with ARQ_PKL.open("rb") as f:
-            salvo = pickle.load(f)
-        if salvo.get("n_treino") == len(X):
+        try:                                     # outra versão do scikit-learn pode não abrir o pickle
+            with ARQ_PKL.open("rb") as f:
+                salvo = pickle.load(f)
+        except Exception as e:
+            print(f"  modelo_base.pkl ilegível ({e}); retreinando.")
+        if salvo and salvo.get("n_treino") == len(X):
             print(f"Modelo de base já treinado com {len(X)} rótulos do Claude; sem retreino.")
             return salvo
     import numpy as np
