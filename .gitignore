@@ -1,0 +1,49 @@
+# Dependências
+node_modules/
+.pnpm-store/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build
+dist/
+build/
+out/
+.next/
+.turbo/
+.cache/
+coverage/
+*.egg-info/
+.pytest_cache/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Playwright e capturas de tela
+.playwright-mcp/
+playwright-report/
+test-results/
+screenshots/
+*.png.tmp
+Screenshot*.png
+captura*.png
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Configuração local do Claude Code
+.claude/settings.local.json

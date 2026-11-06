@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "false"
+  },
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Edit(./**)",
+      "Write(./**)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(pnpm *)",
+      "Bash(npx *)",
+      "Bash(python *)",
+      "Bash(pip *)",
+      "Bash(uv *)",
+      "Bash(uvx *)",
+      "PowerShell(git *)",
+      "PowerShell(gh *)",
+      "PowerShell(node *)",
+      "PowerShell(npm *)",
+      "PowerShell(pnpm *)",
+      "PowerShell(npx *)",
+      "PowerShell(python *)",
+      "PowerShell(pip *)",
+      "PowerShell(uv *)",
+      "PowerShell(uvx *)",
+      "mcp__playwright"
+    ],
+    "ask": [
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git reset --hard*)",
+      "Bash(npm install -g*)",
+      "Bash(pnpm add -g*)",
+      "PowerShell(npm install -g*)",
+      "PowerShell(pnpm add -g*)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.local)",
+      "Read(**/.env.*.local)",
+      "Read(**/.env.development)",
+      "Read(**/.env.production)",
+      "Read(**/.env.test)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/secrets/**)",
+      "Read(**/*secret*)",
+      "Read(**/*credentials*)",
+      "Read(**/node_modules/**)",
+      "Read(**/.venv/**)",
+      "Read(**/__pycache__/**)",
+      "Read(**/dist/**)",
+      "Read(**/build/**)",
+      "Read(**/.next/**)",
+      "Read(**/out/**)",
+      "Bash(cat *.env*)",
+      "PowerShell(Get-Content *.env*)"
+    ]
+  }
+}
