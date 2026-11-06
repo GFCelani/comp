@@ -207,8 +207,9 @@ def notas_de(ata: int) -> dict[int, int]:
 
 
 def indices_por_ata() -> dict[int, float | None]:
-    arq = ARQ_INDICE_MODELO if ARQ_INDICE_MODELO.exists() else ARQ_INDICE
-    return {a["ata"]: a.get("indice") for a in ler(arq)["atas"]}
+    # Índice de TOM (média das notas sem zeros). banco/indice_modelo.json agora guarda
+    # P(alta) − P(corte) do modelo de decisão, não tom; por isso não é usado aqui.
+    return {a["ata"]: a.get("indice") for a in ler(ARQ_INDICE)["atas"]}
 
 
 def dados_mercado() -> tuple[str, str | None, str | None]:
