@@ -133,10 +133,10 @@ export default async function Pagina() {
   const selicHoje = pvy?.ultima_decisao?.selic ?? ud?.selic ?? u.selic_apos;
   const fraseSelic =
     pv?.previsto === "manutencao"
-      ? `Selic mantida em ${fmtSelic(selicHoje)}`
+      ? `Selic deve ficar em ${fmtSelic(selicHoje)}`
       : pv?.previsto === "aperto"
-        ? `Selic sobe a partir de ${fmtSelic(selicHoje)}`
-        : `Selic cai a partir de ${fmtSelic(selicHoje)}`;
+        ? `Selic deve subir a partir de ${fmtSelic(selicHoje)}`
+        : `Selic deve cair a partir de ${fmtSelic(selicHoje)}`;
 
   const anterior = serie.length > 1 ? serie[serie.length - 2] : null;
   const ataRelatorio = pv?.base_ata ?? u.numero;
@@ -152,7 +152,7 @@ export default async function Pagina() {
       <main id="conteudo" className="flex-1">
         {/* 1. Capa: altura da tela menos o header, conteúdo centralizado */}
         <section className="relative lg:min-h-[100svh] lg:flex lg:flex-col pt-[104px] sm:pt-[112px] lg:pt-[92px]" aria-labelledby="manchete">
-          {/* espaço acima : abaixo = 1 : 2 */}
+          {/* conjunto centralizado entre o header e o fim da primeira tela */}
           <div aria-hidden className="hidden lg:block lg:flex-[1]" />
           <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
           <div className="envelope relative w-full">
@@ -203,9 +203,9 @@ export default async function Pagina() {
               </div>
 
               {/* Cartão: mesma altura do bloco de texto (grade esticada) */}
-              <div className="relative">
-              <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col lg:absolute lg:inset-0" aria-label="Destaques">
-                <div className="px-5 py-3 bg-fundo-petroleo">
+
+              <aside className="entra-cartao cartao-destaque flex flex-col" aria-label="Destaques">
+                <div className="px-5 py-3 bg-fundo-petroleo rounded-t-[17px]">
                   <p className="rotulo text-acento">Leia o relatório de hoje</p>
                   <p className="titulo-serifa mt-0.5 text-[1.125rem] leading-[1.25]">
                     O que mudou na ata {ataRelatorio}
@@ -221,7 +221,7 @@ export default async function Pagina() {
                   </a>
                 </div>
 
-                <div id="previsao" className="flex-1 min-h-0 flex flex-col justify-between gap-1.5 border-t border-linha px-5 py-3">
+                <div id="previsao" className="flex-1 flex flex-col justify-center gap-2 border-t border-linha px-5 py-4">
                   <div className="flex items-baseline justify-between gap-3">
                     <p className="text-[0.875rem] font-medium text-tinta">
                       Previsão para a próxima reunião{proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
@@ -278,10 +278,10 @@ export default async function Pagina() {
                   )}
                 </div>
               </aside>
-              </div>
+
             </div>
           </div>
-          <div aria-hidden className="hidden lg:block lg:flex-[2]" />
+          <div aria-hidden className="hidden lg:block lg:flex-[1]" />
         </section>
 
         {/* 2. Relatório */}
