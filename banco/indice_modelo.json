@@ -1,6 +1,6 @@
 {
   "metodo": "modelo_logistica: P(alta) − P(corte) da reunião seguinte; fora da amostra pela janela no tempo da ata 251 em diante, dentro da amostra (treino nas 15 primeiras) antes",
-  "gerado_em": "2026-11-06T14:37:31",
+  "gerado_em": "2026-11-06T14:43:23",
   "atas": [
     {
       "ata": 281,

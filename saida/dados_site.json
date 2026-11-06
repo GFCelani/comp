@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T14:38:49-03:00",
+  "gerado_em": "2026-11-06T14:43:27-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T14:38:49-03:00",
+  "ultima_verificacao": "2026-11-06T14:43:27-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -417,7 +417,7 @@
   ],
   "mudancas_origem": "claude",
   "impacto": {
-    "texto": "O índice de tom da ata 281 ficou em 0,62, contra 0,90 na ata 280, uma variação de -0,28 na escala de -2 a +2. Na reunião, o Copom decidiu cortar a Selic em 0,25 ponto percentual, e a meta passou a 13,75% ao ano. Se esse tom mais brando se mantiver, os juros futuros tendem a recuar e a próxima decisão pode trazer novo corte da Selic.",
+    "texto": "O índice de tom da ata 281 ficou em 0,23, contra -0,66 na ata 280, uma variação de +0,89 na escala de -2 a +2. Na reunião, o Copom decidiu cortar a Selic em 0,25 ponto percentual, e a meta passou a 13,75% ao ano. Se esse tom mais duro se mantiver, os juros futuros tendem a ficar mais altos e a próxima decisão pode manter a Selic por mais tempo ou interromper cortes.",
     "data_selic": "2026-11-06",
     "data_focus": "2026-10-30",
     "origem": "automatico"
@@ -4415,12 +4415,12 @@
   },
   "manchete": {
     "texto": "Copom deve manter a Selic em 09/12; ata mostra tom menos duro",
-    "linha_fina": "A manutenção vem do método de maior acurácia histórica, que acertou 84% das reuniões; na ata 281 o tom ficou menos duro, com variação de 0,28 ponto para baixo.",
+    "linha_fina": "O método de maior acurácia histórica, com 81% das reuniões, aponta manutenção da Selic em 13,75% ao ano, e a ata 281 ficou menos dura que a ata 280.",
     "origem": "claude"
   },
   "relatorio": {
     "origem": "claude",
-    "gerado_em": "2026-11-06T14:16:56-03:00",
+    "gerado_em": "2026-11-06T14:42:25-03:00",
     "reescritas": 0,
     "secoes": [
       {
@@ -4428,7 +4428,7 @@
         "titulo": "O que mudou na comunicação do Copom",
         "paragrafos": [
           {
-            "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Também surgiu um parágrafo sobre crédito, que mostra redução nas modalidades de prazo mais longo, as mais sensíveis à política monetária [[c2]].",
+            "texto": "A ata 281 registra que a atividade doméstica seguiu em moderação, com o PIB do segundo trimestre confirmando a desaceleração [[c1]]. O Comitê também descreve a inflação ao consumidor abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c2]].",
             "citacoes": [
               {
                 "id": "c1",
@@ -4441,31 +4441,31 @@
               {
                 "id": "c2",
                 "ata": 281,
-                "paragrafo": 6,
-                "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo",
+                "paragrafo": 9,
+                "trecho": "Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
             ]
           },
           {
-            "texto": "O Comitê afirma que a inflação cheia e a média das medidas subjacentes desaceleraram e estão abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]]. Na ata anterior, a inflação cheia ainda aparecia acima do limite superior da meta [[c4]].",
+            "texto": "Os preços aos produtores passaram a aparecer em aceleração, tanto em bens intermediários quanto em bens de consumo [[c3]]. O crédito livre também aparece em desaceleração na ata 281 [[c4]].",
             "citacoes": [
               {
                 "id": "c3",
                 "ata": 281,
-                "paragrafo": 2,
-                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "paragrafo": 9,
+                "trecho": "as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c4",
-                "ata": 280,
-                "paragrafo": 2,
-                "trecho": "a inflação cheia desacelerou, porém ainda acima do limite superior da meta",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
-                "data_reuniao": "2026-08-05"
+                "ata": 281,
+                "paragrafo": 6,
+                "trecho": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
               }
             ]
           }
@@ -4476,29 +4476,37 @@
         "titulo": "O efeito provável no mercado",
         "paragrafos": [
           {
-            "texto": "A ata mantém o aviso de que a restrição monetária precisa durar mais tempo, o que pode sustentar juros futuros elevados por um período maior [[c5]]. A leitura de que os riscos têm assimetria altista tende a manter o câmbio e a inflação esperada sob atenção [[c6]]. A evidência de que a política monetária já chega à atividade sinaliza que o crédito tende a seguir desacelerando [[c7]].",
+            "texto": "A linguagem de restrição pode sustentar juros futuros mais altos por mais tempo, já que o Comitê afirma que a política monetária deve manter caráter restritivo [[c5]]. Com expectativas desancoradas, o Comitê diz que se exige restrição monetária maior e por mais tempo, o que tende a limitar a margem para juros menores [[c6]]. Uma taxa de câmbio persistentemente mais depreciada, apontada pelo Comitê como risco, pode pressionar a inflação [[c7]]. A discussão sobre disciplina fiscal pode influenciar o prêmio a termo da curva de juros, segundo o Comitê [[c8]].",
             "citacoes": [
               {
                 "id": "c5",
                 "ata": 281,
-                "paragrafo": 10,
-                "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
+                "paragrafo": 15,
+                "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c6",
                 "ata": 281,
-                "paragrafo": 13,
-                "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista.",
+                "paragrafo": 10,
+                "trecho": "em um ambiente de expectativas desancoradas, como é o caso do atual, exige-se uma restrição monetária maior e por mais tempo",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c7",
                 "ata": 281,
-                "paragrafo": 15,
-                "trecho": "evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente",
+                "paragrafo": 13,
+                "trecho": "por meio de uma taxa de câmbio persistentemente mais depreciada",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c8",
+                "ata": 281,
+                "paragrafo": 8,
+                "trecho": "tem potencial de afetar a percepção sobre a sustentabilidade da dívida e impactar o prêmio a termo da curva de juros",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4511,10 +4519,10 @@
         "titulo": "O que observar até a próxima reunião",
         "paragrafos": [
           {
-            "texto": "O Comitê diz que não deve reagir aos efeitos primários de choques de oferta, mas que vai monitorar os efeitos de segunda ordem [[c8]]. Vale acompanhar também a desancoragem das expectativas de inflação para prazos mais longos [[c9]]. Os rendimentos do mercado de trabalho, que ainda crescem em termos reais acima da produtividade, seguem no radar [[c10]].",
+            "texto": "Vale acompanhar se o Comitê mantém a posição de que não deve reagir aos efeitos primários de choques de oferta, mas monitora os efeitos de segunda ordem [[c9]]. Também importa observar a desancoragem das expectativas de inflação para prazos mais longos, que o Comitê monitora com atenção [[c10]]. O ritmo do mercado de trabalho, com rendimentos ainda crescendo em termos reais acima da produtividade, segue no radar [[c11]]. O balanço de riscos, que o Comitê descreve com assimetria altista, também merece atenção [[c12]].",
             "citacoes": [
               {
-                "id": "c8",
+                "id": "c9",
                 "ata": 281,
                 "paragrafo": 16,
                 "trecho": "não deve reagir aos efeitos primários de choques dessa natureza, mas que é necessário monitorar com atenção eventuais efeitos de segunda ordem",
@@ -4522,7 +4530,7 @@
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c9",
+                "id": "c10",
                 "ata": 281,
                 "paragrafo": 10,
                 "trecho": "O Comitê monitora com atenção a desancoragem das expectativas de inflação para prazos mais longos",
@@ -4530,10 +4538,18 @@
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c10",
+                "id": "c11",
                 "ata": 281,
                 "paragrafo": 7,
                 "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c12",
+                "ata": 281,
+                "paragrafo": 13,
+                "trecho": "permanecem mais elevados que o usual, com assimetria altista",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -6488,7 +6504,7 @@
   },
   "metricas_modelo": {
     "metodo": "modelo de decisão por ata (modelo/treinar.py), sem IA no treino",
-    "gerado_em": "2026-11-06T14:37:31",
+    "gerado_em": "2026-11-06T14:43:23",
     "n_atas": 46,
     "variaveis": [
       "decisao_atual_alta",
@@ -10037,13 +10053,13 @@
     "focus": "2026-10-30"
   },
   "conferencia_selic": {
-    "verificado_em": "2026-11-06T14:17:31-03:00",
+    "verificado_em": "2026-11-06T14:42:43-03:00",
     "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros",
     "n_comparadas": 46,
     "divergencias": []
   },
   "validacao_selic_oficial": {
-    "verificado_em": "2026-11-06T14:38:39-03:00",
+    "verificado_em": "2026-11-06T14:42:46-03:00",
     "fonte": "validacao/selic_oficial.csv (BCB, histórico das taxas de juros; ver validacao/FONTE_SELIC.md)",
     "n_csv": 47,
     "n_banco": 46,
@@ -10056,7 +10072,7 @@
   },
   "indice_modelo": {
     "metodo": "modelo_logistica: P(alta) − P(corte) da reunião seguinte; fora da amostra pela janela no tempo da ata 251 em diante, dentro da amostra (treino nas 15 primeiras) antes",
-    "gerado_em": "2026-11-06T14:37:31",
+    "gerado_em": "2026-11-06T14:43:23",
     "atas": [
       {
         "ata": 281,

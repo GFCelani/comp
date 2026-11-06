@@ -1,6 +1,6 @@
 {
   "metodo": "modelo de decisão por ata (modelo/treinar.py), sem IA no treino",
-  "gerado_em": "2026-11-06T14:37:31",
+  "gerado_em": "2026-11-06T14:43:23",
   "n_atas": 46,
   "variaveis": [
     "decisao_atual_alta",
