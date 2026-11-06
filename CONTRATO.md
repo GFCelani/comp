@@ -318,3 +318,13 @@ A rota devolve no máximo 5 resultados com até 40 palavras de `texto` cada.
 ## Edições do painel (banco Postgres)
 
 Escreve: o site (`/painel/editar`). Tabelas `edicoes(id, criado_em, campo, chave, valor_antigo, valor_novo, motivo)` e `config(chave, valor)`. O site público aplica a edição mais recente de cada `campo`+`chave` sobre o JSON e marca "revisado pelo time"; o JSON original nunca muda. Se o banco estiver fora, o site mostra o JSON.
+
+Campos editáveis de textos (acrescentados em 06/11):
+
+| campo | chave | regra |
+|---|---|---|
+| `manchete.texto` | `<ata>` | texto livre, não vazio, até 300 caracteres, motivo obrigatório |
+| `manchete.linha_fina` | `<ata>` | idem |
+| `relatorio.paragrafo` | `<ata>.<secao>.<i>` (secao ∈ `mudou`, `efeito`, `observar`; i base 0) | ao menos um marcador `[[cN]]`; todo marcador tem de existir nas `citacoes` do parágrafo original; nenhuma citação nova; motivo obrigatório |
+
+`<ata>` é `relatorio.base_ata`, senão `previsao.base_ata`, senão `resumo.ultima_ata.numero`. Quando o pipeline regenera manchete e relatório para outra ata, as edições antigas deixam de ser aplicadas (continuam no histórico).

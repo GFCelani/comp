@@ -2,6 +2,7 @@ import "server-only";
 import { dados as original, type DadosSite } from "./dados";
 import { bancoConfigurado, estadoAtual, lerConfig, type Edicao } from "./painel/db";
 import { textoDoParagrafo } from "./busca";
+import { aplicarEdicoesTextos } from "./edicoesTextos";
 
 /**
  * Edições do time, aplicadas por cima do JSON na hora de montar a página.
@@ -11,6 +12,8 @@ import { textoDoParagrafo } from "./busca";
  *  - "mudanca.trecho" / "mudanca.explicacao"  chave "<ata>.<índice>"
  *  - "impacto.texto"                           chave "<ata>"
  *  - "nota"                                    chave "<ata>.<parágrafo>"
+ *  - "manchete.texto" / "manchete.linha_fina"  chave "<ata>"
+ *  - "relatorio.paragrafo"                     chave "<ata>.<secao>.<i>"  (ver lib/edicoesTextos.ts)
  * As chaves levam o nº da ata: quando sai uma ata nova, edições da anterior deixam de valer.
  */
 
@@ -18,11 +21,24 @@ export type Revisados = {
   mudancas: Set<number>;
   impacto: boolean;
   notas: Set<string>;
+  /** manchete.texto revisado pelo time. */
+  manchete?: boolean;
+  /** manchete.linha_fina revisada pelo time. */
+  linhaFina?: boolean;
+  /** Chaves "<ata>.<secao>.<i>" dos parágrafos do relatório revisados. */
+  relatorioParagrafos?: Set<string>;
 };
 
 export type DadosRevisados = { dados: DadosSite; revisados: Revisados; fonteIndiceEscolhida: string | null };
 
-const vazio = (): Revisados => ({ mudancas: new Set(), impacto: false, notas: new Set() });
+const vazio = (): Revisados => ({
+  mudancas: new Set(),
+  impacto: false,
+  notas: new Set(),
+  manchete: false,
+  linhaFina: false,
+  relatorioParagrafos: new Set(),
+});
 
 function comTempoLimite<T>(p: Promise<T>, ms: number): Promise<T> {
   return Promise.race([
@@ -57,6 +73,10 @@ export function aplicarEdicoes(base: DadosSite, edicoes: Edicao[]): { dados: Dad
       r.notas.add(e.chave);
     }
   }
+  const t = aplicarEdicoesTextos(d, edicoes);
+  r.manchete = t.manchete;
+  r.linhaFina = t.linhaFina;
+  r.relatorioParagrafos = t.relatorioParagrafos;
   return { dados: d, revisados: r };
 }
 

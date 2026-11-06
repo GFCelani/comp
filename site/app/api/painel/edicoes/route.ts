@@ -3,6 +3,8 @@ import { revalidatePath } from "next/cache";
 import { exigirSessao } from "@/lib/painel/guarda";
 import { bancoConfigurado, gravarConfig, listarEdicoes, registrarEdicao } from "@/lib/painel/db";
 import { obterDados, trechoValido } from "@/lib/edicoes";
+import { ataDosTextos, lerChaveParagrafo, paragrafoDaChave, SECOES_EDITAVEIS, validarManchete, validarParagrafo } from "@/lib/edicoesTextos";
+import type { CamposNovos } from "@/lib/previsao";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,6 +32,7 @@ type Pedido = {
   indice?: unknown;
   ata?: unknown;
   paragrafo?: unknown;
+  chave?: unknown;
   valor?: unknown;
   motivo?: unknown;
 };
@@ -86,6 +89,30 @@ export async function POST(request: NextRequest) {
       if (!item) return erro("Parágrafo não encontrado entre os que têm nota nesta ata.");
       if (item.nota === nota) return erro("Nada mudou.");
       await registrarEdicao({ campo: "nota", chave: `${a}.${par}`, valor_antigo: String(item.nota), valor_novo: String(nota), motivo });
+    } else if (p.campo === "manchete.texto" || p.campo === "manchete.linha_fina") {
+      const manchete = (dados as typeof dados & CamposNovos).manchete;
+      if (!manchete) return erro("Esta edição do site ainda não tem manchete gerada pelo pipeline.", 404);
+      const v = validarManchete(valor);
+      if (!v.ok) return erro(v.motivo, 422);
+      if (!motivo) return erro("Explique o motivo da mudança.");
+      const antigo = p.campo === "manchete.texto" ? manchete.texto : (manchete.linha_fina ?? null);
+      if (antigo === valor) return erro("Nada mudou.");
+      await registrarEdicao({ campo: p.campo, chave: String(ataDosTextos(dados)), valor_antigo: antigo, valor_novo: valor, motivo });
+    } else if (p.campo === "relatorio.paragrafo") {
+      const chave = typeof p.chave === "string" ? p.chave.trim() : "";
+      const k = lerChaveParagrafo(chave);
+      if (!k || !(SECOES_EDITAVEIS as readonly string[]).includes(k.secao)) {
+        return erro(`Chave inválida. Use "<ata>.<secao>.<i>", com secao em ${SECOES_EDITAVEIS.join(", ")} e i a partir de 0.`);
+      }
+      const ataRel = ataDosTextos(dados);
+      if (k.ata !== ataRel) return erro(`O relatório atual é da ${ataRel}ª ata; a chave aponta para a ${k.ata}ª. Recarregue o painel.`, 409);
+      const par = paragrafoDaChave(dados, chave);
+      if (!par) return erro("Parágrafo do relatório não encontrado.", 404);
+      const v = validarParagrafo(valor, par.citacoes.map((c) => c.id));
+      if (!v.ok) return erro(v.motivo, 422);
+      if (!motivo) return erro("Explique o motivo da mudança.");
+      if (par.texto === valor) return erro("Nada mudou.");
+      await registrarEdicao({ campo: "relatorio.paragrafo", chave, valor_antigo: par.texto, valor_novo: valor, motivo });
     } else if (p.campo === "config.fonte_indice") {
       if (valor !== "simples" && valor !== "modelo") return erro("Fonte do índice deve ser “simples” ou “modelo”.");
       await gravarConfig("fonte_indice", valor);
