@@ -3,11 +3,11 @@ import { dados } from "@/lib/dados";
 import { dataCurta } from "@/lib/formato";
 
 const editorias = [
-  { href: "/#mudancas", rotulo: "o que mudou" },
-  { href: "/#impacto", rotulo: "impacto" },
-  { href: "/#atas", rotulo: "atas" },
+  { href: "/#relatorio", rotulo: "relatório" },
+  { href: "/#tom", rotulo: "tom" },
+  { href: "/#evidencia", rotulo: "evidência" },
   { href: "/#perguntar", rotulo: "perguntar" },
-  { href: "/#como-medimos", rotulo: "como medimos" },
+  { href: "/#atas", rotulo: "atas" },
 ];
 
 export function Cabecalho({ atual }: { atual: "site" | "painel" }) {
@@ -31,7 +31,7 @@ export function Cabecalho({ atual }: { atual: "site" | "painel" }) {
           </div>
           <Link
             href={atual === "painel" ? "/" : "/painel"}
-            className={`botao text-xs ${atual === "painel" ? "" : "botao-principal"}`}
+            className="botao text-xs"
           >
             {atual === "painel" ? "voltar ao jornal" : "painel de verificação"}
           </Link>

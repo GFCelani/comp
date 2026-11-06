@@ -92,7 +92,7 @@ function Dica({ active, payload }: TooltipProps) {
   );
 }
 
-export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
+export function GraficoIndice({ serie, compacto = false }: { serie: PontoSerie[]; compacto?: boolean }) {
   const selics = serie.map((p) => p.selic_apos);
   const minS = Math.floor(Math.min(...selics) * 2) / 2 - 0.5;
   const maxS = Math.ceil(Math.max(...selics) * 2) / 2 + 0.5;
@@ -100,7 +100,7 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
 
   return (
     <div>
-      <div className="h-[300px] sm:h-[340px] w-full" role="img" aria-label="Gráfico do índice de tom por ata, com a Selic meta no eixo direito">
+      <div className={`${compacto ? "h-[200px] sm:h-[220px]" : "h-[300px] sm:h-[340px]"} w-full`} role="img" aria-label="Gráfico do índice de tom por ata, com a Selic meta no eixo direito">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={serie} margin={{ top: 24, right: 12, bottom: 4, left: 4 }}>
             <CartesianGrid stroke="var(--borda)" strokeDasharray="3 3" vertical={false} />

@@ -97,6 +97,7 @@ export type DadosSite = {
   ultima_verificacao?: string | null;
   textos_pendentes?: boolean;
   textos_origem?: string | null;
+  mudancas_origem?: string | null;
   conferencia_selic?: ConferenciaSelic | null;
   fonte_indice: "simples" | "modelo";
   resumo: {

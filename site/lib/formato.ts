@@ -82,8 +82,8 @@ export function pct(v: number | null | undefined): string {
 }
 
 export function decisao(d: Decisao, pp?: number): string {
-  if (d === "alta") return pp !== undefined ? `subiu ${pontos(pp)}` : "subiu";
-  if (d === "corte") return pp !== undefined ? `cortou ${pontos(pp)}` : "cortou";
+  if (d === "alta") return pp !== undefined ? `subiu ${pontos(Math.abs(pp)).replace("+", "")}` : "subiu";
+  if (d === "corte") return pp !== undefined ? `cortou ${pontos(Math.abs(pp)).replace("+", "")}` : "cortou";
   return "manteve";
 }
 
