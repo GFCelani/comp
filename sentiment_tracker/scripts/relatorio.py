@@ -110,6 +110,22 @@ def main():
                       f"{g['veredito_analistas'] or '—'} | {g['d_pre2_pb'] if g['d_pre2_pb'] is not None else '—'} |")
         md.append("")
 
+    d = c.get("direcao")
+    if d:
+        v = d["matriz"]["valores"]
+        md += ["## 6b. Direção: mais dura / em linha / mais branda", "",
+               f"Veredito em 3 classes com zona neutra: |surpresa| < {num(d['limiar_zona_neutra'])} → \"em linha\". "
+               "O limiar é escolhido por leave-one-out **aninhado** (cada ata é classificada com um limiar escolhido "
+               "sem ela).", "",
+               f"- Acerto em 3 classes: **{pct(d['acuracia_3_classes'])}** (dizer sempre \"em linha\": {pct(d['base_sempre_em_linha'])}).",
+               f"- Quando aponta uma direção, acerta: **{pct(d['precisao_quando_aponta_direcao'])}** "
+               f"({d['n_direcoes_apontadas']} atas).",
+               f"- Atas que tiveram direção (pelo gabarito) e foram pegas: {pct(d['recall_atas_direcionais'])} de {d['n_atas_direcionais']}.",
+               f"- **Sentido trocado** (disse \"mais dura\" e foi \"mais branda\", ou o contrário): **{d['erros_de_sinal_trocado']}**.", "",
+               "| real \\ previsto | mais branda | em linha | mais dura |", "|---|---|---|---|",
+               f"| mais branda | {v[0][0]} | {v[0][1]} | {v[0][2]} |",
+               f"| em linha | {v[1][0]} | {v[1][1]} | {v[1][2]} |",
+               f"| mais dura | {v[2][0]} | {v[2][1]} | {v[2][2]} |", ""]
     md += ["## 7. Melhorias desta versão (medidas, não supostas)", ""]
     md += [f"- **A · gabarito de mercado menos ruidoso**: z médio do prefixado 1a e 2a, em 1 e 2 dias. "
            f"Correlação com a surpresa dos analistas: {num(reac['z_pre2'].corr(reac['surpresa_analistas'].astype(float)))} "
@@ -138,6 +154,12 @@ def main():
             v = tf[k]
             md.append(f"| {nome} | {v['n']} | {num(v['correlacao'])} | {pct(v['acerto_direcao'])} ({v['n_direcionais']}) | "
                       f"{num(v['erro_medio_abs'])} | {num(v['erro_base_zero'])} |")
+        dd = tf.get("direcao")
+        if dd:
+            md += ["", f"Direção (limiar congelado {num(dd['limiar_congelado'])}) × analistas: acerto em 3 classes "
+                   f"{pct(dd['acuracia_3_classes_vs_analistas'])} (sempre \"em linha\": {pct(dd['base_sempre_em_linha'])}); "
+                   f"direções apontadas {dd['direcoes_apontadas']}, acertos {dd['acertos_quando_aponta']}; sentido trocado "
+                   f"{dd['erros_de_sinal_trocado']}."]
         md += ["", "Leitura: em 2020 quase todas as atas foram \"em linha\" para os analistas (só 1 direcional), então o "
                "teste confirma a ordenação (correlação positiva) mas mostra que o modelo **superestima a surpresa** de "
                "atas em linha — erro médio maior que prever sempre 0. n = 8: checagem de sanidade, não estimativa precisa.", ""]

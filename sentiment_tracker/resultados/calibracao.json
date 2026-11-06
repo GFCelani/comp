@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T14:46:24-03:00",
+ "gerado_em": "2026-11-06T14:51:29-03:00",
  "alvo": "rotulo_surpresa = média de surpresa dos analistas (peso 1) e z da variação do prefixado 2 anos no dia da ata (peso 0 a 0,5 conforme contaminação por outros eventos)",
  "features": [
   "claude_surpresa",
@@ -13,6 +13,7 @@
   "claude_surpresa": 0.388,
   "claude_encolhida": 0.441,
   "claude_mudancas": 0.33,
+  "duas_leituras": 0.441,
   "ridge": 0.261
  },
  "regra_escolha": "maior correlação leave-one-out; ridge só se superar o melhor sem ajuste por > 0,03",
@@ -44,6 +45,13 @@
    "acerto_direcao": 0.783,
    "n_direcionais": 23,
    "erro_medio_abs": 0.801
+  },
+  "duas_leituras": {
+   "n": 46,
+   "correlacao": 0.441,
+   "acerto_direcao": 0.696,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.573
   },
   "ridge": {
    "n": 46,
@@ -89,6 +97,41 @@
   "n_direcionais": 22,
   "erro_medio_abs": 0.958,
   "nota": "z médio do prefixado 1a/2a em 1 e 2 dias (melhoria A); peso_mercado > 0"
+ },
+ "direcao": {
+  "limiar_zona_neutra": 0.32499999999999996,
+  "acuracia_3_classes": 0.543,
+  "base_sempre_em_linha": 0.5,
+  "precisao_quando_aponta_direcao": 0.529,
+  "n_direcoes_apontadas": 17,
+  "erros_de_sinal_trocado": 1,
+  "recall_atas_direcionais": 0.391,
+  "n_atas_direcionais": 23,
+  "matriz": {
+   "rotulos": [
+    -1,
+    0,
+    1
+   ],
+   "valores": [
+    [
+     3,
+     3,
+     1
+    ],
+    [
+     2,
+     16,
+     5
+    ],
+    [
+     0,
+     10,
+     6
+    ]
+   ],
+   "nota": "linhas = real (gabarito), colunas = previsto (LOO aninhado)"
+  }
  },
  "sinais_isolados_vs_rotulo": {
   "claude_surpresa": {
@@ -168,6 +211,7 @@
   }
  },
  "congelado": {
+  "limiar_zona_neutra": 0.32499999999999996,
   "estimador": "claude_encolhida",
   "lex_nivel_media": 2.0142608695652173,
   "lex_nivel_dp": 1.6042439054621838,

@@ -15,7 +15,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from indice import concordancia, nivel_ponderado
+from indice import concordancia, nivel_ponderado, segunda_leitura
 from lexico import placar_ata
 
 RAIZ = Path(__file__).resolve().parents[1]
@@ -49,8 +49,10 @@ if __name__ == "__main__":
         ld = (lex[n] - lex[n - 1]) if (n - 1) in lex else 0.0
         ldz = float(np.clip(ld / cg["lex_delta_dp"], -2, 2))
         conc = concordancia([cs, mud, ldz])
-        cand = {"claude_surpresa": cs, "claude_encolhida": cs * (0.5 + 0.5 * conc), "media_sinais": None,
-                "claude_mudancas": (cs + mud) / 2}
+        enc = cs * (0.5 + 0.5 * conc)
+        seg = segunda_leitura(n)
+        cand = {"claude_surpresa": cs, "claude_encolhida": enc, "media_sinais": None,
+                "claude_mudancas": (cs + mud) / 2, "duas_leituras": enc if np.isnan(seg) else (enc + seg) / 2}
         linhas.append({"ata": n, "nivel": (nivel_ponderado(df) + float(r["resumo"]["tom_nivel"])) / 2,
                        "claude_surpresa": cs, "mudancas": mud, "lex_delta_z": ldz,
                        "surpresa": cand.get(cg["estimador"], cs), "concord": conc})
@@ -58,14 +60,26 @@ if __name__ == "__main__":
     reac = pd.read_csv(H / "reacao.csv")
     a = a.merge(reac[["ata", "surpresa_analistas", "rotulo_surpresa", "z_mercado", "peso_mercado", "veredito"]], on="ata", how="left")
     limpo = a[a["peso_mercado"] > 0]
+    tau = cg["limiar_zona_neutra"]
+    prev = np.where(a["surpresa"].abs() >= tau, np.sign(a["surpresa"]), 0)
+    real = np.where(a["surpresa_analistas"].abs() >= 0.5, np.sign(a["surpresa_analistas"]), 0)
+    ok = a["surpresa_analistas"].notna().to_numpy()
+    a["direcao_prevista"] = prev
+    direcao = {"limiar_congelado": tau, "n": int(ok.sum()),
+               "acuracia_3_classes_vs_analistas": round(float((prev[ok] == real[ok]).mean()), 3),
+               "base_sempre_em_linha": round(float((real[ok] == 0).mean()), 3),
+               "erros_de_sinal_trocado": int(((prev * real)[ok] < 0).sum()),
+               "direcoes_apontadas": int((prev[ok] != 0).sum()),
+               "acertos_quando_aponta": int(((prev == real) & (prev != 0))[ok].sum())}
     res = {"atas": sorted(a["ata"].tolist()), "estimador_congelado": cg["estimador"],
            "vs_rotulo_combinado": metricas(a["surpresa"], a["rotulo_surpresa"]),
            "vs_analistas": metricas(a["surpresa"], a["surpresa_analistas"]),
            "vs_mercado_z_dias_limpos": metricas(limpo["surpresa"], limpo["z_mercado"].clip(-2, 2)),
            "claude_cru_vs_analistas": metricas(a["claude_surpresa"], a["surpresa_analistas"]),
+           "direcao": direcao,
            "por_ata": a.round(2).to_dict(orient="records"),
            "nota": "Modelo congelado com atas 2021–2026; atas de 2020 nunca vistas. n pequeno: ler como "
                    "checagem de sanidade, não como estimativa precisa."}
     (RAIZ / "resultados" / "teste_fora_amostra.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     print(a[["ata", "surpresa", "claude_surpresa", "surpresa_analistas", "veredito", "z_mercado", "peso_mercado"]].round(2).to_string(index=False))
-    print({k: res[k] for k in ("vs_rotulo_combinado", "vs_analistas", "vs_mercado_z_dias_limpos", "claude_cru_vs_analistas")})
+    print(direcao); print({k: res[k] for k in ("vs_rotulo_combinado", "vs_analistas", "vs_mercado_z_dias_limpos", "claude_cru_vs_analistas")})

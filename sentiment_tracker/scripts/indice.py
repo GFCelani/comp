@@ -85,6 +85,14 @@ def por_ata(r: dict) -> dict:
     }
 
 
+def segunda_leitura(n: int, pasta: Path | None = None) -> float:
+    f = (pasta or DADOS / "segunda_leitura") / f"ata_{n}.json"
+    if not f.exists():
+        return np.nan
+    v = json.loads(f.read_text(encoding="utf-8")).get("surpresa")
+    return float(np.clip(v, -2, 2)) if isinstance(v, (int, float)) else np.nan
+
+
 def concordancia(vals: list[float]) -> float:
     """1 = todos iguais; 0 = espalhados por toda a régua (−2..+2)."""
     v = np.array([x for x in vals if x is not None and not np.isnan(x)])
@@ -117,6 +125,10 @@ def main():
     a["concord_surp"] = [concordancia([r.claude_surpresa, r.mudancas, r.lex_delta_z]) for r in a.itertuples()]
     a["claude_encolhida"] = a["claude_surpresa"] * (0.5 + 0.5 * a["concord_surp"])
     a["claude_mudancas"] = (a["claude_surpresa"] + a["mudancas"]) / 2
+    # 2ª leitura independente (só o diff, foco em direção), se existir
+    a["segunda"] = [segunda_leitura(n) for n in a["ata"]]
+    a["duas_leituras"] = np.where(a["segunda"].notna(), (a["claude_encolhida"] + a["segunda"].fillna(0)) / 2,
+                                  a["claude_encolhida"])
     treino = a.dropna(subset=["rotulo_surpresa"]).copy()
     X, y = treino[FEATURES].to_numpy(), treino["rotulo_surpresa"].to_numpy()
     loo_ridge = np.empty(len(y))
@@ -128,6 +140,7 @@ def main():
             "claude_surpresa": (treino["claude_surpresa"].to_numpy(), 1, lambda df: df["claude_surpresa"]),
             "claude_encolhida": (treino["claude_encolhida"].to_numpy(), 1, lambda df: df["claude_encolhida"]),
             "claude_mudancas": (treino["claude_mudancas"].to_numpy(), 1, lambda df: df["claude_mudancas"]),
+            "duas_leituras": (treino["duas_leituras"].to_numpy(), 1, lambda df: df["duas_leituras"]),
             "ridge": (loo_ridge, len(FEATURES) + 1, lambda df: pd.Series(ridge.predict(df[FEATURES].to_numpy()), index=df.index))}
     corr = {k: float(np.corrcoef(v[0], y)[0, 1]) for k, v in cand.items()}
     sem_ajuste = max((k for k in cand if k != "ridge"), key=lambda k: corr[k])
@@ -138,6 +151,33 @@ def main():
     rmse = float(np.sqrt((resid ** 2).sum() / max(len(y) - k, 1)))
     meia_banda = stats.t.ppf(0.975, len(y) - k) * rmse * np.sqrt(1 + 1 / len(y))
     a["surpresa"] = prever_fn(a).clip(-2, 2)
+    # --- direção (3 classes) com zona neutra; limiar escolhido por leave-one-out aninhado -------------
+    classe_real = np.where(np.abs(y) >= 0.5, np.sign(y), 0)
+    grade = np.round(np.arange(0.0, 1.01, 0.05), 2)
+    def melhor_tau(pred, real):
+        acc = [((np.where(np.abs(pred) >= t, np.sign(pred), 0)) == real).mean() for t in grade]
+        best = max(acc)
+        return float(np.median([t for t, a_ in zip(grade, acc) if a_ == best]))
+    dir_loo = np.empty(len(y))
+    for i in range(len(y)):
+        m = np.ones(len(y), bool); m[i] = False
+        t_i = melhor_tau(loo[m], classe_real[m])
+        dir_loo[i] = np.sign(loo[i]) if abs(loo[i]) >= t_i else 0
+    tau = melhor_tau(loo, classe_real)
+    a["direcao_num"] = np.where(a["surpresa"].abs() >= tau, np.sign(a["surpresa"]), 0)
+    chamadas = dir_loo != 0
+    direcao_metr = {
+        "limiar_zona_neutra": tau,
+        "acuracia_3_classes": round(float((dir_loo == classe_real).mean()), 3),
+        "base_sempre_em_linha": round(float((classe_real == 0).mean()), 3),
+        "precisao_quando_aponta_direcao": round(float((dir_loo[chamadas] == classe_real[chamadas]).mean()), 3) if chamadas.any() else None,
+        "n_direcoes_apontadas": int(chamadas.sum()),
+        "erros_de_sinal_trocado": int(((dir_loo * classe_real) < 0).sum()),
+        "recall_atas_direcionais": round(float(((dir_loo == classe_real) & (classe_real != 0)).sum() / max((classe_real != 0).sum(), 1)), 3),
+        "n_atas_direcionais": int((classe_real != 0).sum()),
+        "matriz": {"rotulos": [-1, 0, 1], "valores": [[int(((classe_real == r) & (dir_loo == q)).sum()) for q in (-1, 0, 1)] for r in (-1, 0, 1)],
+                   "nota": "linhas = real (gabarito), colunas = previsto (LOO aninhado)"},
+    }
     a = a.merge(treino[["ata", "surpresa_loo"]], on="ata", how="left")
     final = ridge
 
@@ -169,6 +209,7 @@ def main():
         "loo_vs_mercado_z_dias_limpos": {**metricas(treino.loc[limpo.index, "surpresa_loo"] if False else
                                                     loo[treino.index.isin(limpo.index)], limpo["z_mercado"].clip(-2, 2)),
                                          "nota": "z médio do prefixado 1a/2a em 1 e 2 dias (melhoria A); peso_mercado > 0"},
+        "direcao": direcao_metr,
         "sinais_isolados_vs_rotulo": {f: metricas(treino[f], y) for f in FEATURES + ["claude_nivel", "nivel"]},
         "base_ingenua_zero": {"erro_medio_abs": round(float(np.abs(y).mean()), 3),
                               "nota": "prever sempre 'em linha' (0)"},
@@ -208,7 +249,7 @@ def main():
     # nota do modelo reserva (sem IA, sem leitura de surpresa): confiança limitada e sem calibração
     a.loc[a["reserva"], "confianca"] = a.loc[a["reserva"], "confianca"].clip(upper=30)
     a.loc[a["reserva"], "confianca_calibrada"] = np.nan
-    calib["congelado"] = {"estimador": escolhido, "lex_nivel_media": float(lex["lex_nivel"].mean()),
+    calib["congelado"] = {"limiar_zona_neutra": tau, "estimador": escolhido, "lex_nivel_media": float(lex["lex_nivel"].mean()),
                           "lex_nivel_dp": float(a["lex_nivel"].std()), "lex_delta_dp": float(a["lex_delta"].std()),
                           "pesos_ridge": final.coef_.tolist(), "intercepto_ridge": float(final.intercept_),
                           "intervalo_previsao_95": float(meia_banda), "cortes_confianca": cortes}
@@ -228,6 +269,7 @@ def main():
             "nivel_ic95": [round(float((r["ic_lo"] + r["claude_nivel"]) / 2), 2),
                            round(float((r["ic_hi"] + r["claude_nivel"]) / 2), 2)],
             "surpresa": round(float(r["surpresa"]), 2), "surpresa_100": int(round(50 * r["surpresa"])),
+            "direcao": {1: "mais_dura", 0: "em_linha", -1: "mais_branda"}[int(r["direcao_num"])],
             "surpresa_ip95": [round(float(r["surpresa"] - meia_banda), 2), round(float(r["surpresa"] + meia_banda), 2)],
             "confianca": int(r["confianca"]),
             "confianca_calibrada": None if pd.isna(r["confianca_calibrada"]) else int(r["confianca_calibrada"]),
@@ -243,6 +285,8 @@ def main():
                          "d_pre2_pb": None if pd.isna(r["d_pre2"]) else r["d_pre2"],
                          "peso_mercado": None if pd.isna(r["peso_mercado"]) else r["peso_mercado"]},
         })
+    for i in itens:                                           # toda nota fica em −2..+2
+        assert -2 <= i["nivel"] <= 2 and -2 <= i["surpresa"] <= 2, f"nota fora de −2..+2 na ata {i['ata']}"
     RES.mkdir(exist_ok=True)
     (RES / "indice.json").write_text(json.dumps(
         {"metodo": "tom_copom_multidimensional_v1", "gerado_em": agora, "escala": {
@@ -255,7 +299,7 @@ def main():
         {"ata": i["ata"], "data_reuniao": i["data_reuniao"], "indice": i["nivel"],
          "indice_media_simples": round(float(r["media_simples"]), 2), "n_paragrafos": int(r["n_paragrafos"]),
          "n_nao_zero": int(r["n_nao_zero"]), "indice_100": i["nivel_100"], "surpresa": i["surpresa"],
-         "confianca": i["confianca"], "ic95": i["nivel_ic95"], "dimensoes": i["dimensoes"],
+         "direcao": i["direcao"], "confianca": i["confianca"], "ic95": i["nivel_ic95"], "dimensoes": i["dimensoes"],
          "mudancas": i["mudancas"], "explicacao": i["explicacao"]}
         for i, (_, r) in zip(itens, a.iterrows())]}
     (RES / "indice_modelo.json").write_text(json.dumps(contrato, ensure_ascii=False, indent=1), encoding="utf-8")
