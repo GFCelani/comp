@@ -83,3 +83,20 @@ Escolhido: `ingenua`. A mudança de tom (índice de 0,90 na ata 280 para 0,62 na
 **Regra da árvore (todas as atas com alvo).** Se a decisão registrada na ata não é alta e a média do tom nas últimas 3 atas ≤ 0,64, prevê corte; se > 0,64, prevê manutenção. Se a decisão registrada na ata é alta e os termos de virada na seção de decisão ≤ 7,5, prevê alta; se > 7,5, prevê manutenção.
 
 **Validação humana cancelada** (decisão do usuário): saiu de dados_site.json; no lugar, `checagens_automaticas`.
+
+## Modelo v2: candidatos (fixados às 15h05, antes de testar)
+
+**Origem.** Branch `origin/sentiment-tracker` do parceiro (lida sem checkout). Copiados para `modelo/parceiro/`: `lexico.csv` (placar de palavras por ata, sem IA) e `indice_modelo_parceiro.json` (índice de tom por ata, rótulos cegos da Skill `tom-copom`). Cobrem as atas 236–281. Sem segredos (grep key/token/password/database_url/secret vazio).
+
+**Lista fechada de variáveis novas (uma linha por ata):**
+- `p_nivel`: `indice` do parceiro (nível de tom −2..+2);
+- `p_surpresa`: `surpresa` do parceiro (calibrada; atenção: a calibração usa reação de mercado de todas as atas em leave-one-out, possível vazamento leve);
+- `p_confianca`: `confianca` do parceiro (0–100);
+- `lex_nivel` e `lex_mudanca`: do `lexico.csv` do parceiro.
+Nada mais entra.
+
+**Conjuntos.** A = variáveis atuais (DECISOES acima). B = A + as 5 novas. C = `decisao_registrada_na_ata` (one-hot) + as 5 novas.
+
+**Combinações (8, hiperparâmetros fixos):** A-log C=0,3 (atual); B-log C=0,3; B-log C=0,1; B-floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42); B-árvore (prof. 2, random_state 42); C-log C=0,3; C-log C=0,1; C-floresta (mesmos hiperparâmetros).
+
+**Protocolo.** Janela crescente no tempo. Escolha: previsões das atas 251–270; maior acurácia → maior acurácia balanceada → mais simples (árvore < logística < floresta; C < B). Confirmação: atas 271–281, rodada uma única vez para o escolhido e para A-log C=0,3. Troca só se o escolhido for melhor que A-log C=0,3 na escolha e não pior na confirmação.
