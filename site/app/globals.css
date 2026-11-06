@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  --fundo: #0a0e13;
+  --fundo-2: #0e141b;
+  --cartao: #10171f;
+  --cartao-2: #151e28;
+  --borda: #1d2733;
+  --borda-2: #27333f;
+  --texto: #eef2f6;
+  --texto-2: #94a1af;
+  --texto-3: #5f6c7a;
+  --acento: #f5a524;
+  --acento-2: #ffc45c;
+  --duro: #f0785a;
+  --brando: #3fc7b5;
+  --erro: #f07070;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-fundo: var(--fundo);
+  --color-fundo-2: var(--fundo-2);
+  --color-cartao: var(--cartao);
+  --color-cartao-2: var(--cartao-2);
+  --color-borda: var(--borda);
+  --color-borda-2: var(--borda-2);
+  --color-texto: var(--texto);
+  --color-texto-2: var(--texto-2);
+  --color-texto-3: var(--texto-3);
+  --color-acento: var(--acento);
+  --color-acento-2: var(--acento-2);
+  --color-duro: var(--duro);
+  --color-brando: var(--brando);
+  --color-erro: var(--erro);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--fundo);
+}
+
+@media (pointer: fine) {
+  html {
+    overscroll-behavior: none;
+  }
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  font-feature-settings: "cv11", "ss01";
+}
+
+h1, h2, h3 {
+  text-wrap: initial;
+}
+
+h1 {
+  letter-spacing: -0.035em;
+}
+h2 {
+  letter-spacing: -0.025em;
+}
+h3 {
+  letter-spacing: -0.01em;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* etiqueta pequena em mono, como nos sites de referência */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+.etiqueta::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--acento);
+  flex: none;
+}
+.etiqueta-sem-ponto::before {
+  display: none;
+}
+
+.pilula {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--borda-2);
+  background: var(--cartao);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+.pilula::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--acento);
+}
+
+/* régua fina de jornal */
+.regua {
+  border: 0;
+  border-top: 1px solid var(--borda);
+}
+.regua-forte {
+  border: 0;
+  border-top: 2px solid var(--texto);
+}
+
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 0.9rem;
+}
+
+.rotulo {
+  font-size: 0.75rem;
+  color: var(--texto-2);
+  letter-spacing: 0.01em;
+}
+
+.trecho {
+  font-style: italic;
+  color: var(--texto);
+}
+
+.coluna-texto {
+  color: var(--texto-2);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--borda-2);
+  background: var(--cartao);
+  color: var(--texto);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.botao:hover {
+  background: var(--cartao-2);
+  border-color: #344252;
+}
+.botao[aria-pressed="true"],
+.botao-principal {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: #1a1000;
+  font-weight: 600;
+}
+.botao-principal:hover {
+  background: var(--acento-2);
+  border-color: var(--acento-2);
+}
+.botao:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.campo {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--borda-2);
+  background: var(--fundo);
+  color: var(--texto);
+  font-size: 1rem;
+}
+.campo::placeholder {
+  color: var(--texto-3);
+}
+select.campo {
+  background-color: var(--fundo);
+  color: var(--texto);
+}
+
+.link {
+  color: var(--acento);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, var(--acento) 40%, transparent);
+}
+.link:hover {
+  text-decoration-color: var(--acento);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

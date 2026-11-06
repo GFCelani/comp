@@ -1,0 +1,38 @@
+{
+  "ata_atual": 281,
+  "ata_anterior": 280,
+  "gerado_em": "2026-11-06T12:35:52",
+  "mudancas": [
+    {
+      "paragrafo": 9,
+      "trecho": "Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta.",
+      "efeito": "suavizou",
+      "explicacao": "A ata agora diz que tanto a inflação cheia quanto as medidas que filtram oscilações pontuais estão dentro do limite de tolerância. Isso mostra que o Banco Central vê a inflação mais perto de onde quer, o que alivia a pressão por juros altos.",
+      "tipo": "novo"
+    },
+    {
+      "paragrafo": 9,
+      "trecho": "nas divulgações mais recentes as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo.",
+      "efeito": "endureceu",
+      "explicacao": "Antes, os preços cobrados pelos produtores estavam recuando, e agora eles aceleraram em bens intermediários e de consumo. Isso pode chegar aos preços para o consumidor mais adiante e pede cautela do Banco Central.",
+      "tipo": "novo"
+    },
+    {
+      "paragrafo": 5,
+      "trecho": "revelou que o movimento foi mais intenso nas atividades econômicas e nos componentes da demanda mais sensíveis ao ciclo econômico.",
+      "efeito": "suavizou",
+      "explicacao": "A ata agora confirma, com o resultado do PIB, que a economia desacelerou de fato, especialmente nas áreas mais sensíveis aos juros. Isso reforça a visão de que os juros altos estão funcionando para esfriar a demanda e a inflação.",
+      "tipo": "novo"
+    }
+  ],
+  "impacto": {
+    "texto": "A ata 281 tem tom um pouco menos duro que a 280 (índice de 0,62 contra 0,9), o que tende a ser coerente com a continuidade de cortes graduais da Selic, hoje em 13,75% ao ano. Se a desaceleração da atividade se confirmar e a inflação seguir perto do limite de tolerância, os juros futuros podem recuar, em linha com a mediana do Focus para a Selic no fim de 2026 (13,50%). Já a aceleração dos preços aos produtores pode reduzir o espaço para cortes mais rápidos e manter a inflação esperada pressionada (Focus de 5,22% para 2026), com possível efeito sobre o câmbio se o cenário externo seguir incerto.",
+    "data_selic": "2026-11-06",
+    "data_focus": "2026-10-30"
+  },
+  "verificacao": {
+    "reescritas": 0,
+    "descartados": [],
+    "chamadas_claude": 1
+  }
+}

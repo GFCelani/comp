@@ -1,0 +1,114 @@
+name: Atualizar atas do Copom
+
+on:
+  schedule:
+    # Dias úteis às 10h, 14h e 18h de Brasília (UTC-3) = 13h, 17h e 21h UTC.
+    - cron: "0 13,17,21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: atualizar-atas
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONIOENCODING: utf-8
+      TZ: America/Sao_Paulo
+      # Só diz se o segredo existe; o valor nunca é impresso.
+      TEM_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Verificar ata nova no BC
+        id: verificar
+        run: python pipeline/verificar_nova.py
+
+      - name: Instalar o Claude Code
+        if: (steps.verificar.outputs.nova == 'true' || steps.verificar.outputs.pendente == 'true') && env.TEM_TOKEN == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Rodar o pipeline
+        id: rodar
+        # Ata nova, ou ata/textos pendentes de uma execução anterior sem o segredo (agora cadastrado)
+        if: steps.verificar.outputs.nova == 'true' || (steps.verificar.outputs.pendente == 'true' && env.TEM_TOKEN == 'true')
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: python pipeline/rodar.py
+
+      # Push com o GITHUB_TOKEN padrão: pushes feitos com ele não disparam outros workflows,
+      # e este workflow não tem gatilho de push, então não há laço.
+      - name: Commit e push
+        env:
+          NOVA: ${{ steps.verificar.outputs.nova }}
+          ATAS: ${{ steps.verificar.outputs.atas }}
+          RODOU: ${{ steps.rodar.conclusion == 'success' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ "$NOVA" = "true" ]; then
+            git add banco saida site/data
+            MSG="Adiciona ata ${ATAS}"
+          elif [ "$RODOU" = "true" ]; then
+            git add banco saida site/data
+            MSG="Completa notas e textos pendentes"
+          else
+            git add site/data/dados_site.json saida/dados_site.json
+            MSG="Registra verificação automática de atas"
+          fi
+          # Nenhum arquivo maior que 10 MB entra no commit
+          GRANDES=""
+          while IFS= read -r f; do
+            if [ -f "$f" ] && [ "$(stat -c %s "$f")" -gt 10485760 ]; then GRANDES="$GRANDES $f"; fi
+          done < <(git diff --cached --name-only --diff-filter=d)
+          if [ -n "$GRANDES" ]; then
+            echo "::error::Arquivos maiores que 10 MB no commit: $GRANDES"
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "Sem mudanças para commitar."
+            exit 0
+          fi
+          git commit -m "$MSG"
+          for t in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            sleep 5
+          done
+          echo "::error::push falhou 3 vezes"
+          exit 1
+
+      - name: Abrir issue de textos pendentes
+        if: steps.verificar.outputs.nova == 'true' && steps.rodar.outputs.sem_rotulo == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ATAS: ${{ steps.verificar.outputs.atas }}
+        run: |
+          cat > corpo.md <<'EOF'
+          A ata nova entrou no banco **sem nota de tom e sem textos** (mudanças e impacto), porque o workflow não encontrou o modelo do parceiro nem o segredo `CLAUDE_CODE_OAUTH_TOKEN`.
+
+          No site, a ata aparece com índice vazio, fica fora das métricas e `textos_pendentes` está `true`.
+
+          Para corrigir:
+          1. No seu terminal, rode `claude setup-token` e copie o token gerado.
+          2. No GitHub, abra Settings → Secrets and variables → Actions deste repositório.
+          3. Clique em "New repository secret", nome `CLAUDE_CODE_OAUTH_TOKEN`, cole o token e salve.
+          4. Na próxima execução agendada (ou em Actions → "Atualizar atas do Copom" → Run workflow), o workflow vê a ata pendente, dá as notas e gera os textos.
+
+          Aberta automaticamente pelo workflow "Atualizar atas do Copom".
+          EOF
+          gh issue create --title "Ata ${ATAS} entrou sem textos: cadastre CLAUDE_CODE_OAUTH_TOKEN" --body-file corpo.md
+          echo "::warning::Ata ${ATAS} entrou sem nota e sem textos; issue aberta."

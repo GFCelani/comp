@@ -1,0 +1,784 @@
+[
+  {
+    "numero": 236,
+    "data_reuniao": "2021-01-20",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom236-not20210120236.pdf",
+    "arquivo": "ata_236_2021-01-20.pdf",
+    "data_publicacao": "2021-01-25",
+    "selic_apos": 2.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2021-01-20",
+      "ano_referencia": 2021,
+      "mediana": 3.5
+    },
+    "proxima_decisao_pp": 0.75,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 237,
+    "data_reuniao": "2021-03-17",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom237-not20210317237.pdf",
+    "arquivo": "ata_237_2021-03-17.pdf",
+    "data_publicacao": "2021-03-22",
+    "selic_apos": 2.75,
+    "decisao_pp": 0.75,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-03-17",
+      "ano_referencia": 2021,
+      "mediana": 4.5
+    },
+    "proxima_decisao_pp": 0.75,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 238,
+    "data_reuniao": "2021-05-05",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom238-not20210505238.pdf",
+    "arquivo": "ata_238_2021-05-05.pdf",
+    "data_publicacao": "2021-05-10",
+    "selic_apos": 3.5,
+    "decisao_pp": 0.75,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-05-05",
+      "ano_referencia": 2021,
+      "mediana": 5.5
+    },
+    "proxima_decisao_pp": 0.75,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 239,
+    "data_reuniao": "2021-06-16",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom239-not20210616239.pdf",
+    "arquivo": "ata_239_2021-06-16.pdf",
+    "data_publicacao": "2021-06-23",
+    "selic_apos": 4.25,
+    "decisao_pp": 0.75,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-06-16",
+      "ano_referencia": 2021,
+      "mediana": 6.25
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 240,
+    "data_reuniao": "2021-08-04",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom240-not20210804240.pdf",
+    "arquivo": "ata_240_2021-08-04.pdf",
+    "data_publicacao": "2021-08-09",
+    "selic_apos": 5.25,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-08-04",
+      "ano_referencia": 2021,
+      "mediana": 7.0
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 241,
+    "data_reuniao": "2021-09-22",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom241-not20210922241.pdf",
+    "arquivo": "ata_241_2021-09-22.pdf",
+    "data_publicacao": "2021-09-27",
+    "selic_apos": 6.25,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-09-22",
+      "ano_referencia": 2021,
+      "mediana": 8.25
+    },
+    "proxima_decisao_pp": 1.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 242,
+    "data_reuniao": "2021-10-27",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom242-not20211027242.pdf",
+    "arquivo": "ata_242_2021-10-27.pdf",
+    "data_publicacao": "2021-11-01",
+    "selic_apos": 7.75,
+    "decisao_pp": 1.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-10-27",
+      "ano_referencia": 2021,
+      "mediana": 8.75
+    },
+    "proxima_decisao_pp": 1.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 243,
+    "data_reuniao": "2021-12-08",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom243-not20211208243.pdf",
+    "arquivo": "ata_243_2021-12-08.pdf",
+    "data_publicacao": "2021-12-13",
+    "selic_apos": 9.25,
+    "decisao_pp": 1.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2021-12-08",
+      "ano_referencia": 2021,
+      "mediana": 9.25
+    },
+    "proxima_decisao_pp": 1.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 244,
+    "data_reuniao": "2022-02-02",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom244-not20220202244.pdf",
+    "arquivo": "ata_244_2022-02-02.pdf",
+    "data_publicacao": "2022-02-07",
+    "selic_apos": 10.75,
+    "decisao_pp": 1.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2022-02-02",
+      "ano_referencia": 2022,
+      "mediana": 11.75
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 245,
+    "data_reuniao": "2022-03-16",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom245-not20220316245.pdf",
+    "arquivo": "ata_245_2022-03-16.pdf",
+    "data_publicacao": "2022-05-16",
+    "selic_apos": 11.75,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2022-03-16",
+      "ano_referencia": 2022,
+      "mediana": 12.75
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 246,
+    "data_reuniao": "2022-05-04",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom246-not20220504246.pdf",
+    "arquivo": "ata_246_2022-05-04.pdf",
+    "data_publicacao": "2022-05-09",
+    "selic_apos": 12.75,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2022-05-04",
+      "ano_referencia": 2022,
+      "mediana": 13.25
+    },
+    "proxima_decisao_pp": 0.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 247,
+    "data_reuniao": "2022-06-15",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom247-not20220615247.pdf",
+    "arquivo": "ata_247_2022-06-15.pdf",
+    "data_publicacao": "2022-06-20",
+    "selic_apos": 13.25,
+    "decisao_pp": 0.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2022-06-15",
+      "ano_referencia": 2022,
+      "mediana": 13.25
+    },
+    "proxima_decisao_pp": 0.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 248,
+    "data_reuniao": "2022-08-03",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom248-not20220803248.pdf",
+    "arquivo": "ata_248_2022-08-03.pdf",
+    "data_publicacao": "2022-08-08",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2022-08-03",
+      "ano_referencia": 2022,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 249,
+    "data_reuniao": "2022-09-21",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom249-not20220921249.pdf",
+    "arquivo": "ata_249_2022-09-21.pdf",
+    "data_publicacao": "2022-09-26",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2022-09-21",
+      "ano_referencia": 2022,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 250,
+    "data_reuniao": "2022-10-26",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom250-not20221026250.pdf",
+    "arquivo": "ata_250_2022-10-26.pdf",
+    "data_publicacao": "2022-10-31",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2022-10-26",
+      "ano_referencia": 2022,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 251,
+    "data_reuniao": "2022-12-07",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom251-not20221207251.pdf",
+    "arquivo": "ata_251_2022-12-07.pdf",
+    "data_publicacao": "2022-12-12",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2022-12-07",
+      "ano_referencia": 2022,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 252,
+    "data_reuniao": "2023-02-01",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom252-not20230201252.pdf",
+    "arquivo": "ata_252_2023-02-01.pdf",
+    "data_publicacao": "2023-02-06",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2023-02-01",
+      "ano_referencia": 2023,
+      "mediana": 12.5
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 253,
+    "data_reuniao": "2023-03-22",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom253-not20230322253.pdf",
+    "arquivo": "ata_253_2023-03-22.pdf",
+    "data_publicacao": "2023-03-27",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2023-03-22",
+      "ano_referencia": 2023,
+      "mediana": 12.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 254,
+    "data_reuniao": "2023-05-03",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom254-not20230503254.pdf",
+    "arquivo": "ata_254_2023-05-03.pdf",
+    "data_publicacao": "2023-05-08",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2023-05-03",
+      "ano_referencia": 2023,
+      "mediana": 12.5
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 255,
+    "data_reuniao": "2023-06-21",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom255-not20230621255.pdf",
+    "arquivo": "ata_255_2023-06-21.pdf",
+    "data_publicacao": "2023-06-26",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2023-06-21",
+      "ano_referencia": 2023,
+      "mediana": 12.25
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 256,
+    "data_reuniao": "2023-08-02",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom256-not20230802256.pdf",
+    "arquivo": "ata_256_2023-08-02.pdf",
+    "data_publicacao": "2023-08-07",
+    "selic_apos": 13.25,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2023-08-02",
+      "ano_referencia": 2023,
+      "mediana": 12.0
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 257,
+    "data_reuniao": "2023-09-20",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom257-not20230920257.pdf",
+    "arquivo": "ata_257_2023-09-20.pdf",
+    "data_publicacao": "2023-09-25",
+    "selic_apos": 12.75,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2023-09-20",
+      "ano_referencia": 2023,
+      "mediana": 11.75
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 258,
+    "data_reuniao": "2023-11-01",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom258-not20231101258.pdf",
+    "arquivo": "ata_258_2023-11-01.pdf",
+    "data_publicacao": "2023-11-06",
+    "selic_apos": 12.25,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2023-11-01",
+      "ano_referencia": 2023,
+      "mediana": 11.75
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 259,
+    "data_reuniao": "2023-12-13",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom259-not20231213259.pdf",
+    "arquivo": "ata_259_2023-12-13.pdf",
+    "data_publicacao": "2023-12-18",
+    "selic_apos": 11.75,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2023-12-13",
+      "ano_referencia": 2023,
+      "mediana": 11.75
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 260,
+    "data_reuniao": "2024-01-31",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom260-not20240131260.pdf",
+    "arquivo": "ata_260_2024-01-31.pdf",
+    "data_publicacao": "2024-02-05",
+    "selic_apos": 11.25,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2024-01-31",
+      "ano_referencia": 2024,
+      "mediana": 9.0
+    },
+    "proxima_decisao_pp": -0.5,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 261,
+    "data_reuniao": "2024-03-20",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom261-not20240320261.pdf",
+    "arquivo": "ata_261_2024-03-20.pdf",
+    "data_publicacao": "2024-03-25",
+    "selic_apos": 10.75,
+    "decisao_pp": -0.5,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2024-03-20",
+      "ano_referencia": 2024,
+      "mediana": 9.0
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 262,
+    "data_reuniao": "2024-05-08",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom262-not20240508262.pdf",
+    "arquivo": "ata_262_2024-05-08.pdf",
+    "data_publicacao": "2024-05-13",
+    "selic_apos": 10.5,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2024-05-08",
+      "ano_referencia": 2024,
+      "mediana": 9.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 263,
+    "data_reuniao": "2024-06-19",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom263-not20240619263.pdf",
+    "arquivo": "ata_263_2024-06-19.pdf",
+    "data_publicacao": "2024-06-24",
+    "selic_apos": 10.5,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2024-06-19",
+      "ano_referencia": 2024,
+      "mediana": 10.5
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 264,
+    "data_reuniao": "2024-07-31",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom264-not20240731264.pdf",
+    "arquivo": "ata_264_2024-07-31.pdf",
+    "data_publicacao": "2024-08-05",
+    "selic_apos": 10.5,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2024-07-31",
+      "ano_referencia": 2024,
+      "mediana": 10.5
+    },
+    "proxima_decisao_pp": 0.25,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 265,
+    "data_reuniao": "2024-09-18",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom265-not20240918265.pdf",
+    "arquivo": "ata_265_2024-09-18.pdf",
+    "data_publicacao": "2024-09-23",
+    "selic_apos": 10.75,
+    "decisao_pp": 0.25,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2024-09-18",
+      "ano_referencia": 2024,
+      "mediana": 11.25
+    },
+    "proxima_decisao_pp": 0.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 266,
+    "data_reuniao": "2024-11-06",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom266-not20241106266.pdf",
+    "arquivo": "ata_266_2024-11-06.pdf",
+    "data_publicacao": "2024-11-11",
+    "selic_apos": 11.25,
+    "decisao_pp": 0.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2024-11-06",
+      "ano_referencia": 2024,
+      "mediana": 11.75
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 267,
+    "data_reuniao": "2024-12-11",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom267-not20241211267.pdf",
+    "arquivo": "ata_267_2024-12-11.pdf",
+    "data_publicacao": "2024-12-16",
+    "selic_apos": 12.25,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2024-12-11",
+      "ano_referencia": 2024,
+      "mediana": 12.0
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 268,
+    "data_reuniao": "2025-01-29",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom268-not20250129268.pdf",
+    "arquivo": "ata_268_2025-01-29.pdf",
+    "data_publicacao": "2025-02-03",
+    "selic_apos": 13.25,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2025-01-29",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 1.0,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 269,
+    "data_reuniao": "2025-03-19",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom269-not20250319269.pdf",
+    "arquivo": "ata_269_2025-03-19.pdf",
+    "data_publicacao": "2025-03-24",
+    "selic_apos": 14.25,
+    "decisao_pp": 1.0,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2025-03-19",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 0.5,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 270,
+    "data_reuniao": "2025-05-07",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom270-not20250507270.pdf",
+    "arquivo": "ata_270_2025-05-07.pdf",
+    "data_publicacao": "2025-05-12",
+    "selic_apos": 14.75,
+    "decisao_pp": 0.5,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2025-05-07",
+      "ano_referencia": 2025,
+      "mediana": 14.75
+    },
+    "proxima_decisao_pp": 0.25,
+    "proxima_decisao": "alta"
+  },
+  {
+    "numero": 271,
+    "data_reuniao": "2025-06-18",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom271-not20250618271.pdf",
+    "arquivo": "ata_271_2025-06-18.pdf",
+    "data_publicacao": "2025-06-23",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.25,
+    "decisao": "alta",
+    "focus_selic_fim_ano": {
+      "data": "2025-06-18",
+      "ano_referencia": 2025,
+      "mediana": 14.75
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 272,
+    "data_reuniao": "2025-07-30",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom272-not20250730272.pdf",
+    "arquivo": "ata_272_2025-07-30.pdf",
+    "data_publicacao": "2025-08-04",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2025-07-30",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 273,
+    "data_reuniao": "2025-09-17",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom273-not20250917273.pdf",
+    "arquivo": "ata_273_2025-09-17.pdf",
+    "data_publicacao": "2025-09-22",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2025-09-17",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 274,
+    "data_reuniao": "2025-11-05",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom274-not20251105274.pdf",
+    "arquivo": "ata_274_2025-11-05.pdf",
+    "data_publicacao": "2025-11-10",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2025-11-05",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 275,
+    "data_reuniao": "2025-12-10",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom275-not20251210275.pdf",
+    "arquivo": "ata_275_2025-12-10.pdf",
+    "data_publicacao": "2025-12-15",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2025-12-10",
+      "ano_referencia": 2025,
+      "mediana": 15.0
+    },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 276,
+    "data_reuniao": "2026-01-28",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom276-not20260128276.pdf",
+    "arquivo": "ata_276_2026-01-28.pdf",
+    "data_publicacao": "2026-02-02",
+    "selic_apos": 15.0,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2026-01-28",
+      "ano_referencia": 2026,
+      "mediana": 12.25
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 277,
+    "data_reuniao": "2026-03-18",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom277-not20260318277.pdf",
+    "arquivo": "ata_277_2026-03-18.pdf",
+    "data_publicacao": "2026-03-23",
+    "selic_apos": 14.75,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2026-03-18",
+      "ano_referencia": 2026,
+      "mediana": 12.25
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 278,
+    "data_reuniao": "2026-04-29",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom278-not20260429278.pdf",
+    "arquivo": "ata_278_2026-04-29.pdf",
+    "data_publicacao": "2026-05-04",
+    "selic_apos": 14.5,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2026-04-29",
+      "ano_referencia": 2026,
+      "mediana": 13.0
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 279,
+    "data_reuniao": "2026-06-17",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom279-not20260617279.pdf",
+    "arquivo": "ata_279_2026-06-17.pdf",
+    "data_publicacao": "2026-06-22",
+    "selic_apos": 14.25,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2026-06-17",
+      "ano_referencia": 2026,
+      "mediana": 14.0
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 280,
+    "data_reuniao": "2026-08-05",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
+    "arquivo": "ata_280_2026-08-05.pdf",
+    "data_publicacao": "2026-08-10",
+    "selic_apos": 14.0,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2026-08-05",
+      "ano_referencia": 2026,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": -0.25,
+    "proxima_decisao": "corte"
+  },
+  {
+    "numero": 281,
+    "data_reuniao": "2026-09-16",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+    "arquivo": "ata_281_2026-09-16.pdf",
+    "data_publicacao": "2026-09-21",
+    "selic_apos": 13.75,
+    "decisao_pp": -0.25,
+    "decisao": "corte",
+    "focus_selic_fim_ano": {
+      "data": "2026-09-16",
+      "ano_referencia": 2026,
+      "mediana": 13.75
+    },
+    "proxima_decisao_pp": null,
+    "proxima_decisao": null
+  }
+]
