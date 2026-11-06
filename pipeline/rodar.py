@@ -50,9 +50,12 @@ def main() -> int:
               ("diff", ["pipeline/diff.py"]),
               ("selic", ["pipeline/selic.py"]),
               ("conferir_selic", ["pipeline/conferir_selic.py"]),
+              ("validar_selic_oficial", ["pipeline/validar_selic_oficial.py"]),
               ("rotular", ["pipeline/rotular.py"] + (["--modelo"] if args.modelo else [])),
               ("modelo_base", ["pipeline/modelo_base.py"]),
               ("indice", ["pipeline/indice.py"]),
+              ("modelo_variaveis", ["modelo/variaveis.py"]),   # sem Claude
+              ("modelo_treinar", ["modelo/treinar.py"]),
               ("metricas", ["pipeline/metricas.py"]),
               ("previsao", ["pipeline/previsao.py"]),
               ("textos", ["pipeline/textos.py"]),      # textos.py decide pelo hash da entrada

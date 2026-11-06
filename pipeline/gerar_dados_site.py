@@ -3,7 +3,7 @@ Monta os dados do site → saida/dados_site.json e saida/busca.json, e copia os 
 
     .venv/Scripts/python.exe pipeline/gerar_dados_site.py
 
-Usa banco/indice_modelo.json quando existir (fonte_indice = "modelo"), senão banco/indice.json.
+Usa banco/indice.json para a série de tom; banco/indice_modelo.json (P(alta) − P(corte) do modelo de decisão) vai no campo indice_modelo.
 Inclui banco/metricas_previsao.json, banco/metricas_modelo.json e validacao/resultado.json quando existirem.
 dados_site.json só leva trechos curtos (≤25 palavras); o texto completo vai só para busca.json,
 que o site lê apenas no servidor.
@@ -89,7 +89,7 @@ def main() -> int:
     por_num = {a["numero"]: a for a in atas}
     paragrafos = jsonl(B / "paragrafos.jsonl")
     rotulos = jsonl(B / "rotulos.jsonl")
-    fonte = "modelo" if (B / "indice_modelo.json").exists() else "simples"
+    fonte = "simples"  # indice_modelo.json agora é P(alta) − P(corte) do modelo de decisão, não índice de tom
     indice = ler(B / ("indice_modelo.json" if fonte == "modelo" else "indice.json"))
     ind = {i["ata"]: i for i in indice["atas"]}
     textos = ler(S / "textos.json") or {}
@@ -154,6 +154,8 @@ def main() -> int:
         "validacao_humana": validacao,
         "datas_dados": datas_dados(),
         "conferencia_selic": ler(S / "conferencia_selic.json"),
+        "validacao_selic_oficial": ler(S / "validacao_selic_oficial.json"),
+        "indice_modelo": ler(B / "indice_modelo.json"),
         "status": ler(S / "status.json"),
     }
 

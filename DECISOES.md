@@ -40,3 +40,9 @@ Escolhido: `ingenua`. A mudança de tom (índice de 0,90 na ata 280 para 0,62 na
 **Hiperparâmetros fixos (sem ajuste olhando o teste).** Logística: StandardScaler + LogisticRegression(C=0.5, max_iter=2000). Floresta: RandomForestClassifier(n_estimators=300, max_depth=3, random_state=42). Árvore: DecisionTreeClassifier(max_depth=2, random_state=42). Ingênua: repete `decisao_atual`.
 
 **Validação principal.** Janela crescente: para cada ata de índice t ≥ 15 (16ª ata em diante), treina com 0..t−1 e prevê t. Secundária: leave-one-out. Desempate: ingenua, variacao_tom, nivel_tom, arvore, logistica, floresta.
+
+**Alvo da 281 (atualização).** O validacao/selic_oficial.csv (endpoint historicotaxasjuros do BC) traz a 282 (04/11/2026, manutenção, 13,75%). Ela entra como alvo da 281 no treino; a 281 também gera a linha de previsão da 283 com decisao_atual = manutenção (decisão da 282). Treino: 46 atas; janela no tempo: atas 251 a 281 (n = 31).
+
+**Resultado (janela no tempo, n = 31).** ingênua 80,6% (6 viradas, 0 acertos); variacao_tom 67,7% (2/6); nivel_tom 22,6% (1/6); árvore 71,0% (1/6); logística 80,6% (1/6); floresta 77,4% (1/6). Nenhum modelo ganhou da ingênua: a capa continua com a ingênua (empate com a logística, desempate pelo mais simples). `destaque_viradas`: a logística empata no geral e acerta 1 virada a mais (1 de 6 contra 0 de 6); fica registrado em previsao.json e metricas_modelo.json.
+
+**Fonte do índice de tom.** banco/indice_modelo.json passou a guardar P(alta) − P(corte) da logística (fora da amostra da ata 251 em diante; dentro da amostra, treino nas 15 primeiras, antes). Por isso metricas.py, previsao.py e gerar_dados_site.py usam sempre banco/indice.json para o tom; o modelo_parceiro saiu da comparação (substituído por árvore, logística e floresta).

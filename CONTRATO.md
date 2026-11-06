@@ -4,7 +4,7 @@ Formato de cada arquivo trocado entre o pipeline, o modelo do parceiro e o site.
 
 Convenções: UTF-8; datas `AAAA-MM-DD`; `ata` = número da reunião (inteiro); notas inteiras de −2 a +2; índices com 2 casas decimais; proporções (acurácia etc.) entre 0 e 1; `gerado_em` em ISO 8601 com hora.
 
-Pastas: `banco/` e `saida/` são escritos pelo pipeline (`pipeline/`), exceto `banco/indice_modelo.json` e `banco/metricas_modelo.json`, escritos pelo parceiro a partir de `modelo/`. O site lê só `site/data/dados_site.json` e `site/data/busca.json`, copiados pelo pipeline.
+Pastas: `banco/` e `saida/` são escritos pelo pipeline (`pipeline/`), incluindo `banco/indice_modelo.json` e `banco/metricas_modelo.json`, escritos por `modelo/treinar.py`. O site lê só `site/data/dados_site.json` e `site/data/busca.json`, copiados pelo pipeline.
 
 ## banco/atas.json
 
@@ -82,30 +82,41 @@ Escreve: `pipeline/indice.py`. Índice simples de base.
 
 `indice` = média das notas ignorando as notas 0 (null se nenhuma nota ≠ 0). `indice_media_simples` = média de todas as notas.
 
-## banco/indice_modelo.json — escrito pelo parceiro
+## banco/indice_modelo.json — escrito por modelo/treinar.py
 
-Mesmo formato de `banco/indice.json`, com `metodo` descrevendo o modelo (ex.: `"regressao_ponderada_por_secao"`). Pode trazer campos extras por ata. Quando este arquivo existir, o site usa este índice em vez do simples (salvo escolha no painel).
+Mesmo formato de `banco/indice.json`, com `metodo`. Aqui `indice` = P(alta) − P(corte) da reunião seguinte, pelo melhor modelo não ingênuo na janela no tempo (hoje a logística): fora da amostra da 16ª ata (251) em diante, dentro da amostra (treino nas 15 primeiras) antes. Campos extras por ata: `amostra` (`"fora"`, `"dentro"`, `"previsao_283"`) e `probabilidades` {alta, manutencao, corte}. A entrada da 281 é a linha de previsão da 283 (decisão atual = 282). **Não é índice de tom**: metricas.py, previsao.py e gerar_dados_site.py usam sempre `banco/indice.json` para o tom (`fonte_indice = "simples"`); o site recebe este arquivo no campo `indice_modelo` de dados_site.json.
 
-## banco/metricas_modelo.json — escrito pelo parceiro
+## banco/metricas_modelo.json — escrito por modelo/treinar.py
 
-Métricas do modelo contra os rótulos do Claude (`banco/rotulos.jsonl`).
+Modelo de decisão por ata (base em `modelo/base_modelo.csv`, gerada por `modelo/variaveis.py`). Alvo: decisão da reunião seguinte (alta, manutencao, corte).
 
 ```json
 {
-  "metodo": "regressao_ponderada_por_secao",
-  "gerado_em": "2026-11-06T14:00:00",
-  "n_paragrafos": 1800,
-  "acuracia": 0.71,
-  "acuracia_1ponto": 0.95,
-  "erro_medio_abs": 0.34,
-  "matriz_confusao": { "rotulos": [-2, -1, 0, 1, 2], "valores": [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]] },
-  "validacao_leave_one_out": [
-    { "ata": 281, "acuracia": 0.70, "acuracia_1ponto": 0.94, "erro_medio_abs": 0.36 }
-  ]
+  "metodo": "...", "gerado_em": "...", "n_atas": 46,
+  "variaveis": ["decisao_atual_alta", "decisao_atual_manutencao", "decisao_atual_corte", "tom_nivel", "tom_variacao",
+                "tom_orientacao", "saldo_duro_brando", "sinais_virada", "distancia_focus", "hiato_inflacao"],
+  "hiperparametros": { "logistica": "...", "floresta": "...", "arvore": "..." },
+  "validacao_tempo": { "inicio_ata": 251, "fim_ata": 281, "n": 31,
+    "metodos": { "ingenua|logistica|floresta|arvore": {
+      "acuracia": 0.806, "acuracia_balanceada": 0.813,
+      "matriz_confusao": { "rotulos": ["alta","manutencao","corte"], "linhas": "realizado", "colunas": "previsto", "valores": [[0,0,0],[0,0,0],[0,0,0]] },
+      "viradas": { "acertos": 0, "total": 6 },
+      "previsoes": [ { "ata": 251, "previsto": "alta", "realizado": "alta", "probabilidades": { "alta": 1, "manutencao": 0, "corte": 0 } } ] } } },
+  "validacao_loo": { "n": 46, "metodos": { "...": "mesmo formato" } },
+  "melhor": "ingenua", "melhor_nao_ingenuo": "logistica",
+  "destaque_viradas": { "metodo": "logistica", "acuracia": 0.806, "viradas": {"acertos": 1, "total": 6}, "viradas_ingenua": {"acertos": 0, "total": 6} },
+  "coeficientes_logistica": { "alta": { "tom_nivel": 0.1 } },
+  "importancias_floresta": [ { "variavel": "decisao_atual_alta", "importancia": 0.05, "desvio": 0.03 } ],
+  "regra_arvore_pt": "Se ..., prevê ...
+...", "regra_arvore_texto": "export_text bruto",
+  "previsao_atual": { "reuniao": 283, "data": "2026-12-09", "linha_base": { "ata": 281, "decisao_atual": "manutencao" },
+    "modelo": "ingenua", "probabilidades": { "alta": 0, "manutencao": 1, "corte": 0 },
+    "por_modelo": { "ingenua|arvore|logistica|floresta": { "alta": 0, "manutencao": 1, "corte": 0 } } },
+  "acuracia_previsao_decisao": 0.806
 }
 ```
 
-`matriz_confusao.valores[i][j]` = nº de parágrafos com rótulo do Claude `rotulos[i]` e previsão do modelo `rotulos[j]`. `validacao_leave_one_out`: uma entrada por ata deixada de fora do treino. Enquanto o arquivo não existir, o painel mostra "aguardando modelo".
+`viradas` = atas em que a decisão seguinte ≠ decisão atual. `destaque_viradas` é null se nenhum modelo empata com a ingênua no geral acertando mais viradas. `acuracia_previsao_decisao` = acurácia na janela no tempo do `melhor`.
 
 ## banco/modelo_base.pkl e banco/metricas_modelo_base.json
 
@@ -156,12 +167,13 @@ Base de comparação (`ingenua`): prevê para a reunião seguinte a mesma decis�
   "ingenua":      { "disponivel": true, "rotulo_pt": "...", "acuracia_loo": 0.844, "acerto_sinal": 0.9, "n": 45, "n_previsoes_direcionais": 30, "matriz_confusao": { "rotulos": [...], "valores": [[...]] }, "atas": [ { "ata": 280, "data_reuniao": "...", "previsto": "...", "realizado": "...", "acertou": true } ] },
   "variacao_tom": { "...": "mesmo formato" },
   "nivel_tom":    { "...": "mesmo formato" },
-  "modelo_parceiro": { "disponivel": false, "rotulo_pt": "...", "motivo": "banco/indice_modelo.json não existe" }
+  "arvore|logistica|floresta": { "disponivel": true, "rotulo_pt": "...", "acuracia_loo": 0.848, "acuracia_tempo": 0.806,
+    "acuracia_balanceada_tempo": 0.813, "viradas_tempo": { "acertos": 1, "total": 6 }, "n_tempo": 31, "fonte_acuracia": "banco/metricas_modelo.json" }
 },
 "escolhido": "ingenua"
 ```
 
-- `ingenua`: repete a decisão da reunião atual. `nivel_tom`: índice de `indice.json` > 0,25 → aperto, < −0,25 → afrouxamento, senão manutenção. `variacao_tom`: Δ = índice(ata) − índice(ata anterior com índice); Δ > 0,25 → um passo mais duro que a decisão atual (afrouxamento→manutencao→aperto→aperto); Δ < −0,25 → um passo mais brando; senão repete. Δ indefinido → repete. `modelo_parceiro`: só com `banco/indice_modelo.json` (regra de nível sobre o índice do modelo); se `banco/metricas_modelo.json` trouxer `acuracia_previsao_decisao` (ou `previsao_decisao.acuracia`), ela substitui `acuracia_loo`.
+- `ingenua`: repete a decisão da reunião atual. `nivel_tom`: índice de `indice.json` > 0,25 → aperto, < −0,25 → afrouxamento, senão manutenção. `variacao_tom`: Δ = índice(ata) − índice(ata anterior com índice); Δ > 0,25 → um passo mais duro que a decisão atual (afrouxamento→manutencao→aperto→aperto); Δ < −0,25 → um passo mais brando; senão repete. Δ indefinido → repete. `arvore`, `logistica`, `floresta`: lidos de `banco/metricas_modelo.json`. Todos os métodos ganham `acuracia_tempo`, `viradas_tempo` e `n_tempo` (janela crescente, atas 251–281, mesmo período para todos). `escolhido` = maior `acuracia_tempo`, desempate ingenua, variacao_tom, nivel_tom, arvore, logistica, floresta (`criterio_escolha = "acuracia_tempo"`; volta a `acuracia_loo` se não houver validação no tempo). Campos novos no topo: `criterio_escolha`, `validacao_tempo` {inicio_ata, fim_ata, n} e `destaque_viradas` (método que empata com o escolhido e acerta mais viradas, ou null).
 - `acuracia_loo`: laço leave-one-out (cada ata é prevista com o método "ajustado" nas demais). Os três primeiros não têm parâmetros ajustados aos dados, então coincide com a acurácia simples. Limiar 0,25 fixo a priori.
 - `escolhido` = maior `acuracia_loo` entre os disponíveis; empate → ordem de `ordem_desempate` (vence o mais simples). Escolha automática a cada execução.
 
@@ -209,7 +221,7 @@ Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metr
 ```
 
 - `previsto`: previsão do método `metodo_escolhido` (o de maior `acuracia_loo`; `acuracia_escolhido`). `previsto_nivel_tom` = regra de nível do tom (a antiga `previsto`). `metodos`: todos os métodos na ordem de desempate, inclusive os indisponíveis (`disponivel: false`, campos null). Para a próxima reunião, `ingenua` e `variacao_tom` partem da última decisão conhecida (mesmo sem ata publicada); `variacao_tom.delta` = índice da última ata − índice da anterior.
-- `indice`/`base_ata`: índice da última ata com índice (`indice_modelo.json` se existir, senão `indice.json`). Regra fixa de ±0,25, a mesma de `metricas_previsao.json`; não é ajustada.
+- `indice`/`base_ata`: índice da última ata com índice (sempre `indice.json`). `metodos[]` ganha `acuracia_tempo`, `n_tempo`, `viradas_tempo` e `probabilidades` (só nos modelos); `acuracia_escolhido` é a acurácia no tempo; campos novos `criterio_escolha`, `validacao_tempo` e `destaque_viradas`. Regra fixa de ±0,25, a mesma de `metricas_previsao.json`; não é ajustada.
 - `proxima_reuniao`: calendário oficial do BC (`https://www.bcb.gov.br/api/servico/sitebcb/calendario/anual`, lista "Reuniões do Copom", a mesma do "Calendário do Copom" em bcb.gov.br/controleinflacao/copom). A data é o 2º dia da reunião (dia da decisão): a primeira posterior à última decisão conhecida e não anterior a hoje. `numero` = número da última decisão conhecida + 1. Se o calendário falhar e não houver data futura já gravada: `data` e `numero` null e `fonte: "indisponível"`. Nunca se inventa data.
 - `ultima_decisao_conhecida`: preenchido só quando há decisão oficial **sem ata publicada** (`ata_publicada: false`); senão null. Fonte: tabela oficial `historicotaxasjuros` (reuniões ordinárias), conferida com a SGS 432 (`confere_sgs432`). `ultima_decisao` tem a mesma estrutura e vem sempre.
 - `acerto`: copiado de `banco/metricas_previsao.json` (`n` = nº de atas avaliadas). `ingenua.previsto` = última decisão conhecida no vocabulário da previsão (`alta → aperto`, `corte → afrouxamento`).
@@ -293,7 +305,9 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 - `textos_pendentes`: sempre `false` desde os textos automáticos (plano B); o campo continua para compatibilidade. `mudancas_origem` e `impacto.origem` ∈ `"claude"`, `"automatico"` (o site mostra "texto automático").
 - `conferencia_selic` = conteúdo de `saida/conferencia_selic.json` ou null; `status` = conteúdo de `saida/status.json` ou null (na hora em que o pipeline publicou).
 - `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).
-- `fonte_indice` ∈ `"simples"`, `"modelo"`: de onde vêm `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice`. Usa `banco/indice_modelo.json` quando existir, senão `banco/indice.json`.
+- `fonte_indice` = `"simples"`: `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice` vêm sempre de `banco/indice.json`.
+- `indice_modelo` = conteúdo de `banco/indice_modelo.json` (P(alta) − P(corte) por ata) ou null.
+- `validacao_selic_oficial` = conteúdo de `saida/validacao_selic_oficial.json` (gerado por `pipeline/validar_selic_oficial.py`: cruza `validacao/selic_oficial.csv` com `banco/atas.json`) ou null.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).
 - `metricas_previsao` = conteúdo de `banco/metricas_previsao.json` ou null; `metricas_modelo` = `banco/metricas_modelo.json` ou null; `validacao_humana` = `validacao/resultado.json` ou null.
 

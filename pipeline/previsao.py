@@ -99,7 +99,7 @@ def main() -> int:
     hoje = datetime.now(timezone(timedelta(hours=-3))).date()
     atas = sorted(ler(B / "atas.json"), key=lambda a: a["numero"])
     ult_ata = atas[-1]
-    fonte_ind = "modelo" if (B / "indice_modelo.json").exists() else "simples"
+    fonte_ind = "simples"  # banco/indice_modelo.json agora guarda P(alta) − P(corte) do modelo (ver CONTRATO.md)
     ind = ler(B / ("indice_modelo.json" if fonte_ind == "modelo" else "indice.json"))
     com_ind = sorted((i for i in ind["atas"] if i.get("indice") is not None), key=lambda i: i["ata"])
     base = com_ind[-1]
@@ -169,19 +169,30 @@ def main() -> int:
         prev_var = MAIS_DURO[dec_atual] if delta > LIMIAR else MAIS_BRANDO[dec_atual] if delta < -LIMIAR else dec_atual
     else:
         delta, prev_var = None, dec_atual
-    prev_modelo = None
-    if (B / "indice_modelo.json").exists():
-        im = sorted((i for i in ler(B / "indice_modelo.json")["atas"] if i.get("indice") is not None), key=lambda i: i["ata"])
-        prev_modelo = nivel(im[-1]["indice"]) if im else None
+    mm = ler(B / "metricas_modelo.json") or {}
+    pa = mm.get("previsao_atual") or {}
+    por_modelo = pa.get("por_modelo") or {}
+    probs_proximas = {}
     proximas = {"ingenua": dec_atual, "nivel_tom": nivel(simp[-1]["indice"]) if simp else None,
-                "variacao_tom": prev_var, "modelo_parceiro": prev_modelo}
+                "variacao_tom": prev_var}
+    for nome in ("arvore", "logistica", "floresta"):
+        pr = por_modelo.get(nome)
+        # só vale se a linha de previsão do modelo é a da próxima reunião
+        if pr and pa.get("reuniao") == prox.get("numero"):
+            proximas[nome] = PARA_SINAL.get(max(pr, key=pr.get))
+            probs_proximas[nome] = pr
+        else:
+            proximas[nome] = None
     mets = met.get("metodos") or {}
     metodos = []
-    for nome in ("ingenua", "variacao_tom", "nivel_tom", "modelo_parceiro"):
+    for nome in ("ingenua", "variacao_tom", "nivel_tom", "arvore", "logistica", "floresta"):
         m = mets.get(nome) or {}
         disp = bool(m.get("disponivel")) and proximas[nome] is not None
         metodos.append({"nome": nome, "rotulo_pt": m.get("rotulo_pt"), "acuracia_loo": m.get("acuracia_loo"),
+                        "acuracia_tempo": m.get("acuracia_tempo"), "n_tempo": m.get("n_tempo"),
+                        "viradas_tempo": m.get("viradas_tempo"),
                         "acerto_sinal": m.get("acerto_sinal"), "n": m.get("n"),
+                        "probabilidades": probs_proximas.get(nome) if disp else None,
                         "previsto_proxima": proximas[nome] if disp else None, "disponivel": disp})
     escolhido = met.get("escolhido") if proximas.get(met.get("escolhido") or "") else "ingenua"
     previsto_nivel = previsto
@@ -191,7 +202,10 @@ def main() -> int:
              "base_ata": base["ata"], "base_data_reuniao": base.get("data_reuniao"), "fonte_indice": fonte_ind,
              "indice": indice, "regra": {"aperto": "indice > 0.25", "afrouxamento": "indice < -0.25"},
              "previsto": previsto, "metodo_escolhido": escolhido,
-             "acuracia_escolhido": (mets.get(escolhido) or {}).get("acuracia_loo"),
+             "acuracia_escolhido": (mets.get(escolhido) or {}).get("acuracia_tempo",
+                                                                   (mets.get(escolhido) or {}).get("acuracia_loo")),
+             "criterio_escolha": met.get("criterio_escolha"), "validacao_tempo": met.get("validacao_tempo"),
+             "destaque_viradas": met.get("destaque_viradas"),
              "previsto_nivel_tom": previsto_nivel,
              "variacao_tom": {"delta": delta, "ata": simp[-1]["ata"] if simp else None,
                               "ata_anterior": simp[-2]["ata"] if len(simp) >= 2 else None},
