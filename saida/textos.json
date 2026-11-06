@@ -15,7 +15,7 @@
     "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)"
   },
   "manchete": "Copom deve cortar a Selic em 09/12; ata mostra tom menos duro",
-  "linha_fina": "Nosso modelo prevê afrouxamento e acertou 74% das decisões seguintes desde 2021; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
+  "linha_fina": "Nosso modelo prevê corte de juros e acertou 23 de 31 reuniões testadas desde dezembro de 2022; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
   "secoes": [
     {
       "id": "mudou",
@@ -166,6 +166,7 @@
   "verificacao": {
     "reescritas": 0,
     "descartados": [],
-    "chamadas_claude": 1
+    "chamadas_claude": 1,
+    "linha_fina_editada": "corrigida em 06/11 15h a pedido do time: termo técnico e período da acurácia"
   }
 }

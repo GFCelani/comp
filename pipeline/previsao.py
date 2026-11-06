@@ -154,8 +154,13 @@ def main() -> int:
     previsto = PARA_SINAL.get(pa.get("previsto")) if probs else None
     acc = mt.get("acuracia")
     ano0 = ((mt.get("periodo") or {}).get("inicio") or "2021")[:4]
-    texto_publico = (f"Nosso modelo, treinado com as atas desde 2021, acertou {round(100 * acc)}% das decisões "
-                     f"seguintes.") if acc is not None else None
+    MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto",
+             "setembro", "outubro", "novembro", "dezembro"]
+    ini = (mt.get("periodo") or {}).get("inicio") or ""
+    desde = f" desde {MESES[int(ini[5:7]) - 1]} de {ini[:4]}" if len(ini) >= 7 else ""
+    n_t = mt.get("n")
+    texto_publico = (f"Nosso modelo acertou {round(acc * n_t)} de {n_t} reuniões testadas{desde}."
+                     if acc is not None and n_t else None)
     metodos = [{"nome": mm.get("tipo"), "rotulo_pt": "modelo de nota de tom", "acuracia_tempo": acc,
                 "acuracia_balanceada": mt.get("acuracia_balanceada"), "n_tempo": mt.get("n"), "n": mt.get("n"),
                 "viradas_tempo": mm.get("viradas"), "probabilidades": probs, "previsto_proxima": previsto,

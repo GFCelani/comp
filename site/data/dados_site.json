@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T14:53:48-03:00",
+  "gerado_em": "2026-11-06T15:00:39-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T14:53:48-03:00",
+  "ultima_verificacao": "2026-11-06T15:00:39-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4215,7 +4215,7 @@
     }
   ],
   "previsao": {
-    "gerado_em": "2026-11-06T14:53:05-03:00",
+    "gerado_em": "2026-11-06T15:00:39-03:00",
     "base_ata": 281,
     "base_data_reuniao": "2026-09-16",
     "fonte_indice": "simples",
@@ -4228,7 +4228,7 @@
       "manutencao": 0.285,
       "corte": 0.562
     },
-    "texto_publico": "Nosso modelo, treinado com as atas desde 2021, acertou 74% das decisões seguintes.",
+    "texto_publico": "Nosso modelo acertou 23 de 31 reuniões testadas desde dezembro de 2022.",
     "observacao": "a ata da reunião 282 ainda não saiu; a previsão usa a última ata publicada (281)",
     "criterio_escolha": "maior acurácia na validação no tempo; empate: maior acurácia balanceada, depois o mais simples (árvore, logística, floresta)",
     "validacao_tempo": {
@@ -4291,7 +4291,7 @@
   },
   "manchete": {
     "texto": "Copom deve cortar a Selic em 09/12; ata mostra tom menos duro",
-    "linha_fina": "Nosso modelo prevê afrouxamento e acertou 74% das decisões seguintes desde 2021; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
+    "linha_fina": "Nosso modelo prevê corte de juros e acertou 23 de 31 reuniões testadas desde dezembro de 2022; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
     "origem": "claude"
   },
   "relatorio": {
