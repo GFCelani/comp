@@ -145,11 +145,13 @@ export default async function Pagina() {
       <Cabecalho />
       <main id="conteudo" className="flex-1">
         {/* 1. Capa: altura da tela menos o header, conteúdo centralizado */}
-        <section className="relative lg:min-h-[100svh] lg:flex lg:items-center pt-[104px] sm:pt-[112px] lg:pt-[92px]" aria-labelledby="manchete">
+        <section className="relative lg:min-h-[100svh] lg:flex lg:flex-col pt-[104px] sm:pt-[112px] lg:pt-[92px]" aria-labelledby="manchete">
+          {/* espaço acima : abaixo = 1 : 2 */}
+          <div aria-hidden className="hidden lg:block lg:flex-[1]" />
           <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
           <div className="envelope relative w-full">
             <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
-              <div className="flex flex-col justify-center">
+              <div className="min-w-0">
                 <p className="rotulo num entra-0">
                   Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
                 </p>
@@ -195,7 +197,8 @@ export default async function Pagina() {
               </div>
 
               {/* Cartão: mesma altura do bloco de texto (grade esticada) */}
-              <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col" aria-label="Destaques">
+              <div className="relative">
+              <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col lg:absolute lg:inset-0" aria-label="Destaques">
                 <div className="px-6 pt-4 pb-4 bg-fundo-petroleo">
                   <p className="rotulo text-acento">Leia o relatório de hoje</p>
                   <p className="titulo-serifa mt-1 text-[1.25rem] leading-[1.25]">
@@ -270,8 +273,10 @@ export default async function Pagina() {
                   )}
                 </div>
               </aside>
+              </div>
             </div>
           </div>
+          <div aria-hidden className="hidden lg:block lg:flex-[2]" />
         </section>
 
         {/* 2. Relatório */}
@@ -476,7 +481,7 @@ export default async function Pagina() {
                   <span className="hidden group-open:inline">fechar</span>
                 </span>
               </summary>
-              <div className="pb-8 grid gap-8 md:grid-cols-3">
+              <div className="pb-8 grid gap-8 md:grid-cols-2">
                 <div>
                   <h3 className="font-medium">A régua</h3>
                   <p className="mt-2 texto-2">{como_medimos.regua}</p>
@@ -484,10 +489,6 @@ export default async function Pagina() {
                 <div>
                   <h3 className="font-medium">Do parágrafo ao índice</h3>
                   <p className="mt-2 texto-2">{como_medimos.agregacao}</p>
-                </div>
-                <div>
-                  <h3 className="font-medium">Validação</h3>
-                  <p className="mt-2 texto-2">{como_medimos.validacao}</p>
                 </div>
               </div>
             </details>
