@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T13:22:48-03:00",
+  "gerado_em": "2026-11-06T14:17:47-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T13:22:48-03:00",
+  "ultima_verificacao": "2026-11-06T14:17:47-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4215,7 +4215,7 @@
     }
   ],
   "previsao": {
-    "gerado_em": "2026-11-06T13:02:10-03:00",
+    "gerado_em": "2026-11-06T14:13:03-03:00",
     "base_ata": 281,
     "base_data_reuniao": "2026-09-16",
     "fonte_indice": "simples",
@@ -4224,7 +4224,53 @@
       "aperto": "indice > 0.25",
       "afrouxamento": "indice < -0.25"
     },
-    "previsto": "aperto",
+    "previsto": "manutencao",
+    "metodo_escolhido": "ingenua",
+    "acuracia_escolhido": 0.844,
+    "previsto_nivel_tom": "aperto",
+    "variacao_tom": {
+      "delta": -0.28,
+      "ata": 281,
+      "ata_anterior": 280
+    },
+    "metodos": [
+      {
+        "nome": "ingenua",
+        "rotulo_pt": "Previsão ingênua (repete a última decisão)",
+        "acuracia_loo": 0.844,
+        "acerto_sinal": 0.9,
+        "n": 45,
+        "previsto_proxima": "manutencao",
+        "disponivel": true
+      },
+      {
+        "nome": "variacao_tom",
+        "rotulo_pt": "Variação do índice de tom entre atas (±0,25)",
+        "acuracia_loo": 0.644,
+        "acerto_sinal": 0.8,
+        "n": 45,
+        "previsto_proxima": "afrouxamento",
+        "disponivel": true
+      },
+      {
+        "nome": "nivel_tom",
+        "rotulo_pt": "Nível do índice de tom (±0,25)",
+        "acuracia_loo": 0.4,
+        "acerto_sinal": 0.429,
+        "n": 45,
+        "previsto_proxima": "aperto",
+        "disponivel": true
+      },
+      {
+        "nome": "modelo_parceiro",
+        "rotulo_pt": "Modelo do parceiro (nível do índice do modelo, ±0,25)",
+        "acuracia_loo": null,
+        "acerto_sinal": null,
+        "n": null,
+        "previsto_proxima": null,
+        "disponivel": false
+      }
+    ],
     "proxima_reuniao": {
       "numero": 283,
       "data": "2026-12-09",
@@ -4277,13 +4323,13 @@
     }
   },
   "manchete": {
-    "texto": "Copom suaviza o tom sobre a inflação e o sinal aponta aperto da Selic em 09/12",
-    "linha_fina": "A Selic está em 13,75% ao ano e a mediana do mercado para o fim de 2026 é 13,50%, o que mostra que o aperto é só um sinal, não uma certeza.",
+    "texto": "Copom deve manter a Selic em 09/12; ata mostra tom menos duro",
+    "linha_fina": "A manutenção vem do método de maior acurácia histórica, que acertou 84% das reuniões; na ata 281 o tom ficou menos duro, com variação de 0,28 ponto para baixo.",
     "origem": "claude"
   },
   "relatorio": {
     "origem": "claude",
-    "gerado_em": "2026-11-06T13:21:46-03:00",
+    "gerado_em": "2026-11-06T14:16:56-03:00",
     "reescritas": 0,
     "secoes": [
       {
@@ -4291,7 +4337,7 @@
         "titulo": "O que mudou na comunicação do Copom",
         "paragrafos": [
           {
-            "texto": "A ata 281 registra que a atividade econômica doméstica manteve trajetória de moderação, com o PIB do segundo trimestre confirmando a desaceleração [[c1]]. O Comitê vê o crédito bancário com recursos livres consistente com desaceleração do crescimento [[c2]]. A inflação em 12 meses aparece abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]].",
+            "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Também surgiu um parágrafo sobre crédito, que mostra redução nas modalidades de prazo mais longo, as mais sensíveis à política monetária [[c2]].",
             "citacoes": [
               {
                 "id": "c1",
@@ -4305,23 +4351,23 @@
                 "id": "c2",
                 "ata": 281,
                 "paragrafo": 6,
-                "trecho": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c3",
-                "ata": 281,
-                "paragrafo": 9,
-                "trecho": "Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
             ]
           },
           {
-            "texto": "Na ata 280, a inflação cheia desacelerou, mas seguia acima do limite superior da meta [[c4]]. A ata 281 mantém, porém, o diagnóstico de que as expectativas de inflação permanecem acima da meta em todos os horizontes [[c5]]. O Comitê afirma que, com expectativas desancoradas, é preciso uma restrição monetária maior e por mais tempo [[c6]].",
+            "texto": "O Comitê afirma que a inflação cheia e a média das medidas subjacentes desaceleraram e estão abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]]. Na ata anterior, a inflação cheia ainda aparecia acima do limite superior da meta [[c4]].",
             "citacoes": [
+              {
+                "id": "c3",
+                "ata": 281,
+                "paragrafo": 2,
+                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
               {
                 "id": "c4",
                 "ata": 280,
@@ -4329,22 +4375,6 @@
                 "trecho": "a inflação cheia desacelerou, porém ainda acima do limite superior da meta",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
                 "data_reuniao": "2026-08-05"
-              },
-              {
-                "id": "c5",
-                "ata": 281,
-                "paragrafo": 10,
-                "trecho": "permanecem acima da meta de inflação em todos os horizontes",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c6",
-                "ata": 281,
-                "paragrafo": 10,
-                "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
               }
             ]
           }
@@ -4355,45 +4385,29 @@
         "titulo": "O efeito provável no mercado",
         "paragrafos": [
           {
-            "texto": "Com o Comitê reiterando que a política monetária deve manter caráter restritivo, a Selic pode permanecer elevada por mais tempo [[c7]]. Como o Comitê diz que a magnitude do ciclo de calibração será ajustada à luz do cenário, os juros futuros podem oscilar conforme os dados [[c8]]. O câmbio pode reagir às incertezas externas, que o Comitê descreve em níveis elevados [[c9]]. A inflação esperada para prazos mais longos pode seguir sob vigilância do Comitê, que monitora a desancoragem [[c10]]. O crédito de prazo mais longo pode seguir em redução, segundo o padrão descrito pelo Comitê [[c11]].",
+            "texto": "A ata mantém o aviso de que a restrição monetária precisa durar mais tempo, o que pode sustentar juros futuros elevados por um período maior [[c5]]. A leitura de que os riscos têm assimetria altista tende a manter o câmbio e a inflação esperada sob atenção [[c6]]. A evidência de que a política monetária já chega à atividade sinaliza que o crédito tende a seguir desacelerando [[c7]].",
             "citacoes": [
+              {
+                "id": "c5",
+                "ata": 281,
+                "paragrafo": 10,
+                "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
+              {
+                "id": "c6",
+                "ata": 281,
+                "paragrafo": 13,
+                "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista.",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
+              },
               {
                 "id": "c7",
                 "ata": 281,
                 "paragrafo": 15,
-                "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c8",
-                "ata": 281,
-                "paragrafo": 17,
-                "trecho": "a magnitude do ciclo de calibração será ajustada à luz da evolução do cenário",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c9",
-                "ata": 281,
-                "paragrafo": 4,
-                "trecho": "A incerteza com relação ao cenário externo segue em níveis elevados",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c10",
-                "ata": 281,
-                "paragrafo": 10,
-                "trecho": "O Comitê monitora com atenção a desancoragem das expectativas de inflação para prazos mais longos",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c11",
-                "ata": 281,
-                "paragrafo": 6,
-                "trecho": "redução nas modalidades de mais longo prazo",
+                "trecho": "evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4406,34 +4420,26 @@
         "titulo": "O que observar até a próxima reunião",
         "paragrafos": [
           {
-            "texto": "Vale acompanhar os efeitos de segunda ordem dos choques de oferta, diante dos quais o Copom diz que reagiria com firmeza [[c12]]. Vale olhar os preços aos produtores, que aceleraram em bens intermediários e em bens de consumo [[c13]]. Os riscos para a inflação permanecem mais elevados que o usual, com assimetria altista [[c14]]. No mercado de trabalho, os rendimentos médios seguem crescendo em termos reais acima da produtividade do trabalho [[c15]].",
+            "texto": "O Comitê diz que não deve reagir aos efeitos primários de choques de oferta, mas que vai monitorar os efeitos de segunda ordem [[c8]]. Vale acompanhar também a desancoragem das expectativas de inflação para prazos mais longos [[c9]]. Os rendimentos do mercado de trabalho, que ainda crescem em termos reais acima da produtividade, seguem no radar [[c10]].",
             "citacoes": [
               {
-                "id": "c12",
+                "id": "c8",
                 "ata": 281,
                 "paragrafo": 16,
-                "trecho": "é necessário monitorar com atenção eventuais efeitos de segunda ordem, e reagir com firmeza caso esses efeitos se materializem",
+                "trecho": "não deve reagir aos efeitos primários de choques dessa natureza, mas que é necessário monitorar com atenção eventuais efeitos de segunda ordem",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c13",
+                "id": "c9",
                 "ata": 281,
-                "paragrafo": 9,
-                "trecho": "as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo",
+                "paragrafo": 10,
+                "trecho": "O Comitê monitora com atenção a desancoragem das expectativas de inflação para prazos mais longos",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c14",
-                "ata": 281,
-                "paragrafo": 13,
-                "trecho": "Os riscos para a inflação, tanto de alta quanto de baixa, permanecem mais elevados que o usual, com assimetria altista",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c15",
+                "id": "c10",
                 "ata": 281,
                 "paragrafo": 7,
                 "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
@@ -4458,7 +4464,7 @@
       "manutencao": "entre -0.25 e 0.25"
     },
     "fonte_indice": "simples",
-    "gerado_em": "2026-11-06T12:42:01",
+    "gerado_em": "2026-11-06T14:12:37",
     "n_atas": 45,
     "periodo": {
       "inicio": "2021-01-20",
@@ -5246,7 +5252,1069 @@
         }
       ]
     },
-    "melhor": "ingenua"
+    "melhor": "ingenua",
+    "validacao": "leave-one-out (uma ata de fora por vez); limiar 0,25 fixado antes de ver o resultado",
+    "ordem_desempate": [
+      "ingenua",
+      "variacao_tom",
+      "nivel_tom",
+      "modelo_parceiro"
+    ],
+    "metodos": {
+      "ingenua": {
+        "disponivel": true,
+        "rotulo_pt": "Previsão ingênua (repete a última decisão)",
+        "acuracia_loo": 0.844,
+        "acerto_sinal": 0.9,
+        "n": 45,
+        "n_previsoes_direcionais": 30,
+        "matriz_confusao": {
+          "rotulos": [
+            "afrouxamento",
+            "manutencao",
+            "aperto"
+          ],
+          "valores": [
+            [
+              10,
+              1,
+              0
+            ],
+            [
+              2,
+              11,
+              2
+            ],
+            [
+              0,
+              2,
+              17
+            ]
+          ]
+        },
+        "atas": [
+          {
+            "ata": 280,
+            "data_reuniao": "2026-08-05",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 279,
+            "data_reuniao": "2026-06-17",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 278,
+            "data_reuniao": "2026-04-29",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 277,
+            "data_reuniao": "2026-03-18",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 276,
+            "data_reuniao": "2026-01-28",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 275,
+            "data_reuniao": "2025-12-10",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 274,
+            "data_reuniao": "2025-11-05",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 273,
+            "data_reuniao": "2025-09-17",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 272,
+            "data_reuniao": "2025-07-30",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 271,
+            "data_reuniao": "2025-06-18",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 270,
+            "data_reuniao": "2025-05-07",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 269,
+            "data_reuniao": "2025-03-19",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 268,
+            "data_reuniao": "2025-01-29",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 267,
+            "data_reuniao": "2024-12-11",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 266,
+            "data_reuniao": "2024-11-06",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 265,
+            "data_reuniao": "2024-09-18",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 264,
+            "data_reuniao": "2024-07-31",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 263,
+            "data_reuniao": "2024-06-19",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 262,
+            "data_reuniao": "2024-05-08",
+            "previsto": "afrouxamento",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 261,
+            "data_reuniao": "2024-03-20",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 260,
+            "data_reuniao": "2024-01-31",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 259,
+            "data_reuniao": "2023-12-13",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 258,
+            "data_reuniao": "2023-11-01",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 257,
+            "data_reuniao": "2023-09-20",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 256,
+            "data_reuniao": "2023-08-02",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 255,
+            "data_reuniao": "2023-06-21",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 254,
+            "data_reuniao": "2023-05-03",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 253,
+            "data_reuniao": "2023-03-22",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 252,
+            "data_reuniao": "2023-02-01",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 251,
+            "data_reuniao": "2022-12-07",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 250,
+            "data_reuniao": "2022-10-26",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 249,
+            "data_reuniao": "2022-09-21",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 248,
+            "data_reuniao": "2022-08-03",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 247,
+            "data_reuniao": "2022-06-15",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 246,
+            "data_reuniao": "2022-05-04",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 245,
+            "data_reuniao": "2022-03-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 244,
+            "data_reuniao": "2022-02-02",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 243,
+            "data_reuniao": "2021-12-08",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 242,
+            "data_reuniao": "2021-10-27",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 241,
+            "data_reuniao": "2021-09-22",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 240,
+            "data_reuniao": "2021-08-04",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 239,
+            "data_reuniao": "2021-06-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 238,
+            "data_reuniao": "2021-05-05",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 237,
+            "data_reuniao": "2021-03-17",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 236,
+            "data_reuniao": "2021-01-20",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          }
+        ]
+      },
+      "variacao_tom": {
+        "disponivel": true,
+        "rotulo_pt": "Variação do índice de tom entre atas (±0,25)",
+        "acuracia_loo": 0.644,
+        "acerto_sinal": 0.8,
+        "n": 45,
+        "n_previsoes_direcionais": 25,
+        "matriz_confusao": {
+          "rotulos": [
+            "afrouxamento",
+            "manutencao",
+            "aperto"
+          ],
+          "valores": [
+            [
+              8,
+              2,
+              0
+            ],
+            [
+              4,
+              9,
+              7
+            ],
+            [
+              0,
+              3,
+              12
+            ]
+          ]
+        },
+        "atas": [
+          {
+            "ata": 280,
+            "data_reuniao": "2026-08-05",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 279,
+            "data_reuniao": "2026-06-17",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 278,
+            "data_reuniao": "2026-04-29",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 277,
+            "data_reuniao": "2026-03-18",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 276,
+            "data_reuniao": "2026-01-28",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 275,
+            "data_reuniao": "2025-12-10",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 274,
+            "data_reuniao": "2025-11-05",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 273,
+            "data_reuniao": "2025-09-17",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 272,
+            "data_reuniao": "2025-07-30",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 271,
+            "data_reuniao": "2025-06-18",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 270,
+            "data_reuniao": "2025-05-07",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 269,
+            "data_reuniao": "2025-03-19",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 268,
+            "data_reuniao": "2025-01-29",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 267,
+            "data_reuniao": "2024-12-11",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 266,
+            "data_reuniao": "2024-11-06",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 265,
+            "data_reuniao": "2024-09-18",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 264,
+            "data_reuniao": "2024-07-31",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 263,
+            "data_reuniao": "2024-06-19",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 262,
+            "data_reuniao": "2024-05-08",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 261,
+            "data_reuniao": "2024-03-20",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 260,
+            "data_reuniao": "2024-01-31",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 259,
+            "data_reuniao": "2023-12-13",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 258,
+            "data_reuniao": "2023-11-01",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 257,
+            "data_reuniao": "2023-09-20",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 256,
+            "data_reuniao": "2023-08-02",
+            "previsto": "afrouxamento",
+            "realizado": "afrouxamento",
+            "acertou": true
+          },
+          {
+            "ata": 255,
+            "data_reuniao": "2023-06-21",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 254,
+            "data_reuniao": "2023-05-03",
+            "previsto": "afrouxamento",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 253,
+            "data_reuniao": "2023-03-22",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 252,
+            "data_reuniao": "2023-02-01",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 251,
+            "data_reuniao": "2022-12-07",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 250,
+            "data_reuniao": "2022-10-26",
+            "previsto": "afrouxamento",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 249,
+            "data_reuniao": "2022-09-21",
+            "previsto": "manutencao",
+            "realizado": "manutencao",
+            "acertou": true
+          },
+          {
+            "ata": 248,
+            "data_reuniao": "2022-08-03",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 247,
+            "data_reuniao": "2022-06-15",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 246,
+            "data_reuniao": "2022-05-04",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 245,
+            "data_reuniao": "2022-03-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 244,
+            "data_reuniao": "2022-02-02",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 243,
+            "data_reuniao": "2021-12-08",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 242,
+            "data_reuniao": "2021-10-27",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 241,
+            "data_reuniao": "2021-09-22",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 240,
+            "data_reuniao": "2021-08-04",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 239,
+            "data_reuniao": "2021-06-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 238,
+            "data_reuniao": "2021-05-05",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          },
+          {
+            "ata": 237,
+            "data_reuniao": "2021-03-17",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 236,
+            "data_reuniao": "2021-01-20",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          }
+        ]
+      },
+      "nivel_tom": {
+        "disponivel": true,
+        "rotulo_pt": "Nível do índice de tom (±0,25)",
+        "acuracia_loo": 0.4,
+        "acerto_sinal": 0.429,
+        "n": 45,
+        "n_previsoes_direcionais": 42,
+        "matriz_confusao": {
+          "rotulos": [
+            "afrouxamento",
+            "manutencao",
+            "aperto"
+          ],
+          "valores": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              10,
+              14,
+              18
+            ]
+          ]
+        },
+        "atas": [
+          {
+            "ata": 280,
+            "data_reuniao": "2026-08-05",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 279,
+            "data_reuniao": "2026-06-17",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 278,
+            "data_reuniao": "2026-04-29",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 277,
+            "data_reuniao": "2026-03-18",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 276,
+            "data_reuniao": "2026-01-28",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 275,
+            "data_reuniao": "2025-12-10",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 274,
+            "data_reuniao": "2025-11-05",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 273,
+            "data_reuniao": "2025-09-17",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 272,
+            "data_reuniao": "2025-07-30",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 271,
+            "data_reuniao": "2025-06-18",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 270,
+            "data_reuniao": "2025-05-07",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 269,
+            "data_reuniao": "2025-03-19",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 268,
+            "data_reuniao": "2025-01-29",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 267,
+            "data_reuniao": "2024-12-11",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 266,
+            "data_reuniao": "2024-11-06",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 265,
+            "data_reuniao": "2024-09-18",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 264,
+            "data_reuniao": "2024-07-31",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 263,
+            "data_reuniao": "2024-06-19",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 262,
+            "data_reuniao": "2024-05-08",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 261,
+            "data_reuniao": "2024-03-20",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 260,
+            "data_reuniao": "2024-01-31",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 259,
+            "data_reuniao": "2023-12-13",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 258,
+            "data_reuniao": "2023-11-01",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 257,
+            "data_reuniao": "2023-09-20",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 256,
+            "data_reuniao": "2023-08-02",
+            "previsto": "manutencao",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 255,
+            "data_reuniao": "2023-06-21",
+            "previsto": "aperto",
+            "realizado": "afrouxamento",
+            "acertou": false
+          },
+          {
+            "ata": 254,
+            "data_reuniao": "2023-05-03",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 253,
+            "data_reuniao": "2023-03-22",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 252,
+            "data_reuniao": "2023-02-01",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 251,
+            "data_reuniao": "2022-12-07",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 250,
+            "data_reuniao": "2022-10-26",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 249,
+            "data_reuniao": "2022-09-21",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 248,
+            "data_reuniao": "2022-08-03",
+            "previsto": "aperto",
+            "realizado": "manutencao",
+            "acertou": false
+          },
+          {
+            "ata": 247,
+            "data_reuniao": "2022-06-15",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 246,
+            "data_reuniao": "2022-05-04",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 245,
+            "data_reuniao": "2022-03-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 244,
+            "data_reuniao": "2022-02-02",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 243,
+            "data_reuniao": "2021-12-08",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 242,
+            "data_reuniao": "2021-10-27",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 241,
+            "data_reuniao": "2021-09-22",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 240,
+            "data_reuniao": "2021-08-04",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 239,
+            "data_reuniao": "2021-06-16",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 238,
+            "data_reuniao": "2021-05-05",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 237,
+            "data_reuniao": "2021-03-17",
+            "previsto": "aperto",
+            "realizado": "aperto",
+            "acertou": true
+          },
+          {
+            "ata": 236,
+            "data_reuniao": "2021-01-20",
+            "previsto": "manutencao",
+            "realizado": "aperto",
+            "acertou": false
+          }
+        ]
+      },
+      "modelo_parceiro": {
+        "disponivel": false,
+        "rotulo_pt": "Modelo do parceiro (nível do índice do modelo, ±0,25)",
+        "motivo": "banco/indice_modelo.json não existe"
+      }
+    },
+    "escolhido": "ingenua"
   },
   "metricas_modelo": null,
   "validacao_humana": null,
@@ -5255,7 +6323,7 @@
     "focus": "2026-10-30"
   },
   "conferencia_selic": {
-    "verificado_em": "2026-11-06T13:22:42-03:00",
+    "verificado_em": "2026-11-06T14:17:31-03:00",
     "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros",
     "n_comparadas": 46,
     "divergencias": []

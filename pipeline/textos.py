@@ -41,13 +41,22 @@ ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 MAX_REESCRITAS = 2
-VERSAO = 3          # muda o hash quando o formato/prompt muda
+VERSAO = 4          # muda o hash quando o formato/prompt muda
 FUSO = timezone(timedelta(hours=-3))
 
 NOME_PREV = {"aperto": "alta", "manutencao": "manutenção", "afrouxamento": "corte"}
 PALAVRAS_PREV = {"aperto": ("alta", "elevação", "aperto", "subir", "subida"),
                  "manutencao": ("manutenção", "manter", "mantida", "estabilidade", "pausa"),
                  "afrouxamento": ("corte", "redução", "afrouxamento", "cortar", "reduzir")}
+# Termos que contradizem a previsão publicada: reprovados na manchete e na linha fina (sem acento, palavra inteira).
+_ALTA = ("alta", "altas", "elevacao", "elevar", "aperto", "subir", "subida", "sobe", "aumento", "aumentar")
+_CORTE = ("corte", "cortes", "cortar", "reducao", "reduzir", "afrouxamento", "queda", "cair", "baixar")
+_MANT = ("manutencao", "manter", "mantida", "mantem", "estabilidade", "pausa")
+TERMOS_CONTRA = {"manutencao": _ALTA + _CORTE, "aperto": _MANT + _CORTE, "afrouxamento": _ALTA + _MANT}
+NOME_METODO = {"ingenua": "previsão ingênua, que repete a última decisão",
+               "variacao_tom": "variação do índice de tom entre atas",
+               "nivel_tom": "nível do índice de tom", "modelo_parceiro": "modelo do parceiro"}
+ACAO_PREV = {"aperto": "subir", "manutencao": "manter", "afrouxamento": "cortar"}
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro",
          "novembro", "dezembro"]
 RE_MARCA = re.compile(r"\[\[(c\d+)\]\]")
@@ -66,7 +75,7 @@ cuja sempre nunca agora ainda pouco pouca poucos poucas grande grandes desta nel
 PROMPT = """Você é analista de política monetária e escreve para profissionais de banco, mercado e investidores,
 que querem saber o que deve acontecer com os juros e por quê. Use SOMENTE os dados abaixo.
 
-## Previsão do nosso sinal para a próxima reunião (banco/previsao.json)
+## Previsão publicada para a próxima reunião (método escolhido por maior acurácia histórica; banco/previsao.json)
 {previsao}
 
 ## Acerto histórico (reuniões de {ini} a {fim})
@@ -94,11 +103,13 @@ Alterados (parágrafo atual ← anterior): {alterados}
 
 ## Tarefa
 Escreva um relatório em JSON:
-- "manchete": UMA frase forte que junta a mudança na comunicação do Copom e a previsão do nosso sinal para a
-  próxima reunião, com a data dela no formato DD/MM. Forma (não conteúdo): "Copom suaviza o tom sobre a
-  inflação e o sinal aponta manutenção da Selic em DD/MM". A previsão da manchete TEM de ser a do nosso
-  sinal ("{previsto}"), apresentada como sinal ("o sinal aponta"), não como certeza.
-- "linha_fina": uma frase de apoio (por exemplo, o contraponto da previsão ingênua ou do Focus).
+- "manchete": UMA frase forte que anuncia a PREVISÃO PUBLICADA ("{previsto}", do método "{metodo}") para a
+  próxima reunião, com a data dela no formato DD/MM, e cita a mudança de tom da ata como explicação do que
+  mudou na comunicação. Forma (não conteúdo): "Copom deve manter a Selic em DD/MM; ata mostra tom menos duro".
+  A mudança de tom NUNCA aparece como previsão diferente: manchete e linha fina não podem citar outra direção
+  para a Selic (palavras como {termos_contra} são reprovadas por código).
+- "linha_fina": uma frase de apoio que pode citar a acurácia histórica do método escolhido e o que mudou no
+  tom, sem prever outra direção para a Selic.
 - "secoes": exatamente 3 seções, nesta ordem, com 3 a 5 parágrafos NO TOTAL (pelo menos 1 por seção):
   1. id "mudou", titulo "O que mudou na comunicação do Copom": o que mudou e por quê;
   2. id "efeito", titulo "O efeito provável no mercado": efeito provável sobre Selic, juros futuros, câmbio,
@@ -132,7 +143,7 @@ PROMPT_REESCRITA = """Sua resposta anterior teve problemas verificados por códi
 Corrija o que falhou mantendo todas as regras (toda sentença com marcador [[cN]] antes do ponto; trecho =
 cópia literal de até 25 palavras do parágrafo indicado; cada trecho sustenta a sua frase; nada sobre acerto
 do sinal, previsão ingênua, Focus ou ata não publicada nas seções; só números permitidos; manchete com a previsão
-"{previsto}" e a data da próxima reunião). Responda APENAS com o JSON completo.
+"{previsto}" e a data da próxima reunião; manchete e linha fina sem termos de outra direção para a Selic). Responda APENAS com o JSON completo.
 
 Sua resposta anterior:
 {anterior}"""
@@ -218,9 +229,14 @@ def dados_mercado() -> tuple[str, str | None, str | None]:
 
 def texto_previsao(prev: dict) -> str:
     p, u, f = prev.get("proxima_reuniao") or {}, prev.get("ultima_decisao") or {}, prev.get("focus_selic") or {}
-    l = [f"- Sinal: índice de tom {br(prev['indice'])} da ata {prev['base_ata']} (fonte {prev['fonte_indice']}); "
-         f"regra fixa: aperto se índice > 0,25, afrouxamento se < −0,25, senão manutenção.",
-         f"- Previsão do sinal para a próxima reunião: {prev['previsto']} ({NOME_PREV[prev['previsto']]} da Selic).",
+    met = prev.get("metodo_escolhido") or "nivel_tom"
+    vt = prev.get("variacao_tom") or {}
+    l = [f"- PREVISÃO PUBLICADA para a próxima reunião: {prev['previsto']} ({NOME_PREV[prev['previsto']]} da Selic), "
+         f"pelo método {NOME_METODO.get(met, met)}, o de maior acurácia no histórico "
+         f"({pct(prev.get('acuracia_escolhido'))} das reuniões).",
+         f"- Tom (explicação do que mudou, não previsão): índice de tom {br(prev['indice'])} na ata {prev['base_ata']}"
+         + (f", variação de {br(vt['delta'])} em relação à ata {vt.get('ata_anterior')}" if vt.get("delta") is not None else "")
+         + ".",
          f"- Próxima reunião: {p.get('numero')} em {p.get('data') or 'data indisponível'} (fonte: {p.get('fonte')})."]
     if u:
         l.append(f"- Última decisão conhecida: reunião {u.get('numero')} em {u.get('data')}, {u.get('decisao')} "
@@ -233,6 +249,10 @@ def texto_previsao(prev: dict) -> str:
 
 
 def texto_acerto(prev: dict) -> str:
+    if prev.get("metodos"):
+        return "\n".join(f"- {NOME_METODO.get(m['nome'], m['nome'])}: acurácia {pct(m.get('acuracia_loo'))} em "
+                         f"{m.get('n')} reuniões (validação deixando uma ata de fora por vez)"
+                         for m in prev["metodos"] if m.get("disponivel"))
     a = prev.get("acerto") or {}
     i, g = a.get("indice") or {}, a.get("ingenua") or {}
     return (f"- Nosso sinal de tom: acurácia {pct(i.get('acuracia'))} em {i.get('n')} reuniões; acerto de direção "
@@ -321,12 +341,17 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
     if not man:
         erros.append("manchete vazia")
     else:
-        if not any(w in man.lower() for w in PALAVRAS_PREV[prev["previsto"]]):
-            erros.append(f"a manchete não menciona a previsão do sinal ({NOME_PREV[prev['previsto']]})")
+        if not any(w in man.lower() for w in PALAVRAS_PREV[prev["previsto"]] + (ACAO_PREV[prev["previsto"]],)):
+            erros.append(f"a manchete não menciona a previsão publicada ({NOME_PREV[prev['previsto']]})")
         data = (prev.get("proxima_reuniao") or {}).get("data")
         if data and data_br(data) not in man:
             erros.append(f"a manchete não traz a data da próxima reunião ({data_br(data)})")
         nums("manchete", man)
+    for rot, txt in (("manchete", man), ("linha_fina", fina)):
+        ruins = [w for w in TERMOS_CONTRA[prev["previsto"]] if re.search(rf"\b{w}\b", sem_acento(txt))]
+        if ruins:
+            erros.append(f"{rot}: menciona direção diferente da previsão publicada "
+                         f"({NOME_PREV[prev['previsto']]}): {ruins}; a mudança de tom é explicação, não previsão")
     if not fina:
         erros.append("linha_fina vazia")
     else:
@@ -554,17 +579,15 @@ def plano_b(ctx: dict) -> dict:
     prev, atual, anterior = ctx["prev"], ctx["atual"], ctx["anterior"]
     i, i0 = ctx["indices"].get(atual), ctx["indices"].get(anterior)
     d = (i - i0) if i is not None and i0 is not None else 0
-    verbo = "endurece" if d > 0.1 else "suaviza" if d < -0.1 else "mantém"
+    tom = "mais duro" if d > 0.1 else "menos duro" if d < -0.1 else "sem grande mudança"
     prox = prev.get("proxima_reuniao") or {}
     quando = f"em {data_br(prox['data'])}" if prox.get("data") else "na próxima reunião"
-    nome = NOME_PREV[prev["previsto"]]
-    manchete = f"Copom {verbo} o tom na ata {atual} e o sinal aponta {nome} da Selic {quando}"
-    ac = prev.get("acerto") or {}
-    g = ac.get("ingenua") or {}
-    u = prev.get("ultima_decisao") or {}
-    fina = (f"O índice de tom ficou em {br(i)} na ata {atual}" + (f", contra {br(i0)} na ata {anterior}" if i0 is not None else "")
-            + f"; a previsão ingênua, que repete a última decisão ({NOME_PREV.get(g.get('previsto'), '—')}), "
-              f"acertou {pct(g.get('acuracia'))} das reuniões no histórico.")
+    manchete = f"Copom deve {ACAO_PREV[prev['previsto']]} a Selic {quando}; ata {atual} mostra tom {tom}"
+    met = prev.get("metodo_escolhido") or "nivel_tom"
+    n_met = next((m.get("n") for m in prev.get("metodos") or [] if m.get("nome") == met), None)
+    fina = (f"Método usado: {NOME_METODO.get(met, met)}, o de maior acerto no histórico "
+            f"({pct(prev.get('acuracia_escolhido'))} de {n_met} reuniões); o índice de tom foi a {br(i)} na ata {atual}"
+            + (f", contra {br(i0)} na ata {anterior}" if i0 is not None else "") + ".")
 
     # mudou
     cits, frases = [], []
@@ -639,8 +662,9 @@ def contexto() -> dict:
                   data_atual=atas.get(atual, {}).get("data_reuniao"), data_anterior=atas.get(anterior, {}).get("data_reuniao"),
                   par_atual=lista_par(atual, ctx["par_atual"], ctx["notas_atual"]),
                   par_anterior=lista_par(anterior, ctx["par_anterior"], ctx["notas_anterior"]),
-                  previsto=prev["previsto"])
-    dados = "\n".join(str(v) for k, v in campos.items() if k not in ("atual", "anterior"))
+                  previsto=prev["previsto"], metodo=NOME_METODO.get(prev.get("metodo_escolhido"), "nível do tom"),
+                  termos_contra=", ".join(f'"{w}"' for w in TERMOS_CONTRA[prev["previsto"]]))
+    dados = "\n".join(str(v) for k, v in campos.items() if k not in ("atual", "anterior", "termos_contra"))
     ctx["permitidos"] = permitidos_de(dados)
     datas = set(re.findall(r"\d{4}-\d{2}-\d{2}", dados + json.dumps(prev)))
     ctx["datas_ok"] = {(int(x[8:10]), int(x[5:7])) for x in datas}
@@ -723,6 +747,7 @@ def main() -> int:
              "gerado_em": datetime.now(FUSO).isoformat(timespec="seconds"),
              "origem": origem, "motivo_automatico": motivo, "tentativas": reescritas + (0 if sem_claude else 1),
              "reescritas": reescritas, "hash_entrada": h, "previsto": ctx["prev"]["previsto"],
+             "metodo_escolhido": ctx["prev"].get("metodo_escolhido"),
              "proxima_reuniao": ctx["prev"].get("proxima_reuniao"),
              **final,
              "mudancas": mudancas_evidencia(ctx),

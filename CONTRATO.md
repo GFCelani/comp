@@ -148,6 +148,23 @@ Base de comparação (`ingenua`): prevê para a reunião seguinte a mesma decis�
 
 `acuracia` = acertos / n_atas. `acerto_sinal` = entre as atas em que a previsão foi `aperto` ou `afrouxamento`, a fração em que o realizado teve o mesmo sinal. `matriz_confusao.valores[i][j]` = nº de atas com previsto `rotulos[i]` e realizado `rotulos[j]`. `n_atas` exclui a última ata (sem decisão seguinte). `melhor` ∈ `"indice"`, `"ingenua"`, `"empate"`, pela acurácia. A regra de ±0,25 não é ajustada para vencer a base. Cada bloco traz também `n_previsoes_direcionais` (nº de previsões `aperto`/`afrouxamento`, base do `acerto_sinal`, que é null se for 0). `indice` null numa ata (nenhuma nota ≠ 0) vira previsão `manutencao`.
 
+**Escolha do método publicado (ver DECISOES.md).** Campos adicionais (os blocos `indice` e `ingenua` acima continuam iguais):
+
+```json
+"validacao": "leave-one-out (...)", "ordem_desempate": ["ingenua", "variacao_tom", "nivel_tom", "modelo_parceiro"],
+"metodos": {
+  "ingenua":      { "disponivel": true, "rotulo_pt": "...", "acuracia_loo": 0.844, "acerto_sinal": 0.9, "n": 45, "n_previsoes_direcionais": 30, "matriz_confusao": { "rotulos": [...], "valores": [[...]] }, "atas": [ { "ata": 280, "data_reuniao": "...", "previsto": "...", "realizado": "...", "acertou": true } ] },
+  "variacao_tom": { "...": "mesmo formato" },
+  "nivel_tom":    { "...": "mesmo formato" },
+  "modelo_parceiro": { "disponivel": false, "rotulo_pt": "...", "motivo": "banco/indice_modelo.json não existe" }
+},
+"escolhido": "ingenua"
+```
+
+- `ingenua`: repete a decisão da reunião atual. `nivel_tom`: índice de `indice.json` > 0,25 → aperto, < −0,25 → afrouxamento, senão manutenção. `variacao_tom`: Δ = índice(ata) − índice(ata anterior com índice); Δ > 0,25 → um passo mais duro que a decisão atual (afrouxamento→manutencao→aperto→aperto); Δ < −0,25 → um passo mais brando; senão repete. Δ indefinido → repete. `modelo_parceiro`: só com `banco/indice_modelo.json` (regra de nível sobre o índice do modelo); se `banco/metricas_modelo.json` trouxer `acuracia_previsao_decisao` (ou `previsao_decisao.acuracia`), ela substitui `acuracia_loo`.
+- `acuracia_loo`: laço leave-one-out (cada ata é prevista com o método "ajustado" nas demais). Os três primeiros não têm parâmetros ajustados aos dados, então coincide com a acurácia simples. Limiar 0,25 fixo a priori.
+- `escolhido` = maior `acuracia_loo` entre os disponíveis; empate → ordem de `ordem_desempate` (vence o mais simples). Escolha automática a cada execução.
+
 ## saida/diff_ultimas.json
 
 Escreve: `pipeline/diff.py`. Comparação da última ata com a anterior.
@@ -164,14 +181,21 @@ Escreve: `pipeline/diff.py`. Comparação da última ata com a anterior.
 
 ## banco/previsao.json
 
-Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metricas`). Previsão do nosso sinal para a **próxima reunião ainda não realizada**.
+Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metricas`). Previsão para a **próxima reunião ainda não realizada**, pelo método escolhido em `metricas_previsao.json`.
 
 ```json
 {
   "gerado_em": "2026-11-06T13:02:10-03:00",
   "base_ata": 281, "base_data_reuniao": "2026-09-16", "fonte_indice": "simples", "indice": 0.62,
   "regra": { "aperto": "indice > 0.25", "afrouxamento": "indice < -0.25" },
-  "previsto": "aperto",
+  "previsto": "manutencao",
+  "metodo_escolhido": "ingenua", "acuracia_escolhido": 0.844, "previsto_nivel_tom": "aperto",
+  "variacao_tom": { "delta": -0.28, "ata": 281, "ata_anterior": 280 },
+  "metodos": [
+    { "nome": "ingenua", "rotulo_pt": "Previsão ingênua (repete a última decisão)", "acuracia_loo": 0.844, "acerto_sinal": 0.9, "n": 45, "previsto_proxima": "manutencao", "disponivel": true },
+    { "nome": "variacao_tom", "...": "..." }, { "nome": "nivel_tom", "...": "..." },
+    { "nome": "modelo_parceiro", "rotulo_pt": "...", "acuracia_loo": null, "acerto_sinal": null, "n": null, "previsto_proxima": null, "disponivel": false }
+  ],
   "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)" },
   "ultima_decisao_conhecida": { "numero": 282, "data": "2026-11-04", "selic": 13.75, "decisao_pp": 0.0, "decisao": "manutencao", "ata_publicada": false, "fonte": "BCB, histórico das taxas de juros (...)", "confere_sgs432": true },
   "ultima_decisao": { "...": "mesmo formato; sempre preenchido, mesmo com a ata publicada" },
@@ -184,6 +208,7 @@ Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metr
 }
 ```
 
+- `previsto`: previsão do método `metodo_escolhido` (o de maior `acuracia_loo`; `acuracia_escolhido`). `previsto_nivel_tom` = regra de nível do tom (a antiga `previsto`). `metodos`: todos os métodos na ordem de desempate, inclusive os indisponíveis (`disponivel: false`, campos null). Para a próxima reunião, `ingenua` e `variacao_tom` partem da última decisão conhecida (mesmo sem ata publicada); `variacao_tom.delta` = índice da última ata − índice da anterior.
 - `indice`/`base_ata`: índice da última ata com índice (`indice_modelo.json` se existir, senão `indice.json`). Regra fixa de ±0,25, a mesma de `metricas_previsao.json`; não é ajustada.
 - `proxima_reuniao`: calendário oficial do BC (`https://www.bcb.gov.br/api/servico/sitebcb/calendario/anual`, lista "Reuniões do Copom", a mesma do "Calendário do Copom" em bcb.gov.br/controleinflacao/copom). A data é o 2º dia da reunião (dia da decisão): a primeira posterior à última decisão conhecida e não anterior a hoje. `numero` = número da última decisão conhecida + 1. Se o calendário falhar e não houver data futura já gravada: `data` e `numero` null e `fonte: "indisponível"`. Nunca se inventa data.
 - `ultima_decisao_conhecida`: preenchido só quando há decisão oficial **sem ata publicada** (`ata_publicada: false`); senão null. Fonte: tabela oficial `historicotaxasjuros` (reuniões ordinárias), conferida com a SGS 432 (`confere_sgs432`). `ultima_decisao` tem a mesma estrutura e vem sempre.
@@ -218,9 +243,9 @@ Escreve: `pipeline/textos.py`. Relatório de mercado (manchete, linha fina e 3 s
 **Marcador de citação `[[cN]]`.** Dentro de `texto`, cada sentença termina com um ou mais marcadores `[[c1]]`, `[[c2]]`… colados antes do ponto final (`... decisão [[c1]][[c2]].`). Cada marcador aponta para um item de `citacoes` do mesmo parágrafo, `{id, ata, paragrafo, trecho}`. Os ids são únicos no relatório inteiro (c1…cN, renumerados por código, na ordem de leitura) e o mesmo marcador pode aparecer em mais de uma sentença. Regex: `\[\[(c\d+)\]\]`. O site troca cada marcador por uma referência clicável (ata e parágrafo) e mostra o trecho.
 
 - 3 seções fixas, nesta ordem: `mudou`, `efeito`, `observar`; de 3 a 5 parágrafos no total, pelo menos 1 por seção. A seção `efeito` usa linguagem condicional (Selic, juros futuros, câmbio, inflação esperada, crédito). Não é recomendação de investimento.
-- `manchete`: uma frase que junta a mudança de tom do Copom e a previsão do sinal para a próxima reunião, com a data em DD/MM.
+- `manchete`: anuncia a previsão do **método escolhido** (`previsao.json` `previsto`) para a próxima reunião, com a data em DD/MM; a mudança de tom entra só como explicação do que mudou na comunicação (ex.: "Copom deve manter a Selic em 09/12; ata 281 mostra tom menos duro"). Manchete e linha fina são reprovadas se citarem termos de outra direção (`TERMOS_CONTRA` em `textos.py`: para manutenção, "alta", "aperto", "subir", "corte", "redução" etc.). `metodo_escolhido` também é gravado em `textos.json`. `VERSAO` = 4.
 - Verificação por código (vale para o Claude e para o plano B): toda sentença tem marcador; marcadores e citações batem nos dois sentidos; todo trecho é cópia literal (espaços e aspas tipográficas normalizados) de até 25 palavras do parágrafo indicado da ata atual ou da anterior; todo número da manchete, da linha fina e dos textos existe nos dados enviados (vírgula decimal e % normalizados; ignorados números de ata, de parágrafo, de reunião, anos e datas presentes nos dados); a manchete menciona a previsão de `previsao.json` e a data da próxima reunião; nas seções do relatório, nenhuma sentença fala dos nossos próprios dados (reprovadas as que contêm "acert", "previsão ingênua", "ingênua", "nosso sinal", "Focus" ou "não foi publicada"; manchete e linha fina podem); cada citação sustenta a sua sentença (ao menos uma palavra de 5+ letras fora das stopwords em comum entre a sentença e o trecho, sem acento e sem caixa). Até 2 reescritas com os erros.
-- `origem` ∈ `"claude"`, `"automatico"`. `motivo_automatico` ∈ `null`, `"indisponivel"` (sem Claude, erro ou timeout), `"reprovado"` (falhou na verificação após 2 reescritas). Plano B: manchete por modelo fixo ("Copom {endurece|suaviza|mantém} o tom na ata N e o sinal aponta {alta|manutenção|corte} da Selic em DD/MM"); `mudou` = até 3 mudanças do diff com maior \|nota\| ou maior variação de nota, cada uma com um de 3 ou 4 modelos de frase por tipo (novo, alterado, removido) e efeito (endureceu, suavizou), escolhido pela posição, e com o tema tirado do trecho citado; `efeito` = frase condicional fixa pela previsão, citando o parágrafo de maior \|nota\| das seções de condução/decisão; `observar` = frase fixa citando o parágrafo de maior \|nota\| que fala de riscos. No plano B o trecho é recortado por código: as primeiras até 25 palavras do parágrafo.
+- `origem` ∈ `"claude"`, `"automatico"`. `motivo_automatico` ∈ `null`, `"indisponivel"` (sem Claude, erro ou timeout), `"reprovado"` (falhou na verificação após 2 reescritas). Plano B: manchete por modelo fixo ("Copom deve {subir|manter|cortar} a Selic em DD/MM; ata N mostra tom {mais duro|menos duro|sem grande mudança}"), linha fina com o método escolhido e sua acurácia; `mudou` = até 3 mudanças do diff com maior \|nota\| ou maior variação de nota, cada uma com um de 3 ou 4 modelos de frase por tipo (novo, alterado, removido) e efeito (endureceu, suavizou), escolhido pela posição, e com o tema tirado do trecho citado; `efeito` = frase condicional fixa pela previsão, citando o parágrafo de maior \|nota\| das seções de condução/decisão; `observar` = frase fixa citando o parágrafo de maior \|nota\| que fala de riscos. No plano B o trecho é recortado por código: as primeiras até 25 palavras do parágrafo.
 - `mudancas` e `impacto` (seção de Evidência) vêm sempre do código: as mesmas até 3 mudanças do plano B, com `explicacao` de modelo fixo, e o impacto de modelo fixo com índice, variação, decisão e Selic.
 - Idempotência: `hash_entrada` = hash de (versão do formato, ata atual, ata anterior, `previsao.json` sem `gerado_em`). Com o mesmo hash, `textos.py` não faz nada; a exceção é `origem: "automatico"` com `motivo_automatico: "indisponivel"` quando o Claude volta. Um plano B por reprovação só é refeito quando a entrada muda.
 

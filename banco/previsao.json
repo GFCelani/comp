@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-06T13:02:10-03:00",
+  "gerado_em": "2026-11-06T14:13:03-03:00",
   "base_ata": 281,
   "base_data_reuniao": "2026-09-16",
   "fonte_indice": "simples",
@@ -8,7 +8,53 @@
     "aperto": "indice > 0.25",
     "afrouxamento": "indice < -0.25"
   },
-  "previsto": "aperto",
+  "previsto": "manutencao",
+  "metodo_escolhido": "ingenua",
+  "acuracia_escolhido": 0.844,
+  "previsto_nivel_tom": "aperto",
+  "variacao_tom": {
+    "delta": -0.28,
+    "ata": 281,
+    "ata_anterior": 280
+  },
+  "metodos": [
+    {
+      "nome": "ingenua",
+      "rotulo_pt": "Previsão ingênua (repete a última decisão)",
+      "acuracia_loo": 0.844,
+      "acerto_sinal": 0.9,
+      "n": 45,
+      "previsto_proxima": "manutencao",
+      "disponivel": true
+    },
+    {
+      "nome": "variacao_tom",
+      "rotulo_pt": "Variação do índice de tom entre atas (±0,25)",
+      "acuracia_loo": 0.644,
+      "acerto_sinal": 0.8,
+      "n": 45,
+      "previsto_proxima": "afrouxamento",
+      "disponivel": true
+    },
+    {
+      "nome": "nivel_tom",
+      "rotulo_pt": "Nível do índice de tom (±0,25)",
+      "acuracia_loo": 0.4,
+      "acerto_sinal": 0.429,
+      "n": 45,
+      "previsto_proxima": "aperto",
+      "disponivel": true
+    },
+    {
+      "nome": "modelo_parceiro",
+      "rotulo_pt": "Modelo do parceiro (nível do índice do modelo, ±0,25)",
+      "acuracia_loo": null,
+      "acerto_sinal": null,
+      "n": null,
+      "previsto_proxima": null,
+      "disponivel": false
+    }
+  ],
   "proxima_reuniao": {
     "numero": 283,
     "data": "2026-12-09",
