@@ -145,7 +145,7 @@ export default async function Pagina() {
       <Cabecalho />
       <main id="conteudo" className="flex-1">
         {/* 1. Capa: altura da tela menos o header, conteúdo centralizado */}
-        <section className="relative lg:min-h-[100svh] lg:flex lg:items-center pt-[104px] sm:pt-[112px] lg:pt-[92px] lg:pb-6" aria-labelledby="manchete">
+        <section className="relative lg:min-h-[100svh] lg:flex lg:items-center pt-[104px] sm:pt-[112px] lg:pt-[92px]" aria-labelledby="manchete">
           <FundoHero tom={serie.map((p) => p.indice)} selic={serie.map((p) => p.selic_apos)} />
           <div className="envelope relative w-full">
             <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
