@@ -337,7 +337,7 @@ export default async function Pagina() {
                   destaque
                   valor={acertoIndice ? pct(acertoIndice.acuracia) : <Aguardando />}
                   rotulo="Nosso índice de tom"
-                  contexto={acertoIndice ? `Acertou a direção em ${acertoIndice.n} reuniões avaliadas.` : "Aguardando as métricas do pipeline."}
+                  contexto={acertoIndice ? `Das ${acertoIndice.n} reuniões avaliadas, a fração em que acertou a direção.` : "Aguardando as métricas do pipeline."}
                 />
                 <Numero
                   valor={acertoIngenua ? pct(acertoIngenua.acuracia) : <Aguardando />}
