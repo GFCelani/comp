@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { buscar, buscarCompletos, tokenizar, type Resultado } from "@/lib/busca";
 import faq from "@/data/faq.json";
+import { dados } from "@/lib/dados";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -75,6 +76,55 @@ function respostaPronta(pergunta: string): ItemFaq | null {
     }
   }
   return melhor && melhor.nota >= 0.6 ? melhor.item : null;
+}
+
+/**
+ * Decisão mais recente vem dos dados de Selic (tabela oficial do BC), não só das atas:
+ * quando a reunião já decidiu e a ata ainda não saiu, a resposta pronta começa por ela.
+ */
+type Decisao = { numero: number; data: string; selic: number; decisao: string; decisao_pp: number; ata_publicada: boolean; fonte?: string };
+
+function ultimaDecisao(): Decisao | null {
+  const pv = (dados as unknown as { previsao?: { ultima_decisao?: Decisao | null; ultima_decisao_conhecida?: Decisao | null } | null }).previsao;
+  return pv?.ultima_decisao ?? pv?.ultima_decisao_conhecida ?? null;
+}
+
+const fmt2 = (v: number) => v.toFixed(2).replace(".", ",");
+const dataBr = (iso: string) => iso.split("-").reverse().join("/");
+
+function fraseDecisao(d: Decisao): string {
+  const acao =
+    d.decisao === "manutencao"
+      ? `manteve a Selic em ${fmt2(d.selic)}% ao ano`
+      : `${d.decisao === "alta" ? "elevou" : "reduziu"} a Selic em ${fmt2(Math.abs(d.decisao_pp))} ponto percentual, para ${fmt2(d.selic)}% ao ano`;
+  return `Na reunião de ${dataBr(d.data)}, a mais recente, o Copom ${acao}, segundo o histórico de taxas de juros do Banco Central`;
+}
+
+/** Ajusta as respostas prontas que dependem da decisão mais recente. */
+function comDecisaoAtual(item: ItemFaq): ItemFaq {
+  const d = ultimaDecisao();
+  if (!d || d.ata_publicada) return item;
+  const ataNova = `. A ata dessa reunião (${d.numero}ª) ainda não foi publicada.`;
+  if (item.id === "ultima-decisao") {
+    const c = item.citacoes.find((x) => x.ata < d.numero) ?? item.citacoes[0];
+    if (!c) return item;
+    const ref = { ...c, id: "c1" };
+    const ponto = dados.serie.find((x) => x.ata === ref.ata);
+    const antes = ponto
+      ? ponto.decisao === "manutencao"
+        ? `mantido a Selic em ${fmt2(ponto.selic_apos)}% ao ano`
+        : `decidido ${ponto.decisao === "alta" ? "elevar" : "reduzir"} a Selic para ${fmt2(ponto.selic_apos)}% ao ano`
+      : "registrado a decisão anterior";
+    return {
+      ...item,
+      resposta: `${fraseDecisao(d)}${ataNova} Na ata anterior, a ${ref.ata}ª, de ${dataBr(ref.data_reuniao)}, o Copom havia ${antes} [[c1]].`,
+      citacoes: [ref],
+    };
+  }
+  if (item.id === "cortes-continuar") {
+    return { ...item, resposta: `${fraseDecisao(d)}${ataNova} ${item.resposta.replace(/^Na ata 281/, "Antes disso, na ata 281")}` };
+  }
+  return item;
 }
 
 /* ---------- busca como resposta única ---------- */
@@ -198,7 +248,8 @@ export async function POST(req: NextRequest) {
   }
 
   if (!ata) {
-    const item = respostaPronta(pergunta);
+    const pronta = respostaPronta(pergunta);
+    const item = pronta ? comDecisaoAtual(pronta) : null;
     if (item) {
       return NextResponse.json({ modo: "faq", resposta: item.resposta, citacoes: item.citacoes, fontes: buscar(pergunta, null, 5) } satisfies Resposta);
     }
