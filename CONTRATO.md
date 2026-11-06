@@ -215,7 +215,7 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 - `exemplo: true` faz o site mostrar a faixa "EXEMPLO".
 - `ultima_verificacao`: data e hora ISO, com fuso de Brasília (ex.: `"2026-11-06T13:30:00-03:00"`), da última vez que o pipeline conferiu se há ata nova. Muda só quando o pipeline publica uma ata; a verificação de cada execução fica em `saida/status.json`. `gerado_em` também vai com o fuso.
 - `textos_pendentes`: sempre `false` desde os textos automáticos (plano B); o campo continua para compatibilidade. `mudancas_origem` e `impacto.origem` ∈ `"claude"`, `"automatico"` (o site mostra "texto automático").
-- `conferencia_selic` = conteúdo de `saida/conferencia_selic.json` ou null.
+- `conferencia_selic` = conteúdo de `saida/conferencia_selic.json` ou null; `status` = conteúdo de `saida/status.json` ou null (na hora em que o pipeline publicou).
 - `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).
 - `fonte_indice` ∈ `"simples"`, `"modelo"`: de onde vêm `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice`. Usa `banco/indice_modelo.json` quando existir, senão `banco/indice.json`.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).
