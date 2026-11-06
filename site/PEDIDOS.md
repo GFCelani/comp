@@ -25,3 +25,11 @@ Formato: data e hora · o que mudar · por quê · campo do `dados_site.json` en
   - `GET /api/painel/edicoes` lista essas edições no mesmo histórico (`campo`, `chave`, `valor_antigo`, `valor_novo`, `motivo`).
   - `obterDados()` aplica a edição mais recente sobre `dados.manchete` e `dados.relatorio` (as citações nunca mudam). `revisados` ganhou campos opcionais: `manchete?: boolean` (texto), `linhaFina?: boolean` e `relatorioParagrafos?: Set<string>` (chaves `<ata>.<secao>.<i>`). Edição de outra ata não é aplicada.
   - A ata da chave é `relatorio.base_ata`, senão `previsao.base_ata`, senão `resumo.ultima_ata.numero` (`ataDosTextos()` em `lib/edicoesTextos.ts`).
+
+## Modelo de nota de tom (06/11, ~14h55) — mudanças no JSON
+
+- `previsao`: agora sempre o modelo (`metodo_escolhido` = "logistica"). Novos: `probabilidades {alta, manutencao, corte}`, `texto_publico`, `observacao`. `metodos` tem UMA entrada. Saíram `acerto`, `destaque_viradas`, `previsto_nivel_tom`, `variacao_tom`, `regra` (page.tsx usa `variacao_tom` com `?.`, então só some o trecho).
+- `metricas_previsao`: só o modelo publicado (`escolhido`, `metodos.{logistica}`, `periodo` com `inicio_ata`/`fim_ata`).
+- `metricas_modelo`: novo formato (`tipo`, `metricas`, `variaveis` como lista de objetos, `candidatos`, `previsoes_ata_a_ata`). Mantidos para o painel: `modelo_publicado`, `importancias`, `validacao_tempo.metodos`, `previsao_atual.por_modelo`. **Ajuste pedido:** `hiperparametros` agora é string (antes Record por modelo); `lerModelo` em components/painel/modelo.ts lê `mm.hiperparametros[nome]` e mostra "aguardando". Usar `typeof mm.hiperparametros === "string"`.
+- `validacao_humana` saiu; entrou `checagens_automaticas {trechos, citacoes_relatorio, portao_qualidade}`.
+- `pnpm exec tsc --noEmit` passou após ajustar só site/lib (dados.ts, previsao.ts).

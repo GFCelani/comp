@@ -73,3 +73,13 @@ Escolhido: `ingenua`. A mudança de tom (índice de 0,90 na ata 280 para 0,62 na
 **Validação e escolha.** Janela crescente a partir da 16ª ata. Maior acurácia; empate → maior acurácia balanceada → mais simples (árvore, logística, floresta). Importância por permutação (n_repeats=30, random_state=42) do escolhido treinado em todas as atas com alvo.
 
 **Alvo e previsão.** Alvo da 281 = decisão da 282 (manutenção, validacao/selic_oficial.csv). A ata da 282 ainda não saiu: a previsão da 283 (09/12/2026) usa a linha da última ata publicada (281), com decisao_registrada_na_ata = corte (decisão da reunião 281).
+
+**Resultado (janela no tempo, atas 251 a 281, n = 31).** Logística 74,2% (balanceada 73,8%, viradas 2 de 6); floresta 67,7% (70,2%, 1 de 6); árvore 64,5% (65,5%, 1 de 6). Publicado: logística. Previsão da 283 (linha da ata 281): alta 15,2%, manutenção 28,5%, corte 56,2% → corte.
+
+**Sensibilidade sem `decisao_registrada_na_ata` (só informativa, não usada para escolher nada).** Logística 61,3% (bal. 60,7%, viradas 2/6); árvore 51,6% (56,3%, 2/6); floresta 51,6% (54,4%, 2/6).
+
+**Comparação com a previsão ingênua (mesmo período, fora de qualquer JSON do site).** Ingênua 80,6% (bal. 81,3%, viradas 0 de 6). O modelo publicado fica 6,4 pontos abaixo no geral e acerta 2 viradas a mais. Publicamos o modelo por decisão do usuário.
+
+**Regra da árvore (todas as atas com alvo).** Se a decisão registrada na ata não é alta e a média do tom nas últimas 3 atas ≤ 0,64, prevê corte; se > 0,64, prevê manutenção. Se a decisão registrada na ata é alta e os termos de virada na seção de decisão ≤ 7,5, prevê alta; se > 7,5, prevê manutenção.
+
+**Validação humana cancelada** (decisão do usuário): saiu de dados_site.json; no lugar, `checagens_automaticas`.

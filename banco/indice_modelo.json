@@ -1,472 +1,458 @@
 {
-  "metodo": "modelo_logistica: P(alta) − P(corte) da reunião seguinte; fora da amostra pela janela no tempo da ata 251 em diante, dentro da amostra (treino nas 15 primeiras) antes",
-  "gerado_em": "2026-11-06T14:43:23",
+  "metodo": "modelo logistica: P(alta) − P(corte) da reunião seguinte; fora da amostra (janela no tempo) da ata 251 em diante, dentro da amostra antes",
+  "gerado_em": "2026-11-06T14:53:03",
+  "previsao_283": {
+    "reuniao": 283,
+    "data": "2026-12-09",
+    "ata_base": 281,
+    "observacao": "a ata da reunião 282 ainda não saiu; a previsão usa a última ata publicada (281)",
+    "probabilidades": {
+      "alta": 0.152,
+      "manutencao": 0.285,
+      "corte": 0.562
+    },
+    "previsto": "corte",
+    "por_modelo": {
+      "logistica": {
+        "alta": 0.152,
+        "manutencao": 0.285,
+        "corte": 0.562
+      }
+    }
+  },
   "atas": [
     {
       "ata": 281,
       "data_reuniao": "2026-09-16",
-      "indice": 0.23,
-      "amostra": "previsao_283",
+      "indice": -0.73,
+      "amostra": "fora",
       "probabilidades": {
-        "alta": 0.376,
-        "manutencao": 0.479,
-        "corte": 0.146
+        "alta": 0.113,
+        "manutencao": 0.044,
+        "corte": 0.843
       }
     },
     {
       "ata": 280,
       "data_reuniao": "2026-08-05",
-      "indice": -0.663,
+      "indice": -0.273,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.107,
-        "manutencao": 0.123,
-        "corte": 0.77
+        "alta": 0.142,
+        "manutencao": 0.443,
+        "corte": 0.415
       }
     },
     {
       "ata": 279,
       "data_reuniao": "2026-06-17",
-      "indice": -0.813,
+      "indice": -0.527,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.066,
+        "alta": 0.209,
         "manutencao": 0.055,
-        "corte": 0.879
+        "corte": 0.736
       }
     },
     {
       "ata": 278,
       "data_reuniao": "2026-04-29",
-      "indice": -0.942,
+      "indice": -0.766,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.01,
-        "manutencao": 0.038,
-        "corte": 0.952
+        "alta": 0.09,
+        "manutencao": 0.054,
+        "corte": 0.856
       }
     },
     {
       "ata": 277,
       "data_reuniao": "2026-03-18",
-      "indice": -0.965,
+      "indice": -0.599,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.002,
-        "manutencao": 0.031,
-        "corte": 0.967
+        "alta": 0.135,
+        "manutencao": 0.13,
+        "corte": 0.734
       }
     },
     {
       "ata": 276,
       "data_reuniao": "2026-01-28",
-      "indice": -0.689,
+      "indice": -0.303,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.004,
-        "manutencao": 0.303,
-        "corte": 0.693
+        "alta": 0.188,
+        "manutencao": 0.321,
+        "corte": 0.491
       }
     },
     {
       "ata": 275,
       "data_reuniao": "2025-12-10",
-      "indice": 0.07,
+      "indice": 0.176,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.099,
-        "manutencao": 0.872,
-        "corte": 0.029
+        "alta": 0.218,
+        "manutencao": 0.741,
+        "corte": 0.042
       }
     },
     {
       "ata": 274,
       "data_reuniao": "2025-11-05",
-      "indice": 0.16,
+      "indice": 0.483,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.208,
-        "manutencao": 0.744,
-        "corte": 0.048
+        "alta": 0.523,
+        "manutencao": 0.438,
+        "corte": 0.04
       }
     },
     {
       "ata": 273,
       "data_reuniao": "2025-09-17",
-      "indice": 0.166,
+      "indice": 0.436,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.175,
-        "manutencao": 0.816,
-        "corte": 0.009
+        "alta": 0.444,
+        "manutencao": 0.549,
+        "corte": 0.008
       }
     },
     {
       "ata": 272,
       "data_reuniao": "2025-07-30",
-      "indice": 0.053,
+      "indice": 0.152,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.058,
-        "manutencao": 0.937,
-        "corte": 0.005
+        "alta": 0.159,
+        "manutencao": 0.834,
+        "corte": 0.007
       }
     },
     {
       "ata": 271,
       "data_reuniao": "2025-06-18",
-      "indice": 0.491,
+      "indice": 0.82,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.533,
-        "manutencao": 0.425,
-        "corte": 0.042
+        "alta": 0.835,
+        "manutencao": 0.149,
+        "corte": 0.015
       }
     },
     {
       "ata": 270,
       "data_reuniao": "2025-05-07",
-      "indice": 0.819,
+      "indice": 0.788,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.858,
-        "manutencao": 0.104,
-        "corte": 0.039
+        "alta": 0.864,
+        "manutencao": 0.059,
+        "corte": 0.076
       }
     },
     {
       "ata": 269,
       "data_reuniao": "2025-03-19",
-      "indice": 0.912,
+      "indice": 0.823,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.915,
-        "manutencao": 0.083,
-        "corte": 0.003
+        "alta": 0.834,
+        "manutencao": 0.155,
+        "corte": 0.011
       }
     },
     {
       "ata": 268,
       "data_reuniao": "2025-01-29",
-      "indice": 0.976,
+      "indice": 0.918,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.977,
-        "manutencao": 0.023,
-        "corte": 0.001
+        "alta": 0.929,
+        "manutencao": 0.06,
+        "corte": 0.011
       }
     },
     {
       "ata": 267,
       "data_reuniao": "2024-12-11",
-      "indice": 0.654,
+      "indice": 0.992,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.66,
-        "manutencao": 0.334,
-        "corte": 0.006
+        "alta": 0.994,
+        "manutencao": 0.004,
+        "corte": 0.002
       }
     },
     {
       "ata": 266,
       "data_reuniao": "2024-11-06",
-      "indice": 0.868,
+      "indice": 0.588,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.875,
-        "manutencao": 0.118,
-        "corte": 0.007
+        "alta": 0.598,
+        "manutencao": 0.392,
+        "corte": 0.01
       }
     },
     {
       "ata": 265,
       "data_reuniao": "2024-09-18",
-      "indice": 0.825,
+      "indice": 0.204,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.839,
-        "manutencao": 0.147,
-        "corte": 0.014
+        "alta": 0.224,
+        "manutencao": 0.756,
+        "corte": 0.02
       }
     },
     {
       "ata": 264,
       "data_reuniao": "2024-07-31",
-      "indice": 0.037,
+      "indice": -0.008,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.052,
-        "manutencao": 0.933,
-        "corte": 0.015
+        "alta": 0.034,
+        "manutencao": 0.924,
+        "corte": 0.042
       }
     },
     {
       "ata": 263,
       "data_reuniao": "2024-06-19",
-      "indice": 0.023,
+      "indice": 0.007,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.027,
-        "manutencao": 0.969,
-        "corte": 0.004
+        "alta": 0.009,
+        "manutencao": 0.989,
+        "corte": 0.002
       }
     },
     {
       "ata": 262,
       "data_reuniao": "2024-05-08",
-      "indice": -0.712,
+      "indice": -0.124,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.096,
-        "manutencao": 0.096,
-        "corte": 0.808
+        "alta": 0.15,
+        "manutencao": 0.577,
+        "corte": 0.274
       }
     },
     {
       "ata": 261,
       "data_reuniao": "2024-03-20",
-      "indice": -0.879,
+      "indice": -0.858,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.019,
-        "manutencao": 0.083,
-        "corte": 0.898
+        "alta": 0.01,
+        "manutencao": 0.122,
+        "corte": 0.868
       }
     },
     {
       "ata": 260,
       "data_reuniao": "2024-01-31",
-      "indice": -0.913,
+      "indice": -0.853,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.007,
-        "manutencao": 0.073,
-        "corte": 0.92
+        "alta": 0.015,
+        "manutencao": 0.117,
+        "corte": 0.868
       }
     },
     {
       "ata": 259,
       "data_reuniao": "2023-12-13",
-      "indice": -0.756,
+      "indice": -0.914,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.083,
-        "manutencao": 0.078,
-        "corte": 0.839
+        "alta": 0.01,
+        "manutencao": 0.067,
+        "corte": 0.924
       }
     },
     {
       "ata": 258,
       "data_reuniao": "2023-11-01",
-      "indice": -0.711,
+      "indice": -0.542,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.075,
-        "manutencao": 0.139,
-        "corte": 0.786
+        "alta": 0.192,
+        "manutencao": 0.075,
+        "corte": 0.734
       }
     },
     {
       "ata": 257,
       "data_reuniao": "2023-09-20",
-      "indice": -0.781,
+      "indice": -0.761,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.053,
-        "manutencao": 0.113,
-        "corte": 0.834
+        "alta": 0.018,
+        "manutencao": 0.202,
+        "corte": 0.779
       }
     },
     {
       "ata": 256,
       "data_reuniao": "2023-08-02",
-      "indice": 0.013,
+      "indice": -0.105,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.065,
-        "manutencao": 0.883,
-        "corte": 0.052
+        "alta": 0.136,
+        "manutencao": 0.622,
+        "corte": 0.241
       }
     },
     {
       "ata": 255,
       "data_reuniao": "2023-06-21",
-      "indice": 0.075,
+      "indice": 0.08,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.075,
-        "manutencao": 0.925,
+        "alta": 0.08,
+        "manutencao": 0.92,
         "corte": 0.0
       }
     },
     {
       "ata": 254,
       "data_reuniao": "2023-05-03",
-      "indice": 0.06,
+      "indice": 0.069,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.06,
-        "manutencao": 0.94,
+        "alta": 0.069,
+        "manutencao": 0.931,
         "corte": 0.0
       }
     },
     {
       "ata": 253,
       "data_reuniao": "2023-03-22",
-      "indice": 0.093,
+      "indice": 0.135,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.093,
-        "manutencao": 0.907,
+        "alta": 0.135,
+        "manutencao": 0.865,
         "corte": 0.0
       }
     },
     {
       "ata": 252,
       "data_reuniao": "2023-02-01",
-      "indice": 0.065,
+      "indice": 0.043,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.065,
-        "manutencao": 0.935,
+        "alta": 0.043,
+        "manutencao": 0.957,
         "corte": 0.0
       }
     },
     {
       "ata": 251,
       "data_reuniao": "2022-12-07",
-      "indice": 0.262,
+      "indice": 0.25,
       "amostra": "fora",
       "probabilidades": {
-        "alta": 0.262,
-        "manutencao": 0.738,
+        "alta": 0.25,
+        "manutencao": 0.75,
         "corte": 0.0
       }
     },
     {
       "ata": 250,
       "data_reuniao": "2022-10-26",
-      "indice": 0.331,
+      "indice": 0.452,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.331,
-        "manutencao": 0.669,
+        "alta": 0.452,
+        "manutencao": 0.548,
         "corte": 0.0
       }
     },
     {
       "ata": 249,
       "data_reuniao": "2022-09-21",
-      "indice": 0.309,
+      "indice": 0.16,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.309,
-        "manutencao": 0.691,
+        "alta": 0.16,
+        "manutencao": 0.84,
         "corte": 0.0
       }
     },
     {
       "ata": 248,
       "data_reuniao": "2022-08-03",
-      "indice": 0.693,
+      "indice": 0.447,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.693,
-        "manutencao": 0.307,
+        "alta": 0.447,
+        "manutencao": 0.553,
         "corte": 0.0
       }
     },
     {
       "ata": 247,
       "data_reuniao": "2022-06-15",
-      "indice": 0.828,
+      "indice": 0.833,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.828,
-        "manutencao": 0.172,
+        "alta": 0.833,
+        "manutencao": 0.167,
         "corte": 0.0
       }
     },
     {
       "ata": 246,
       "data_reuniao": "2022-05-04",
-      "indice": 0.865,
+      "indice": 0.887,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.865,
-        "manutencao": 0.135,
+        "alta": 0.887,
+        "manutencao": 0.113,
         "corte": 0.0
       }
     },
     {
       "ata": 245,
       "data_reuniao": "2022-03-16",
-      "indice": 0.907,
+      "indice": 0.917,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.907,
-        "manutencao": 0.093,
+        "alta": 0.917,
+        "manutencao": 0.083,
         "corte": 0.0
       }
     },
     {
       "ata": 244,
       "data_reuniao": "2022-02-02",
-      "indice": 0.916,
+      "indice": 0.933,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.916,
-        "manutencao": 0.084,
+        "alta": 0.933,
+        "manutencao": 0.067,
         "corte": 0.0
       }
     },
     {
       "ata": 243,
       "data_reuniao": "2021-12-08",
-      "indice": 0.846,
+      "indice": 0.954,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.846,
-        "manutencao": 0.154,
+        "alta": 0.954,
+        "manutencao": 0.046,
         "corte": 0.0
       }
     },
     {
       "ata": 242,
       "data_reuniao": "2021-10-27",
-      "indice": 0.903,
-      "amostra": "dentro",
-      "probabilidades": {
-        "alta": 0.903,
-        "manutencao": 0.097,
-        "corte": 0.0
-      }
-    },
-    {
-      "ata": 241,
-      "data_reuniao": "2021-09-22",
-      "indice": 0.968,
-      "amostra": "dentro",
-      "probabilidades": {
-        "alta": 0.968,
-        "manutencao": 0.032,
-        "corte": 0.0
-      }
-    },
-    {
-      "ata": 240,
-      "data_reuniao": "2021-08-04",
-      "indice": 0.959,
-      "amostra": "dentro",
-      "probabilidades": {
-        "alta": 0.959,
-        "manutencao": 0.041,
-        "corte": 0.0
-      }
-    },
-    {
-      "ata": 239,
-      "data_reuniao": "2021-06-16",
       "indice": 0.97,
       "amostra": "dentro",
       "probabilidades": {
@@ -476,35 +462,68 @@
       }
     },
     {
-      "ata": 238,
-      "data_reuniao": "2021-05-05",
-      "indice": 0.969,
+      "ata": 241,
+      "data_reuniao": "2021-09-22",
+      "indice": 0.884,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.969,
-        "manutencao": 0.031,
+        "alta": 0.884,
+        "manutencao": 0.116,
+        "corte": 0.0
+      }
+    },
+    {
+      "ata": 240,
+      "data_reuniao": "2021-08-04",
+      "indice": 0.941,
+      "amostra": "dentro",
+      "probabilidades": {
+        "alta": 0.941,
+        "manutencao": 0.059,
+        "corte": 0.0
+      }
+    },
+    {
+      "ata": 239,
+      "data_reuniao": "2021-06-16",
+      "indice": 0.918,
+      "amostra": "dentro",
+      "probabilidades": {
+        "alta": 0.918,
+        "manutencao": 0.082,
+        "corte": 0.0
+      }
+    },
+    {
+      "ata": 238,
+      "data_reuniao": "2021-05-05",
+      "indice": 0.936,
+      "amostra": "dentro",
+      "probabilidades": {
+        "alta": 0.936,
+        "manutencao": 0.064,
         "corte": 0.0
       }
     },
     {
       "ata": 237,
       "data_reuniao": "2021-03-17",
-      "indice": 0.886,
+      "indice": 0.96,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.886,
-        "manutencao": 0.114,
+        "alta": 0.96,
+        "manutencao": 0.04,
         "corte": 0.0
       }
     },
     {
       "ata": 236,
       "data_reuniao": "2021-01-20",
-      "indice": 0.649,
+      "indice": 0.808,
       "amostra": "dentro",
       "probabilidades": {
-        "alta": 0.649,
-        "manutencao": 0.351,
+        "alta": 0.808,
+        "manutencao": 0.192,
         "corte": 0.0
       }
     }

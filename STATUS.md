@@ -15,27 +15,16 @@
 
 ## Previsão da próxima reunião (283, 09/12/2026)
 
-Regra (ver `DECISOES.md`): a capa publica o método com maior acurácia na validação com janela crescente no tempo (da 16ª ata em diante, n = 31, atas 251 a 281). Em empate, vale o mais simples.
+Modelo de nota de tom (todas as variáveis vêm das atas e das notas; ver `DECISOES.md`). Publica o melhor dos 3 candidatos na validação com janela crescente no tempo (da 16ª ata em diante, n = 31, atas 251 a 281).
 
-| Método | Acurácia no tempo | Acurácia balanceada | Viradas acertadas |
+| Candidato | Acurácia no tempo | Acurácia balanceada | Viradas acertadas |
 |---|---|---|---|
-| Previsão ingênua (repete a decisão atual) | 80,6% | 81,3% | 0 de 6 |
-| Regressão logística (C = 0,5) | 80,6% | 81,3% | 1 de 6 |
-| Floresta aleatória (300 árvores, prof. 3) | 77,4% | 78,6% | 1 de 6 |
-| Árvore de decisão (prof. 2) | 71,0% | 71,0% | 1 de 6 |
-| Variação do tom (±0,25) | 67,7% | — | 2 de 6 |
-| Nível do tom (±0,25) | 22,6% | — | 1 de 6 |
+| **Regressão logística (C = 0,3) — publicado** | 74,2% | 73,8% | 2 de 6 |
+| Floresta aleatória (300 árvores, prof. 3, folha ≥ 3) | 67,7% | 70,2% | 1 de 6 |
+| Árvore de decisão (prof. 2) | 64,5% | 65,5% | 1 de 6 |
 
-- **Na capa: previsão ingênua → manutenção.** A logística empatou e acertou 1 virada a mais (registrado como `destaque_viradas`).
-- Probabilidades para a 283:
-
-| Modelo | Alta | Manutenção | Corte |
-|---|---|---|---|
-| Logística | 37,6% | 47,9% | 14,6% |
-| Floresta | 13,5% | 59,2% | 27,3% |
-
-- Variáveis mais importantes (permutação, todas fracas): decisão atual = alta, Selic − Focus do fim do ano e tom da seção de decisão.
-- Validação deixando uma ata de fora (secundária, n = 46): ingênua 82,6%, logística 84,8%.
+- **Na capa: corte** (alta 15,2%, manutenção 28,5%, corte 56,2%), a partir da ata 281 (a ata da 282 ainda não saiu).
+- Variáveis mais importantes (permutação): decisão registrada na ata = alta, termos de virada, nível do tom, termos de inflação.
 
 ## Modelos de tom de parágrafo
 
@@ -57,7 +46,6 @@ Regra (ver `DECISOES.md`): a capa publica o método com maior acurácia na valid
 
 - **Edição em produção:** o banco já é reconhecido, porque a integração Neon usa o prefixo `DATABASE_URL_` e o site lê esse nome. Mas o login de teste com a senha baixada por `vercel env pull` deu 401. Por isso a edição real, o histórico e os erros com sessão (400, 422, 409) não foram testados em produção. Os testes locais das regras passaram (13 de 13).
 - **Token do Claude no GitHub:** `CLAUDE_CODE_OAUTH_TOKEN` não está cadastrado. O workflow funciona pelos planos B; falta o 2º teste de ponta a ponta com o token e a data do cadastro em `saida/status.json`.
-- **Validação humana:** `validacao/para_rotular.csv` ainda não foi preenchido.
 - **Pasta do parceiro:** trazer `sentiment_tracker/` da branch `sentiment-tracker` para a main foi bloqueado pela permissão; precisa de decisão do time.
 - **Vazamento no modelo:** `hiato_inflacao` pode vazar até um mês de informação (usa o IPCA do mês da reunião, divulgado depois). Está documentado e não foi corrigido.
 - **Variáveis sem conferência manual:** `tom_orientacao`, `saldo_duro_brando` e `sinais_virada` não foram recontadas à mão (`modelo/CONFERENCIA.md`).

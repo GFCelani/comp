@@ -1,148 +1,44 @@
 {
-  "gerado_em": "2026-11-06T14:38:24-03:00",
+  "gerado_em": "2026-11-06T14:53:05-03:00",
   "base_ata": 281,
   "base_data_reuniao": "2026-09-16",
   "fonte_indice": "simples",
   "indice": 0.62,
-  "regra": {
-    "aperto": "indice > 0.25",
-    "afrouxamento": "indice < -0.25"
+  "previsto": "afrouxamento",
+  "metodo_escolhido": "logistica",
+  "acuracia_escolhido": 0.742,
+  "probabilidades": {
+    "alta": 0.152,
+    "manutencao": 0.285,
+    "corte": 0.562
   },
-  "previsto": "manutencao",
-  "metodo_escolhido": "ingenua",
-  "acuracia_escolhido": 0.806,
-  "criterio_escolha": "acuracia_tempo",
+  "texto_publico": "Nosso modelo, treinado com as atas desde 2021, acertou 74% das decisões seguintes.",
+  "observacao": "a ata da reunião 282 ainda não saiu; a previsão usa a última ata publicada (281)",
+  "criterio_escolha": "maior acurácia na validação no tempo; empate: maior acurácia balanceada, depois o mais simples (árvore, logística, floresta)",
   "validacao_tempo": {
     "inicio_ata": 251,
     "fim_ata": 281,
-    "n": 31
-  },
-  "destaque_viradas": {
-    "metodo": "logistica",
-    "acuracia_tempo": 0.806,
-    "viradas": {
-      "acertos": 1,
-      "total": 6
-    },
-    "escolhido": "ingenua",
-    "viradas_escolhido": {
-      "acertos": 0,
-      "total": 6
-    }
-  },
-  "previsto_nivel_tom": "aperto",
-  "variacao_tom": {
-    "delta": -0.28,
-    "ata": 281,
-    "ata_anterior": 280
+    "inicio": "2022-12-07",
+    "fim": "2026-09-16"
   },
   "metodos": [
     {
-      "nome": "ingenua",
-      "rotulo_pt": "Previsão ingênua (repete a última decisão)",
-      "acuracia_loo": 0.844,
-      "acuracia_tempo": 0.806,
+      "nome": "logistica",
+      "rotulo_pt": "modelo de nota de tom",
+      "acuracia_tempo": 0.742,
+      "acuracia_balanceada": 0.738,
       "n_tempo": 31,
-      "viradas_tempo": {
-        "acertos": 0,
-        "total": 6
-      },
-      "acerto_sinal": 0.9,
-      "n": 45,
-      "probabilidades": null,
-      "previsto_proxima": "manutencao",
-      "disponivel": true
-    },
-    {
-      "nome": "variacao_tom",
-      "rotulo_pt": "Variação do índice de tom entre atas (±0,25)",
-      "acuracia_loo": 0.644,
-      "acuracia_tempo": 0.677,
-      "n_tempo": 31,
+      "n": 31,
       "viradas_tempo": {
         "acertos": 2,
         "total": 6
       },
-      "acerto_sinal": 0.8,
-      "n": 45,
-      "probabilidades": null,
-      "previsto_proxima": "afrouxamento",
-      "disponivel": true
-    },
-    {
-      "nome": "nivel_tom",
-      "rotulo_pt": "Nível do índice de tom (±0,25)",
-      "acuracia_loo": 0.4,
-      "acuracia_tempo": 0.226,
-      "n_tempo": 31,
-      "viradas_tempo": {
-        "acertos": 1,
-        "total": 6
-      },
-      "acerto_sinal": 0.429,
-      "n": 45,
-      "probabilidades": null,
-      "previsto_proxima": "aperto",
-      "disponivel": true
-    },
-    {
-      "nome": "arvore",
-      "rotulo_pt": "Árvore de decisão (profundidade 2) com tom, Focus e inflação",
-      "acuracia_loo": 0.761,
-      "acuracia_tempo": 0.71,
-      "n_tempo": 31,
-      "viradas_tempo": {
-        "acertos": 1,
-        "total": 6
-      },
-      "acerto_sinal": null,
-      "n": 46,
       "probabilidades": {
-        "alta": 0.077,
-        "manutencao": 0.077,
-        "corte": 0.846
+        "alta": 0.152,
+        "manutencao": 0.285,
+        "corte": 0.562
       },
       "previsto_proxima": "afrouxamento",
-      "disponivel": true
-    },
-    {
-      "nome": "logistica",
-      "rotulo_pt": "Regressão logística multinomial com tom, Focus e inflação",
-      "acuracia_loo": 0.848,
-      "acuracia_tempo": 0.806,
-      "n_tempo": 31,
-      "viradas_tempo": {
-        "acertos": 1,
-        "total": 6
-      },
-      "acerto_sinal": null,
-      "n": 46,
-      "probabilidades": {
-        "alta": 0.376,
-        "manutencao": 0.479,
-        "corte": 0.146
-      },
-      "previsto_proxima": "manutencao",
-      "disponivel": true
-    },
-    {
-      "nome": "floresta",
-      "rotulo_pt": "Floresta aleatória (300 árvores, profundidade 3) com tom, Focus e inflação",
-      "acuracia_loo": 0.761,
-      "acuracia_tempo": 0.774,
-      "n_tempo": 31,
-      "viradas_tempo": {
-        "acertos": 1,
-        "total": 6
-      },
-      "acerto_sinal": null,
-      "n": 46,
-      "probabilidades": {
-        "alta": 0.135,
-        "manutencao": 0.592,
-        "corte": 0.273
-      },
-      "previsto_proxima": "manutencao",
       "disponivel": true
     }
   ],
@@ -170,26 +66,6 @@
     "ata_publicada": false,
     "fonte": "BCB, histórico das taxas de juros (bcb.gov.br/controleinflacao/historicotaxasjuros)",
     "confere_sgs432": true
-  },
-  "acerto": {
-    "indice": {
-      "acuracia": 0.4,
-      "acerto_sinal": 0.429,
-      "n": 45,
-      "n_direcionais": 42
-    },
-    "ingenua": {
-      "acuracia": 0.844,
-      "acerto_sinal": 0.9,
-      "n": 45,
-      "n_direcionais": 30,
-      "previsto": "manutencao"
-    },
-    "periodo": {
-      "inicio": "2021-01-20",
-      "fim": "2026-08-05"
-    },
-    "melhor": "ingenua"
   },
   "focus_selic": {
     "mediana": 13.5,

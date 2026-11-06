@@ -5,7 +5,7 @@
     "manutencao": "entre -0.25 e 0.25"
   },
   "fonte_indice": "simples",
-  "gerado_em": "2026-11-06T14:38:07",
+  "gerado_em": "2026-11-06T14:53:03",
   "n_atas": 45,
   "periodo": {
     "inicio": "2021-01-20",
@@ -1151,13 +1151,7 @@
           "realizado": "aperto",
           "acertou": false
         }
-      ],
-      "acuracia_tempo": 0.806,
-      "viradas_tempo": {
-        "acertos": 0,
-        "total": 6
-      },
-      "n_tempo": 31
+      ]
     },
     "variacao_tom": {
       "disponivel": true,
@@ -1506,13 +1500,7 @@
           "realizado": "aperto",
           "acertou": false
         }
-      ],
-      "acuracia_tempo": 0.677,
-      "viradas_tempo": {
-        "acertos": 2,
-        "total": 6
-      },
-      "n_tempo": 31
+      ]
     },
     "nivel_tom": {
       "disponivel": true,
@@ -1861,22 +1849,16 @@
           "realizado": "aperto",
           "acertou": false
         }
-      ],
-      "acuracia_tempo": 0.226,
-      "viradas_tempo": {
-        "acertos": 1,
-        "total": 6
-      },
-      "n_tempo": 31
+      ]
     },
     "arvore": {
       "disponivel": true,
       "rotulo_pt": "Árvore de decisão (profundidade 2) com tom, Focus e inflação",
-      "acuracia_loo": 0.761,
+      "acuracia_loo": null,
       "acerto_sinal": null,
-      "n": 46,
-      "acuracia_tempo": 0.71,
-      "acuracia_balanceada_tempo": 0.71,
+      "n": null,
+      "acuracia_tempo": 0.645,
+      "acuracia_balanceada_tempo": 0.655,
       "viradas_tempo": {
         "acertos": 1,
         "total": 6
@@ -1887,13 +1869,13 @@
     "logistica": {
       "disponivel": true,
       "rotulo_pt": "Regressão logística multinomial com tom, Focus e inflação",
-      "acuracia_loo": 0.848,
+      "acuracia_loo": null,
       "acerto_sinal": null,
-      "n": 46,
-      "acuracia_tempo": 0.806,
-      "acuracia_balanceada_tempo": 0.813,
+      "n": null,
+      "acuracia_tempo": 0.742,
+      "acuracia_balanceada_tempo": 0.738,
       "viradas_tempo": {
-        "acertos": 1,
+        "acertos": 2,
         "total": 6
       },
       "n_tempo": 31,
@@ -1902,11 +1884,11 @@
     "floresta": {
       "disponivel": true,
       "rotulo_pt": "Floresta aleatória (300 árvores, profundidade 3) com tom, Focus e inflação",
-      "acuracia_loo": 0.761,
+      "acuracia_loo": null,
       "acerto_sinal": null,
-      "n": 46,
-      "acuracia_tempo": 0.774,
-      "acuracia_balanceada_tempo": 0.786,
+      "n": null,
+      "acuracia_tempo": 0.677,
+      "acuracia_balanceada_tempo": 0.702,
       "viradas_tempo": {
         "acertos": 1,
         "total": 6
@@ -1915,24 +1897,8 @@
       "fonte_acuracia": "banco/metricas_modelo.json"
     }
   },
-  "escolhido": "ingenua",
+  "escolhido": "logistica",
   "criterio_escolha": "acuracia_tempo",
-  "validacao_tempo": {
-    "inicio_ata": 251,
-    "fim_ata": 281,
-    "n": 31
-  },
-  "destaque_viradas": {
-    "metodo": "logistica",
-    "acuracia_tempo": 0.806,
-    "viradas": {
-      "acertos": 1,
-      "total": 6
-    },
-    "escolhido": "ingenua",
-    "viradas_escolhido": {
-      "acertos": 0,
-      "total": 6
-    }
-  }
+  "validacao_tempo": null,
+  "destaque_viradas": null
 }

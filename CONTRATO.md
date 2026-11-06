@@ -84,39 +84,39 @@ Escreve: `pipeline/indice.py`. Índice simples de base.
 
 ## banco/indice_modelo.json — escrito por modelo/treinar.py
 
-Mesmo formato de `banco/indice.json`, com `metodo`. Aqui `indice` = P(alta) − P(corte) da reunião seguinte, pelo melhor modelo não ingênuo na janela no tempo (hoje a logística): fora da amostra da 16ª ata (251) em diante, dentro da amostra (treino nas 15 primeiras) antes. Campos extras por ata: `amostra` (`"fora"`, `"dentro"`, `"previsao_283"`) e `probabilidades` {alta, manutencao, corte}. A entrada da 281 é a linha de previsão da 283 (decisão atual = 282). **Não é índice de tom**: metricas.py, previsao.py e gerar_dados_site.py usam sempre `banco/indice.json` para o tom (`fonte_indice = "simples"`); o site recebe este arquivo no campo `indice_modelo` de dados_site.json.
+`indice` = P(alta) − P(corte) da reunião seguinte pelo modelo publicado (`metodo`): fora da amostra (janela no tempo) da ata 251 em diante, dentro da amostra (treino nas 15 primeiras) antes. Por ata: `ata`, `data_reuniao`, `indice`, `amostra` (`"fora"`/`"dentro"`), `probabilidades` {alta, manutencao, corte}. Campo extra `previsao_283` (= `previsao_atual` de metricas_modelo.json). **Não é índice de tom**: o tom vem sempre de `banco/indice.json`.
 
 ## banco/metricas_modelo.json — escrito por modelo/treinar.py
 
-Modelo de decisão por ata (base em `modelo/base_modelo.csv`, gerada por `modelo/variaveis.py`). Alvo: decisão da reunião seguinte (alta, manutencao, corte).
+Modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágrafos (`modelo/variaveis.py` → `modelo/base_modelo.csv`; lista e mapeamento em DECISOES.md). Alvo: decisão da reunião seguinte. Um único modelo publicado, o melhor entre logística, floresta e árvore na janela no tempo.
 
 ```json
 {
-  "metodo": "...", "gerado_em": "...", "n_atas": 46,
-  "variaveis": ["decisao_atual_alta", "decisao_atual_manutencao", "decisao_atual_corte", "tom_nivel", "tom_variacao",
-                "tom_orientacao", "saldo_duro_brando", "sinais_virada", "distancia_focus", "hiato_inflacao"],
-  "hiperparametros": { "logistica": "...", "floresta": "...", "arvore": "..." },
-  "validacao_tempo": { "inicio_ata": 251, "fim_ata": 281, "n": 31,
-    "metodos": { "ingenua|logistica|floresta|arvore": {
-      "acuracia": 0.806, "acuracia_balanceada": 0.813,
-      "matriz_confusao": { "rotulos": ["alta","manutencao","corte"], "linhas": "realizado", "colunas": "previsto", "valores": [[0,0,0],[0,0,0],[0,0,0]] },
-      "viradas": { "acertos": 0, "total": 6 },
-      "previsoes": [ { "ata": 251, "previsto": "alta", "realizado": "alta", "probabilidades": { "alta": 1, "manutencao": 0, "corte": 0 } } ] } } },
-  "validacao_loo": { "n": 46, "metodos": { "...": "mesmo formato" } },
-  "melhor": "ingenua", "melhor_nao_ingenuo": "logistica",
-  "destaque_viradas": { "metodo": "logistica", "acuracia": 0.806, "viradas": {"acertos": 1, "total": 6}, "viradas_ingenua": {"acertos": 0, "total": 6} },
-  "coeficientes_logistica": { "alta": { "tom_nivel": 0.1 } },
-  "importancias_floresta": [ { "variavel": "decisao_atual_alta", "importancia": 0.05, "desvio": 0.03 } ],
-  "regra_arvore_pt": "Se ..., prevê ...
-...", "regra_arvore_texto": "export_text bruto",
-  "previsao_atual": { "reuniao": 283, "data": "2026-12-09", "linha_base": { "ata": 281, "decisao_atual": "manutencao" },
-    "modelo": "ingenua", "probabilidades": { "alta": 0, "manutencao": 1, "corte": 0 },
-    "por_modelo": { "ingenua|arvore|logistica|floresta": { "alta": 0, "manutencao": 1, "corte": 0 } } },
-  "acuracia_previsao_decisao": 0.806
+  "tipo": "logistica", "gerado_em": "...", "descricao": "...",
+  "hiperparametros": "StandardScaler + LogisticRegression(C=0.3, max_iter=5000)",
+  "variaveis": [ { "nome": "decisao_registrada_na_ata_alta", "descricao": "...", "importancia": 0.096 } ],
+  "coeficientes": { "alta": { "tom_nivel": 0.1 } },
+  "coeficientes_logistica": { "...": "sempre presente" },
+  "regra_arvore_pt": "Se ..., prevê ...", "regra_arvore_texto": "export_text bruto",
+  "metricas": { "acuracia": 0.742, "acuracia_balanceada": 0.738, "n": 31,
+                "periodo": { "inicio_ata": 251, "fim_ata": 281, "inicio": "2022-12-07", "fim": "2026-09-16" } },
+  "matriz_confusao": { "rotulos": ["alta","manutencao","corte"], "linhas": "realizado", "colunas": "previsto", "valores": [[0,0,0],[0,0,0],[0,0,0]] },
+  "viradas": { "acertos": 2, "total": 6 },
+  "previsoes_ata_a_ata": [ { "ata": 251, "data_reuniao": "...", "previsto": "alta", "realizado": "alta", "acertou": true,
+                             "probabilidades": { "alta": 0.8, "manutencao": 0.1, "corte": 0.1 } } ],
+  "previsao_atual": { "reuniao": 283, "data": "2026-12-09", "ata_base": 281, "observacao": "...",
+                      "probabilidades": { "alta": 0.152, "manutencao": 0.285, "corte": 0.562 }, "previsto": "corte",
+                      "por_modelo": { "logistica": { "...": "..." } } },
+  "acuracia_previsao_decisao": 0.742,
+  "candidatos": { "arvore|logistica|floresta": { "hiperparametros": "...", "acuracia": 0.0, "acuracia_balanceada": 0.0, "n": 31,
+                  "matriz_confusao": {}, "viradas": {}, "previsoes_ata_a_ata": [] } },
+  "criterio_escolha": "...", "n_atas_treino": 46,
+  "modelo_publicado": "logistica", "importancias": [ { "variavel": "...", "importancia": 0.0 } ],
+  "descricoes_variaveis": { "...": "..." }, "validacao_tempo": { "inicio_ata": 251, "fim_ata": 281, "n": 31, "metodos": {} }
 }
 ```
 
-`viradas` = atas em que a decisão seguinte ≠ decisão atual. `destaque_viradas` é null se nenhum modelo empata com a ingênua no geral acertando mais viradas. `acuracia_previsao_decisao` = acurácia na janela no tempo do `melhor`.
+`viradas` = atas em que a decisão seguinte ≠ decisão registrada na ata. `importancia` = importância por permutação (n_repeats=30, random_state=42) do modelo publicado treinado em todas as atas com alvo. `modelo_publicado`, `importancias`, `descricoes_variaveis` e `validacao_tempo` existem para o painel atual. A previsão ingênua não entra neste arquivo (só em DECISOES.md).
 
 ## banco/modelo_base.pkl e banco/metricas_modelo_base.json
 
@@ -193,40 +193,29 @@ Escreve: `pipeline/diff.py`. Comparação da última ata com a anterior.
 
 ## banco/previsao.json
 
-Escreve: `pipeline/previsao.py` (etapa `previsao` do `rodar.py`, depois de `metricas`). Previsão para a **próxima reunião ainda não realizada**, pelo método escolhido em `metricas_previsao.json`.
+Escreve: `pipeline/previsao.py`. Previsão para a **próxima reunião ainda não realizada**, SEMPRE pelo modelo de nota de tom (`banco/metricas_modelo.json`).
 
 ```json
 {
-  "gerado_em": "2026-11-06T13:02:10-03:00",
-  "base_ata": 281, "base_data_reuniao": "2026-09-16", "fonte_indice": "simples", "indice": 0.62,
-  "regra": { "aperto": "indice > 0.25", "afrouxamento": "indice < -0.25" },
-  "previsto": "manutencao",
-  "metodo_escolhido": "ingenua", "acuracia_escolhido": 0.844, "previsto_nivel_tom": "aperto",
-  "variacao_tom": { "delta": -0.28, "ata": 281, "ata_anterior": 280 },
-  "metodos": [
-    { "nome": "ingenua", "rotulo_pt": "Previsão ingênua (repete a última decisão)", "acuracia_loo": 0.844, "acerto_sinal": 0.9, "n": 45, "previsto_proxima": "manutencao", "disponivel": true },
-    { "nome": "variacao_tom", "...": "..." }, { "nome": "nivel_tom", "...": "..." },
-    { "nome": "modelo_parceiro", "rotulo_pt": "...", "acuracia_loo": null, "acerto_sinal": null, "n": null, "previsto_proxima": null, "disponivel": false }
-  ],
-  "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "BCB, calendário oficial do Copom (bcb.gov.br/controleinflacao/copom)" },
-  "ultima_decisao_conhecida": { "numero": 282, "data": "2026-11-04", "selic": 13.75, "decisao_pp": 0.0, "decisao": "manutencao", "ata_publicada": false, "fonte": "BCB, histórico das taxas de juros (...)", "confere_sgs432": true },
-  "ultima_decisao": { "...": "mesmo formato; sempre preenchido, mesmo com a ata publicada" },
-  "acerto": {
-    "indice": { "acuracia": 0.4, "acerto_sinal": 0.429, "n": 45, "n_direcionais": 42 },
-    "ingenua": { "acuracia": 0.844, "acerto_sinal": 0.9, "n": 45, "n_direcionais": 30, "previsto": "manutencao" },
-    "periodo": { "inicio": "2021-01-20", "fim": "2026-08-05" }, "melhor": "ingenua"
-  },
+  "gerado_em": "...", "base_ata": 281, "base_data_reuniao": "2026-09-16", "fonte_indice": "simples", "indice": 0.62,
+  "previsto": "afrouxamento", "metodo_escolhido": "logistica", "acuracia_escolhido": 0.742,
+  "probabilidades": { "alta": 0.152, "manutencao": 0.285, "corte": 0.562 },
+  "texto_publico": "Nosso modelo, treinado com as atas desde 2021, acertou 74% das decisões seguintes.",
+  "observacao": "a ata da reunião 282 ainda não saiu; a previsão usa a última ata publicada (281)",
+  "criterio_escolha": "...", "validacao_tempo": { "inicio_ata": 251, "fim_ata": 281, "inicio": "...", "fim": "..." },
+  "metodos": [ { "nome": "logistica", "rotulo_pt": "modelo de nota de tom", "acuracia_tempo": 0.742, "acuracia_balanceada": 0.738,
+                 "n_tempo": 31, "n": 31, "viradas_tempo": { "acertos": 2, "total": 6 }, "probabilidades": {}, "previsto_proxima": "afrouxamento", "disponivel": true } ],
+  "proxima_reuniao": { "numero": 283, "data": "2026-12-09", "fonte": "BCB, calendário oficial do Copom" },
+  "ultima_decisao_conhecida": { "numero": 282, "data": "2026-11-04", "selic": 13.75, "decisao_pp": 0.0, "decisao": "manutencao", "ata_publicada": false, "fonte": "...", "confere_sgs432": true },
+  "ultima_decisao": { "...": "mesmo formato; sempre preenchido" },
   "focus_selic": { "mediana": 13.5, "ano_referencia": 2026, "data": "2026-10-30" }
 }
 ```
 
-- `previsto`: previsão do método `metodo_escolhido` (o de maior `acuracia_loo`; `acuracia_escolhido`). `previsto_nivel_tom` = regra de nível do tom (a antiga `previsto`). `metodos`: todos os métodos na ordem de desempate, inclusive os indisponíveis (`disponivel: false`, campos null). Para a próxima reunião, `ingenua` e `variacao_tom` partem da última decisão conhecida (mesmo sem ata publicada); `variacao_tom.delta` = índice da última ata − índice da anterior.
-- `indice`/`base_ata`: índice da última ata com índice (sempre `indice.json`). `metodos[]` ganha `acuracia_tempo`, `n_tempo`, `viradas_tempo` e `probabilidades` (só nos modelos); `acuracia_escolhido` é a acurácia no tempo; campos novos `criterio_escolha`, `validacao_tempo` e `destaque_viradas`. Regra fixa de ±0,25, a mesma de `metricas_previsao.json`; não é ajustada.
-- `proxima_reuniao`: calendário oficial do BC (`https://www.bcb.gov.br/api/servico/sitebcb/calendario/anual`, lista "Reuniões do Copom", a mesma do "Calendário do Copom" em bcb.gov.br/controleinflacao/copom). A data é o 2º dia da reunião (dia da decisão): a primeira posterior à última decisão conhecida e não anterior a hoje. `numero` = número da última decisão conhecida + 1. Se o calendário falhar e não houver data futura já gravada: `data` e `numero` null e `fonte: "indisponível"`. Nunca se inventa data.
-- `ultima_decisao_conhecida`: preenchido só quando há decisão oficial **sem ata publicada** (`ata_publicada: false`); senão null. Fonte: tabela oficial `historicotaxasjuros` (reuniões ordinárias), conferida com a SGS 432 (`confere_sgs432`). `ultima_decisao` tem a mesma estrutura e vem sempre.
-- `acerto`: copiado de `banco/metricas_previsao.json` (`n` = nº de atas avaliadas). `ingenua.previsto` = última decisão conhecida no vocabulário da previsão (`alta → aperto`, `corte → afrouxamento`).
-- `focus_selic`: mediana do Focus (Selic, `baseCalculo=0`) para o fim do ano da próxima reunião, na coleta mais recente (`data`).
-- O arquivo só é regravado quando algo além de `gerado_em` muda.
+- `previsto`: classe de maior probabilidade do modelo, no vocabulário `aperto`/`manutencao`/`afrouxamento`. `metodos` tem UMA entrada (o modelo). Saíram `acerto`, `destaque_viradas`, `previsto_nivel_tom`, `variacao_tom`, `regra` e os métodos ingênua, nível e variação do tom.
+- `indice`/`base_ata`: índice de tom da última ata (explicação, não previsão).
+- `proxima_reuniao`: calendário oficial do BC; nunca se inventa data. `ultima_decisao_conhecida`: só quando a ata da última decisão não saiu.
+- `focus_selic`: contexto de mercado, não é variável do modelo.
 
 ## saida/textos.json
 
@@ -288,7 +277,7 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
   "como_medimos": { "regua": "texto", "agregacao": "texto", "validacao": "texto" },
   "metricas_previsao": null,
   "metricas_modelo": null,
-  "validacao_humana": null,
+  "checagens_automaticas": { "trechos": { "validos": 1059, "invalidos": 1, "total": 1060 }, "citacoes_relatorio": { "verificadas": 13, "total": 13, "ok": true }, "portao_qualidade": null },
   "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" },
   "previsao": { "...": "cópia de banco/previsao.json" },
   "manchete": { "texto": "Copom suaviza o tom ... e o sinal aponta aperto da Selic em 09/12", "linha_fina": "...", "origem": "claude" },
@@ -309,7 +298,8 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
 - `indice_modelo` = conteúdo de `banco/indice_modelo.json` (P(alta) − P(corte) por ata) ou null.
 - `validacao_selic_oficial` = conteúdo de `saida/validacao_selic_oficial.json` (gerado por `pipeline/validar_selic_oficial.py`: cruza `validacao/selic_oficial.csv` com `banco/atas.json`) ou null.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).
-- `metricas_previsao` = conteúdo de `banco/metricas_previsao.json` ou null; `metricas_modelo` = `banco/metricas_modelo.json` ou null; `validacao_humana` = `validacao/resultado.json` ou null.
+- `metricas_previsao` = resumo público do modelo publicado (`escolhido`, `metodos` com UMA entrada, `periodo`); ingênua, nível e variação do tom não entram. `metricas_modelo` = `banco/metricas_modelo.json` ou null.
+- `checagens_automaticas`: `trechos` (rótulos com trecho literal válido), `citacoes_relatorio` (citações do relatório conferidas como cópia literal do parágrafo, até 25 palavras), `portao_qualidade` (`{resultado, motivo, verificado_em}` de `saida/status.json` campo `portao`, ou null).
 
 ## saida/conferencia_selic.json
 
@@ -343,16 +333,6 @@ Escreve: `pipeline/gerar_dados_site.py`. Parágrafos completos para a busca. **L
 ```
 
 A rota devolve no máximo 5 resultados com até 40 palavras de `texto` cada.
-
-## validacao/para_rotular.csv e validacao/resultado.json
-
-`pipeline/exportar_validacao.py` escreve o CSV com 20 parágrafos de atas diferentes, sem a nota do Claude; colunas `ata,paragrafo,texto,nota_humana` (`nota_humana` em branco para o time preencher).
-
-`validacao/comparar.py` lê o CSV preenchido e `banco/rotulos.jsonl` e escreve:
-
-```json
-{ "n": 20, "concordancia_exata": 0.65, "concordancia_1ponto": 0.90, "itens": [ { "ata": 281, "paragrafo": 12, "nota_humana": 1, "nota_claude": 1 } ] }
-```
 
 ## Edições do painel (banco Postgres)
 
