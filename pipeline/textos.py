@@ -10,18 +10,22 @@ e Selic/Focus com datas. Verificação por código:
     (ata atual para "novo"/"alterado", ata anterior para "removido");
   - todo número da explicação e do impacto existe entre os números fornecidos no prompt.
 Até 2 reescritas; o que ainda falhar é descartado.
+Plano B sem LLM (Claude indisponível, com erro ou reprovado): mudanças escolhidas por código a partir do
+diff e das notas de tom, trecho = primeira oração do parágrafo, explicação e impacto por modelo de texto
+fixo com números dos dados. Campo `origem` ("claude" | "automatico") nas mudanças e no impacto.
 """
 import argparse
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import claude_cli  # noqa: E402
+import modelo_base  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parents[1]
 ARQ_DIFF = RAIZ / "saida" / "diff_ultimas.json"
@@ -32,6 +36,7 @@ ARQ_INDICE_MODELO = RAIZ / "banco" / "indice_modelo.json"
 ARQ_FOCUS = RAIZ / "data" / "case1_focus" / "focus_anuais.csv"
 ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
+ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 MAX_REESCRITAS = 2
 
 PROMPT = """Você explica atas do Copom (Banco Central do Brasil) para quem não é economista.
@@ -192,26 +197,88 @@ def verificar(resp: dict, par_atual: dict, par_anterior: dict, permitidos: set[f
     return validas, impacto, erros
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--forcar", action="store_true")
-    args = ap.parse_args()
+def br(x: float, casas: int = 2) -> str:
+    return f"{x:.{casas}f}".replace(".", ",")
 
-    diff = json.loads(ARQ_DIFF.read_text(encoding="utf-8"))
-    atual, anterior = diff["ata_atual"], diff["ata_anterior"]
-    if ARQ_SAIDA.exists() and not args.forcar:
-        velho = json.loads(ARQ_SAIDA.read_text(encoding="utf-8"))
-        if velho.get("ata_atual") == atual and velho.get("ata_anterior") == anterior:
-            print(f"Textos já gerados para a ata {atual}; não chama o Claude.")
-            return 0
 
-    if not claude_cli.disponivel():
-        print(f"Sem Claude (falta CLAUDE_CODE_OAUTH_TOKEN): textos da ata {atual} ficam pendentes "
-              "(textos_pendentes: true em dados_site.json).")
-        return 0
+def notas_de(ata: int) -> dict[int, int]:
+    out = {}
+    if ARQ_ROTULOS.exists():
+        with ARQ_ROTULOS.open(encoding="utf-8") as f:
+            for l in f:
+                if l.strip():
+                    r = json.loads(l)
+                    if r["ata"] == ata:
+                        out[r["paragrafo"]] = r["nota"]          # última linha vence
+    return out
 
-    par_atual, par_anterior = paragrafos_de(atual), paragrafos_de(anterior)
-    mercado, data_selic, data_focus = dados_mercado()
+
+def mudancas_automaticas(diff: dict, atual: int, anterior: int, par_atual: dict, par_anterior: dict) -> list[dict]:
+    """As 3 mudanças com maior |nota| (novos/removidos) ou maior variação de nota (alterados), por código."""
+    na, nb = notas_de(atual), notas_de(anterior)
+    cand = []
+    for x in diff["novos"]:
+        n, v = x["paragrafo"], na.get(x["paragrafo"], 0)
+        if v and n in par_atual:
+            cand.append((abs(v), abs(v), {"paragrafo": n, "tipo": "novo", "efeito": "endureceu" if v > 0 else "suavizou",
+                         "trecho": modelo_base.primeira_oracao(par_atual[n]),
+                         "explicacao": f"Parágrafo novo na ata {atual}, com nota {v:+d} na régua de tom de -2 a +2. "
+                                       f"Por isso, ele deixa a comunicação do Copom mais "
+                                       f"{'dura' if v > 0 else 'branda'}."}))
+    for x in diff["alterados"]:
+        n, m = x["paragrafo_atual"], x["paragrafo_anterior"]
+        v, w = na.get(n, 0), nb.get(m, 0)
+        if v != w and n in par_atual:
+            cand.append((abs(v - w), abs(v), {"paragrafo": n, "tipo": "alterado",
+                         "efeito": "endureceu" if v > w else "suavizou",
+                         "trecho": modelo_base.primeira_oracao(par_atual[n]),
+                         "explicacao": f"O parágrafo foi reescrito e a nota de tom passou de {w:+d} na ata {anterior} "
+                                       f"para {v:+d} na ata {atual}. Por isso, a comunicação do Copom ficou mais "
+                                       f"{'dura' if v > w else 'branda'} neste ponto."}))
+    for x in diff["removidos"]:
+        n, w = x["paragrafo"], nb.get(x["paragrafo"], 0)
+        if w and n in par_anterior:
+            cand.append((abs(w), abs(w), {"paragrafo": n, "tipo": "removido", "efeito": "suavizou" if w > 0 else "endureceu",
+                         "trecho": modelo_base.primeira_oracao(par_anterior[n]),
+                         "explicacao": f"Este parágrafo da ata {anterior}, com nota {w:+d}, saiu da ata {atual}. "
+                                       f"Sem ele, a comunicação do Copom fica mais {'branda' if w > 0 else 'dura'}."}))
+    cand.sort(key=lambda c: (c[0], c[1]), reverse=True)
+    return [c[2] for c in cand[:3]]
+
+
+def impacto_automatico(atual: int, anterior: int) -> str:
+    arq = ARQ_INDICE_MODELO if ARQ_INDICE_MODELO.exists() else ARQ_INDICE
+    por = {a["ata"]: a.get("indice") for a in json.loads(arq.read_text(encoding="utf-8"))["atas"]}
+    ata = {a["numero"]: a for a in json.loads(ARQ_ATAS.read_text(encoding="utf-8"))}.get(atual, {})
+    i, i0 = por.get(atual), por.get(anterior)
+    frases = []
+    d = None
+    if i is not None and i0 is not None:
+        d = round(i - i0, 2)
+        frases.append(f"O índice de tom da ata {atual} ficou em {br(i)}, contra {br(i0)} na ata {anterior}, "
+                      f"uma variação de {'+' if d >= 0 else '-'}{br(abs(d))} na escala de -2 a +2.")
+    elif i is not None:
+        frases.append(f"O índice de tom da ata {atual} ficou em {br(i)} na escala de -2 a +2.")
+    pp, selic, dec = ata.get("decisao_pp"), ata.get("selic_apos"), ata.get("decisao")
+    if dec and selic is not None:
+        acao = {"alta": f"subir a Selic em {br(abs(pp or 0))} ponto percentual",
+                "corte": f"cortar a Selic em {br(abs(pp or 0))} ponto percentual",
+                "manutencao": "manter a Selic"}[dec]
+        frases.append(f"Na reunião, o Copom decidiu {acao}, e a meta passou a {br(selic)}% ao ano.")
+    if d is not None and d > 0.1:
+        frases.append("Se esse tom mais duro se mantiver, os juros futuros tendem a ficar mais altos e a próxima "
+                      "decisão pode manter a Selic por mais tempo ou interromper cortes.")
+    elif d is not None and d < -0.1:
+        frases.append("Se esse tom mais brando se mantiver, os juros futuros tendem a recuar e a próxima decisão "
+                      "pode trazer novo corte da Selic.")
+    else:
+        frases.append("Com o tom pouco alterado, a próxima decisão tende a seguir a linha desta reunião, "
+                      "salvo surpresa nos dados de inflação e de atividade.")
+    return " ".join(frases)
+
+
+def via_claude(diff: dict, atual: int, anterior: int, par_atual: dict, par_anterior: dict, mercado: str):
+    """Devolve (mudanças válidas, impacto válido ou None, erros, reescritas)."""
     fmt = lambda xs: "\n\n".join(f"[{x['paragrafo']}] {x['texto']}" for x in xs) or "(nenhum)"
     alterados = "\n\n".join(f"[{x['paragrafo_atual']}] {par_atual.get(x['paragrafo_atual'], '')}\nDIFF: {x['diff']}"
                             for x in diff["alterados"]) or "(nenhum)"
@@ -221,7 +288,6 @@ def main() -> int:
     permitidos |= {abs(x) for x in permitidos}
     ignorar = {float(a) for a in range(2000, 2041)} | {float(atual), float(anterior)}
     ignorar |= {float(n) for n in par_atual} | {float(n) for n in par_anterior}
-
     tipos = {"novo": {x["paragrafo"] for x in diff["novos"]},
              "removido": {x["paragrafo"] for x in diff["removidos"]},
              "alterado": {x["paragrafo_atual"] for x in diff["alterados"]}}
@@ -239,16 +305,64 @@ def main() -> int:
         print(f"Reescrita {reescritas}: {erros}", flush=True)
         texto = claude_cli.chamar(prompt + "\n\n" + PROMPT_REESCRITA.format(erros="\n".join(f"- {e}" for e in erros),
                                                                               anterior=texto))
+    return validas, impacto, erros, reescritas
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--forcar", action="store_true")
+    ap.add_argument("--sem-claude", action="store_true", help="gera só a versão automática")
+    args = ap.parse_args()
+
+    diff = json.loads(ARQ_DIFF.read_text(encoding="utf-8"))
+    atual, anterior = diff["ata_atual"], diff["ata_anterior"]
+    if ARQ_SAIDA.exists() and not args.forcar:
+        velho = json.loads(ARQ_SAIDA.read_text(encoding="utf-8"))
+        if velho.get("ata_atual") == atual and velho.get("ata_anterior") == anterior:
+            print(f"Textos já gerados para a ata {atual}; não chama o Claude.")
+            return 0
+
+    par_atual, par_anterior = paragrafos_de(atual), paragrafos_de(anterior)
+    try:
+        mercado, data_selic, data_focus = dados_mercado()
+    except Exception as e:
+        print(f"  aviso: sem dados de mercado ({e})")
+        mercado, data_selic, data_focus = "(indisponível)", None, None
+
+    validas, impacto, erros, reescritas = [], None, [], 0
+    if args.sem_claude or not claude_cli.disponivel():
+        erros = ["Claude indisponível (sem CLAUDE_CODE_OAUTH_TOKEN)"]
+        print("Sem Claude: textos automáticos (plano B).")
+    else:
+        try:
+            validas, impacto, erros, reescritas = via_claude(diff, atual, anterior, par_atual, par_anterior, mercado)
+        except Exception as e:
+            erros = [f"Claude falhou: {e}"]
+            print(f"Claude falhou ({e}); textos automáticos (plano B).")
     if erros:
         print(f"Descartados após {reescritas} reescritas: {erros}")
 
-    saida = {"ata_atual": atual, "ata_anterior": anterior, "gerado_em": datetime.now().isoformat(timespec="seconds"),
-             "mudancas": validas,
-             "impacto": {"texto": impacto, "data_selic": data_selic, "data_focus": data_focus} if impacto else None,
+    origem = "claude"
+    if not validas:
+        validas, origem = mudancas_automaticas(diff, atual, anterior, par_atual, par_anterior), "automatico"
+    origem_impacto = "claude"
+    if not impacto:
+        impacto, origem_impacto = impacto_automatico(atual, anterior), "automatico"
+
+    if origem == origem_impacto == "automatico" and ARQ_SAIDA.exists():
+        velho = json.loads(ARQ_SAIDA.read_text(encoding="utf-8"))
+        chave = (velho.get("ata_atual"), velho.get("ata_anterior"), velho.get("mudancas"),
+                 (velho.get("impacto") or {}).get("texto"))
+        if chave == (atual, anterior, validas, impacto):
+            print("Textos automáticos iguais aos já gravados; nada muda.")
+            return 0
+    saida = {"ata_atual": atual, "ata_anterior": anterior,
+             "gerado_em": datetime.now(timezone(timedelta(hours=-3))).isoformat(timespec="seconds"),
+             "origem": origem, "mudancas": validas,
+             "impacto": {"texto": impacto, "data_selic": data_selic, "data_focus": data_focus, "origem": origem_impacto},
              "verificacao": {"reescritas": reescritas, "descartados": erros, "chamadas_claude": claude_cli.CHAMADAS}}
     ARQ_SAIDA.write_text(json.dumps(saida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"saida/textos.json: {len(validas)} mudanças, impacto {'ok' if impacto else 'descartado'}, "
-          f"{reescritas} reescritas")
+    print(f"saida/textos.json: {len(validas)} mudanças ({origem}), impacto {origem_impacto}, {reescritas} reescritas")
     return 0
 
 

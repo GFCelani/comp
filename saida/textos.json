@@ -2,6 +2,7 @@
   "ata_atual": 281,
   "ata_anterior": 280,
   "gerado_em": "2026-11-06T12:35:52",
+  "origem": "claude",
   "mudancas": [
     {
       "paragrafo": 9,
@@ -28,7 +29,8 @@
   "impacto": {
     "texto": "A ata 281 tem tom um pouco menos duro que a 280 (índice de 0,62 contra 0,9), o que tende a ser coerente com a continuidade de cortes graduais da Selic, hoje em 13,75% ao ano. Se a desaceleração da atividade se confirmar e a inflação seguir perto do limite de tolerância, os juros futuros podem recuar, em linha com a mediana do Focus para a Selic no fim de 2026 (13,50%). Já a aceleração dos preços aos produtores pode reduzir o espaço para cortes mais rápidos e manter a inflação esperada pressionada (Focus de 5,22% para 2026), com possível efeito sobre o câmbio se o cenário externo seguir incerto.",
     "data_selic": "2026-11-06",
-    "data_focus": "2026-10-30"
+    "data_focus": "2026-10-30",
+    "origem": "claude"
   },
   "verificacao": {
     "reescritas": 0,

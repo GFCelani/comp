@@ -1,0 +1,55 @@
+{
+  "metodo": "tfidf_logistica",
+  "validacao": "5 folds estratificados (parágrafos), semente 42",
+  "gerado_em": "2026-11-06T12:51:05-03:00",
+  "n_paragrafos": 1060,
+  "acuracia": 0.756,
+  "acuracia_1ponto": 0.961,
+  "erro_medio_abs": 0.287,
+  "matriz_confusao": {
+    "rotulos": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "valores": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        67,
+        17,
+        19,
+        2
+      ],
+      [
+        0,
+        35,
+        285,
+        69,
+        5
+      ],
+      [
+        0,
+        13,
+        43,
+        346,
+        39
+      ],
+      [
+        0,
+        2,
+        0,
+        15,
+        103
+      ]
+    ]
+  }
+}

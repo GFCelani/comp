@@ -7,8 +7,9 @@ Rode da raiz do repositório:
     .venv/Scripts/python.exe pipeline/rotular.py --modelo   # exige o modelo do parceiro, sem Claude
 
 Sem --modelo, usa o modelo do parceiro se existir (banco/modelo.pkl ou prever() em modelo/*.py);
-senão o Claude; se nenhum estiver disponível (nuvem sem CLAUDE_CODE_OAUTH_TOKEN), não rotula
-e sai com código 3 (SEM_ROTULADOR).
+senão o Claude; se o Claude não estiver disponível (nuvem sem CLAUDE_CODE_OAUTH_TOKEN) ou falhar
+numa ata, o TF-IDF de base (modelo_base.py). O pipeline nunca fica sem nota.
+Campo `modelo` em rotulos.jsonl: "parceiro" | "sonnet" | "tfidf_base".
 
 Uma chamada `claude -p --model sonnet` por ata (nunca por parágrafo), até 3 em paralelo
 (2 se a RAM passar de 90%). Régua de avancado/case2_copom/classificar_tom.py.
@@ -29,13 +30,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import claude_cli  # noqa: E402
+import modelo_base  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parents[1]
 ARQ_PARAGRAFOS = RAIZ / "banco" / "paragrafos.jsonl"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 PRIMEIRAS = [281, 280, 279, 278, 277, 276]
 LOCK = threading.Lock()
-SEM_ROTULADOR = 3   # código de saída: há atas sem nota e nada para rotulá-las (rodar.py lê)
 
 REGUA = """ +2 = muito duro (hawkish): sinaliza alta de juros ou juros altos por mais tempo com ênfase
  +1 = duro
@@ -79,11 +80,18 @@ def carregar_paragrafos() -> dict[int, list[dict]]:
     return por_ata
 
 
-def atas_rotuladas() -> set[int]:
+def atas_rotuladas(ignorar_base: bool = False) -> set[int]:
+    """Atas com rótulos. ignorar_base=True: atas rotuladas só pelo TF-IDF de base contam como pendentes
+    (são refeitas quando o Claude volta a estar disponível; a última linha de cada parágrafo vale)."""
     if not ARQ_ROTULOS.exists():
         return set()
+    ultimo = {}
     with ARQ_ROTULOS.open(encoding="utf-8") as f:
-        return {json.loads(l)["ata"] for l in f if l.strip()}
+        for l in f:
+            if l.strip():
+                r = json.loads(l)
+                ultimo[r["ata"]] = r.get("modelo")
+    return {a for a, m in ultimo.items() if not (ignorar_base and m == modelo_base.NOME)}
 
 
 def ordem(atas: list[int]) -> list[int]:
@@ -123,7 +131,7 @@ def rotular_claude(ata: int, pars: list[dict]) -> list[dict]:
     agora = datetime.now().isoformat(timespec="seconds")
     return [{"ata": ata, "paragrafo": n, "nota": rotulos[n]["nota"], "trecho": rotulos[n]["trecho"],
              "trecho_valido": claude_cli.trecho_ok(rotulos[n]["trecho"], texto_por_n[n]),
-             "modelo": f"claude-{claude_cli.MODELO}", "rotulado_em": agora}
+             "modelo": claude_cli.MODELO, "rotulado_em": agora}
             for n in sorted(rotulos)]
 
 
@@ -142,13 +150,13 @@ def carregar_modelo_parceiro():
                 continue
             for nome in ("prever", "prever_notas", "predict"):
                 if callable(getattr(mod, nome, None)):
-                    return getattr(mod, nome), f"modelo/{py.name}:{nome}"
+                    return getattr(mod, nome), "parceiro"
     if pkl.exists():
         import pickle
         with pkl.open("rb") as f:
             obj = pickle.load(f)
         if callable(getattr(obj, "predict", None)):
-            return obj.predict, "banco/modelo.pkl"
+            return obj.predict, "parceiro"
     raise RuntimeError("modelo do parceiro não encontrado (nem função prever em modelo/*.py nem banco/modelo.pkl)")
 
 
@@ -157,11 +165,22 @@ def rotular_modelo(prever, nome: str, ata: int, pars: list[dict]) -> list[dict]:
     agora = datetime.now().isoformat(timespec="seconds")
     saida = []
     for p, nota in zip(pars, notas):
-        trecho = " ".join(p["texto"].split()[:25])           # início literal do parágrafo
+        trecho = modelo_base.primeira_oracao(p["texto"])    # primeira oração, até 25 palavras, literal
         saida.append({"ata": ata, "paragrafo": p["paragrafo"], "nota": max(-2, min(2, int(round(float(nota))))),
                       "trecho": trecho, "trecho_valido": claude_cli.trecho_ok(trecho, p["texto"]),
                       "modelo": nome, "rotulado_em": agora})
     return saida
+
+
+def rotular_base(atas: list[int], por_ata: dict) -> int:
+    ja = atas_rotuladas()                      # já tem nota do TF-IDF: não duplica linhas
+    for ata in atas:
+        if ata in ja:
+            print(f"  ata {ata}: mantém a nota do TF-IDF de base já gravada", flush=True)
+            continue
+        gravar(rotular_modelo(modelo_base.prever, modelo_base.NOME, ata, por_ata[ata]))
+        print(f"  ata {ata}: rotulada pelo TF-IDF de base", flush=True)
+    return 0
 
 
 def gravar(linhas: list[dict]) -> None:
@@ -212,7 +231,16 @@ def main() -> int:
     args = ap.parse_args()
 
     por_ata = carregar_paragrafos()
-    feitas = atas_rotuladas()
+    # Ordem: modelo do parceiro > Claude (local logado ou CLAUDE_CODE_OAUTH_TOKEN) > TF-IDF de base.
+    modelo = None
+    try:
+        modelo = carregar_modelo_parceiro()
+    except Exception as e:
+        if args.modelo:
+            raise
+        print(f"  modelo do parceiro indisponível ({e})", flush=True)
+    usar_claude = modelo is None and claude_cli.disponivel()
+    feitas = atas_rotuladas(ignorar_base=usar_claude)
     pendentes = ordem([a for a in por_ata if a not in feitas and (not args.atas or a in args.atas)])
     if args.max:
         pendentes = pendentes[:args.max]
@@ -221,18 +249,9 @@ def main() -> int:
         return 0
     print(f"Rotulando {len(pendentes)} atas: {pendentes}", flush=True)
 
-    # Prioridade: modelo do parceiro (sem Claude) > Claude (local logado ou CLAUDE_CODE_OAUTH_TOKEN) > nenhum
-    modelo = None
-    try:
-        modelo = carregar_modelo_parceiro()
-    except Exception as e:
-        if args.modelo:
-            raise
-        print(f"  modelo do parceiro indisponível ({e})", flush=True)
-    if modelo is None and not claude_cli.disponivel():
-        print(f"SEM ROTULADOR: nem modelo do parceiro nem Claude (CLAUDE_CODE_OAUTH_TOKEN); "
-              f"atas {pendentes} entram sem nota (índice null, fora das métricas).", flush=True)
-        return SEM_ROTULADOR
+    if not usar_claude and modelo is None:
+        print("Sem modelo do parceiro e sem Claude: plano B com o TF-IDF de base.", flush=True)
+        return rotular_base(pendentes, por_ata)
 
     if modelo is not None:
         prever, nome = modelo
@@ -274,7 +293,10 @@ def main() -> int:
 
     print(f"Fim: {concluidas} atas rotuladas, falhas {falhas or '-'}, {claude_cli.CHAMADAS} chamadas ao Claude, "
           f"{time.time() - inicio:.0f}s", flush=True)
-    return 1 if falhas else 0
+    if falhas:
+        print(f"Claude falhou nas atas {falhas}: plano B com o TF-IDF de base.", flush=True)
+        return rotular_base(falhas, por_ata)
+    return 0
 
 
 if __name__ == "__main__":

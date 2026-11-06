@@ -1,5 +1,24 @@
 # Claude Lab · Economia & Finanças — PUC-Rio 2026
 
+## Fluxo automático
+
+O Tradutor do Copom se atualiza sozinho. O workflow `.github/workflows/atualizar_atas.yml` roda no GitHub Actions nos dias úteis às 10h, 14h e 18h de Brasília. A cada execução, ele:
+
+1. consulta o Banco Central e vê se saiu ata nova;
+2. confere a Selic do banco de dados com a tabela oficial do BC;
+3. com ata nova, baixa o PDF, extrai os parágrafos, dá a nota de tom, recalcula o índice e as métricas, gera os textos e os dados do site;
+4. só publica se passar no portão de qualidade (nº e numeração dos parágrafos, trechos válidos e build do site); senão, não muda nada e abre uma issue.
+
+Planos B, para nunca parar:
+- nota de tom: modelo do parceiro, depois o Claude (Sonnet), depois um modelo TF-IDF de base treinado nas notas do Claude;
+- textos: Claude; se ele faltar ou reprovar na checagem, um texto automático montado por código, marcado como "texto automático" no site.
+
+Problemas viram issues no repositório, sem duplicar: Selic divergente, publicação reprovada, token com falha ou perto de expirar.
+
+Configuração manual, uma única vez:
+1. rodar `claude setup-token` no terminal e salvar o valor como `CLAUDE_CODE_OAUTH_TOKEN` em Settings → Secrets and variables → Actions;
+2. informar a data do cadastro em `token_cadastrado_em` de `saida/status.json` (formato `AAAA-MM-DD`), para o aviso de renovação depois de 1 ano.
+
 **PUC-Rio · sexta, 6 de novembro de 2026 · 08h00 às 18h00 · Sala F300**
 
 Um dia de mão na massa: resolvam, com o **Claude**, problemas reais de análise econômica e financeira, usando **dados públicos brasileiros** (Banco Central, IBGE, CVM e relatórios de empresas), com **mentoria** de quem constrói agentes de IA no mercado e apresentação dos resultados no fim do dia.

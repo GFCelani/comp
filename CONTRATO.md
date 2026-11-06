@@ -53,7 +53,7 @@ Escreve: `pipeline/extrair.py`. Uma linha por parágrafo, sem cabeçalho, rodap�
 
 ## banco/rotulos.jsonl
 
-Escreve: `pipeline/rotular.py` (uma chamada `claude -p --model sonnet` por ata; ou o modelo do parceiro, se existir `banco/modelo.pkl` ou `prever()` em `modelo/*.py`, com `modelo` = origem e `trecho` = 25 primeiras palavras). Uma linha por parágrafo rotulado.
+Escreve: `pipeline/rotular.py`. Ordem de quem dá a nota: modelo do parceiro (`banco/modelo.pkl` ou `prever()` em `modelo/*.py`) > Claude (`claude -p --model sonnet`, uma chamada por ata) > TF-IDF de base (`pipeline/modelo_base.py`, se o Claude não estiver disponível ou falhar). O pipeline nunca fica sem nota. Uma linha por parágrafo rotulado; vale a última linha de cada `ata`+`paragrafo`.
 
 ```json
 {"ata": 281, "paragrafo": 12, "nota": 1, "trecho": "o Comitê seguirá vigilante e avaliará se a estratégia", "trecho_valido": true, "modelo": "sonnet", "rotulado_em": "2026-11-06T13:05:00"}
@@ -63,6 +63,7 @@ Escreve: `pipeline/rotular.py` (uma chamada `claude -p --model sonnet` por ata; 
 |---|---|---|
 | `nota` | int −2..2 | régua: +2 muito duro, +1 duro, 0 neutro, −1 brando, −2 muito brando |
 | `trecho` | string | até 25 palavras, copiado literalmente do parágrafo |
+| `modelo` | `"parceiro"` \| `"sonnet"` \| `"tfidf_base"` | quem deu a nota. Com `parceiro` ou `tfidf_base`, `trecho` = primeira oração do parágrafo, até 25 palavras, recortada por código. Atas com nota `tfidf_base` são refeitas pelo Claude quando ele volta a estar disponível |
 | `trecho_valido` | bool | `true` se o trecho é cópia exata (ignorando espaços múltiplos); `false` se falhou após uma correção |
 
 ## banco/indice.json
@@ -105,6 +106,10 @@ Métricas do modelo contra os rótulos do Claude (`banco/rotulos.jsonl`).
 ```
 
 `matriz_confusao.valores[i][j]` = nº de parágrafos com rótulo do Claude `rotulos[i]` e previsão do modelo `rotulos[j]`. `validacao_leave_one_out`: uma entrada por ata deixada de fora do treino. Enquanto o arquivo não existir, o painel mostra "aguardando modelo".
+
+## banco/modelo_base.pkl e banco/metricas_modelo_base.json
+
+Escreve: `pipeline/modelo_base.py`. TF-IDF (1–2 gramas) + regressão logística treinados só nos rótulos `sonnet` de `banco/rotulos.jsonl`; retreina quando o número desses rótulos muda. As métricas vêm de validação cruzada estratificada de 5 folds (semente 42), no formato de `banco/metricas_modelo.json` sem `validacao_leave_one_out`, com o campo extra `validacao` (texto).
 
 ## banco/metricas_previsao.json
 
@@ -167,11 +172,12 @@ Escreve: `pipeline/textos.py` (uma chamada `claude -p --model sonnet`, verificad
   "mudancas": [
     { "paragrafo": 12, "trecho": "até 25 palavras copiadas do parágrafo", "efeito": "endureceu", "explicacao": "Duas frases simples.", "tipo": "alterado" }
   ],
-  "impacto": { "texto": "Dois ou três períodos em linguagem condicional.", "data_selic": "2026-11-05", "data_focus": "2026-10-31" }
+  "origem": "claude",
+  "impacto": { "texto": "Dois ou três períodos em linguagem condicional.", "data_selic": "2026-11-05", "data_focus": "2026-10-31", "origem": "claude" }
 }
 ```
 
-`mudancas` tem no máximo 3 itens; `efeito` ∈ `"endureceu"`, `"suavizou"`; `tipo` ∈ `"novo"`, `"alterado"`, `"removido"`. Só entram itens cujo trecho existe no parágrafo e cujos números existem nos dados. `impacto` é null se não passar na checagem após 2 reescritas. Campo extra `verificacao: {reescritas, descartados, chamadas_claude}` registra a checagem.
+`mudancas` tem no máximo 3 itens; `efeito` ∈ `"endureceu"`, `"suavizou"`; `tipo` ∈ `"novo"`, `"alterado"`, `"removido"`. Só entram itens cujo trecho existe no parágrafo e cujos números existem nos dados. `origem` (das mudanças) e `impacto.origem` ∈ `"claude"`, `"automatico"`. Plano B sem LLM, quando o Claude não está disponível, falha ou reprova após 2 reescritas: as 3 mudanças são escolhidas por código no diff (maior \|nota\| em novos e removidos, maior variação de nota em alterados), com `trecho` = primeira oração do parágrafo e `explicacao` de modelo fixo com as notas; o `impacto` vem de modelo fixo com índice, variação, decisão e Selic. Por isso sempre há texto. Campo extra `verificacao: {reescritas, descartados, chamadas_claude}` registra a checagem.
 
 ## saida/dados_site.json → site/data/dados_site.json
 
@@ -191,7 +197,8 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
   },
   "serie": [ { "ata": 281, "data_reuniao": "2026-09-16", "indice": 0.42, "selic_apos": 13.75, "decisao": "corte", "decisao_pp": -0.25 } ],
   "mudancas": [ { "paragrafo": 12, "trecho": "...", "efeito": "endureceu", "explicacao": "...", "tipo": "alterado" } ],
-  "impacto": { "texto": "...", "data_selic": "2026-11-05", "data_focus": "2026-10-31" },
+  "mudancas_origem": "claude",
+  "impacto": { "texto": "...", "data_selic": "2026-11-05", "data_focus": "2026-10-31", "origem": "claude" },
   "atas": [
     { "numero": 281, "data_reuniao": "2026-09-16", "url_pdf": "https://...", "indice": 0.42, "n_paragrafos": 40, "n_nao_zero": 17,
       "paragrafos": [ { "paragrafo": 12, "nota": 1, "trecho": "..." } ] }
@@ -200,17 +207,42 @@ Escreve: `pipeline/gerar_dados_site.py`, que também copia para `site/data/`. Tu
   "metricas_previsao": null,
   "metricas_modelo": null,
   "validacao_humana": null,
-  "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" }
+  "datas_dados": { "selic": "2026-11-05", "focus": "2026-10-31" },
+  "conferencia_selic": { "verificado_em": "2026-11-06T13:00:00-03:00", "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros", "n_comparadas": 46, "divergencias": [] }
 }
 ```
 
 - `exemplo: true` faz o site mostrar a faixa "EXEMPLO".
-- `ultima_verificacao`: data e hora ISO, com fuso de Brasília (ex.: `"2026-11-06T13:30:00-03:00"`), da última vez que o pipeline conferiu se há ata nova. Também gravado sozinho por `pipeline/verificar_nova.py` (workflow `atualizar_atas.yml`, dias úteis às 10h, 14h e 18h), que não mexe em mais nenhum campo. `gerado_em` também vai com o fuso.
-- `textos_pendentes`: `true` quando `saida/textos.json` não é da última ata (aí `mudancas` = `[]` e `impacto` = null). Na nuvem sem modelo do parceiro nem `CLAUDE_CODE_OAUTH_TOKEN`, a ata nova entra sem nota: `indice` null, `paragrafos` vazio e fora de `metricas_previsao`; o workflow abre uma issue.
+- `ultima_verificacao`: data e hora ISO, com fuso de Brasília (ex.: `"2026-11-06T13:30:00-03:00"`), da última vez que o pipeline conferiu se há ata nova. Muda só quando o pipeline publica uma ata; a verificação de cada execução fica em `saida/status.json`. `gerado_em` também vai com o fuso.
+- `textos_pendentes`: sempre `false` desde os textos automáticos (plano B); o campo continua para compatibilidade. `mudancas_origem` e `impacto.origem` ∈ `"claude"`, `"automatico"` (o site mostra "texto automático").
+- `conferencia_selic` = conteúdo de `saida/conferencia_selic.json` ou null.
 - `atas[].paragrafos[].trecho` é null quando o trecho não passou na checagem (`trecho_valido: false`).
 - `fonte_indice` ∈ `"simples"`, `"modelo"`: de onde vêm `serie[].indice`, `atas[].indice` e `resumo.ultima_ata.indice`. Usa `banco/indice_modelo.json` quando existir, senão `banco/indice.json`.
 - `atas[].paragrafos` só traz parágrafos com nota ≠ 0, e só o trecho (nunca o texto inteiro).
 - `metricas_previsao` = conteúdo de `banco/metricas_previsao.json` ou null; `metricas_modelo` = `banco/metricas_modelo.json` ou null; `validacao_humana` = `validacao/resultado.json` ou null.
+
+## saida/conferencia_selic.json
+
+Escreve: `pipeline/conferir_selic.py`, em toda execução do workflow. Compara `selic_apos`, `decisao_pp` e `decisao` de `banco/atas.json` com a tabela oficial do BC (`https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros`, a mesma da página "Histórico das taxas de juros"; reuniões extraordinárias ignoradas).
+
+```json
+{ "verificado_em": "2026-11-06T13:00:00-03:00", "fonte_url": "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros", "n_comparadas": 46,
+  "divergencias": [ { "ata": 281, "campo": "selic_apos", "banco": 13.75, "oficial": 14.0 } ] }
+```
+
+Se o BC não responder, vem `erro` (texto) e `divergencias` vazio. Com divergência, o workflow abre uma issue (sem duplicar).
+
+## saida/status.json
+
+Escreve: `pipeline/verificar_nova.py`, em toda execução do workflow. Só é commitado com ata nova ou uma vez por semana (commit "Registra verificação semanal" quando `ultimo_commit_keepalive` tem mais de 6 dias). O site mostra a última verificação pela API pública do GitHub Actions.
+
+```json
+{ "ultima_verificacao": "2026-11-06T13:00:00-03:00", "ultimo_commit_keepalive": "2026-11-06T13:00:00-03:00",
+  "token_cadastrado_em": null, "token_expira_em": null,
+  "fluxo": { "agenda": "...", "ultima_ata_no_banco": 281, "atas_novas": [], "pendencias": [], "token_no_ambiente": false } }
+```
+
+`token_cadastrado_em` (`AAAA-MM-DD`) é informado pelo usuário; `token_expira_em` = 1 ano depois. Com 30 dias ou menos, o workflow abre uma issue (sem duplicar).
 
 ## saida/busca.json → site/data/busca.json
 

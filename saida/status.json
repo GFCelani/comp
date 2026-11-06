@@ -1,0 +1,13 @@
+{
+  "ultima_verificacao": "2026-11-06T12:55:43-03:00",
+  "ultimo_commit_keepalive": "2026-11-06T12:55:43-03:00",
+  "token_cadastrado_em": null,
+  "token_expira_em": null,
+  "fluxo": {
+    "agenda": "dias úteis às 10h, 14h e 18h de Brasília (GitHub Actions)",
+    "ultima_ata_no_banco": 281,
+    "atas_novas": [],
+    "pendencias": [],
+    "token_no_ambiente": false
+  }
+}

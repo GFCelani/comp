@@ -1,5 +1,9 @@
 name: Atualizar atas do Copom
 
+# Fluxo sem trabalho manual: ata nova no BC -> banco, notas, textos, conferência e site atualizado.
+# Planos B: nota = modelo do parceiro > Claude (CLAUDE_CODE_OAUTH_TOKEN) > TF-IDF de base;
+# textos = Claude > versão automática por código. Nada é publicado se o portão de qualidade reprovar.
+
 on:
   schedule:
     # Dias úteis às 10h, 14h e 18h de Brasília (UTC-3) = 13h, 17h e 21h UTC.
@@ -20,7 +24,7 @@ jobs:
     timeout-minutes: 60
     env:
       PYTHONIOENCODING: utf-8
-      TZ: America/Sao_Paulo
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Só diz se o segredo existe; o valor nunca é impresso.
       TEM_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
     steps:
@@ -36,39 +40,101 @@ jobs:
 
       - name: Verificar ata nova no BC
         id: verificar
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: python pipeline/verificar_nova.py
 
+      - name: Conferir a Selic com a tabela oficial do BC
+        id: conferir
+        run: python pipeline/conferir_selic.py
+
+      - name: Issue de divergência na Selic
+        if: steps.conferir.outputs.divergencias != '' && steps.conferir.outputs.divergencias != '0'
+        run: |
+          python pipeline/abrir_issue.py "Divergência entre a Selic do banco e a tabela oficial do BC" \
+            "A conferência automática encontrou ${{ steps.conferir.outputs.divergencias }} divergência(s) entre banco/atas.json e https://www.bcb.gov.br/controleinflacao/historicotaxasjuros. Detalhes em saida/conferencia_selic.json (gerado no run ${{ github.run_id }})."
+          cat saida/conferencia_selic.json
+
+      - name: Issue de token perto de expirar
+        if: steps.verificar.outputs.token_expirando == 'true'
+        run: |
+          python pipeline/abrir_issue.py "Token do Claude expira em breve: renove CLAUDE_CODE_OAUTH_TOKEN" \
+            "Faltam ${{ steps.verificar.outputs.token_dias }} dias para o token completar 1 ano. Rode claude setup-token, salve o novo valor em Settings → Secrets and variables → Actions como CLAUDE_CODE_OAUTH_TOKEN e atualize token_cadastrado_em em saida/status.json."
+
+      # Roda com ata nova, ou para refazer com o Claude o que uma execução anterior deixou no plano B.
+      - name: Decidir se roda o pipeline
+        id: decidir
+        run: |
+          if [ "${{ steps.verificar.outputs.nova }}" = "true" ] || \
+             { [ "${{ steps.verificar.outputs.pendente }}" = "true" ] && [ "$TEM_TOKEN" = "true" ]; }; then
+            echo "rodar=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "rodar=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Instalar o Claude Code
-        if: (steps.verificar.outputs.nova == 'true' || steps.verificar.outputs.pendente == 'true') && env.TEM_TOKEN == 'true'
+        if: steps.decidir.outputs.rodar == 'true' && env.TEM_TOKEN == 'true'
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Rodar o pipeline
         id: rodar
-        # Ata nova, ou ata/textos pendentes de uma execução anterior sem o segredo (agora cadastrado)
-        if: steps.verificar.outputs.nova == 'true' || (steps.verificar.outputs.pendente == 'true' && env.TEM_TOKEN == 'true')
+        if: steps.decidir.outputs.rodar == 'true'
+        continue-on-error: true
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: python pipeline/rodar.py
 
-      # Push com o GITHUB_TOKEN padrão: pushes feitos com ele não disparam outros workflows,
-      # e este workflow não tem gatilho de push, então não há laço.
+      - name: Portão de qualidade da ata nova
+        id: portao
+        if: steps.decidir.outputs.rodar == 'true' && steps.rodar.outcome == 'success'
+        continue-on-error: true
+        run: python pipeline/portao.py ${{ steps.verificar.outputs.atas }}
+
+      - uses: pnpm/action-setup@v4
+        if: steps.decidir.outputs.rodar == 'true' && steps.portao.outcome == 'success'
+        with:
+          package_json_file: site/package.json
+
+      - uses: actions/setup-node@v4
+        if: steps.decidir.outputs.rodar == 'true' && steps.portao.outcome == 'success'
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+
+      - name: Build do site com os dados novos
+        id: build
+        if: steps.decidir.outputs.rodar == 'true' && steps.portao.outcome == 'success'
+        continue-on-error: true
+        working-directory: site
+        run: pnpm install --frozen-lockfile && pnpm build
+
+      # Push com o GITHUB_TOKEN padrão para a branch em que o workflow rodou: pushes feitos com esse
+      # token não disparam outros workflows, e este workflow não tem gatilho de push, então não há laço.
       - name: Commit e push
+        id: commit
         env:
           NOVA: ${{ steps.verificar.outputs.nova }}
           ATAS: ${{ steps.verificar.outputs.atas }}
-          RODOU: ${{ steps.rodar.conclusion == 'success' }}
+          RODOU: ${{ steps.decidir.outputs.rodar }}
+          APROVADO: ${{ steps.rodar.outcome == 'success' && steps.portao.outcome == 'success' && steps.build.outcome == 'success' }}
+          KEEPALIVE: ${{ steps.verificar.outputs.keepalive }}
+          BRANCH: ${{ github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ "$NOVA" = "true" ]; then
+          if [ "$RODOU" = "true" ] && [ "$APROVADO" = "true" ]; then
             git add banco saida site/data
-            MSG="Adiciona ata ${ATAS}"
+            if [ "$NOVA" = "true" ]; then MSG="Adiciona ata ${ATAS}"; else MSG="Completa notas e textos pendentes"; fi
           elif [ "$RODOU" = "true" ]; then
-            git add banco saida site/data
-            MSG="Completa notas e textos pendentes"
+            echo "::warning::Portão de qualidade reprovou; nada publicado (o site fica como estava)."
+            exit 0
+          elif [ "$KEEPALIVE" = "true" ]; then
+            git add saida/status.json
+            MSG="Registra verificação semanal"
           else
-            git add site/data/dados_site.json saida/dados_site.json
-            MSG="Registra verificação automática de atas"
+            echo "Sem ata nova e sem commit semanal pendente; nada a commitar."
+            exit 0
           fi
           # Nenhum arquivo maior que 10 MB entra no commit
           GRANDES=""
@@ -84,31 +150,30 @@ jobs:
             exit 0
           fi
           git commit -m "$MSG"
+          git stash --include-untracked -q || true
           for t in 1 2 3; do
-            git pull --rebase --autostash && git push && exit 0
+            if git pull --rebase origin "$BRANCH" && git push origin "HEAD:$BRANCH"; then
+              echo "Push para $BRANCH: $MSG"
+              exit 0
+            fi
             sleep 5
           done
           echo "::error::push falhou 3 vezes"
           exit 1
 
-      - name: Abrir issue de textos pendentes
-        if: steps.verificar.outputs.nova == 'true' && steps.rodar.outputs.sem_rotulo == 'true'
+      - name: Issue de publicação reprovada
+        if: steps.decidir.outputs.rodar == 'true' && !(steps.rodar.outcome == 'success' && steps.portao.outcome == 'success' && steps.build.outcome == 'success')
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ATAS: ${{ steps.verificar.outputs.atas }}
+          MOTIVO_PORTAO: ${{ steps.portao.outputs.motivo }}
         run: |
-          cat > corpo.md <<'EOF'
-          A ata nova entrou no banco **sem nota de tom e sem textos** (mudanças e impacto), porque o workflow não encontrou o modelo do parceiro nem o segredo `CLAUDE_CODE_OAUTH_TOKEN`.
+          MOTIVO="pipeline: ${{ steps.rodar.outcome }}; portão: ${{ steps.portao.outcome }} ${MOTIVO_PORTAO}; build do site: ${{ steps.build.outcome }}"
+          python pipeline/abrir_issue.py "Ata ${{ steps.verificar.outputs.atas }} não publicada: portão de qualidade reprovou" \
+            "O workflow rodou o pipeline, mas não publicou nada (o site ficou como estava). Motivo: ${MOTIVO}. Veja o log do run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}."
 
-          No site, a ata aparece com índice vazio, fica fora das métricas e `textos_pendentes` está `true`.
-
-          Para corrigir:
-          1. No seu terminal, rode `claude setup-token` e copie o token gerado.
-          2. No GitHub, abra Settings → Secrets and variables → Actions deste repositório.
-          3. Clique em "New repository secret", nome `CLAUDE_CODE_OAUTH_TOKEN`, cole o token e salve.
-          4. Na próxima execução agendada (ou em Actions → "Atualizar atas do Copom" → Run workflow), o workflow vê a ata pendente, dá as notas e gera os textos.
-
-          Aberta automaticamente pelo workflow "Atualizar atas do Copom".
-          EOF
-          gh issue create --title "Ata ${ATAS} entrou sem textos: cadastre CLAUDE_CODE_OAUTH_TOKEN" --body-file corpo.md
-          echo "::warning::Ata ${ATAS} entrou sem nota e sem textos; issue aberta."
+      - name: Issue de falha do token do Claude
+        if: steps.rodar.outputs.claude_falhou == 'true'
+        env:
+          ERRO: ${{ steps.rodar.outputs.erro_claude }}
+        run: |
+          python pipeline/abrir_issue.py "Token do Claude falhou" \
+            "O segredo CLAUDE_CODE_OAUTH_TOKEN existe, mas claude -p falhou (último erro: ${ERRO}). O pipeline seguiu pelos planos B (TF-IDF de base e texto automático). Gere um token novo com claude setup-token e salve em Settings → Secrets and variables → Actions; a próxima execução refaz notas e textos com o Claude."

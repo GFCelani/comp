@@ -61,6 +61,9 @@ def chamar(prompt: str, tentativas: int = 2) -> str:
             ultimo_erro = e
             if t + 1 < tentativas:
                 time.sleep(3)
+    if os.environ.get("COPOM_REGISTRO_FALHAS"):              # rodar.py avisa o workflow (issue do token)
+        with open(os.environ["COPOM_REGISTRO_FALHAS"], "a", encoding="utf-8") as f:
+            f.write(" ".join(str(ultimo_erro).split())[:300] + "\n")
     raise RuntimeError(f"claude -p falhou {tentativas}x: {ultimo_erro}")
 
 

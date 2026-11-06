@@ -116,6 +116,7 @@ def main() -> int:
         },
         "serie": serie,
         "mudancas": textos.get("mudancas", []) if textos.get("ata_atual") == ult["numero"] else [],
+        "mudancas_origem": textos.get("origem", "claude") if textos.get("ata_atual") == ult["numero"] else None,
         "impacto": textos.get("impacto") if textos.get("ata_atual") == ult["numero"] else None,
         "atas": lista,
         "como_medimos": como,
@@ -123,6 +124,7 @@ def main() -> int:
         "metricas_modelo": ler(B / "metricas_modelo.json"),
         "validacao_humana": validacao,
         "datas_dados": datas_dados(),
+        "conferencia_selic": ler(S / "conferencia_selic.json"),
     }
 
     # Nenhum texto longo no JSON público: trechos ≤ 25 palavras
