@@ -1,0 +1,319 @@
+{
+ "ata": 231,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "o ambiente para as economias emergentes segue desafiador",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Indicadores recentes sugerem que a contração da atividade econômica no segundo trimestre será ainda maior.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Diversas medidas de inflação subjacente se encontram abaixo dos níveis compatíveis com o cumprimento da meta",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "encontram-se em torno de 1,6%, 3,0% e 3,5%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A inflação no curto prazo tende a mostrar elevação",
+   "padroes": [],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as pro jeções do Copom situam-se em torno de 2,0% para 2020 e 3,2% para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as projeções situam-se em torno de 1,9% para 2020 e 3,0% para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "podem fazer com que a redução da demanda agregada seja menor do que a estimada, adicionando uma assimetria no balanço de riscos",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "os efeitos sanitários e econômicos da pandemia tornam-se desproporcionalmente maiores nos emergentes",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "atividade atingiu o seu menor patamar em abril, havendo recuperação apenas parcial em maio e junho",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "será desinflacionário e associado a forte aumento do nível de ociosidade dos fatores de produção",
+   "padroes": [
+    "P13",
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a recuperação da economia pode ser mais rápida que a sugerida no cenário base",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Comitê concluiu que esse conjunto de fatores e questões prudenciais justificam cautela",
+   "padroes": [
+    "P07",
+    "P12",
+    "P18"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "ele continuou ocorrendo nas expectativas coletadas pela pesquisa Focus",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "decisao_votacao",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, reduzir a taxa básica de juros em 0, 75 ponto percentual, para 2,25% a.a.",
+   "padroes": [
+    "P06",
+    "P15"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "podem elevar a taxa de juros estrutural da economia",
+   "padroes": [
+    "P12",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o espaço remanescente para a utilização de política monetária é incerto e deve ser pequeno",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "antevê que um eventual ajuste futuro no grau de estímulo monetário será residual",
+   "padroes": [
+    "P01",
+    "P09"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 20,
+   "paragrafo_anterior": 23,
+   "direcao": 1,
+   "trecho": "antevê que um eventual ajuste futuro no grau de estímulo monetário será residual",
+   "padroes": [
+    "P01",
+    "P09"
+   ],
+   "explicacao": "Estímulo atual parece suficiente; um novo corte, se houver, seria mínimo."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 10,
+   "paragrafo_anterior": 11,
+   "direcao": 1,
+   "trecho": "adicionando uma assimetria no balanço de riscos",
+   "padroes": [
+    "P03"
+   ],
+   "explicacao": "Programas de crédito e renda criam risco de inflação acima do previsto."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 14,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "a recuperação da economia pode ser mais rápida que a sugerida no cenário base",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Auxílios podem acelerar a retomada da economia."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 19,
+   "paragrafo_anterior": 22,
+   "direcao": 1,
+   "trecho": "o espaço remanescente para a utilização de política monetária é incerto e deve ser pequeno",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Espaço para cortar passa de \"pode ser\" a \"deve ser\" pequeno."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 15,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "esse conjunto de fatores e questões prudenciais justificam cautela",
+   "padroes": [
+    "P07",
+    "P18"
+   ],
+   "explicacao": "Some a voz que negava um piso para o juro; comitê pede cautela."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 18,
+   "direcao": 1,
+   "trecho": "poderia ser oportuno prover todo o estímulo necessário de imediato",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Sai a menção aos dois membros que queriam cortar mais."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": 17,
+   "direcao": 1,
+   "trecho": "Embora esse movimento pareça ter cessado nas expectativas implícitas nos títulos públicos",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Queda das expectativas parou nos preços de mercado."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -0.3,
+  "surpresa": 0.7,
+  "explicacao": "Corte de 0,75 p.p., mas a ata sinaliza que o estímulo é compatível e eventual ajuste será residual, com nova assimetria altista no balanço de riscos e cautela por limite mínimo."
+ }
+}

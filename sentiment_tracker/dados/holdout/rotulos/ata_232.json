@@ -1,0 +1,361 @@
+{
+ "ata": 232,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "continua provocando a maior retração econômica global desde a Grande Depressão",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "indicadores recentes sugerem uma recuperação parcial",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Diversas medidas de inflação subjacente permanecem abaixo dos níveis compatíveis com o cumprimento da meta",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "encontram-se em torno de 1,6%, 3,0% e 3,5%, respectivamente",
+   "padroes": [
+    "P11",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "as projeções de curto prazo se mantêm relativamente estáveis",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "situam-se em torno de 1,9% para 2020, 3,0% para 2021 e 3,4% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação situam-se em torno de 1,9% para 2020, 3,0% para 2021 e 3,7% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Por outro lado, políticas fiscais de resposta à pandemia que piorem a trajetória fiscal do país de forma prolongada",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Há alguns sinais promissores de recuperação que, contudo, se mostra incompleta",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "pode m implicar um cenário doméstico caracterizado por uma retomada ainda mais gradual da economia",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "pressões desinflacionárias provenientes da redução de demanda podem ter duração maior do que em recessões anteriores",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "sua s projeções de inflação apresentam valor esperado abaixo da meta",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "já estaríamos próximos do nível a partir do qual reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade",
+   "padroes": [
+    "P07",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Comitê concluiu que eventuais novas reduções na taxa de juros exigiriam cautela e gradualismo adicionais",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "a prescrição futura seria a estratégia de implementação de política que atualmente apresenta a melhor relação custo benefício",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom não elevaria a taxa de juros, mas poderia reduzi-la",
+   "padroes": [
+    "P01",
+    "P04"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "à manutenção do regime fiscal, já que sua ruptura implicaria alterações significativas para a taxa de juros es trutural da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, reduzir a taxa básica de juros em 0, 25 ponto percentual, para 2,00% a.a.",
+   "padroes": [
+    "P06",
+    "P15"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Copom avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira",
+   "padroes": [
+    "P12",
+    "P16"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "eventuais ajustes futuros no atual grau de estímulo ocorreriam com gradualismo adicional",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom não antevê reduçõ es no grau de estímulo monetário",
+   "padroes": [
+    "P01",
+    "P04"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 23,
+   "paragrafo_anterior": null,
+   "direcao": -2,
+   "trecho": "o Copom não antevê reduçõ es no grau de estímulo monetário",
+   "padroes": [
+    "P01",
+    "P04"
+   ],
+   "explicacao": "Compromisso de não subir juros enquanto inflação e expectativas estiverem abaixo da meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "o Copom não elevaria a taxa de juros, mas poderia reduzi-la",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "A orientação só admite manter ou cortar o juro."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "tende a ajustar as expectativas expressadas na parte intermediária da curva de juros",
+   "padroes": [
+    "P04"
+   ],
+   "explicacao": "Adota orientação futura para manter juros baixos por mais tempo."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": 15,
+   "direcao": 1,
+   "trecho": "eventuais novas reduções na taxa de juros exigiriam cautela e gradualismo adicionais",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Novos cortes, se vierem, serão lentos e espaçados."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 22,
+   "paragrafo_anterior": 19,
+   "direcao": 1,
+   "trecho": "eventuais ajustes futuros no atual grau de estímulo ocorreriam com gradualismo adicional",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Reforça que o espaço para cortar é pequeno."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 13,
+   "paragrafo_anterior": 13,
+   "direcao": -1,
+   "trecho": "pressões desinflacionárias provenientes da redução de demanda podem ter duração maior do que em recessões anteriores",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Folga na economia deve segurar a inflação por mais tempo."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 14,
+   "direcao": -1,
+   "trecho": "a recuperação da economia pode ser mais rápida que a sugerida no cenário base",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Sai a hipótese de retomada mais rápida."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 12,
+   "paragrafo_anterior": 12,
+   "direcao": -1,
+   "trecho": "uma retomada ainda mais gradual da economia",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Retomada pode ser ainda mais lenta."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -1.0,
+  "surpresa": -0.7,
+  "explicacao": "Corte residual de 0,25 p.p. e adoção de prescrição futura: Copom não antevê retirada de estímulo enquanto inflação e expectativas estiverem abaixo da meta, condicionada ao regime fiscal."
+ }
+}

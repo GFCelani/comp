@@ -1,56 +1,56 @@
 {
  "metodo": "tom_copom_multidimensional_v1",
- "gerado_em": "2026-11-06T14:08:39-03:00",
+ "gerado_em": "2026-11-06T14:46:24-03:00",
  "atas": [
   {
    "ata": 236,
    "data_reuniao": "2021-01-20",
-   "indice": 0.42,
-   "indice_media_simples": 0.14,
+   "indice": 0.66,
+   "indice_media_simples": 0.24,
    "n_paragrafos": 21,
-   "n_nao_zero": 14,
-   "indice_100": 21,
-   "surpresa": 0.5,
-   "confianca": 52,
+   "n_nao_zero": 12,
+   "indice_100": 33,
+   "surpresa": 0.52,
+   "confianca": 49,
    "ic95": [
-    0.11,
-    0.72
+    0.37,
+    0.92
    ],
    "dimensoes": {
     "atividade_trabalho": -0.33,
-    "balanco_riscos": 0.25,
-    "decisao_votacao": -0.33,
+    "balanco_riscos": 0.0,
+    "decisao_votacao": 0.0,
     "expectativas": 0.0,
-    "externo": -1.0,
+    "externo": -0.5,
     "fiscal_credito": 1.0,
     "inflacao_corrente": 0.67,
-    "orientacao_futura": 0.75
+    "orientacao_futura": 0.67
    },
    "mudancas": [],
-   "explicacao": "Mantém a Selic e o estímulo extraordinário, mas encerra o forward guidance, vê assimetria altista fiscal e revela membros defendendo início da normalização: viés de alta à frente."
+   "explicacao": "Fim do forward guidance, viés de alta fiscal e ala que já defende normalização parcial endurecem a mensagem; a ressalva de que não há alta mecânica e a manutenção do estímulo extraordinário moderam."
   },
   {
    "ata": 237,
    "data_reuniao": "2021-03-17",
-   "indice": 1.65,
-   "indice_media_simples": 1.09,
+   "indice": 1.67,
+   "indice_media_simples": 1.17,
    "n_paragrafos": 23,
-   "n_nao_zero": 19,
-   "indice_100": 82,
-   "surpresa": 0.3,
-   "confianca": 39,
+   "n_nao_zero": 21,
+   "indice_100": 84,
+   "surpresa": 0.35,
+   "confianca": 41,
    "ic95": [
-    1.45,
-    1.74
+    1.47,
+    1.77
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
     "balanco_riscos": 0.5,
     "decisao_votacao": 1.5,
-    "expectativas": 0.5,
+    "expectativas": 1.33,
     "externo": 1.0,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.67,
+    "inflacao_corrente": 1.0,
     "orientacao_futura": 2.0
    },
    "mudancas": [
@@ -59,121 +59,118 @@
      "paragrafo": 18,
      "paragrafo_anterior": 17,
      "direcao": 2,
-     "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto",
-     "padroes": [
-      "P01"
-     ],
-     "explicacao": "De manter a Selic em 2% passou a elevar em 0,75 ponto, início do aperto."
+     "trecho": "elevar a taxa básica de juros em 0,75 ponto percentual, para 2,75% a.a.",
+     "padroes": [],
+     "explicacao": "O Copom passou de manter os juros para subir 0,75 ponto, início do ciclo de alta."
     },
     {
      "tipo": "novo",
      "paragrafo": 22,
      "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "Para a próxima reunião, a menos de uma mudança significativa nas projeções de inflação ou no balanço de riscos, o Comitê antevê a continuação do",
+     "trecho": "o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste da mesma magnitude",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Novo aviso de que a próxima reunião deve trazer outra alta do mesmo tamanho."
+     "explicacao": "Já antecipa nova alta de 0,75 ponto na próxima reunião."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 21,
-     "paragrafo_anterior": null,
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 20,
      "direcao": 2,
-     "trecho": "Por conseguinte, o Copom decidiu iniciar um processo de normalização parcial, reduzindo o grau extraordinário do estímulo monetário. Por todos os fatores enumerados anteriormente, o",
+     "trecho": "o fim do forward guidance não implica mecanicamente uma elevação da taxa de juros",
      "padroes": [
-      "P01"
+      "P14"
      ],
-     "explicacao": "O estímulo extraordinário acabou: começa a normalização parcial dos juros, com ajuste mais rápido."
+     "explicacao": "Saiu a ressalva de que não haveria alta automática; a alta veio."
     }
    ],
-   "explicacao": "Inicia alta de 0,75 com orientação de outra igual, cita desancoragem e assimetria fiscal; muito mais dura que a ata anterior, mas a decisão e a orientação já estavam no comunicado."
+   "explicacao": "Alta de 0,75 com sinal de outra igual, unânime; ata acrescenta risco de desancoragem, choque de demanda e foco na inflação cheia, justificando postura mais assertiva que o comunicado sugeria."
   },
   {
    "ata": 238,
    "data_reuniao": "2021-05-05",
-   "indice": 0.7,
+   "indice": 0.73,
    "indice_media_simples": 0.42,
    "n_paragrafos": 19,
    "n_nao_zero": 14,
-   "indice_100": 35,
-   "surpresa": -0.4,
-   "confianca": 41,
+   "indice_100": 37,
+   "surpresa": -0.48,
+   "confianca": 39,
    "ic95": [
-    0.22,
-    1.11
+    0.3,
+    1.17
    ],
    "dimensoes": {
-    "atividade_trabalho": 1.0,
+    "atividade_trabalho": 0.67,
     "balanco_riscos": 0.25,
     "decisao_votacao": 1.0,
     "expectativas": 0.0,
     "externo": 1.0,
-    "inflacao_corrente": 0.33,
+    "inflacao_corrente": 0.67,
     "orientacao_futura": -0.25
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 17,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada uma normalização parcial da taxa de juros, com a manutenção de algum estímulo monetário ao",
-     "padroes": [
-      "P01"
-     ],
-     "explicacao": "Explicita que a normalização é parcial, mantendo algum estímulo durante a recuperação."
-    },
-    {
-     "tipo": "novo",
      "paragrafo": 14,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "Adicionalmente, observou que elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções consideravelmente abaixo da meta",
+     "trecho": "elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções consideravelmente abaixo da meta de inflação",
      "padroes": [
-      "P07",
-      "P09"
+      "P01",
+      "P07"
      ],
-     "explicacao": "Subir juros até o neutro levaria a inflação bem abaixo da meta: alta deve parar antes."
+     "explicacao": "Sinaliza que não pretende subir os juros até o neutro: ciclo de alta limitado."
     },
     {
-     "tipo": "alterado",
-     "paragrafo": 18,
-     "paragrafo_anterior": 22,
-     "direcao": 1,
-     "trecho": "Para a próxima reunião, o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste",
+     "tipo": "novo",
+     "paragrafo": 17,
+     "paragrafo_anterior": null,
+     "direcao": -1,
+     "trecho": "com a manutenção de algum estímulo monetário ao longo do processo de recuperação econômica",
      "padroes": [
-      "P02"
+      "P09"
      ],
-     "explicacao": "Retirou a ressalva 'a menos de mudança significativa': compromisso com a próxima alta ficou mais firme."
+     "explicacao": "Reforça que os juros devem continuar estimulativos, abaixo do neutro."
+    },
+    {
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 15,
+     "direcao": -1,
+     "trecho": "gerando risco de uma desancoragem das expectativas no horizonte relevante de política monetária",
+     "padroes": [
+      "P11"
+     ],
+     "explicacao": "Sumiu a ênfase no risco de desancoragem das expectativas."
     }
    ],
-   "explicacao": "Nova alta de 0,75 com orientação de outra igual, mas reforça que a normalização é parcial e que subir até o neutro deixaria a inflação abaixo da meta: limita o ciclo."
+   "explicacao": "Alta de 0,75 e outra igual sinalizada, mas a ata limita o ciclo: subir até o neutro levaria a inflação muito abaixo da meta, com projeção de 2022 abaixo da meta e normalização só parcial."
   },
   {
    "ata": 239,
    "data_reuniao": "2021-06-16",
-   "indice": 1.72,
-   "indice_media_simples": 0.86,
+   "indice": 1.48,
+   "indice_media_simples": 0.81,
    "n_paragrafos": 21,
-   "n_nao_zero": 14,
-   "indice_100": 86,
-   "surpresa": 0.8,
-   "confianca": 37,
+   "n_nao_zero": 16,
+   "indice_100": 74,
+   "surpresa": 0.34,
+   "confianca": 36,
    "ic95": [
-    1.45,
-    1.83
+    1.19,
+    1.65
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
-    "balanco_riscos": 0.5,
+    "balanco_riscos": 0.25,
     "decisao_votacao": 1.0,
-    "expectativas": 0.0,
-    "externo": 0.5,
+    "expectativas": 0.5,
+    "externo": 0.0,
     "inflacao_corrente": 0.67,
-    "orientacao_futura": 2.0,
-    "outro": 0.0
+    "orientacao_futura": 1.6
    },
    "mudancas": [
     {
@@ -181,122 +178,120 @@
      "paragrafo": 19,
      "paragrafo_anterior": 17,
      "direcao": 2,
-     "trecho": "Neste momento, o cenário básico do Copom indica ser apropriada a normalização da taxa de juros para patamar considerado neutro. Esse ajuste é necessário para",
+     "trecho": "a normalização da taxa de juros para patamar considerado neutro",
      "padroes": [
       "P01",
       "P07"
      ],
-     "explicacao": "Normalização deixou de ser 'parcial': juros devem subir até o patamar neutro."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 14,
-     "paragrafo_anterior": 14,
-     "direcao": 2,
-     "trecho": "Sendo assim, tornou-se apropriada a normalização da taxa de juros para esse",
-     "padroes": [
-      "P01",
-      "P07"
-     ],
-     "explicacao": "Altas até o neutro agora levam a inflação à meta, por isso o ciclo vai até lá."
+     "explicacao": "Abandona a normalização parcial: os juros devem subir até o nível neutro."
     },
     {
      "tipo": "novo",
      "paragrafo": 15,
      "paragrafo_anterior": null,
-     "direcao": 2,
-     "trecho": "Frente à revisão da trajetória de política monetária implícita nas suas projeções, o Comitê avaliou uma redução mais tempestiva dos estímulos monetários",
+     "direcao": 1,
+     "trecho": "o Comitê avaliou uma redução mais tempestiva dos estímulos monetários",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Comitê avaliou subir os juros mais rápido já nesta reunião."
+     "explicacao": "Revela que uma alta maior que 0,75 já foi considerada nesta reunião."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 20,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "uma deterioração das expectativas de inflação para o horizonte relevante pode exigir uma redução mais tempestiva dos estímulos monetários",
+     "padroes": [
+      "P01",
+      "P11"
+     ],
+     "explicacao": "Abre a porta para acelerar o ritmo de alta na próxima reunião."
     }
    ],
-   "explicacao": "Abandona a normalização parcial: juros até o neutro, discute alta maior já nesta reunião e sinaliza aceleração se expectativas piorarem. Bem mais dura que a ata anterior."
+   "explicacao": "Alta de 0,75 com fim da normalização parcial rumo ao neutro; ata revela que alta maior já foi avaliada e que expectativas piores podem acelerar o ritmo, apesar de novo risco baixista citado."
   },
   {
    "ata": 240,
    "data_reuniao": "2021-08-04",
    "indice": 1.76,
-   "indice_media_simples": 0.81,
+   "indice_media_simples": 1.0,
    "n_paragrafos": 21,
-   "n_nao_zero": 13,
+   "n_nao_zero": 15,
    "indice_100": 88,
-   "surpresa": 0.2,
-   "confianca": 32,
+   "surpresa": 0.17,
+   "confianca": 31,
    "ic95": [
-    1.48,
-    1.86
+    1.51,
+    1.87
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.0,
+    "atividade_trabalho": 0.33,
     "balanco_riscos": 0.5,
     "decisao_votacao": 1.0,
-    "expectativas": 0.67,
+    "expectativas": 1.33,
     "externo": 0.5,
-    "inflacao_corrente": 0.67,
+    "inflacao_corrente": 1.0,
     "orientacao_futura": 2.0
    },
    "mudancas": [
     {
-     "tipo": "alterado",
-     "paragrafo": 14,
-     "paragrafo_anterior": 14,
+     "tipo": "novo",
+     "paragrafo": 19,
+     "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "são necessárias elevações de juros subsequentes, sem interrupção, até patamar acima do neutro para que se obtenha projeções em torno",
+     "trecho": "indicam ser apropriado um ciclo de elevação da taxa de juros para patamar acima do neutro",
      "padroes": [
       "P01",
       "P07"
      ],
-     "explicacao": "Juros deixam de mirar o neutro e passam a mirar patamar acima dele, contracionista."
+     "explicacao": "Os juros agora devem ir além do neutro, para território contracionista."
     },
     {
      "tipo": "novo",
-     "paragrafo": 19,
+     "paragrafo": 18,
      "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "Neste momento, o cenário básico e o balanço de riscos do Copom indicam ser apropriado um ciclo de elevação da taxa de",
-     "padroes": [
-      "P07"
-     ],
-     "explicacao": "Reforça na decisão o ciclo de alta até acima do neutro."
+     "direcao": 2,
+     "trecho": "elevar a taxa básica de juros em 1,00 ponto percentual, para 5,25% a.a.",
+     "padroes": [],
+     "explicacao": "O ritmo de alta acelerou de 0,75 para 1 ponto."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 17,
-     "paragrafo_anterior": null,
+     "tipo": "alterado",
+     "paragrafo": 20,
+     "paragrafo_anterior": 20,
      "direcao": 1,
-     "trecho": "Finalmente, o Copom concluiu que um ajuste mais tempestivo da política monetária é a estratégia",
+     "trecho": "Para a próxima reunião, o Comitê antevê outro a juste da mesma magnitude.",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Ritmo de alta acelerou para 1 ponto como estratégia para a meta."
+     "explicacao": "Sinaliza nova alta de 1 ponto, ritmo maior que o anterior."
     }
    ],
-   "explicacao": "Acelera para 1 ponto, mira juros acima do neutro (contracionista) e orienta outra alta igual. Muito dura, mas em linha com a decisão e o comunicado; pouco além disso."
+   "explicacao": "Alta de 1 ponto, ciclo para patamar contracionista acima do neutro e nova alta de 1 ponto sinalizada; a ata reforça o temor de deterioração das expectativas, em linha com o comunicado já duro."
   },
   {
    "ata": 241,
    "data_reuniao": "2021-09-22",
-   "indice": 1.52,
+   "indice": 1.16,
    "indice_media_simples": 0.53,
    "n_paragrafos": 19,
-   "n_nao_zero": 13,
-   "indice_100": 76,
-   "surpresa": 0.5,
-   "confianca": 36,
+   "n_nao_zero": 12,
+   "indice_100": 58,
+   "surpresa": -0.14,
+   "confianca": 48,
    "ic95": [
-    1.18,
-    1.68
+    0.86,
+    1.38
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.67,
-    "balanco_riscos": 0.5,
+    "atividade_trabalho": 0.0,
+    "balanco_riscos": 0.25,
     "decisao_votacao": 1.0,
     "expectativas": 0.0,
-    "externo": -0.5,
-    "inflacao_corrente": 0.67,
-    "orientacao_futura": 1.75
+    "externo": 0.0,
+    "inflacao_corrente": 1.0,
+    "orientacao_futura": 1.0
    },
    "mudancas": [
     {
@@ -304,125 +299,125 @@
      "paragrafo": 14,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista e garantir a convergência da inflação para a meta em",
+     "trecho": "o atual ritmo de ajuste é suficiente para atingir patamar significativamente contracionista",
      "padroes": [
+      "P01",
       "P09"
      ],
-     "explicacao": "Diz que o ritmo atual de alta basta: afasta aceleração acima de 1 ponto."
+     "explicacao": "Comitê avaliou acelerar as altas e descartou: o ritmo atual basta."
     },
     {
      "tipo": "alterado",
      "paragrafo": 15,
      "paragrafo_anterior": 17,
      "direcao": 1,
-     "trecho": "associada ao aumento da magnitude do ciclo de ajuste da política monetária para patamar significativamente",
+     "trecho": "associada ao aumento da magnitude do ciclo de ajuste da política monetária para patamar significativamente contracionista",
      "padroes": [
-      "P10",
-      "P07"
-     ],
-     "explicacao": "Ciclo de alta maior, até patamar 'significativamente contracionista', em vez de mais rápido."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 17,
-     "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "Neste momento, o cenário básico e o balanço de riscos do Copom indicam ser apropriado que o ciclo de aperto monetário avance no território contracionista.",
-     "padroes": [
+      "P07",
       "P10"
      ],
-     "explicacao": "Aperto deve avançar dentro do território contracionista."
+     "explicacao": "Em vez de acelerar, promete ciclo mais longo e juros finais mais altos."
+    },
+    {
+     "tipo": "alterado",
+     "paragrafo": 13,
+     "paragrafo_anterior": 13,
+     "direcao": 1,
+     "trecho": "ligeiramente acima da meta",
+     "padroes": [
+      "P08"
+     ],
+     "explicacao": "Projeção de 2022 deixou de estar na meta e passou a ficar acima dela."
     }
    ],
-   "explicacao": "Mantém altas de 1 ponto e diz que o ritmo basta, mas eleva a magnitude do ciclo a patamar 'significativamente contracionista' e vê projeção acima da meta: terminal mais alta."
+   "explicacao": "Alta de 1 p.p. e mesma dose prevista; descarta acelerar, mas promete ciclo maior e significativamente contracionista. Duro no nível, levemente brando no ritmo."
   },
   {
    "ata": 242,
    "data_reuniao": "2021-10-27",
-   "indice": 1.7,
+   "indice": 1.63,
    "indice_media_simples": 1.05,
    "n_paragrafos": 19,
    "n_nao_zero": 16,
-   "indice_100": 85,
-   "surpresa": 1.3,
-   "confianca": 37,
+   "indice_100": 82,
+   "surpresa": 0.57,
+   "confianca": 38,
    "ic95": [
-    1.47,
-    1.79
+    1.38,
+    1.77
    ],
    "dimensoes": {
     "atividade_trabalho": -0.5,
-    "balanco_riscos": 0.33,
+    "balanco_riscos": 0.75,
     "decisao_votacao": 1.0,
     "expectativas": 1.0,
     "externo": 1.0,
     "fiscal_credito": 1.33,
-    "inflacao_corrente": 1.0,
-    "orientacao_futura": 2.0
+    "inflacao_corrente": 1.5,
+    "orientacao_futura": 1.75
    },
    "mudancas": [
+    {
+     "tipo": "novo",
+     "paragrafo": 15,
+     "paragrafo_anterior": null,
+     "direcao": 2,
+     "trecho": "O Comitê avaliou, inclusive, cenários com ritmos de ajuste maiores do que 1,50 ponto percentual.",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Revela que altas ainda maiores que a feita foram consideradas."
+    },
     {
      "tipo": "alterado",
      "paragrafo": 13,
      "paragrafo_anterior": 13,
      "direcao": 2,
-     "trecho": "o grau apropriado de aperto monetário é s ignificativamente mais contracionista do que o utilizado no cenário básico",
+     "trecho": "esse viés de alta é agora maior do que o anteriormente considerado.",
      "padroes": [
-      "P10",
-      "P03"
+      "P03",
+      "P10"
      ],
-     "explicacao": "Passa a dizer que o aperto adequado é significativamente mais forte que o precificado, com viés de alta maior."
+     "explicacao": "Risco de inflação acima do previsto ficou maior; aperto precisa ser significativamente mais forte."
     },
     {
      "tipo": "novo",
      "paragrafo": 11,
      "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas",
+     "trecho": "Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas.",
      "padroes": [
       "P07",
       "P12"
      ],
-     "explicacao": "Risco fiscal leva o Copom a considerar juro neutro mais alto."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 10,
-     "paragrafo_anterior": 9,
-     "direcao": 1,
-     "trecho": "aumentando a assimetria altista no balanço de riscos",
-     "padroes": [
-      "P03",
-      "P11"
-     ],
-     "explicacao": "Questionamento fiscal ampliou o risco de inflação acima do projetado."
+     "explicacao": "Incerteza fiscal pode exigir juros de equilíbrio mais altos."
     }
    ],
-   "explicacao": "Ata muito dura: aperto significativamente mais contracionista que o precificado, assimetria altista ampliada pelo fiscal, juro neutro maior, ritmos acima de 1,50 avaliados e nova alta de 1,50 sinalizada."
+   "explicacao": "Alta de 1,5 p.p. com outra igual antevista; ata revela que ritmos maiores foram avaliados, viés de alta maior, neutro possivelmente mais alto pelo fiscal. Mais dura que a anterior e que a decisão."
   },
   {
    "ata": 243,
    "data_reuniao": "2021-12-08",
-   "indice": 1.5,
-   "indice_media_simples": 0.84,
+   "indice": 1.61,
+   "indice_media_simples": 0.95,
    "n_paragrafos": 19,
-   "n_nao_zero": 16,
-   "indice_100": 75,
-   "surpresa": 0.5,
-   "confianca": 49,
+   "n_nao_zero": 17,
+   "indice_100": 80,
+   "surpresa": 0.36,
+   "confianca": 50,
    "ic95": [
-    1.22,
-    1.65
+    1.35,
+    1.74
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.5,
-    "balanco_riscos": 0.5,
+    "atividade_trabalho": -1.0,
+    "balanco_riscos": 0.75,
     "decisao_votacao": 1.0,
     "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 1.0,
+    "fiscal_credito": 1.5,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.5
+    "orientacao_futura": 1.75
    },
    "mudancas": [
     {
@@ -430,244 +425,247 @@
      "paragrafo": 17,
      "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "O Comitê irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas",
+     "trecho": "O Comitê irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas em torno de suas metas.",
      "padroes": [
       "P04",
-      "P10"
+      "P11"
      ],
-     "explicacao": "Nova promessa de manter o aperto até consolidar desinflação e expectativas ancoradas."
+     "explicacao": "Promete manter o aperto até expectativas ancoradas, sem prazo."
     },
     {
      "tipo": "novo",
      "paragrafo": 13,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 13,
      "direcao": 1,
-     "trecho": "suas projeções se encontram acima da meta tanto para 2022 como para 2023",
+     "trecho": "suas projeções se encontram acima da meta tanto para 2022 como para 2023.",
      "padroes": [
       "P08",
       "P03"
      ],
-     "explicacao": "Com o viés de risco, a inflação de 2023 também fica acima da meta."
+     "explicacao": "Com riscos considerados, projeção passa a ficar acima da meta também em 2023."
     },
     {
      "tipo": "novo",
      "paragrafo": 14,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 15,
      "direcao": 1,
-     "trecho": "cenários em que a taxa de juros permanece elevada por período mais longo do que a implícita no cenário básico",
+     "trecho": "com cenários em que a taxa de juros permanece elevada por período mais longo do que a implícita no cenário básico.",
      "padroes": [
-      "P04"
+      "P04",
+      "P01"
      ],
-     "explicacao": "Passa a discutir juros altos por mais tempo, além de ritmo maior."
+     "explicacao": "Introduz a ideia de juros altos por mais tempo como alternativa."
     }
    ],
-   "explicacao": "Mantém alta de 1,50 e o mesmo passo à frente; endurece ao prometer perseverar até ancorar expectativas, ver projeções acima da meta também em 2023 e discutir juros altos por mais tempo."
+   "explicacao": "Mantém 1,5 p.p. e antevê outro igual; novidade dura: projeção com riscos acima da meta em 2023 e compromisso de perseverar até ancorar expectativas, com juros altos por mais tempo no radar. Atividade mais fraca."
   },
   {
    "ata": 244,
    "data_reuniao": "2022-02-02",
-   "indice": 1.07,
-   "indice_media_simples": 0.76,
+   "indice": 0.97,
+   "indice_media_simples": 0.81,
    "n_paragrafos": 21,
-   "n_nao_zero": 17,
-   "indice_100": 53,
-   "surpresa": 0.2,
-   "confianca": 56,
+   "n_nao_zero": 18,
+   "indice_100": 49,
+   "surpresa": -0.25,
+   "confianca": 59,
    "ic95": [
-    0.74,
-    1.34
+    0.59,
+    1.29
    ],
    "dimensoes": {
     "atividade_trabalho": 0.5,
-    "balanco_riscos": 0.5,
+    "balanco_riscos": 0.75,
     "decisao_votacao": 1.0,
     "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 1.0,
+    "fiscal_credito": 1.5,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 0.6
+    "orientacao_futura": 0.4
    },
    "mudancas": [
     {
      "tipo": "novo",
      "paragrafo": 20,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros",
+     "paragrafo_anterior": 18,
+     "direcao": -2,
+     "trecho": "o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros.",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Troca 'outro ajuste igual' por redução do ritmo das altas."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 16,
-     "paragrafo_anterior": 15,
-     "direcao": 1,
-     "trecho": "seguido de ajustes adicionais em ritmo menor nas próximas reuniões",
-     "padroes": [
-      "P02",
-      "P01"
-     ],
-     "explicacao": "Promete mais de uma alta adicional, ainda que menores."
+     "explicacao": "Sinaliza altas menores daqui em diante, em vez de outra de 1,5 p.p."
     },
     {
      "tipo": "novo",
      "paragrafo": 17,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "não sinalizar a magnitude dos seus próximos ajustes",
+     "trecho": "não sinalizar a magnitude dos seus próximos ajustes.",
      "padroes": [
       "P02"
      ],
-     "explicacao": "Deixa de indicar o tamanho da próxima alta, ganhando liberdade."
+     "explicacao": "Deixa de indicar o tamanho da próxima alta, ganhando flexibilidade."
+    },
+    {
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 18,
+     "direcao": -1,
+     "trecho": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude.",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Sai a promessa de repetir a alta de 1,5 p.p."
     }
    ],
-   "explicacao": "Sinaliza redução do ritmo, já esperada, mas com ajustes adicionais no plural, projeção de 2022 acima do teto, juros necessários acima do precificado e alerta fiscal; mensagem segue dura."
+   "explicacao": "Alta de 1,5 p.p. com sinal de redução do ritmo e sem indicar magnitude: mais branda que a ata anterior. Mas prevê ajustes adicionais nas próximas reuniões, juros acima do mercado e reforça risco fiscal."
   },
   {
    "ata": 245,
    "data_reuniao": "2022-03-16",
-   "indice": 0.84,
-   "indice_media_simples": 0.56,
+   "indice": 0.91,
+   "indice_media_simples": 0.64,
    "n_paragrafos": 25,
-   "n_nao_zero": 19,
-   "indice_100": 42,
-   "surpresa": -0.5,
-   "confianca": 58,
+   "n_nao_zero": 21,
+   "indice_100": 46,
+   "surpresa": -0.35,
+   "confianca": 63,
    "ic95": [
-    0.53,
-    1.07
+    0.65,
+    1.12
    ],
    "dimensoes": {
     "atividade_trabalho": 0.5,
-    "balanco_riscos": -0.25,
+    "balanco_riscos": 0.0,
     "decisao_votacao": 1.0,
     "expectativas": 1.0,
-    "externo": 1.0,
+    "externo": 1.5,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.0,
-    "orientacao_futura": 1.0
+    "inflacao_corrente": 0.2,
+    "orientacao_futura": 0.86
    },
    "mudancas": [
     {
-     "tipo": "alterado",
-     "paragrafo": 17,
-     "paragrafo_anterior": 14,
-     "direcao": -2,
-     "trecho": "um ciclo de aperto monetário semelhante ao utilizado nos seus cenários é o mais adequado",
+     "tipo": "novo",
+     "paragrafo": 20,
+     "paragrafo_anterior": 16,
+     "direcao": -1,
+     "trecho": "seguido de ajuste adicional de mesma magnitude",
      "padroes": [
-      "P09"
+      "P02",
+      "P01"
      ],
-     "explicacao": "Deixa de exigir aperto maior que o esperado pelo mercado; o ciclo projetado já basta."
+     "explicacao": "Passa de várias altas futuras para apenas mais uma, sugerindo fim do ciclo."
     },
     {
      "tipo": "novo",
      "paragrafo": 23,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "o ciclo de juros nos cenários avaliados é suficiente para a convergência da inflação",
+     "trecho": "As atuais projeções indicam que o ciclo de juros nos cenários avaliados é suficiente para a convergência da inflação para patamar em torno da meta",
      "padroes": [
-      "P09",
-      "P18"
+      "P09"
      ],
-     "explicacao": "Diz que o ciclo esperado é suficiente e pede serenidade."
+     "explicacao": "Considera o ciclo previsto suficiente e pede serenidade diante do choque."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 15,
-     "paragrafo_anterior": null,
+     "tipo": "alterado",
+     "paragrafo": 17,
+     "paragrafo_anterior": 14,
      "direcao": -1,
-     "trecho": "adotar como mais provável um cenário com hipótese alternativa para a trajetória de preços do petróleo",
+     "trecho": "um ciclo de aperto monetário semelhante ao utilizado nos seus cenários é o mais adequado.",
      "padroes": [
-      "P08",
-      "P18"
+      "P09",
+      "P08"
      ],
-     "explicacao": "Usa petróleo mais barato como cenário principal, reduzindo a inflação projetada."
+     "explicacao": "Deixa de exigir aperto maior que o embutido nas projeções."
     }
    ],
-   "explicacao": "Alta de 1 ponto e outra igual sinalizada, mas o Copom deixa de pedir aperto acima do precificado, diz que o ciclo projetado basta e adota petróleo mais barato; sinais de fim do ciclo."
+   "explicacao": "Alta de 1 p.p. e mais uma igual antevista, apontando fim do ciclo; ciclo tido como suficiente com cenário de petróleo mais baixo. Diagnóstico externo duro e porta aberta para mais, mas ação mais branda que a anterior."
   },
   {
    "ata": 246,
    "data_reuniao": "2022-05-04",
-   "indice": 0.83,
-   "indice_media_simples": 0.6,
+   "indice": 1.18,
+   "indice_media_simples": 0.7,
    "n_paragrafos": 20,
-   "n_nao_zero": 17,
-   "indice_100": 42,
-   "surpresa": -0.8,
-   "confianca": 55,
+   "n_nao_zero": 16,
+   "indice_100": 59,
+   "surpresa": 0.14,
+   "confianca": 42,
    "ic95": [
-    0.47,
-    1.06
+    0.85,
+    1.39
    ],
    "dimensoes": {
     "atividade_trabalho": -0.5,
-    "balanco_riscos": -1.0,
+    "balanco_riscos": -0.5,
     "decisao_votacao": 1.33,
     "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 1.0,
+    "fiscal_credito": 2.0,
     "inflacao_corrente": 1.0,
     "orientacao_futura": 0.75,
     "outro": 0.0
    },
    "mudancas": [
     {
-     "tipo": "removido",
-     "paragrafo": null,
-     "paragrafo_anterior": 12,
-     "direcao": -2,
-     "trecho": "O Comitê segue considerando uma assimetria altista no balanço de riscos.",
+     "tipo": "novo",
+     "paragrafo": 16,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "sinalizar, como provável, uma extensão do ciclo",
      "padroes": [
-      "P03"
+      "P01"
      ],
-     "explicacao": "Deixa de citar assimetria altista; riscos passam a ser descritos nos dois sentidos."
+     "explicacao": "Antes o ciclo terminaria após mais uma alta; agora o Copom indica que vai além."
     },
     {
      "tipo": "novo",
-     "paragrafo": 11,
+     "paragrafo": 19,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "O Comitê avalia que a conjuntura particularmente incerta e volátil requer serenidade na avaliação dos riscos.",
+     "trecho": "demandam cautela adicional em sua atuação",
      "padroes": [
-      "P03",
+      "P01",
       "P18"
      ],
-     "explicacao": "Balanço de riscos listado de forma equilibrada, com pedido de serenidade."
+     "explicacao": "A próxima alta será menor e o Comitê pede cautela pelo estágio avançado do ciclo."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 13,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "o ciclo de aperto monetário corrente foi bastante intenso e tempestivo",
-     "padroes": [],
-     "explicacao": "Destaca que o aperto já feito é grande e ainda não fez efeito."
+     "tipo": "alterado",
+     "paragrafo": 9,
+     "paragrafo_anterior": 13,
+     "direcao": 1,
+     "trecho": "o nível de aperto monetário apropriado é também condicional ao arcabouço fiscal vigente",
+     "padroes": [
+      "P07",
+      "P12"
+     ],
+     "explicacao": "Liga o fiscal ao juro neutro e ao tamanho do aperto necessário."
     }
    ],
-   "explicacao": "Alta de 1 ponto e extensão do ciclo com passo menor, já no comunicado; a ata retira a assimetria altista do balanço de riscos e enfatiza o aperto já feito e riscos de desaceleração."
+   "explicacao": "Alta de 1 p.p. e extensão do ciclo além do previsto, com fiscal ligado ao neutro; mas passo menor, cautela e risco de desaceleração moderam."
   },
   {
    "ata": 247,
    "data_reuniao": "2022-06-15",
-   "indice": 1.22,
-   "indice_media_simples": 0.55,
+   "indice": 1.32,
+   "indice_media_simples": 0.5,
    "n_paragrafos": 22,
-   "n_nao_zero": 19,
-   "indice_100": 61,
-   "surpresa": 1.0,
-   "confianca": 50,
+   "n_nao_zero": 18,
+   "indice_100": 66,
+   "surpresa": 0.57,
+   "confianca": 46,
    "ic95": [
-    0.92,
-    1.41
+    1.02,
+    1.5
    ],
    "dimensoes": {
     "atividade_trabalho": 0.0,
     "balanco_riscos": -0.5,
     "decisao_votacao": 0.67,
-    "externo": 0.2,
+    "externo": 0.0,
     "fiscal_credito": 1.0,
     "inflacao_corrente": 1.0,
     "orientacao_futura": 1.2,
@@ -681,37 +679,37 @@
      "direcao": 2,
      "trecho": "taxa de juros terminal acima da utilizada no cenário de referência",
      "padroes": [
+      "P04",
       "P07",
-      "P08",
-      "P04"
+      "P08"
      ],
-     "explicacao": "Diz que precisará de juro final maior e mantido por mais tempo que o esperado pelo mercado."
+     "explicacao": "Juros finais mais altos e por mais tempo do que o mercado projeta."
     },
     {
      "tipo": "novo",
      "paragrafo": 18,
      "paragrafo_anterior": null,
-     "direcao": 2,
+     "direcao": 1,
      "trecho": "somente a perspectiva de manutenção da taxa básica de juros por um período suficientemente longo não asseguraria",
      "padroes": [
-      "P09",
-      "P01"
+      "P01",
+      "P09"
      ],
-     "explicacao": "Parar agora e esperar não bastaria; justifica nova alta."
+     "explicacao": "Parar agora não bastaria: haverá nova alta."
     },
     {
      "tipo": "alterado",
      "paragrafo": 21,
      "paragrafo_anterior": 19,
      "direcao": 1,
-     "trecho": "um novo ajuste, de igual ou menor magnitude",
+     "trecho": "antevê um novo ajuste, de igual ou menor magnitude",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Admite repetir a alta de 0,50, não só uma menor."
+     "explicacao": "Nova alta deixa de ser só provável e pode ter o mesmo tamanho."
     }
    ],
-   "explicacao": "Alta menor (0,50), mas a ata exige juro terminal acima do precificado e mantido por mais tempo, diz que só manter não basta e admite nova alta igual; mais dura que o esperado."
+   "explicacao": "Alta menor, de 0,5 p.p., mas ata indica juros terminais mais altos e por mais tempo que o cenário de mercado, nova alta possível de igual tamanho e projeção de 2023 acima da meta."
   },
   {
    "ata": 248,
@@ -721,14 +719,14 @@
    "n_paragrafos": 24,
    "n_nao_zero": 17,
    "indice_100": 19,
-   "surpresa": -0.4,
-   "confianca": 57,
+   "surpresa": -0.2,
+   "confianca": 58,
    "ic95": [
-    0.07,
-    0.66
+    0.08,
+    0.65
    ],
    "dimensoes": {
-    "atividade_trabalho": 1.0,
+    "atividade_trabalho": 0.33,
     "balanco_riscos": 0.0,
     "decisao_votacao": 0.67,
     "expectativas": -1.0,
@@ -736,145 +734,135 @@
     "fiscal_credito": 1.0,
     "inflacao_corrente": 1.0,
     "orientacao_futura": 0.0,
-    "outro": -0.33
+    "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "alterado",
      "paragrafo": 20,
-     "paragrafo_anterior": 18,
+     "paragrafo_anterior": null,
      "direcao": -1,
      "trecho": "O Comitê optou por sinalizar que avaliará a necessidade de um ajuste residual, de menor magnitude, na próxima reunião",
      "padroes": [
       "P01"
      ],
-     "explicacao": "De 'novo ajuste de igual ou menor magnitude' para avaliar 'ajuste residual': indica fim próximo do ciclo de alta."
+     "explicacao": "Passa de ajuste de igual ou menor magnitude para ajuste residual menor: sinaliza fim do ciclo de alta."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 23,
+     "tipo": "removido",
+     "paragrafo": null,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "O Comitê ava liará a necessidade de um ajuste residual, de menor magnitude, em sua próxima reunião.",
+     "trecho": "Para a próxima reunião, o Comitê antevê um novo ajuste, de igual ou menor magnitude.",
      "padroes": [
       "P01"
      ],
-     "explicacao": "A orientação deixa de prometer nova alta e passa a apenas avaliar um último ajuste pequeno."
+     "explicacao": "Sai a promessa de novo ajuste possivelmente igual; o aperto fica perto do fim."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 15,
+     "tipo": "alterado",
+     "paragrafo": 18,
      "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "é compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
+     "direcao": 1,
+     "trecho": "a manutenção da taxa de juros em território significativamente contracionista por um período suficientemente prolongado.",
      "padroes": [
-      "P08"
+      "P04"
      ],
-     "explicacao": "Projeção no horizonte relevante já está ao redor da meta, sem exigir juros terminais mais altos."
+     "explicacao": "Entra ênfase em manter juros altos por período prolongado após o fim das altas."
     }
    ],
-   "explicacao": "Alta de 0,50 com sinal de apenas um ajuste residual menor e projeção na meta no horizonte relevante; mantém juros contracionistas por período prolongado. Mais brando que a ata anterior, em linha com o comunicado."
+   "explicacao": "Alta de 0,50 com sinal de ajuste residual menor e fim do ciclo; juros altos por período prolongado e vigilância mantêm viés duro no nível. Projeção na meta reforça leitura de encerramento, já esperada pelo comunicado."
   },
   {
    "ata": 249,
    "data_reuniao": "2022-09-21",
-   "indice": 0.55,
-   "indice_media_simples": 0.21,
+   "indice": 0.84,
+   "indice_media_simples": 0.46,
    "n_paragrafos": 24,
    "n_nao_zero": 14,
-   "indice_100": 27,
-   "surpresa": -0.4,
-   "confianca": 68,
+   "indice_100": 42,
+   "surpresa": 0.24,
+   "confianca": 57,
    "ic95": [
-    0.3,
-    0.75
+    0.63,
+    1.02
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.33,
+    "atividade_trabalho": 0.5,
     "balanco_riscos": 1.0,
-    "decisao_votacao": 0.5,
+    "decisao_votacao": 0.75,
     "expectativas": 0.0,
     "externo": 0.0,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.0,
+    "inflacao_corrente": 0.5,
     "orientacao_futura": 1.5,
-    "outro": -0.33
+    "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
      "paragrafo": 19,
      "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "era apropriado manter a taxa de juros no patamar de 13,75% a.a.",
+     "direcao": 1,
+     "trecho": "A s opções pela elevação de juros em 0,25 ponto percentual e pel a manutenção da taxa básica de juros foram amplamente debatidas.",
      "padroes": [
-      "P01"
+      "P01",
+      "P06"
      ],
-     "explicacao": "O ciclo de alta é interrompido: a maioria decidiu manter a Selic em 13,75%."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 9,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "pressupondo que o hiato do produto estaria no nível zero no terceiro trimestre de 2022, as projeções de inflação seriam de 4,9% e 3,0%",
-     "padroes": [
-      "P08",
-      "P13"
-     ],
-     "explicacao": "Mesmo com economia sem folga, a inflação de 2024 ficaria na meta: tira força do argumento por mais altas."
+     "explicacao": "Revela que a alta de 0,25 foi seriamente discutida antes de decidirem pela pausa."
     },
     {
      "tipo": "novo",
      "paragrafo": 20,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "Dois membros do comitê votaram por uma elevação residual de 0,25 ponto percentual na taxa básica de juros.",
+     "trecho": "diante da elevação das expectativas de inflação e da projeção no cenário de referência para o ano de 2024",
      "padroes": [
-      "P06"
+      "P06",
+      "P11"
      ],
-     "explicacao": "Dois diretores queriam mais uma alta: ala dura relevante dentro do Comitê."
+     "explicacao": "Minoria por alta explica argumentos duros: expectativas e projeção de 2024 subindo."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 21,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "O Comitê enfatiza que não hesitará em retomar o ciclo de ajuste caso o processo de desinflação não transcorra como esperado.",
+     "padroes": [
+      "P05"
+     ],
+     "explicacao": "Entra cláusula de retomada da alta, endossada por unanimidade."
     }
    ],
-   "explicacao": "Encerra as altas mantendo 13,75% com dois votos por mais 0,25 e cláusula de retomada. Mas mostra que, mesmo com hiato zerado, a inflação de 2024 iria à meta: leitura mais branda que a decisão sugeria."
+   "explicacao": "Pausa em 13,75% com dois votos por alta e cláusula de não hesitar em retomar o ciclo. Ata revela debate sério de alta, exercício de hiato mais estreito e expectativas de 2024 subindo: mais dura que a pausa sugeria."
   },
   {
    "ata": 250,
    "data_reuniao": "2022-10-26",
-   "indice": 0.38,
-   "indice_media_simples": 0.14,
+   "indice": 0.64,
+   "indice_media_simples": 0.29,
    "n_paragrafos": 21,
-   "n_nao_zero": 11,
-   "indice_100": 19,
-   "surpresa": 0.0,
-   "confianca": 76,
+   "n_nao_zero": 13,
+   "indice_100": 32,
+   "surpresa": -0.19,
+   "confianca": 73,
    "ic95": [
-    0.14,
-    0.55
+    0.31,
+    0.89
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.5,
+    "atividade_trabalho": -0.33,
     "balanco_riscos": 0.0,
-    "decisao_votacao": 0.0,
+    "decisao_votacao": 0.33,
     "expectativas": -0.5,
-    "externo": 0.6,
-    "fiscal_credito": 1.0,
+    "externo": 0.75,
+    "fiscal_credito": 0.33,
     "inflacao_corrente": 0.0,
-    "orientacao_futura": 1.0,
+    "orientacao_futura": 1.5,
     "outro": 0.0
    },
    "mudancas": [
-    {
-     "tipo": "alterado",
-     "paragrafo": 21,
-     "paragrafo_anterior": 24,
-     "direcao": -1,
-     "trecho": "Fernanda Magalhães Rumenos Guardado,",
-     "padroes": [
-      "P06"
-     ],
-     "explicacao": "Os dois diretores que pediam alta voltaram a votar com a maioria: decisão unânime pela manutenção."
-    },
     {
      "tipo": "removido",
      "paragrafo": null,
@@ -884,46 +872,56 @@
      "padroes": [
       "P06"
      ],
-     "explicacao": "Some a ala que defendia mais uma alta."
+     "explicacao": "Some a minoria que pedia alta; decisão unânime pela manutenção."
     },
     {
-     "tipo": "alterado",
-     "paragrafo": 18,
-     "paragrafo_anterior": 21,
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 19,
      "direcao": -1,
-     "trecho": "O Comitê reforça que irá perseverar",
+     "trecho": "A s opções pela elevação de juros em 0,25 ponto percentual e pel a manutenção da taxa básica de juros foram amplamente debatidas.",
      "padroes": [
-      "P05",
-      "P06"
+      "P01"
      ],
-     "explicacao": "A cláusula de retomada perde o 'por unanimidade', ficando um pouco menos enfática."
+     "explicacao": "Não há mais menção a debate de nova alta nesta reunião."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 9,
+     "paragrafo_anterior": null,
+     "direcao": -1,
+     "trecho": "o impacto da política monetária e suas defasagens aponta para uma redução do ritmo da atividade econômica, que tende a se acentuar nos próximos trimestres.",
+     "padroes": [
+      "P13"
+     ],
+     "explicacao": "Atividade desacelerando por efeito dos juros: menos pressão sobre a inflação."
     }
    ],
-   "explicacao": "Manutenção unânime em 13,75% por período prolongado, com cláusula de retomada. Leve aumento das projeções e menor ociosidade compensam a atividade mais fraca e o fim da dissidência: em linha com o comunicado."
+   "explicacao": "Manutenção unânime em 13,75% com cláusula de retomada e período prolongado mantidos. Some a ala por alta e a atividade desacelera, embora o hiato estreite e projeções subam levemente: um pouco mais branda que a ata anterior."
   },
   {
    "ata": 251,
    "data_reuniao": "2022-12-07",
-   "indice": 0.58,
-   "indice_media_simples": 0.43,
+   "indice": 0.8,
+   "indice_media_simples": 0.48,
    "n_paragrafos": 23,
-   "n_nao_zero": 15,
-   "indice_100": 29,
-   "surpresa": 0.4,
-   "confianca": 62,
+   "n_nao_zero": 16,
+   "indice_100": 40,
+   "surpresa": 0.28,
+   "confianca": 60,
    "ic95": [
-    0.38,
-    0.73
+    0.52,
+    1.03
    ],
    "dimensoes": {
     "atividade_trabalho": -1.0,
     "balanco_riscos": 1.0,
-    "decisao_votacao": 0.0,
-    "expectativas": 0.33,
-    "externo": 0.67,
-    "fiscal_credito": 1.5,
+    "decisao_votacao": 0.33,
+    "expectativas": 0.0,
+    "externo": 0.83,
+    "fiscal_credito": 1.0,
     "inflacao_corrente": 0.5,
-    "orientacao_futura": 1.0,
+    "orientacao_futura": 1.5,
     "outro": 0.0
    },
    "mudancas": [
@@ -932,75 +930,64 @@
      "paragrafo": 12,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "mudanças em políticas parafiscais ou a reversão de reformas estruturais que levem a u ma alocação menos eficiente de recursos podem reduzir a potência da política monetária.",
+     "trecho": "via preços de ativos, grau de incerteza na economia, expectativas de inflação e taxa de juros neutra",
      "padroes": [
-      "P12",
-      "P07"
+      "P07",
+      "P12"
      ],
-     "explicacao": "Alerta que parafiscal e reversão de reformas podem enfraquecer o efeito dos juros, exigindo juros mais altos."
+     "explicacao": "Liga política fiscal e parafiscal ao juro neutro e à potência da política monetária."
     },
     {
      "tipo": "novo",
      "paragrafo": 12,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "Em ambiente de hiato do produto reduzido, o impacto de estímulos fiscais significativos sobre a trajetória de inflação tende a se sobrepor",
+     "trecho": "o impacto de estímulos fiscais significativos sobre a trajetória de inflação tende a se sobrepor aos impactos almejados sobre a atividade econômica.",
      "padroes": [
       "P12"
      ],
-     "explicacao": "Com pouca folga na economia, estímulo fiscal vira mais inflação do que crescimento."
+     "explicacao": "Estímulo fiscal com hiato fechado gera mais inflação que crescimento."
     },
     {
      "tipo": "novo",
      "paragrafo": 18,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "o Comitê notou com preocupação uma elevação na média das expectativas.",
+     "trecho": "o Comitê notou com preocupação uma elevação na média das expectativas",
      "padroes": [
       "P11"
      ],
-     "explicacao": "Preocupação explícita com alta das expectativas de inflação para 2024."
+     "explicacao": "Destaca piora das expectativas de 2024."
     }
    ],
-   "explicacao": "Manutenção em 13,75% com cláusula de retomada, mas ata mais dura que a anterior: longa discussão fiscal e parafiscal reduzindo a potência da política, projeções em alta e preocupação com expectativas."
+   "explicacao": "Manutenção em 13,75% com cláusula de retomada. Ata mais dura pelo longo debate fiscal ligado ao juro neutro, expectativas de 2024 subindo com preocupação e projeções em alta, apesar da desaceleração da atividade."
   },
   {
    "ata": 252,
    "data_reuniao": "2023-02-01",
-   "indice": 0.91,
-   "indice_media_simples": 0.41,
+   "indice": 1.07,
+   "indice_media_simples": 0.44,
    "n_paragrafos": 32,
-   "n_nao_zero": 20,
-   "indice_100": 45,
-   "surpresa": 0.7,
-   "confianca": 43,
+   "n_nao_zero": 24,
+   "indice_100": 53,
+   "surpresa": 0.35,
+   "confianca": 41,
    "ic95": [
-    0.71,
-    1.06
+    0.83,
+    1.23
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.67,
+    "atividade_trabalho": -1.0,
     "balanco_riscos": 0.5,
     "decisao_votacao": 0.33,
-    "expectativas": 1.14,
+    "expectativas": 1.33,
     "externo": -0.2,
     "fiscal_credito": 0.0,
     "inflacao_corrente": 0.0,
-    "orientacao_futura": 1.25,
+    "orientacao_futura": 1.4,
     "outro": 0.0
    },
    "mudancas": [
-    {
-     "tipo": "alterado",
-     "paragrafo": 31,
-     "paragrafo_anterior": 22,
-     "direcao": 2,
-     "trecho": "por período mais prolongado do que no cenário de referência será capaz de assegurar a convergência da inflação.",
-     "padroes": [
-      "P04"
-     ],
-     "explicacao": "Juros parados por mais tempo do que o mercado espera: adia a expectativa de cortes."
-    },
     {
      "tipo": "novo",
      "paragrafo": 27,
@@ -1010,44 +997,55 @@
      "padroes": [
       "P08"
      ],
-     "explicacao": "Com a trajetória de juros do mercado, a inflação não volta à meta; antes estava compatível."
+     "explicacao": "Projeção com juros do mercado deixa de convergir à meta."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 12,
+     "tipo": "alterado",
+     "paragrafo": 28,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "O Comitê notou com especial preocupação a deterioração das expectativas de inflação de prazos mais longos.",
+     "trecho": "por um período mais prolongado do que no cenário de referência",
      "padroes": [
-      "P11"
+      "P04"
      ],
-     "explicacao": "Forte preocupação com expectativas desancoradas, incluindo dúvida sobre mudança das metas."
+     "explicacao": "Juros parados por mais tempo do que o mercado espera."
+    },
+    {
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 16,
+     "direcao": 1,
+     "trecho": "segue compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
+     "padroes": [
+      "P08"
+     ],
+     "explicacao": "Some a afirmação de que a projeção era compatível com a meta."
     }
    ],
-   "explicacao": "Manutenção em 13,75% mas com juros parados por mais tempo que o cenário de referência, projeção sem convergência, forte preocupação com expectativas desancoradas e debate sobre neutro mais alto. Bem mais dura que a anterior."
+   "explicacao": "Manutenção em 13,75% com juros parados por mais tempo que o mercado precifica. Ata enfatiza desancoragem das expectativas, projeção sem convergência, debate de juro neutro mais alto e retomada mantida: bem mais dura que a anterior."
   },
   {
    "ata": 253,
    "data_reuniao": "2023-03-22",
-   "indice": 0.71,
-   "indice_media_simples": 0.43,
+   "indice": 0.62,
+   "indice_media_simples": 0.39,
    "n_paragrafos": 28,
-   "n_nao_zero": 18,
-   "indice_100": 36,
-   "surpresa": 0.2,
-   "confianca": 47,
+   "n_nao_zero": 19,
+   "indice_100": 31,
+   "surpresa": -0.17,
+   "confianca": 63,
    "ic95": [
-    0.57,
-    0.82
+    0.48,
+    0.75
    ],
    "dimensoes": {
     "atividade_trabalho": -0.67,
-    "balanco_riscos": 0.5,
+    "balanco_riscos": 0.67,
     "decisao_votacao": 0.0,
-    "expectativas": 0.83,
-    "externo": 0.5,
-    "fiscal_credito": 0.5,
-    "inflacao_corrente": 1.0,
+    "expectativas": 1.0,
+    "externo": 0.6,
+    "fiscal_credito": 0.25,
+    "inflacao_corrente": 0.33,
     "orientacao_futura": 1.0,
     "outro": 0.0
    },
@@ -1059,61 +1057,62 @@
      "direcao": -1,
      "trecho": "avaliando se a estratégia de manutenção da taxa básica de juros por período prolongado será capaz",
      "padroes": [
-      "P04"
+      "P04",
+      "P10"
      ],
-     "explicacao": "Sai 'mais prolongado do que no cenário de referência': deixa de indicar juros parados além do esperado pelo mercado."
+     "explicacao": "Saiu 'mais prolongado do que no cenário de referência': juros altos por menos tempo que antes."
     },
     {
      "tipo": "novo",
-     "paragrafo": 18,
+     "paragrafo": 8,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "O Copom enfatizou que não há relação mecânica entre a convergência de inflação e a apresentação do arcabouço fiscal",
+     "trecho": "O Comitê novamente avaliou a possibilidade de incorporar alguma elevação em sua estimativa de taxa neutra de juros",
      "padroes": [
-      "P14",
-      "P12"
+      "P06",
+      "P07"
      ],
-     "explicacao": "O BC avisa que a nova regra fiscal não garante, por si só, corte de juros."
+     "explicacao": "Elevar o juro neutro passou de ideia de alguns membros a debate do Comitê."
     },
     {
      "tipo": "novo",
      "paragrafo": 9,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "políticas parafiscais expansionistas, que têm o potencial de elevar a taxa neutra e diminuir a potência da política monetária",
+     "trecho": "a possível adoção de políticas parafiscais expansionistas, que têm o potencial de elevar a taxa neutra",
      "padroes": [
-      "P12",
-      "P07"
+      "P07",
+      "P12"
      ],
-     "explicacao": "Liga crédito público subsidiado a juro neutro mais alto e menor eficácia dos juros."
+     "explicacao": "Crédito público expansionista pode exigir juros mais altos."
     }
    ],
-   "explicacao": "Manutenção em 13,75% com cláusula de retomada, expectativas e projeções piorando, parafiscal ligado ao neutro e 'sem relação mecânica' com o arcabouço. Retirar 'mais prolongado que o referência' e o risco de crédito suavizam parcialmente."
+   "explicacao": "Manutenção em 13,75% com cláusula de retomada e alerta sobre expectativas e neutro; mas some o 'mais prolongado que o cenário de referência' e entram riscos de crédito."
   },
   {
    "ata": 254,
    "data_reuniao": "2023-05-03",
-   "indice": 0.48,
-   "indice_media_simples": 0.39,
+   "indice": 0.54,
+   "indice_media_simples": 0.3,
    "n_paragrafos": 23,
-   "n_nao_zero": 15,
-   "indice_100": 24,
-   "surpresa": -0.6,
-   "confianca": 59,
+   "n_nao_zero": 17,
+   "indice_100": 27,
+   "surpresa": -0.31,
+   "confianca": 58,
    "ic95": [
-    0.21,
-    0.71
+    0.26,
+    0.8
    ],
    "dimensoes": {
     "atividade_trabalho": 0.5,
-    "balanco_riscos": 0.67,
+    "balanco_riscos": 0.0,
     "decisao_votacao": 0.5,
-    "expectativas": 1.0,
-    "externo": 0.75,
-    "fiscal_credito": 0.0,
-    "inflacao_corrente": 0.17,
+    "expectativas": 0.5,
+    "externo": 0.25,
+    "fiscal_credito": -0.5,
+    "inflacao_corrente": 0.5,
     "orientacao_futura": 0.0,
-    "outro": 0.0
+    "outro": 0.5
    },
    "mudancas": [
     {
@@ -1125,48 +1124,48 @@
      "padroes": [
       "P05"
      ],
-     "explicacao": "O Copom passa a ver como menos provável voltar a subir juros."
+     "explicacao": "O Copom diz que voltar a subir juros ficou menos provável."
     },
     {
      "tipo": "alterado",
      "paragrafo": 22,
-     "paragrafo_anterior": 22,
+     "paragrafo_anterior": 27,
      "direcao": -1,
      "trecho": "apesar de ser um cenário menos provável,",
      "padroes": [
       "P05",
-      "P10"
+      "P18"
      ],
-     "explicacao": "A ameaça de retomar altas ganha a ressalva de ser cenário menos provável e sai 'passos futuros poderão ser ajustados'."
+     "explicacao": "A ameaça de nova alta foi mantida, mas qualificada como pouco provável; entrou também paciência e serenidade."
     },
     {
      "tipo": "novo",
      "paragrafo": 7,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 9,
      "direcao": 1,
      "trecho": "poderia ser compatível com uma medida de taxa neutra mais alta do que aquela utilizada pelo Comitê",
      "padroes": [
       "P07",
       "P06"
      ],
-     "explicacao": "Alguns membros veem juro neutro mais alto, o que tornaria o aperto menos forte; maioria achou prematuro."
+     "explicacao": "Alguns membros acham que o juro neutro é mais alto, logo o aperto atual seria menor."
     }
    ],
-   "explicacao": "Mantém 13,75% por período prolongado e a cláusula de retomada, mas diz que cenários de nova alta ficaram menos prováveis e qualifica a ameaça; desancoragem preocupa. Nível duro, direção mais branda."
+   "explicacao": "Mantém 13,75% por período prolongado e a cláusula de retomada, mas diz que nova alta ficou menos provável e vê alívio fiscal; debate sobre neutro mais alto limita a suavização."
   },
   {
    "ata": 255,
    "data_reuniao": "2023-06-21",
-   "indice": -0.48,
-   "indice_media_simples": -0.22,
+   "indice": -0.61,
+   "indice_media_simples": -0.26,
    "n_paragrafos": 23,
-   "n_nao_zero": 14,
-   "indice_100": -24,
-   "surpresa": -1.2,
-   "confianca": 62,
+   "n_nao_zero": 13,
+   "indice_100": -31,
+   "surpresa": -1.24,
+   "confianca": 66,
    "ic95": [
-    -0.84,
-    -0.13
+    -0.95,
+    -0.25
    ],
    "dimensoes": {
     "atividade_trabalho": -0.33,
@@ -1175,9 +1174,9 @@
     "expectativas": -1.0,
     "externo": 0.0,
     "fiscal_credito": -0.5,
-    "inflacao_corrente": -0.75,
-    "orientacao_futura": 0.25,
-    "outro": 0.0
+    "inflacao_corrente": -0.67,
+    "orientacao_futura": 0.0,
+    "outro": 0.5
    },
    "mudancas": [
     {
@@ -1190,7 +1189,7 @@
       "P01",
       "P06"
      ],
-     "explicacao": "A maioria do Copom sinaliza que pode começar a cortar os juros já na próxima reunião."
+     "explicacao": "A maioria do Copom sinaliza que pode começar a cortar juros na próxima reunião."
     },
     {
      "tipo": "removido",
@@ -1201,59 +1200,48 @@
      "padroes": [
       "P05"
      ],
-     "explicacao": "Sai a ameaça de voltar a subir juros, pré-condição para cortes."
+     "explicacao": "Sumiu a ameaça de voltar a subir juros, pré-condição para cortes."
     },
     {
      "tipo": "novo",
      "paragrafo": 6,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 7,
      "direcao": 1,
-     "trecho": "o Comitê optou por elevar a estimativa de taxa de juros real neutra de 4,0% a.a. para 4,5%.",
+     "trecho": "o Comitê optou por elevar a estimativa de taxa de juros real neutra de 4,0% a.a. para 4,5%",
      "padroes": [
       "P07"
      ],
-     "explicacao": "Juro neutro maior significa que a Selic atual aperta menos do que se pensava."
+     "explicacao": "Juro neutro maior implica que o juro atual aperta menos do que se pensava."
     }
    ],
-   "explicacao": "Maioria sinaliza início de corte 'parcimonioso' na próxima reunião e cláusula de retomada some; grupo cauteloso, neutro maior (4,5%) e alerta contra flexibilização prematura moderam. Bem mais branda que a ata anterior e o comunicado."
+   "explicacao": "Mantém 13,75%, mas a maioria sinaliza início parcimonioso de cortes na próxima reunião e retira a cláusula de retomada; neutro maior e ala cautelosa moderam parcialmente."
   },
   {
    "ata": 256,
    "data_reuniao": "2023-08-02",
-   "indice": -0.55,
-   "indice_media_simples": 0.04,
+   "indice": -0.75,
+   "indice_media_simples": -0.17,
    "n_paragrafos": 23,
-   "n_nao_zero": 15,
-   "indice_100": -28,
-   "surpresa": 0.3,
-   "confianca": 49,
+   "n_nao_zero": 18,
+   "indice_100": -38,
+   "surpresa": 0.23,
+   "confianca": 53,
    "ic95": [
-    -0.87,
-    -0.21
+    -1.05,
+    -0.42
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.33,
+    "atividade_trabalho": 0.0,
     "balanco_riscos": 0.0,
-    "decisao_votacao": -0.67,
-    "expectativas": 0.0,
-    "externo": 1.0,
+    "decisao_votacao": -1.33,
+    "expectativas": -0.5,
+    "externo": 0.5,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.0,
+    "inflacao_corrente": -0.33,
     "orientacao_futura": -0.17,
     "outro": 0.0
    },
    "mudancas": [
-    {
-     "tipo": "novo",
-     "paragrafo": 15,
-     "paragrafo_anterior": null,
-     "direcao": -2,
-     "trecho": "permitiu acumular a confiança necessária para iniciar um ciclo gradual de flexibilização monetária",
-     "padroes": [
-      "P01"
-     ],
-     "explicacao": "O Copom começa de fato o ciclo de cortes de juros."
-    },
     {
      "tipo": "novo",
      "paragrafo": 18,
@@ -1262,9 +1250,9 @@
      "trecho": "O Comitê julga como pouco provável uma intensificação adicional do ritmo de ajustes",
      "padroes": [
       "P01",
-      "P09"
+      "P02"
      ],
-     "explicacao": "Descarta acelerar os cortes além de 0,50 ponto, freando apostas mais agressivas."
+     "explicacao": "Fecha a porta para cortes maiores que 0,50 ponto."
     },
     {
      "tipo": "novo",
@@ -1274,162 +1262,194 @@
      "trecho": "unanimemente, anteveem redução de mesma magnitude nas próximas reuniões",
      "padroes": [
       "P02",
-      "P06"
+      "P06",
+      "P16"
      ],
-     "explicacao": "Todos preveem cortes de 0,50 nas próximas reuniões, ancorando o ritmo."
+     "explicacao": "Todos preveem novos cortes de 0,50 nas próximas reuniões, como no comunicado."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 16,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "requer uma postura mais conservadora ao longo do ciclo de flexibilização da política monetária",
+     "padroes": [
+      "P15"
+     ],
+     "explicacao": "Consenso de que o ciclo de cortes deve ser conservador."
     }
    ],
-   "explicacao": "Inicia cortes de 0,50 com orientação unânime de mesmo ritmo nas próximas reuniões; mas vê pouco provável acelerar, exige política ainda contracionista e postura conservadora, temperando a decisão dividida já anunciada."
+   "explicacao": "Inicia cortes com 0,50 e sinaliza o mesmo ritmo à frente, mas descarta aceleração, enfatiza postura conservadora e política ainda contracionista; ala de 0,25 e alertas fiscais endurecem frente ao comunicado."
   },
   {
    "ata": 257,
    "data_reuniao": "2023-09-20",
-   "indice": -0.21,
-   "indice_media_simples": 0.33,
+   "indice": -0.39,
+   "indice_media_simples": 0.26,
    "n_paragrafos": 27,
    "n_nao_zero": 18,
-   "indice_100": -11,
-   "surpresa": 0.5,
-   "confianca": 44,
+   "indice_100": -19,
+   "surpresa": 0.2,
+   "confianca": 43,
    "ic95": [
-    -0.5,
-    0.1
+    -0.67,
+    -0.08
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.8,
-    "balanco_riscos": 0.5,
-    "decisao_votacao": -1.0,
-    "expectativas": 1.0,
+    "atividade_trabalho": 0.6,
+    "balanco_riscos": 0.0,
+    "decisao_votacao": -1.5,
+    "expectativas": 0.67,
     "externo": 0.67,
     "fiscal_credito": 0.67,
-    "inflacao_corrente": -0.33,
+    "inflacao_corrente": -0.5,
     "orientacao_futura": 0.0,
     "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 16,
-     "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "atualmente se refere mais à execução das medidas de receita e despesas compatíveis com o arcabouço e o atingimento das metas fiscais",
-     "padroes": [
-      "P12"
-     ],
-     "explicacao": "Foco fiscal passa da aprovação do arcabouço para a execução das metas, cobrança mais dura."
-    },
-    {
-     "tipo": "novo",
      "paragrafo": 14,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 7,
      "direcao": 1,
      "trecho": "o Comitê julga que o hiato do produto está mais apertado do que o estimado anteriormente",
      "padroes": [
       "P13"
      ],
-     "explicacao": "Economia mais aquecida que o previsto pressiona a inflação."
+     "explicacao": "A economia está mais aquecida do que o BC pensava, o que pressiona a inflação."
     },
     {
      "tipo": "novo",
-     "paragrafo": 3,
+     "paragrafo": 21,
+     "paragrafo_anterior": 15,
+     "direcao": 1,
+     "trecho": "houve uma elevação das projeções no cenário de referência em função principalmente de um hiato do produto mais apertado",
+     "padroes": [
+      "P08"
+     ],
+     "explicacao": "As projeções de inflação do BC subiram."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 16,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "o conjunto de indicadores recentes indica um cenário de maior resiliência da atividade econômica",
+     "trecho": "o Comitê reforça a importância da firme persecução dessas metas",
      "padroes": [
-      "P13"
+      "P12"
      ],
-     "explicacao": "Atividade passa de desaceleração gradual para maior resiliência."
+     "explicacao": "Cobrança explícita de cumprimento das metas fiscais."
     }
    ],
-   "explicacao": "Mantém corte de 0,50 e orientação de mesmo ritmo, mas diagnóstico endurece: atividade resiliente, hiato mais apertado, projeções em alta, cobrança pela execução das metas fiscais e preocupação com expectativas."
+   "explicacao": "Corte unânime de 0,50 e mesmo ritmo à frente, mas diagnóstico mais duro: hiato mais apertado, projeções em alta, cobrança fiscal e juros externos maiores; descarta aceleração."
   },
   {
    "ata": 258,
    "data_reuniao": "2023-11-01",
-   "indice": -0.21,
+   "indice": -0.47,
    "indice_media_simples": 0.29,
    "n_paragrafos": 28,
    "n_nao_zero": 22,
-   "indice_100": -11,
-   "surpresa": 0.4,
-   "confianca": 36,
+   "indice_100": -24,
+   "surpresa": 0.2,
+   "confianca": 37,
    "ic95": [
-    -0.52,
-    0.15
+    -0.79,
+    -0.09
    ],
    "dimensoes": {
     "atividade_trabalho": 0.0,
-    "balanco_riscos": 1.0,
-    "decisao_votacao": -1.33,
+    "balanco_riscos": 0.5,
+    "decisao_votacao": -0.67,
     "expectativas": 1.0,
     "externo": 1.0,
     "fiscal_credito": 0.67,
-    "inflacao_corrente": 0.2,
-    "orientacao_futura": 0.2,
+    "inflacao_corrente": 0.6,
+    "orientacao_futura": -0.4,
     "outro": 0.0
    },
    "mudancas": [
-    {
-     "tipo": "alterado",
-     "paragrafo": 13,
-     "paragrafo_anterior": 16,
-     "direcao": 1,
-     "trecho": "cresceu a incerteza em torno da própria meta estabelecida para o resultado fiscal, o que levou a um aumento do prêmio de risco",
-     "padroes": [
-      "P12"
-     ],
-     "explicacao": "A dúvida fiscal agora recai sobre a própria meta do governo, elevando o prêmio de risco."
-    },
     {
      "tipo": "novo",
      "paragrafo": 21,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "Um me mbro avalia que o cenário externo introduz um viés assimétrico altista no balanço de riscos para a inflação.",
+     "trecho": "avalia que o cenário externo introduz um viés assimétrico altista no balanço de riscos para a inflação",
      "padroes": [
       "P03",
       "P06"
      ],
-     "explicacao": "Um diretor já vê riscos de inflação maiores para cima por causa do exterior."
+     "explicacao": "Um diretor já vê riscos inclinados para inflação maior por causa do exterior."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 7,
-     "paragrafo_anterior": null,
+     "tipo": "alterado",
+     "paragrafo": 13,
+     "paragrafo_anterior": 16,
      "direcao": 1,
-     "trecho": "Os riscos em torno do cenário global cresceram.",
-     "padroes": [],
-     "explicacao": "Juros americanos e geopolítica tornam o exterior mais adverso."
+     "trecho": "cresceu a incerteza em torno da própria meta estabelecida para o resultado fiscal",
+     "padroes": [
+      "P12"
+     ],
+     "explicacao": "Dúvida sobre a própria meta fiscal elevou o prêmio de risco."
+    },
+    {
+     "tipo": "alterado",
+     "paragrafo": 1,
+     "paragrafo_anterior": 2,
+     "direcao": 1,
+     "trecho": "O ambiente externo mostra-se adverso",
+     "padroes": [
+      "P10"
+     ],
+     "explicacao": "Exterior passou de 'incerto' para 'adverso'."
     }
    ],
-   "explicacao": "Mantém cortes de 0,50 com plural nas próximas reuniões, mas endurece o diagnóstico: exterior adverso, um membro com assimetria altista, incerteza sobre a meta fiscal, projeções acima da meta e cautela reforçada."
+   "explicacao": "Corte de 0,5 p.p. e mesma dose prevista nas próximas reuniões, mas ata mais cautelosa: exterior adverso, um membro vê risco altista, incerteza fiscal e projeções acima da meta."
   },
   {
    "ata": 259,
    "data_reuniao": "2023-12-13",
-   "indice": -0.52,
-   "indice_media_simples": -0.17,
+   "indice": -0.43,
+   "indice_media_simples": -0.12,
    "n_paragrafos": 24,
-   "n_nao_zero": 14,
-   "indice_100": -26,
-   "surpresa": -0.3,
-   "confianca": 47,
+   "n_nao_zero": 13,
+   "indice_100": -21,
+   "surpresa": -0.27,
+   "confianca": 51,
    "ic95": [
-    -0.85,
-    -0.15
+    -0.64,
+    -0.18
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.33,
+    "atividade_trabalho": 0.0,
     "balanco_riscos": 0.0,
-    "decisao_votacao": -1.33,
+    "decisao_votacao": -0.67,
     "expectativas": 1.0,
     "externo": -0.67,
-    "fiscal_credito": 0.33,
-    "inflacao_corrente": -0.67,
-    "orientacao_futura": 0.2,
+    "fiscal_credito": 0.67,
+    "inflacao_corrente": -0.5,
+    "orientacao_futura": 0.0,
     "outro": 0.0
    },
    "mudancas": [
+    {
+     "tipo": "alterado",
+     "paragrafo": 1,
+     "paragrafo_anterior": 1,
+     "direcao": -1,
+     "trecho": "menos adverso do que na reunião anterior, marcado pelo arrefecimento das taxas de juros de prazos mais longos",
+     "padroes": [],
+     "explicacao": "Cenário externo passou de adverso para menos adverso, com juros longos americanos recuando."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 6,
+     "paragrafo_anterior": 6,
+     "direcao": -1,
+     "trecho": "O Comitê avalia que a conjuntura internacional se mostra menos adversa do que na reunião anterior.",
+     "padroes": [],
+     "explicacao": "Copom vê o exterior menos hostil e cita pouso suave mais provável nos EUA."
+    },
     {
      "tipo": "removido",
      "paragrafo": null,
@@ -1440,44 +1460,24 @@
       "P03",
       "P06"
      ],
-     "explicacao": "Some a menção ao diretor que via riscos de inflação assimétricos para cima."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 1,
-     "paragrafo_anterior": 1,
-     "direcao": -1,
-     "trecho": "menos adverso do que na reunião anterior, marcado pelo arrefecimento das taxas de juros de prazos mais longos nos Estados",
-     "padroes": [],
-     "explicacao": "Exterior melhorou com queda dos juros longos americanos."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 14,
-     "paragrafo_anterior": 17,
-     "direcao": -1,
-     "trecho": "segue incerta e exige cautela",
-     "padroes": [
-      "P10"
-     ],
-     "explicacao": "Incerteza deixa de ser 'maior do que o usual'."
+     "explicacao": "Saiu a menção a membro que via assimetria altista no balanço de riscos."
     }
    ],
-   "explicacao": "Mantém cortes de 0,50 e plural nas próximas reuniões; exterior menos adverso, some o membro com viés altista e a incerteza 'maior que o usual', serviços surpreendem para baixo. Discurso de política contracionista e expectativas desancoradas permanece."
+   "explicacao": "Corte de 0,50 com orientação unânime de cortes iguais nas próximas reuniões; ata suaviza o tom externo, retira voto de assimetria altista e projeções param de subir."
   },
   {
    "ata": 260,
    "data_reuniao": "2024-01-31",
-   "indice": -0.38,
-   "indice_media_simples": 0.25,
+   "indice": -0.28,
+   "indice_media_simples": 0.21,
    "n_paragrafos": 24,
-   "n_nao_zero": 18,
-   "indice_100": -19,
-   "surpresa": 0.3,
-   "confianca": 30,
+   "n_nao_zero": 19,
+   "indice_100": -14,
+   "surpresa": 0.15,
+   "confianca": 28,
    "ic95": [
-    -0.6,
-    -0.08
+    -0.5,
+    0.02
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
@@ -1485,61 +1485,61 @@
     "decisao_votacao": -1.0,
     "expectativas": 1.0,
     "externo": 0.67,
-    "fiscal_credito": 0.67,
+    "fiscal_credito": 0.33,
     "inflacao_corrente": 0.0,
     "orientacao_futura": 0.2,
     "outro": 0.0
    },
    "mudancas": [
     {
-     "tipo": "alterado",
-     "paragrafo": 3,
-     "paragrafo_anterior": 3,
+     "tipo": "novo",
+     "paragrafo": 7,
+     "paragrafo_anterior": 7,
      "direcao": 1,
-     "trecho": "aquecido e com aceleração nos rendimentos reais, embora o mercado tenha apresentado",
+     "trecho": "uma atenuação da desaceleração da atividade antecipada em função do aumento da renda das famílias",
      "padroes": [
       "P13"
      ],
-     "explicacao": "Passa a destacar aceleração dos salários reais, sinal de pressão sobre a inflação de serviços."
+     "explicacao": "Ata cogita que a economia desacelere menos que o esperado, por renda maior; isso pressiona preços."
     },
     {
      "tipo": "alterado",
      "paragrafo": 9,
      "paragrafo_anterior": 9,
      "direcao": 1,
-     "trecho": "dos rendimentos reais, que apresentaram maior crescimento nos últimos meses.",
+     "trecho": "dos rendimentos reais, que apresentaram maior crescimento nos últimos meses",
      "padroes": [
       "P13"
      ],
-     "explicacao": "Retira a frase de que não havia pressão salarial elevada e destaca o crescimento dos rendimentos."
+     "explicacao": "Retira 'não há evidência de pressões salariais' e destaca crescimento de salários reais."
     },
     {
      "tipo": "alterado",
      "paragrafo": 12,
      "paragrafo_anterior": 12,
      "direcao": 1,
-     "trecho": "há alguns aspectos na dinâmica inflacionária recente que requerem maior escrutínio.",
+     "trecho": "há alguns aspectos na dinâmica inflacionária recente que requerem maior escrutínio",
      "padroes": [
-      "P10"
+      "P13"
      ],
-     "explicacao": "Troca a menção a surpresa para baixo nos serviços por aspectos que exigem mais escrutínio."
+     "explicacao": "Troca a surpresa baixista em serviços por preocupação com serviços e salários acima da meta."
     }
    ],
-   "explicacao": "Corte de 0,50 com orientação de cortes iguais nas próximas reuniões, unânime. Diagnóstico mais duro em salários, atividade e serviços sob escrutínio, sem alterar a orientação: ata levemente mais dura que a anterior."
+   "explicacao": "Mantém cortes de 0,50 nas próximas reuniões e postura contracionista; novidades são mais duras: salários reais, atividade menos fraca, escrutínio em serviços e exterior mais incerto."
   },
   {
    "ata": 261,
    "data_reuniao": "2024-03-20",
-   "indice": 0.03,
+   "indice": 0.17,
    "indice_media_simples": 0.55,
    "n_paragrafos": 29,
-   "n_nao_zero": 23,
-   "indice_100": 1,
-   "surpresa": 1.0,
-   "confianca": 48,
+   "n_nao_zero": 24,
+   "indice_100": 8,
+   "surpresa": 0.43,
+   "confianca": 40,
    "ic95": [
-    -0.2,
-    0.27
+    -0.1,
+    0.45
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
@@ -1547,195 +1547,192 @@
     "decisao_votacao": -1.0,
     "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 0.67,
+    "fiscal_credito": 0.33,
     "inflacao_corrente": 0.67,
-    "orientacao_futura": 0.43,
+    "orientacao_futura": 0.57,
     "outro": 0.0
    },
    "mudancas": [
-    {
-     "tipo": "novo",
-     "paragrafo": 27,
-     "paragrafo_anterior": 23,
-     "direcao": 2,
-     "trecho": "optaram por comunicar que anteveem, em se confirmando o cenário esperado, redução de mesma magnitude na próxima reunião",
-     "padroes": [
-      "P02",
-      "P01"
-     ],
-     "explicacao": "Orientação passa de 'próximas reuniões' para só 'próxima reunião': abre espaço para cortes menores depois."
-    },
     {
      "tipo": "novo",
      "paragrafo": 23,
      "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "um ritmo mais lento de distensão monetária pode revelar-se apropriado",
+     "direcao": 2,
+     "trecho": "Alguns membros argumentaram ainda que, se a incerteza prospectiva permanecer elevada no futuro, um ritmo mais lento de distensão monetária pode revelar-se apropriado",
      "padroes": [
       "P06",
       "P01"
      ],
-     "explicacao": "Alguns membros já admitem cortar juros mais devagar se a incerteza continuar."
+     "explicacao": "Parte do Comitê já admite reduzir o ritmo dos cortes se a incerteza persistir."
     },
     {
      "tipo": "novo",
-     "paragrafo": 22,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "seria um equívoco interpretar a mudança na sinalização futura como uma indicação de alteração do ciclo",
+     "paragrafo": 11,
+     "paragrafo_anterior": 9,
+     "direcao": 2,
+     "trecho": "o Comitê demonstrou maior preocupação com possíveis efeitos da ampliação de ganhos reais",
      "padroes": [
-      "P14"
+      "P13"
      ],
-     "explicacao": "BC tenta conter a leitura de que o ciclo de cortes mudou."
+     "explicacao": "Abandona a ideia de ganhos salariais temporários e liga salários ao hiato fechado."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 27,
+     "paragrafo_anterior": 23,
+     "direcao": 1,
+     "trecho": "redução de mesma magnitude na próxima reunião",
+     "padroes": [
+      "P02"
+     ],
+     "explicacao": "Orientação passa de várias reuniões para só a próxima: menos compromisso com cortes de 0,50."
     }
    ],
-   "explicacao": "Corte de 0,50, mas a orientação encolhe para uma só reunião, alguns membros sugerem ritmo mais lento e há maior preocupação com salários e serviços. Ata claramente mais dura que a anterior."
+   "explicacao": "Corte de 0,50 e sinal só para a próxima reunião, já anunciados; a ata acrescenta preocupação forte com salários, serviços e resiliência, e membros defendendo ritmo mais lento."
   },
   {
    "ata": 262,
    "data_reuniao": "2024-05-08",
-   "indice": 0.74,
-   "indice_media_simples": 0.74,
+   "indice": 0.5,
+   "indice_media_simples": 0.65,
    "n_paragrafos": 23,
-   "n_nao_zero": 20,
-   "indice_100": 37,
-   "surpresa": 1.2,
+   "n_nao_zero": 21,
+   "indice_100": 25,
+   "surpresa": 0.36,
    "confianca": 44,
    "ic95": [
-    0.41,
-    1.0
+    0.24,
+    0.72
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
     "balanco_riscos": 1.0,
-    "decisao_votacao": -0.25,
-    "expectativas": 1.33,
+    "decisao_votacao": -0.5,
+    "expectativas": 2.0,
     "externo": 1.0,
     "fiscal_credito": 0.5,
     "inflacao_corrente": 0.75,
-    "orientacao_futura": 1.5,
+    "orientacao_futura": 1.0,
     "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 19,
-     "paragrafo_anterior": null,
-     "direcao": 2,
-     "trecho": "mais contracionista, mais cautelosa e sem indicações futuras sobre os próximos movimentos",
-     "padroes": [
-      "P02",
-      "P01"
-     ],
-     "explicacao": "Fim da sinalização de próximos passos e política 'mais contracionista': cortes podem parar."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 13,
-     "paragrafo_anterior": null,
-     "direcao": 2,
-     "trecho": "necessidade de uma política monetária mais contracionista e mais cautelosa",
-     "padroes": [
-      "P10"
-     ],
-     "explicacao": "Antes bastava 'contracionista e cautelosa'; agora 'mais' de ambos: endurecimento explícito."
-    },
-    {
-     "tipo": "novo",
      "paragrafo": 14,
-     "paragrafo_anterior": null,
-     "direcao": 1,
+     "paragrafo_anterior": 16,
+     "direcao": 2,
      "trecho": "Alguns membros observaram mérito no debate de um balanço de riscos assimétrico para cima.",
      "padroes": [
       "P03",
       "P06"
      ],
-     "explicacao": "Parte do Comitê já vê riscos de inflação pesando mais para cima."
+     "explicacao": "Parte do Comitê vê riscos de inflação maiores para cima que para baixo."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 19,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "mais contracionista, mais cautelosa e sem indicações futuras sobre os próximos movimentos",
+     "padroes": [
+      "P02"
+     ],
+     "explicacao": "Some a indicação de novo corte; política fica mais apertada e sem compromisso."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 13,
+     "paragrafo_anterior": 14,
+     "direcao": 1,
+     "trecho": "o cenário prospectivo de inflação se tornou mais desafiador, com o aumento das projeções de inflação de médio prazo",
+     "padroes": [
+      "P08"
+     ],
+     "explicacao": "Projeções de inflação subiram mesmo com juros mais altos no cenário."
     }
    ],
-   "explicacao": "Corte de 0,25 dividido, mas ata dura: retira orientação futura, pede política 'mais contracionista', alguns veem riscos assimétricos para cima, expectativas e projeções subiram, atividade e trabalho mais fortes."
+   "explicacao": "Corte menor e dividido já conhecidos; a ata reforça aperto: projeções e expectativas subindo, atividade forte, sem guidance e parte do Comitê vendo balanço de riscos assimétrico para cima."
   },
   {
    "ata": 263,
    "data_reuniao": "2024-06-19",
-   "indice": 1.14,
-   "indice_media_simples": 1.05,
+   "indice": 0.93,
+   "indice_media_simples": 0.86,
    "n_paragrafos": 22,
    "n_nao_zero": 19,
-   "indice_100": 57,
-   "surpresa": 0.5,
-   "confianca": 35,
+   "indice_100": 46,
+   "surpresa": 0.15,
+   "confianca": 42,
    "ic95": [
-    0.96,
-    1.29
+    0.75,
+    1.09
    ],
    "dimensoes": {
-    "atividade_trabalho": 1.0,
-    "balanco_riscos": 0.0,
+    "atividade_trabalho": 1.5,
+    "balanco_riscos": -1.0,
     "decisao_votacao": 1.0,
     "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 1.0,
-    "inflacao_corrente": 1.33,
-    "orientacao_futura": 1.67,
-    "outro": 0.0
+    "fiscal_credito": 0.5,
+    "inflacao_corrente": 0.75,
+    "orientacao_futura": 1.5,
+    "outro": 0.5
    },
    "mudancas": [
     {
      "tipo": "novo",
      "paragrafo": 9,
      "paragrafo_anterior": 8,
-     "direcao": 2,
+     "direcao": 1,
      "trecho": "o Comitê elevou marginalmente a hipótese de taxa de juros real neutra em seus modelos para 4,75%",
      "padroes": [
       "P07"
      ],
-     "explicacao": "Juro neutro maior significa que a mesma Selic aperta menos: exige juros mais altos."
+     "explicacao": "Juro neutro maior significa que a mesma Selic aperta menos a economia."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 8,
+     "paragrafo_anterior": 7,
+     "direcao": 1,
+     "trecho": "está agora em torno da neutralidade",
+     "padroes": [
+      "P13"
+     ],
+     "explicacao": "Hiato do produto revisado de negativo para neutro: menos folga na economia."
     },
     {
      "tipo": "alterado",
      "paragrafo": 21,
      "paragrafo_anterior": 22,
-     "direcao": 2,
+     "direcao": 1,
      "trecho": "optou por interromper o ciclo de queda de juros",
      "padroes": [
-      "P01",
-      "P06"
+      "P01"
      ],
-     "explicacao": "Ciclo de cortes interrompido por unanimidade."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 18,
-     "paragrafo_anterior": 19,
-     "direcao": 1,
-     "trecho": "por tempo suficiente em patamar que consolide não apenas o processo de desinflação,",
-     "padroes": [
-      "P04"
-     ],
-     "explicacao": "Passa a falar em juros contracionistas 'por tempo suficiente', sugerindo pausa longa."
+     "explicacao": "Fim do ciclo de cortes, decisão unânime."
     }
    ],
-   "explicacao": "Pausa unânime em 10,50% com orientação de juros contracionistas 'por tempo suficiente', juro neutro revisado para 4,75% e hiato zerado; balanço de riscos mantido simétrico. Mais dura que a anterior."
+   "explicacao": "Pausa unânime já anunciada; a ata adiciona neutro maior e hiato fechado (duros), mas mantém balanço simétrico e não sinaliza alta, sem grande surpresa."
   },
   {
    "ata": 264,
    "data_reuniao": "2024-07-31",
-   "indice": 1.28,
-   "indice_media_simples": 0.9,
+   "indice": 1.24,
+   "indice_media_simples": 0.86,
    "n_paragrafos": 29,
-   "n_nao_zero": 24,
-   "indice_100": 64,
-   "surpresa": 1.5,
-   "confianca": 58,
+   "n_nao_zero": 23,
+   "indice_100": 62,
+   "surpresa": 0.99,
+   "confianca": 55,
    "ic95": [
-    1.17,
-    1.4
+    1.09,
+    1.38
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
     "balanco_riscos": 1.5,
-    "decisao_votacao": 1.0,
+    "decisao_votacao": 0.67,
     "expectativas": 1.0,
     "externo": 0.8,
     "fiscal_credito": 0.67,
@@ -1749,127 +1746,139 @@
      "paragrafo": 25,
      "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "o Comitê, unanimemente, reforçou que não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta",
+     "trecho": "não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta se julgar apropriado",
      "padroes": [
       "P01",
       "P06"
      ],
-     "explicacao": "Abre explicitamente a possibilidade de voltar a subir a Selic."
+     "explicacao": "Pela primeira vez o Comitê, por unanimidade, coloca alta de juros na mesa."
     },
     {
      "tipo": "alterado",
      "paragrafo": 20,
      "paragrafo_anterior": 15,
      "direcao": 2,
-     "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria do balanço de riscos.",
+     "trecho": "todos os membros concordaram que há mais riscos para cima na inflação, inclusive com vários membros enfatizando a assimetria",
      "padroes": [
       "P03",
       "P06"
      ],
-     "explicacao": "Balanço deixa de ser simétrico: todos veem mais riscos de alta."
+     "explicacao": "Balanço de riscos deixa de ser simétrico: riscos de inflação maior predominam."
     },
     {
      "tipo": "alterado",
      "paragrafo": 20,
      "paragrafo_anterior": 15,
      "direcao": 1,
-     "trecho": "uma conjunção de políticas econômicas externa e interna que tenham impacto inflacionário, por exemplo, por meio de uma taxa de câmbio persistentemente mais depreciada.",
+     "trecho": "uma taxa de câmbio persistentemente mais depreciada",
      "padroes": [
-      "P12"
+      "P11"
      ],
-     "explicacao": "Novos riscos de alta: câmbio depreciado e políticas internas inflacionárias."
+     "explicacao": "Novos riscos de alta: desancoragem prolongada e câmbio depreciado."
     }
    ],
-   "explicacao": "Manutenção unânime, mas com 'não hesitará em elevar' os juros, todos vendo riscos para cima, projeção no horizonte relevante acima da meta e desinflação arrefecendo. Bem mais dura que a anterior."
+   "explicacao": "Manutenção já anunciada, mas a ata põe alta de juros explicitamente na mesa, por unanimidade, e declara riscos para cima, com desinflação arrefecendo e projeção acima da meta."
   },
   {
    "ata": 265,
    "data_reuniao": "2024-09-18",
-   "indice": 1.38,
-   "indice_media_simples": 0.92,
+   "indice": 1.18,
+   "indice_media_simples": 0.76,
    "n_paragrafos": 25,
-   "n_nao_zero": 19,
-   "indice_100": 69,
-   "surpresa": 0.5,
-   "confianca": 45,
+   "n_nao_zero": 18,
+   "indice_100": 59,
+   "surpresa": 0.2,
+   "confianca": 43,
    "ic95": [
-    1.15,
-    1.56
+    0.86,
+    1.44
    ],
    "dimensoes": {
     "atividade_trabalho": 1.67,
     "balanco_riscos": 2.0,
-    "decisao_votacao": 2.0,
+    "decisao_votacao": 1.0,
     "expectativas": 1.0,
-    "externo": 0.2,
-    "fiscal_credito": 0.67,
+    "externo": -0.2,
+    "fiscal_credito": 1.0,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.0,
+    "orientacao_futura": 0.75,
     "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 23,
-     "paragrafo_anterior": 26,
+     "paragrafo": 20,
+     "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,25 ponto percentual, para 10,75% a.a.",
+     "trecho": "demanda uma política monetária mais contracionista.",
      "padroes": [
-      "P06"
+      "P15"
      ],
-     "explicacao": "Começa um ciclo de alta da Selic, por unanimidade."
+     "explicacao": "Comitê justifica o início de um ciclo de alta de juros."
     },
     {
      "tipo": "alterado",
      "paragrafo": 18,
-     "paragrafo_anterior": 20,
+     "paragrafo_anterior": 18,
      "direcao": 1,
-     "trecho": "O Comitê avalia que há uma assimetria altista em seu balanço de riscos",
+     "trecho": "O Comitê avalia que há uma assimetria altista em seu balanço de riscos para os cenários prospectivos para a inflação.",
      "padroes": [
       "P03"
      ],
-     "explicacao": "Assimetria altista passa a ser avaliação formal do Comitê, não só de vários membros."
+     "explicacao": "Balanço de riscos passa formalmente a assimétrico para cima, com novo risco de câmbio depreciado."
     },
     {
      "tipo": "novo",
-     "paragrafo": 10,
-     "paragrafo_anterior": 12,
+     "paragrafo": 21,
+     "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "o Comitê concluiu que o hiato está em campo positivo.",
+     "trecho": "Todos os membros do Comitê concordaram em iniciar gradualmente o ciclo de aperto de política monetária.",
      "padroes": [
-      "P13"
+      "P06"
      ],
-     "explicacao": "Economia avaliada acima do potencial, pressionando a inflação."
+     "explicacao": "Unanimidade em iniciar o aperto, mas de forma gradual."
     }
    ],
-   "explicacao": "Início unânime de ciclo de alta (0,25 para 10,75%), assimetria altista formal, hiato positivo e desconforto unânime com expectativas; ritmo gradual e sem indicação futura. Mais dura que a anterior, parte já no comunicado."
+   "explicacao": "Início do ciclo de alta (0,25) com balanço de riscos assimétrico altista e hiato positivo; gradualismo e ausência de orientação futura moderam o tom."
   },
   {
    "ata": 266,
    "data_reuniao": "2024-11-06",
-   "indice": 1.43,
+   "indice": 1.5,
    "indice_media_simples": 1.0,
    "n_paragrafos": 23,
    "n_nao_zero": 19,
-   "indice_100": 72,
-   "surpresa": 0.3,
+   "indice_100": 75,
+   "surpresa": 0.29,
    "confianca": 53,
    "ic95": [
-    1.25,
-    1.55
+    1.32,
+    1.61
    ],
    "dimensoes": {
     "atividade_trabalho": 1.0,
     "balanco_riscos": 1.0,
-    "decisao_votacao": 2.0,
+    "decisao_votacao": 1.33,
     "expectativas": 1.5,
     "externo": 0.8,
     "fiscal_credito": 1.0,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.0,
+    "orientacao_futura": 1.5,
     "outro": 0.0
    },
    "mudancas": [
+    {
+     "tipo": "novo",
+     "paragrafo": 15,
+     "paragrafo_anterior": 15,
+     "direcao": 1,
+     "trecho": "Uma deterioração adicional das expectativas pode levar a um prolongamento do ciclo de aperto de política monetária.",
+     "padroes": [
+      "P11",
+      "P04"
+     ],
+     "explicacao": "Expectativas piores podem estender o ciclo de alta de juros."
+    },
     {
      "tipo": "novo",
      "paragrafo": 20,
@@ -1877,148 +1886,126 @@
      "direcao": 1,
      "trecho": "o Comitê julgou adequado realizar um aumento de maior magnitude na taxa Selic",
      "padroes": [
-      "P01",
-      "P16"
+      "P01"
      ],
-     "explicacao": "Acelerou a alta para 0,50 p.p.; já anunciado no comunicado, mas confirma ritmo mais forte."
+     "explicacao": "Justifica a aceleração da alta para 0,50 ponto, já anunciada no comunicado."
     },
     {
-     "tipo": "alterado",
-     "paragrafo": 15,
-     "paragrafo_anterior": 14,
+     "tipo": "novo",
+     "paragrafo": 16,
+     "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "Uma deterioração adicional das expectativas pode levar a um prolongamento do ciclo de aperto de política monetária",
+     "trecho": "tem-se observado uma interrupção no processo desinflacionário",
      "padroes": [
-      "P11",
-      "P04"
+      "P11"
      ],
-     "explicacao": "Nova ameaça: se as expectativas piorarem, o ciclo de alta será mais longo."
-    },
-    {
-     "tipo": "removido",
-     "paragrafo": null,
-     "paragrafo_anterior": 21,
-     "direcao": 1,
-     "trecho": "Todos os membros do Comitê concordaram em iniciar gradualmente o ciclo de aperto de política monetária",
-     "padroes": [
-      "P06"
-     ],
-     "explicacao": "Sumiu a ênfase em gradualismo do início do ciclo."
+     "explicacao": "Diagnóstico de inflação de curto prazo mais pressionada por alimentos e câmbio."
     }
    ],
-   "explicacao": "Ata dura: alta de 0,50 p.p. unânime, assimetria altista, fiscal e câmbio pressionando. Sem guidance, mas acrescenta que piora das expectativas prolongaria o ciclo. Decisão já conhecida pelo comunicado."
+   "explicacao": "Ata confirma aceleração da alta para 0,50 ponto, sem guia futuro; acrescenta que piora das expectativas pode prolongar o ciclo, projeções subiram e ênfase fiscal cresceu. Mais dura que a anterior, levemente acima do comunicado."
   },
   {
    "ata": 267,
    "data_reuniao": "2024-12-11",
    "indice": 1.74,
-   "indice_media_simples": 1.15,
+   "indice_media_simples": 1.11,
    "n_paragrafos": 27,
    "n_nao_zero": 24,
    "indice_100": 87,
-   "surpresa": 1.0,
+   "surpresa": 0.3,
    "confianca": 32,
    "ic95": [
-    1.58,
+    1.56,
     1.84
    ],
    "dimensoes": {
     "atividade_trabalho": 0.67,
     "balanco_riscos": 1.0,
-    "decisao_votacao": 2.0,
+    "decisao_votacao": 1.33,
     "expectativas": 1.33,
     "externo": 1.0,
     "fiscal_credito": 1.0,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.5,
-    "outro": 0.67
+    "orientacao_futura": 1.75,
+    "outro": 0.75
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 26,
+     "paragrafo": 22,
      "paragrafo_anterior": null,
      "direcao": 2,
-     "trecho": "o Comitê antevê, em se confirmando o cenário esperado, ajustes de mesma magnitude nas próximas duas reuniões",
+     "trecho": "antevê ajuste de mesma magnitude nas próximas duas reuniões",
      "padroes": [
       "P01",
       "P02",
-      "P16"
+      "P06"
      ],
-     "explicacao": "Passou de nenhuma indicação para duas altas adicionais de 1 p.p. (já no comunicado)."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 25,
-     "paragrafo_anterior": null,
-     "direcao": 2,
-     "trecho": "elevando a taxa básica de juros em 1,00 ponto percentual, para 12,25% a.a.",
-     "padroes": [
-      "P16"
-     ],
-     "explicacao": "Alta dobrou de 0,50 para 1,00 p.p."
+     "explicacao": "Promete mais duas altas de 1 ponto, guia forte já dado no comunicado."
     },
     {
      "tipo": "novo",
      "paragrafo": 14,
      "paragrafo_anterior": null,
-     "direcao": 2,
+     "direcao": 1,
      "trecho": "o Comitê elevou a taxa de juros real neutra em seus modelos de 4,75% para 5,00% a.a.",
      "padroes": [
       "P07"
      ],
-     "explicacao": "Juro neutro maior implica Selic mais alta para frear a inflação; novidade da ata."
+     "explicacao": "Juro neutro mais alto implica juros mais altos para conter a inflação."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 11,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "elevaram-se em todos os prazos, indicando desancoragem adicional",
+     "padroes": [
+      "P11",
+      "P12"
+     ],
+     "explicacao": "Anúncio fiscal piorou expectativas em todos os prazos."
     }
    ],
-   "explicacao": "Ata muito dura: alta de 1 p.p. e duas altas iguais à frente (já no comunicado). Novidades duras: juro neutro elevado para 5,00% e crédito/fiscal mitigando a política monetária."
+   "explicacao": "Alta de 1 ponto com guia de mais duas altas iguais; neutro elevado a 5%, expectativas e projeções piores, riscos materializados. Muito dura; a novidade além do comunicado é o neutro maior e o diagnóstico mais adverso."
   },
   {
    "ata": 268,
    "data_reuniao": "2025-01-29",
-   "indice": 1.58,
-   "indice_media_simples": 0.96,
+   "indice": 1.47,
+   "indice_media_simples": 0.81,
    "n_paragrafos": 26,
-   "n_nao_zero": 21,
-   "indice_100": 79,
-   "surpresa": -0.3,
-   "confianca": 46,
+   "n_nao_zero": 22,
+   "indice_100": 74,
+   "surpresa": -0.16,
+   "confianca": 45,
    "ic95": [
-    1.38,
-    1.68
+    1.2,
+    1.64
    ],
    "dimensoes": {
     "atividade_trabalho": 0.33,
-    "balanco_riscos": 0.67,
-    "decisao_votacao": 2.0,
-    "expectativas": 1.5,
+    "balanco_riscos": 0.33,
+    "decisao_votacao": 1.33,
+    "expectativas": 1.0,
     "externo": 1.0,
-    "fiscal_credito": 0.5,
+    "fiscal_credito": 0.0,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.67,
-    "outro": 0.0
+    "orientacao_futura": 1.5,
+    "outro": 0.33
    },
    "mudancas": [
     {
-     "tipo": "alterado",
-     "paragrafo": 23,
-     "paragrafo_anterior": 24,
+     "tipo": "novo",
+     "paragrafo": 18,
+     "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "o que exige uma política monetária mais contracionista",
+     "trecho": "a possibilidade de uma desaceleração doméstica mais forte do que a esperada, que poderia gerar impactos desinflacionários ao longo do tempo",
      "padroes": [
-      "P10"
+      "P03",
+      "P13"
      ],
-     "explicacao": "Saiu o \"ainda\" de \"ainda mais contracionista\": intensidade do aperto exigido menor."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 25,
-     "paragrafo_anterior": 26,
-     "direcao": -1,
-     "trecho": "Para além da próxima reunião, o Comitê reforça que a magnitude total do ciclo de aperto monetário será ditada",
-     "padroes": [
-      "P02"
-     ],
-     "explicacao": "Mantém só mais uma alta de 1 p.p.; depois dela, sem compromisso, mais opcionalidade."
+     "explicacao": "Novo risco de baixa: atividade doméstica pode desacelerar mais que o esperado."
     },
     {
      "tipo": "novo",
@@ -2029,60 +2016,58 @@
      "padroes": [
       "P13"
      ],
-     "explicacao": "Primeiros sinais de desaceleração da economia, ainda com ressalvas."
+     "explicacao": "Primeiros sinais de moderação da atividade, ainda com cautela."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 11,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "configur ar-se-ia descumprimento da meta sob a nova sistemática do regime de metas",
+     "padroes": [
+      "P08"
+     ],
+     "explicacao": "Antecipa estouro formal da meta, pressão por postura dura."
     }
    ],
-   "explicacao": "Ata dura no nível: alta de 1 p.p. e outra igual prevista, desancoragem e meta a ser descumprida. Mas surgem sinais de moderação da atividade, risco de baixa doméstico e nenhuma indicação além de março."
+   "explicacao": "Alta de 1 ponto e guia de mais uma igual, como prometido; sem guia além disso. Diagnóstico segue duro, mas surgem sinais incipientes de moderação e risco de desaceleração doméstica mais forte. Levemente mais branda à margem."
   },
   {
    "ata": 269,
    "data_reuniao": "2025-03-19",
-   "indice": 1.36,
-   "indice_media_simples": 0.83,
+   "indice": 1.04,
+   "indice_media_simples": 0.67,
    "n_paragrafos": 24,
-   "n_nao_zero": 20,
-   "indice_100": 68,
-   "surpresa": 0.3,
-   "confianca": 53,
+   "n_nao_zero": 19,
+   "indice_100": 52,
+   "surpresa": -0.13,
+   "confianca": 42,
    "ic95": [
-    1.17,
-    1.5
+    0.73,
+    1.32
    ],
    "dimensoes": {
     "atividade_trabalho": -0.5,
     "balanco_riscos": 1.0,
-    "decisao_votacao": 2.0,
-    "expectativas": 1.5,
+    "decisao_votacao": 1.25,
+    "expectativas": 1.33,
     "externo": 1.0,
     "fiscal_credito": 0.33,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.0,
-    "outro": 0.0
+    "orientacao_futura": 0.0,
+    "outro": 0.33
    },
    "mudancas": [
-    {
-     "tipo": "novo",
-     "paragrafo": 10,
-     "paragrafo_anterior": null,
-     "direcao": 2,
-     "trecho": "exige uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
-     "padroes": [
-      "P04",
-      "P11"
-     ],
-     "explicacao": "Nova frase: juros terão de ser mais altos e por mais tempo por causa das expectativas."
-    },
     {
      "tipo": "alterado",
      "paragrafo": 23,
      "paragrafo_anterior": 25,
      "direcao": -1,
-     "trecho": "o Comitê antevê, em se confirmando o cenário esperado, um ajuste de menor magnitude na próxima reunião",
+     "trecho": "da elevada incerteza e das defasagens inerentes ao ciclo de aperto monetário em curso",
      "padroes": [
-      "P01",
-      "P16"
+      "P01"
      ],
-     "explicacao": "Próxima alta será menor que 1 p.p. (já no comunicado)."
+     "explicacao": "Próxima alta será menor; ritmo desacelera, como já dito no comunicado."
     },
     {
      "tipo": "novo",
@@ -2093,37 +2078,60 @@
      "padroes": [
       "P01"
      ],
-     "explicacao": "Afirma explicitamente que o ciclo de alta continua."
+     "explicacao": "Deixa claro que ainda haverá alta, mas só indica a direção."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 10,
+     "paragrafo_anterior": null,
+     "direcao": 1,
+     "trecho": "exige uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
+     "padroes": [
+      "P04",
+      "P11"
+     ],
+     "explicacao": "Expectativas desancoradas pedem juros mais altos por mais tempo."
     }
    ],
-   "explicacao": "Alta de 1 p.p. e próxima alta menor (já no comunicado). Novidade dura: restrição maior e por mais tempo e ciclo não encerrado; atenuada por moderação da atividade e do crédito."
+   "explicacao": "Alta de 1 ponto; guia de alta menor e só da direção, ciclo não encerrado. Diagnóstico ainda duro (expectativas, juros maiores por mais tempo), mas moderação da atividade e riscos de baixa ganharam espaço. Levemente mais branda."
   },
   {
    "ata": 270,
    "data_reuniao": "2025-05-07",
-   "indice": 0.66,
-   "indice_media_simples": 0.3,
+   "indice": 0.44,
+   "indice_media_simples": 0.22,
    "n_paragrafos": 27,
-   "n_nao_zero": 17,
-   "indice_100": 33,
-   "surpresa": -0.5,
-   "confianca": 40,
+   "n_nao_zero": 20,
+   "indice_100": 22,
+   "surpresa": -0.25,
+   "confianca": 41,
    "ic95": [
-    0.29,
-    0.98
+    0.19,
+    0.68
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.75,
+    "atividade_trabalho": -0.5,
     "balanco_riscos": -1.0,
-    "decisao_votacao": 1.0,
+    "decisao_votacao": 0.75,
     "expectativas": 1.0,
-    "externo": 0.5,
+    "externo": 0.25,
     "fiscal_credito": 0.5,
     "inflacao_corrente": 1.0,
-    "orientacao_futura": 0.33,
-    "outro": 0.0
+    "orientacao_futura": -0.2,
+    "outro": 0.33
    },
    "mudancas": [
+    {
+     "tipo": "alterado",
+     "paragrafo": 17,
+     "paragrafo_anterior": 16,
+     "direcao": -2,
+     "trecho": "com um debate se ainda se mantinha levemente assimétrico, mas menos assimétrico do que na reunião anterior, ou se já se podia defini-lo como neutro",
+     "padroes": [
+      "P03"
+     ],
+     "explicacao": "Balanço de riscos menos altista, com debate sobre torná-lo neutro."
+    },
     {
      "tipo": "removido",
      "paragrafo": null,
@@ -2132,59 +2140,47 @@
      "trecho": "era apropriado indicar que o ciclo não está encerrado",
      "padroes": [
       "P01",
-      "P02"
+      "P05"
      ],
-     "explicacao": "Deixou de dizer que o ciclo de alta continua; não há mais indicação do próximo passo."
+     "explicacao": "Some a indicação de que haverá nova alta."
     },
     {
      "tipo": "novo",
-     "paragrafo": 25,
+     "paragrafo": 21,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "o cenário de elevada incerteza, aliado ao estágio avançado do ciclo de ajuste e seus impactos acumulados ainda por serem observados, demanda cautela adicional",
+     "trecho": "aliado ao estágio avançado do ciclo de ajuste e seus impactos acumulados ainda por serem observados, demanda cautela adicional",
      "padroes": [
-      "P01",
-      "P16"
+      "P01"
      ],
-     "explicacao": "Ciclo em estágio avançado e flexibilidade: sinal de que as altas estão perto do fim."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 17,
-     "paragrafo_anterior": 16,
-     "direcao": -1,
-     "trecho": "com um debate se ainda se mantinha levemente assimétrico, mas menos assimétrico do que na reunião anterior, ou se já se podia defini-lo como neutro",
-     "padroes": [
-      "P03"
-     ],
-     "explicacao": "Comitê discutiu se o balanço de riscos já seria neutro."
+     "explicacao": "Ciclo em estágio avançado: sinal de fim próximo das altas."
     }
    ],
-   "explicacao": "Alta de 0,50 p.p. sem indicação do próximo passo, ciclo em estágio avançado e debate sobre balanço de riscos neutro. Contrapeso duro: juros significativamente contracionistas por período prolongado."
+   "explicacao": "Alta de 0,50 ponto sem guia futuro, ciclo em estágio avançado; debate sobre balanço de riscos neutro e projeção menor são brandos. Mantém juros contracionistas por período prolongado. Mais branda que a anterior."
   },
   {
    "ata": 271,
    "data_reuniao": "2025-06-18",
-   "indice": 0.78,
-   "indice_media_simples": 0.46,
+   "indice": 0.31,
+   "indice_media_simples": 0.12,
    "n_paragrafos": 24,
-   "n_nao_zero": 15,
-   "indice_100": 39,
-   "surpresa": 0.2,
-   "confianca": 33,
+   "n_nao_zero": 17,
+   "indice_100": 15,
+   "surpresa": -0.15,
+   "confianca": 28,
    "ic95": [
-    0.45,
-    1.02
+    0.05,
+    0.6
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.0,
+    "atividade_trabalho": -0.33,
     "balanco_riscos": 0.0,
-    "decisao_votacao": 0.0,
-    "expectativas": 0.5,
-    "externo": 0.75,
-    "fiscal_credito": -0.5,
-    "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.25,
+    "decisao_votacao": 0.5,
+    "expectativas": 1.0,
+    "externo": 0.5,
+    "fiscal_credito": 0.0,
+    "inflacao_corrente": 0.33,
+    "orientacao_futura": -0.2,
     "outro": 0.0
    },
    "mudancas": [
@@ -2193,201 +2189,201 @@
      "paragrafo": 23,
      "paragrafo_anterior": null,
      "direcao": -2,
-     "trecho": "o Comitê antecipa uma interrupção no ciclo de alta de juros",
+     "trecho": "o Comitê antecipa uma interrupção no ciclo de alta de juros para examinar os impactos acumulados do ajuste já realizado",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Copom sinaliza explicitamente que vai parar de subir os juros."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 19,
+     "paragrafo_anterior": 20,
+     "direcao": -1,
+     "trecho": "Por outro lado, r essaltou-se que o ciclo até então empreendido foi particularmente rápido e bastante firme",
      "padroes": [
       "P01",
-      "P16"
+      "P15"
      ],
-     "explicacao": "Sinaliza fim das altas: pausa para avaliar efeitos (já no comunicado)."
+     "explicacao": "Alta menor (0,25 após 0,50) e defesa de que os efeitos ainda virão."
     },
     {
      "tipo": "novo",
      "paragrafo": 20,
      "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "não hesitará em prossegu ir no ciclo de ajuste caso julgue apropriado",
-     "padroes": [
-      "P05"
-     ],
-     "explicacao": "Deixa aberta a porta para novas altas se necessário."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 21,
-     "paragrafo_anterior": 23,
-     "direcao": 1,
-     "trecho": "exige-se uma política monetária em patamar significativamente contracionista por período bastante prolongado",
+     "trecho": "ela deve permanecer em patamar significativamente contracionista por período bastante prolongado devido à s expectativas desancoradas.",
      "padroes": [
       "P04",
-      "P10"
+      "P05"
      ],
-     "explicacao": "De \"prolongado\" para \"bastante prolongado\": juros altos por mais tempo."
+     "explicacao": "Juros altos por muito tempo depois da pausa, com porta aberta para nova alta."
     }
    ],
-   "explicacao": "Alta final de 0,25 p.p. e pausa antecipada (brando, já no comunicado), compensada por juros significativamente contracionistas por período bastante prolongado e porta aberta a novas altas. Inflação e expectativas curtas melhoraram."
+   "explicacao": "Alta final de 0,25 com sinal claro de interrupção do ciclo; contrabalançado por juros significativamente contracionistas por período bastante prolongado e porta aberta para retomar."
   },
   {
    "ata": 272,
    "data_reuniao": "2025-07-30",
-   "indice": 1.19,
-   "indice_media_simples": 0.58,
+   "indice": 0.83,
+   "indice_media_simples": 0.38,
    "n_paragrafos": 26,
-   "n_nao_zero": 18,
-   "indice_100": 59,
-   "surpresa": 0.3,
-   "confianca": 60,
+   "n_nao_zero": 17,
+   "indice_100": 42,
+   "surpresa": 0.0,
+   "confianca": 62,
    "ic95": [
-    0.91,
-    1.38
+    0.65,
+    0.95
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.17,
+    "atividade_trabalho": -0.33,
     "balanco_riscos": 0.0,
-    "decisao_votacao": 0.0,
-    "expectativas": 1.5,
+    "decisao_votacao": 0.33,
+    "expectativas": 1.33,
     "externo": 1.0,
     "fiscal_credito": 0.0,
-    "inflacao_corrente": 1.0,
-    "orientacao_futura": 1.5,
-    "outro": 0.33
+    "inflacao_corrente": 0.5,
+    "orientacao_futura": 1.0,
+    "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "alterado",
-     "paragrafo": 1,
-     "paragrafo_anterior": 1,
-     "direcao": 1,
-     "trecho": "O ambiente externo está mais adverso e incerto",
-     "padroes": [
-      "P18"
-     ],
-     "explicacao": "O cenário externo passou de 'mantém-se adverso' para 'está mais adverso', reforçando cautela."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 6,
+     "paragrafo": 24,
      "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "a política comercial norte-americanas tornam o cenário mais incerto e mais adverso.",
+     "direcao": -1,
+     "trecho": "O Copom decidiu manter a taxa básica de juros em 15,00% a.a.",
      "padroes": [
-      "P18"
+      "P16"
      ],
-     "explicacao": "Tarifas dos EUA sobre o Brasil entram como fonte de incerteza que exige postura de cautela."
+     "explicacao": "Fim das altas: juros mantidos em 15%, como já antecipado no comunicado e na ata anterior."
     },
     {
      "tipo": "alterado",
-     "paragrafo": 3,
-     "paragrafo_anterior": 3,
-     "direcao": 1,
-     "trecho": "o mercado de trabalho ainda mostra dinamismo.",
+     "paragrafo": 25,
+     "paragrafo_anterior": null,
+     "direcao": -1,
+     "trecho": "não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
      "padroes": [
-      "P10",
-      "P13"
+      "P05"
      ],
-     "explicacao": "O emprego deixou de ter 'algum' dinamismo e passou a mostrar dinamismo, sem qualificador."
+     "explicacao": "Troca 'prosseguir' por 'retomar' a alta: reconhece que o ciclo está pausado, mas mantém a ameaça."
+    },
+    {
+     "tipo": "alterado",
+     "paragrafo": 22,
+     "paragrafo_anterior": null,
+     "direcao": -1,
+     "trecho": "continuar a interrupção do ciclo de alta para observar os efeitos do ciclo empreendido.",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Pausa deixa de ser condicionada a nova avaliação e passa a ser continuidade da interrupção."
     }
    ],
-   "explicacao": "Pausa em 15% com juros 'significativamente contracionistas por período bastante prolongado', cláusula de retomada das altas e projeção acima da meta; externo mais adverso. Nenhuma sinalização de corte."
+   "explicacao": "Pausa em 15% confirmada, com juros significativamente contracionistas por período bastante prolongado e cláusula de retomada mantida. Projeção acima da meta compensa sinais de moderação no crédito; ata em linha com o comunicado."
   },
   {
    "ata": 273,
    "data_reuniao": "2025-09-17",
-   "indice": 0.93,
-   "indice_media_simples": 0.41,
+   "indice": 0.37,
+   "indice_media_simples": 0.09,
    "n_paragrafos": 22,
-   "n_nao_zero": 12,
-   "indice_100": 46,
-   "surpresa": -0.3,
-   "confianca": 40,
-   "ic95": [
-    0.59,
-    1.16
-   ],
-   "dimensoes": {
-    "atividade_trabalho": -0.67,
-    "balanco_riscos": 0.0,
-    "decisao_votacao": 0.0,
-    "expectativas": 0.5,
-    "externo": 0.0,
-    "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.67,
-    "orientacao_futura": 1.2,
-    "outro": 0.33
-   },
-   "mudancas": [
-    {
-     "tipo": "alterado",
-     "paragrafo": 5,
-     "paragrafo_anterior": 6,
-     "direcao": -1,
-     "trecho": "O cenário externo se mantém incerto.",
-     "padroes": [
-      "P18"
-     ],
-     "explicacao": "O exterior deixou de ser descrito como 'mais adverso'; entra o debate sobre cortes do Fed e câmbio mais apreciado."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 6,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "Tal conjuntura traz maior convicção de que o cenário delineado pelo Comitê está, até agora, se concretizando.",
-     "padroes": [
-      "P13"
-     ],
-     "explicacao": "O Comitê ganha convicção de que a atividade desacelera como esperado."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 9,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "um incipiente movimento de queda nas expectativas de inflação medidas pelo Focus",
-     "padroes": [
-      "P11"
-     ],
-     "explicacao": "Reconhece, pela primeira vez, início de queda nas expectativas do Focus."
-    }
-   ],
-   "explicacao": "Manutenção em 15% com 'período bastante prolongado' e cláusula de retomada mantidas, mas a ata reconhece inflação mais benigna, queda incipiente de expectativas e declara novo estágio de manutenção."
-  },
-  {
-   "ata": 274,
-   "data_reuniao": "2025-11-05",
-   "indice": 0.35,
-   "indice_media_simples": 0.14,
-   "n_paragrafos": 21,
-   "n_nao_zero": 9,
+   "n_nao_zero": 14,
    "indice_100": 18,
-   "surpresa": -0.7,
-   "confianca": 45,
+   "surpresa": -0.23,
+   "confianca": 32,
    "ic95": [
-    0.02,
-    0.71
+    0.08,
+    0.62
    ],
    "dimensoes": {
     "atividade_trabalho": -0.67,
     "balanco_riscos": 0.0,
-    "decisao_votacao": 0.0,
-    "expectativas": 0.5,
-    "externo": 0.0,
-    "fiscal_credito": 0.5,
-    "inflacao_corrente": 0.33,
-    "orientacao_futura": 0.25,
-    "outro": 0.5
+    "decisao_votacao": 0.33,
+    "expectativas": 0.33,
+    "externo": 0.5,
+    "fiscal_credito": 1.0,
+    "inflacao_corrente": 0.0,
+    "orientacao_futura": 0.0,
+    "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
      "paragrafo": 17,
-     "paragrafo_anterior": null,
-     "direcao": -2,
-     "trecho": "mas já com maior convicção de que a taxa corrente é suficiente para assegurar a convergência da inflação à meta.",
+     "paragrafo_anterior": 22,
+     "direcao": -1,
+     "trecho": "o Comitê inicia um novo estágio em que opta por manter a taxa inalterada",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Pausa vira 'novo estágio': foco passa a ser por quanto tempo manter, não se volta a subir."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 6,
+     "paragrafo_anterior": 8,
+     "direcao": -1,
+     "trecho": "Tal conjuntura traz maior convicção de que o cenário delineado pelo Comitê está, até agora, se concretizando.",
      "padroes": [
       "P09",
-      "P10"
+      "P13"
      ],
-     "explicacao": "O Comitê diz ter mais convicção de que os juros atuais bastam: afasta novas altas e aproxima cortes."
+     "explicacao": "Mais convicção de que a economia desacelera como esperado, sinal mais confortável."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 18,
+     "paragrafo_anterior": null,
+     "direcao": -1,
+     "trecho": "certa diminuição da inflação corrente e alguma redução nas expectativas de inflaçã o.",
+     "padroes": [
+      "P10",
+      "P11"
+     ],
+     "explicacao": "Reconhece queda da inflação e das expectativas, ainda com qualificadores."
+    }
+   ],
+   "explicacao": "Juros mantidos com orientação de período bastante prolongado e cláusula de retomada, mas o texto ganha convicção: 'novo estágio', inflação mais benigna, queda incipiente das expectativas. Nível ainda duro, margem mais branda."
+  },
+  {
+   "ata": 274,
+   "data_reuniao": "2025-11-05",
+   "indice": 0.11,
+   "indice_media_simples": -0.1,
+   "n_paragrafos": 21,
+   "n_nao_zero": 10,
+   "indice_100": 5,
+   "surpresa": -0.45,
+   "confianca": 46,
+   "ic95": [
+    -0.11,
+    0.33
+   ],
+   "dimensoes": {
+    "atividade_trabalho": -0.67,
+    "balanco_riscos": 0.0,
+    "decisao_votacao": 0.0,
+    "expectativas": 0.33,
+    "externo": 0.0,
+    "fiscal_credito": 1.0,
+    "inflacao_corrente": -1.0,
+    "orientacao_futura": 0.0,
+    "outro": 0.0
+   },
+   "mudancas": [
+    {
+     "tipo": "novo",
+     "paragrafo": 17,
+     "paragrafo_anterior": 17,
+     "direcao": -1,
+     "trecho": "já com maior convicção de que a taxa corrente é suficiente para assegurar a convergência da inflação à meta.",
+     "padroes": [
+      "P09"
+     ],
+     "explicacao": "Copom passa a ter mais convicção de que 15% basta; afasta novas altas."
     },
     {
      "tipo": "alterado",
@@ -2398,46 +2394,46 @@
      "padroes": [
       "P09"
      ],
-     "explicacao": "Passou de 'avaliando se' a manutenção basta para 'avalia que' basta."
+     "explicacao": "Deixa de 'avaliar se' a manutenção basta e afirma que basta."
     },
     {
-     "tipo": "novo",
-     "paragrafo": 9,
-     "paragrafo_anterior": null,
+     "tipo": "removido",
+     "paragrafo": null,
+     "paragrafo_anterior": 19,
      "direcao": -1,
-     "trecho": "observou-se movimento agora mais nítido em horizontes além do relevante.",
+     "trecho": "exige-se uma política monetária em patamar significativamente contracionista por período bastante prolongado.",
      "padroes": [
-      "P11",
-      "P10"
+      "P04",
+      "P11"
      ],
-     "explicacao": "A queda das expectativas ficou mais clara, inclusive em prazos mais longos."
+     "explicacao": "Some da seção de decisão o parágrafo sobre expectativas desancoradas exigindo juros altos por longo tempo."
     }
    ],
-   "explicacao": "Mantém 15% por período bastante prolongado e a cláusula de retomada, mas declara 'maior convicção de que a taxa corrente é suficiente', expectativas caindo de forma mais nítida e retira reforço contracionista da decisão."
+   "explicacao": "Juros mantidos em 15% por período bastante prolongado, mas com 'maior convicção' de que a taxa é suficiente, queda mais nítida das expectativas e retirada do parágrafo duro da decisão. Cláusula de retomada mantida limita a leitura branda."
   },
   {
    "ata": 275,
    "data_reuniao": "2025-12-10",
-   "indice": 0.17,
-   "indice_media_simples": -0.05,
+   "indice": -0.05,
+   "indice_media_simples": -0.11,
    "n_paragrafos": 19,
-   "n_nao_zero": 7,
-   "indice_100": 9,
-   "surpresa": -0.3,
-   "confianca": 34,
+   "n_nao_zero": 10,
+   "indice_100": -2,
+   "surpresa": -0.29,
+   "confianca": 31,
    "ic95": [
-    -0.05,
-    0.38
+    -0.25,
+    0.2
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.33,
+    "atividade_trabalho": 0.0,
     "balanco_riscos": 0.0,
     "decisao_votacao": 0.0,
-    "expectativas": 1.0,
+    "expectativas": 0.5,
     "externo": -0.5,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": -0.33,
-    "orientacao_futura": 0.0,
+    "inflacao_corrente": -1.0,
+    "orientacao_futura": -0.25,
     "outro": 0.0
    },
    "mudancas": [
@@ -2446,113 +2442,112 @@
      "paragrafo": 16,
      "paragrafo_anterior": 18,
      "direcao": -1,
-     "trecho": "a diminuição da inflação corrente e a redução nas expectativas",
+     "trecho": "a diminuição da inflação corrente e a redução nas expectativas de inflaçã o.",
      "padroes": [
       "P10"
      ],
-     "explicacao": "Saem os qualificadores 'certa' e 'alguma': a queda da inflação e das expectativas é afirmada sem ressalva."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 18,
-     "paragrafo_anterior": 20,
-     "direcao": -1,
-     "trecho": "é adequada para assegurar a convergência da inflação à meta. O Comitê enfatiza que seguirá vigilante",
-     "padroes": [
-      "P09",
-      "P05"
-     ],
-     "explicacao": "Juros atuais passam de 'suficientes' a 'adequados', e a ameaça de alta vira 'como usual'."
+     "explicacao": "Somem 'certa' e 'alguma': queda da inflação e das expectativas vira fato, sem ressalva."
     },
     {
      "tipo": "novo",
      "paragrafo": 14,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "concluindo que a estratégia em curso, de manutenção do nível corrente da taxa de juros por período bastante prolongado, é adequada",
+     "trecho": "destacando o ganho de confiança que vem se acumulando com o processo de desinflação.",
      "padroes": [
       "P09"
      ],
-     "explicacao": "Relata a evolução do discurso até concluir que a estratégia atual basta, encerrando o debate sobre altas."
+     "explicacao": "Copom descreve sua evolução: de avaliar se a taxa bastava a concluir que é adequada."
+    },
+    {
+     "tipo": "alterado",
+     "paragrafo": 18,
+     "paragrafo_anterior": 20,
+     "direcao": -1,
+     "trecho": "que, como usual, não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+     "padroes": [
+      "P05"
+     ],
+     "explicacao": "'Como usual' torna a ameaça de alta uma fórmula protocolar, menos crível."
     }
    ],
-   "explicacao": "Mantém 15% por período bastante prolongado e a cláusula de retomada (agora 'como usual'); juros passam a 'adequados', qualificadores da desinflação caem e externo menos incerto, sem discutir cortes nem retirar a cláusula."
+   "explicacao": "Manutenção em 15% por período bastante prolongado, agora julgada 'adequada', com ganho de confiança na desinflação, retirada de qualificadores e 'como usual' na cláusula de retomada. Sem sinal explícito de corte; mercado de trabalho apertado contrabalança."
   },
   {
    "ata": 276,
    "data_reuniao": "2026-01-28",
-   "indice": -0.98,
+   "indice": -1.02,
    "indice_media_simples": -0.42,
    "n_paragrafos": 19,
-   "n_nao_zero": 12,
-   "indice_100": -49,
-   "surpresa": -0.8,
-   "confianca": 57,
+   "n_nao_zero": 10,
+   "indice_100": -51,
+   "surpresa": -1.1,
+   "confianca": 63,
    "ic95": [
-    -1.23,
-    -0.63
+    -1.29,
+    -0.69
    ],
    "dimensoes": {
     "atividade_trabalho": 0.0,
     "balanco_riscos": -1.0,
     "decisao_votacao": 0.0,
-    "expectativas": 1.0,
+    "expectativas": 0.0,
     "externo": -0.5,
     "fiscal_credito": 1.0,
     "inflacao_corrente": -0.67,
-    "orientacao_futura": -1.5,
+    "orientacao_futura": -1.25,
     "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
-     "paragrafo": 15,
-     "paragrafo_anterior": null,
-     "direcao": -2,
-     "trecho": "o Comitê julgou adequado sinalizar o início de um ciclo de redução da taxa de juros em sua próxima reunião.",
-     "padroes": [
-      "P01"
-     ],
-     "explicacao": "O Copom anuncia que deve começar a cortar os juros na próxima reunião."
-    },
-    {
-     "tipo": "novo",
      "paragrafo": 18,
-     "paragrafo_anterior": null,
+     "paragrafo_anterior": 18,
      "direcao": -2,
      "trecho": "O Comitê antevê, em se confirmando o cenário esperado, iniciar a flexibilização da política monetária em sua próxima reunião",
      "padroes": [
       "P01"
      ],
-     "explicacao": "Orientação explícita de corte na próxima reunião, condicionada ao cenário."
+     "explicacao": "Copom anuncia que deve começar a cortar juros na próxima reunião."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 15,
+     "paragrafo_anterior": 15,
+     "direcao": -2,
+     "trecho": "o Comitê julgou adequado sinalizar o início de um ciclo de redução da taxa de juros em sua próxima reunião.",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Sinal explícito de início do ciclo de cortes."
     },
     {
      "tipo": "removido",
      "paragrafo": null,
      "paragrafo_anterior": 18,
-     "direcao": -1,
-     "trecho": "como usual, não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
+     "direcao": -2,
+     "trecho": "não hesitará em retomar o ciclo de ajuste caso julgue apropriado.",
      "padroes": [
       "P05"
      ],
-     "explicacao": "Sai a ameaça de voltar a subir juros, pré-condição para cortes."
+     "explicacao": "Saiu a ameaça de voltar a subir os juros."
     }
    ],
-   "explicacao": "Sinaliza início do ciclo de cortes na próxima reunião e retira 'período bastante prolongado' e a cláusula de retomada; tempera com 'serenidade' sobre ritmo e magnitude e unanimidade em manter juros restritivos."
+   "explicacao": "Manutenção em 15% com sinal explícito de início de cortes na próxima reunião e retirada da cláusula de retomada e do 'período bastante prolongado'; ritmo e magnitude ficam em aberto."
   },
   {
    "ata": 277,
    "data_reuniao": "2026-03-18",
-   "indice": -0.46,
+   "indice": -0.15,
    "indice_media_simples": 0.28,
    "n_paragrafos": 18,
-   "n_nao_zero": 11,
-   "indice_100": -23,
-   "surpresa": -0.4,
-   "confianca": 58,
+   "n_nao_zero": 13,
+   "indice_100": -7,
+   "surpresa": 0.33,
+   "confianca": 67,
    "ic95": [
-    -0.68,
-    -0.12
+    -0.42,
+    0.17
    ],
    "dimensoes": {
     "atividade_trabalho": 0.25,
@@ -2561,62 +2556,60 @@
     "expectativas": 1.0,
     "externo": 1.0,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 0.33,
-    "orientacao_futura": -0.5,
+    "inflacao_corrente": 0.0,
+    "orientacao_futura": 0.0,
     "outro": 0.0
    },
    "mudancas": [
     {
      "tipo": "novo",
      "paragrafo": 15,
-     "paragrafo_anterior": null,
-     "direcao": -1,
-     "trecho": "Após considerar que os eventos recentes não impediriam a materialização dessa sinalização",
-     "padroes": [
-      "P01",
-      "P15"
-     ],
-     "explicacao": "Mesmo com o choque externo, o debate foi só sobre o ritmo do corte, sem cogitar pausa."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 16,
-     "paragrafo_anterior": 17,
-     "direcao": -1,
-     "trecho": "O Copom decidiu reduzir a taxa básica de juros para 14,75% a.a.",
-     "padroes": [
-      "P15",
-      "P16"
-     ],
-     "explicacao": "A decisão passa de manutenção para corte de 0,25 ponto, como sinalizado antes."
-    },
-    {
-     "tipo": "alterado",
-     "paragrafo": 1,
-     "paragrafo_anterior": 1,
+     "paragrafo_anterior": 15,
      "direcao": 1,
-     "trecho": "O ambiente externo tornou-se mais incerto, em função do acirramento de conflitos geopolíticos no Oriente Médio",
+     "trecho": "concluindo que nesse momento a redução de 0,25% é a mais adequada.",
+     "padroes": [
+      "P01"
+     ],
+     "explicacao": "Cortes começaram, mas no ritmo mínimo de 0,25 ponto."
+    },
+    {
+     "tipo": "novo",
+     "paragrafo": 17,
+     "paragrafo_anterior": 18,
+     "direcao": 1,
+     "trecho": "caracterizado por forte aumento da incerteza, o Comitê reafirma serenidade e cautela na condução da política monetária",
      "padroes": [
       "P18"
      ],
-     "explicacao": "Exterior piora com conflito no Oriente Médio e volatilidade de ativos e commodities."
+     "explicacao": "Choque externo pede cautela nos próximos cortes."
+    },
+    {
+     "tipo": "alterado",
+     "paragrafo": 9,
+     "paragrafo_anterior": 8,
+     "direcao": 1,
+     "trecho": "subiram após o início dos conflitos no Oriente Médio, permanecendo acima da meta de inflação em todos os horizontes.",
+     "padroes": [
+      "P11"
+     ],
+     "explicacao": "Expectativas de inflação voltaram a subir com a guerra."
     }
    ],
-   "explicacao": "Corta 0,25 ponto como sinalizado e debate só o ritmo, sem cogitar pausa apesar do choque do Oriente Médio; diagnóstico mais duro (expectativas e riscos subindo) e cautela sobre os próximos passos."
+   "explicacao": "Início dos cortes com 0,25, ritmo cauteloso diante do choque geopolítico; expectativas e riscos se elevaram e a ata enfatiza cautela, sem orientação de novos cortes."
   },
   {
    "ata": 278,
    "data_reuniao": "2026-04-29",
-   "indice": 0.29,
-   "indice_media_simples": 0.39,
+   "indice": -0.06,
+   "indice_media_simples": 0.44,
    "n_paragrafos": 18,
    "n_nao_zero": 12,
-   "indice_100": 14,
-   "surpresa": 0.4,
-   "confianca": 67,
+   "indice_100": -3,
+   "surpresa": 0.43,
+   "confianca": 57,
    "ic95": [
-    -0.04,
-    0.74
+    -0.33,
+    0.38
    ],
    "dimensoes": {
     "atividade_trabalho": 0.0,
@@ -2625,7 +2618,7 @@
     "expectativas": 2.0,
     "externo": 1.0,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 1.0,
+    "inflacao_corrente": 1.33,
     "orientacao_futura": -0.5,
     "outro": 0.0
    },
@@ -2636,57 +2629,59 @@
      "paragrafo_anterior": 3,
      "direcao": 1,
      "trecho": "aceleraram, distanciando-se adicionalmente da meta para a inflação",
-     "padroes": [],
-     "explicacao": "Inflação deixou de arrefecer e passou a acelerar, piorando o diagnóstico."
+     "padroes": [
+      "P10"
+     ],
+     "explicacao": "A inflação deixou de cair e passou a acelerar, afastando-se da meta."
     },
     {
      "tipo": "alterado",
      "paragrafo": 9,
      "paragrafo_anterior": 9,
      "direcao": 1,
-     "trecho": "Desde a reunião anterior ficou evidente uma desancoragem adicional das expectativas de inflação para horizontes mais longos, em particular para o ano de 2028.",
+     "trecho": "Desde a reunião anterior ficou evidente uma desancoragem adicional das expectativas de inflação para horizontes mais longos",
      "padroes": [
       "P11"
      ],
-     "explicacao": "Nova ênfase na desancoragem das expectativas, agora citando 2028."
+     "explicacao": "O BC reconhece que as expectativas de longo prazo pioraram, incluindo 2028."
     },
     {
      "tipo": "alterado",
      "paragrafo": 12,
      "paragrafo_anterior": 12,
      "direcao": 1,
-     "trecho": "4,6%",
+     "trecho": "4,6% e 3,5%.",
      "padroes": [
       "P08"
      ],
-     "explicacao": "Projeção no horizonte relevante subiu de 3,3% para 3,5%, mais longe da meta."
+     "explicacao": "Projeções de inflação subiram e seguem acima da meta no horizonte relevante."
     }
    ],
-   "explicacao": "Corta 0,25 p.p. e prossegue a calibração, mas o diagnóstico endurece: inflação acelerando, desancoragem para 2028 e restrição 'maior e por mais tempo'. Ação branda, texto mais duro que a ata anterior."
+   "explicacao": "Corte de 0,25 p.p. mantido e ciclo prossegue, mas diagnóstico endurece: inflação acelerando, desancoragem adicional, projeções maiores e compromisso contra efeitos de segunda ordem. Ritmo futuro fica em aberto."
   },
   {
    "ata": 279,
    "data_reuniao": "2026-06-17",
-   "indice": 0.17,
-   "indice_media_simples": 0.32,
+   "indice": 0.33,
+   "indice_media_simples": 0.6,
    "n_paragrafos": 25,
-   "n_nao_zero": 20,
-   "indice_100": 8,
-   "surpresa": -0.3,
-   "confianca": 66,
+   "n_nao_zero": 21,
+   "indice_100": 17,
+   "surpresa": 0.56,
+   "confianca": 51,
    "ic95": [
-    -0.09,
-    0.51
+    0.07,
+    0.64
    ],
    "dimensoes": {
-    "atividade_trabalho": 0.2,
+    "atividade_trabalho": 0.4,
     "balanco_riscos": 2.0,
     "decisao_votacao": -0.5,
-    "expectativas": 1.33,
-    "externo": 0.5,
+    "expectativas": 1.5,
+    "externo": 1.0,
     "fiscal_credito": 1.0,
-    "inflacao_corrente": 1.0,
-    "orientacao_futura": -0.5,
+    "inflacao_corrente": 1.25,
+    "orientacao_futura": 0.17,
     "outro": 0.0
    },
    "mudancas": [
@@ -2695,60 +2690,61 @@
      "paragrafo": 13,
      "paragrafo_anterior": 13,
      "direcao": 2,
-     "trecho": "com assimetria altista",
+     "trecho": "com assimetria altista.",
      "padroes": [
       "P03"
      ],
-     "explicacao": "Balanço de riscos passou a ter assimetria para cima, sinal duro."
+     "explicacao": "Balanço de riscos deixa de ser simétrico e passa a ter assimetria para cima."
     },
     {
      "tipo": "alterado",
      "paragrafo": 13,
      "paragrafo_anterior": 13,
      "direcao": 1,
-     "trecho": "estímulos à demanda agregada, em particular ao componente de consumo",
+     "trecho": "estímulos à demanda agregada, em particular ao componente de consumo, que tenham como resultado o crescimento da atividade econômica acima d o produto potencial",
      "padroes": [
-      "P12"
+      "P12",
+      "P13"
      ],
-     "explicacao": "Novo risco de alta: estímulos ao consumo levando a economia acima do potencial."
+     "explicacao": "Novo risco de alta: estímulos ao consumo que enfraquecem a transmissão dos juros."
     },
     {
      "tipo": "novo",
      "paragrafo": 2,
-     "paragrafo_anterior": 2,
+     "paragrafo_anterior": null,
      "direcao": 1,
-     "trecho": "mostra aceleração da atividade econômica no primeiro trimestre do ano",
+     "trecho": "o conjunto dos indicadores mostra aceleração da atividade econômica no primeiro trimestre do ano",
      "padroes": [
       "P13"
      ],
-     "explicacao": "Atividade voltou a acelerar e IPCA superou o teto da meta."
+     "explicacao": "Atividade passou de moderação para aceleração e inflação estourou o teto da meta."
     }
    ],
-   "explicacao": "Diagnóstico bem mais duro (assimetria altista, atividade acelerando, projeção 3,7%), mas a ação segue branda: novo corte, aceita convergência só em 2028 e rejeita trajetórias duras. Pela P15, pesa a ação."
+   "explicacao": "Corta 0,25 p.p., mas endurece muito: balanço de riscos com assimetria altista, cenário deteriorado, atividade acelerando e cogitação de pausas. Ação branda, mensagem prospectiva dura."
   },
   {
    "ata": 280,
    "data_reuniao": "2026-08-05",
-   "indice": 0.41,
-   "indice_media_simples": 0.32,
+   "indice": -0.1,
+   "indice_media_simples": 0.16,
    "n_paragrafos": 19,
-   "n_nao_zero": 13,
-   "indice_100": 21,
-   "surpresa": 0.0,
-   "confianca": 52,
+   "n_nao_zero": 11,
+   "indice_100": -5,
+   "surpresa": -0.25,
+   "confianca": 43,
    "ic95": [
-    0.1,
-    0.61
+    -0.31,
+    0.14
    ],
    "dimensoes": {
     "atividade_trabalho": -0.5,
-    "balanco_riscos": 2.0,
+    "balanco_riscos": 1.0,
     "decisao_votacao": -0.5,
-    "expectativas": 0.5,
+    "expectativas": 1.0,
     "externo": 1.0,
     "fiscal_credito": 1.0,
     "inflacao_corrente": -0.67,
-    "orientacao_futura": 1.0,
+    "orientacao_futura": 0.25,
     "outro": 0.0
    },
    "mudancas": [
@@ -2757,20 +2753,22 @@
      "paragrafo": 2,
      "paragrafo_anterior": 2,
      "direcao": -1,
-     "trecho": "desacelerou, porém ainda acima do limite superior da meta",
-     "padroes": [],
-     "explicacao": "Inflação cheia e núcleos passaram a desacelerar."
+     "trecho": "sugere uma moderação gradual da atividade econômica, embora ainda em patamar resiliente",
+     "padroes": [
+      "P13"
+     ],
+     "explicacao": "Atividade passa de aceleração para moderação e inflação volta a desacelerar."
     },
     {
      "tipo": "alterado",
-     "paragrafo": 11,
-     "paragrafo_anterior": 12,
+     "paragrafo": 5,
+     "paragrafo_anterior": 5,
      "direcao": -1,
-     "trecho": "são, respectivamente, 5,1%, 3,8%, e 3,2%",
+     "trecho": "Indicadores correntes apontam para desaceleração na passagem do primeiro para o segundo trimestre de 2026",
      "padroes": [
-      "P08"
+      "P13"
      ],
-     "explicacao": "Projeção no horizonte relevante caiu de 3,7% para 3,2%."
+     "explicacao": "Nova evidência de desaceleração disseminada da economia."
     },
     {
      "tipo": "alterado",
@@ -2779,39 +2777,51 @@
      "direcao": -1,
      "trecho": "contribuirão para a reancoragem das expectativas",
      "padroes": [
-      "P11"
+      "P11",
+      "P10"
      ],
-     "explicacao": "Saiu a frase de desancoragem evidente; fala em monitorar e reancorar."
+     "explicacao": "Sai a frase de desancoragem recém-evidente; tom passa a monitorar e falar em reancoragem."
     }
    ],
-   "explicacao": "Novo corte de 0,25 p.p. com inflação e projeção melhores (3,2%) e menos ênfase na desancoragem, mas reforça que a política seguirá restritiva e mantém assimetria altista. Saldo neutro frente à ata anterior."
+   "explicacao": "Novo corte de 0,25 p.p.; atividade e inflação desaceleram, projeção cai para 3,2% e some a cogitação de pausas. Mantém assimetria altista e restrição adequada, o que limita a suavização."
   },
   {
    "ata": 281,
    "data_reuniao": "2026-09-16",
-   "indice": 0.36,
-   "indice_media_simples": 0.25,
+   "indice": -0.11,
+   "indice_media_simples": 0.1,
    "n_paragrafos": 20,
-   "n_nao_zero": 14,
-   "indice_100": 18,
-   "surpresa": -0.2,
-   "confianca": 74,
+   "n_nao_zero": 12,
+   "indice_100": -5,
+   "surpresa": -0.21,
+   "confianca": 55,
    "ic95": [
-    0.06,
-    0.56
+    -0.32,
+    0.11
    ],
    "dimensoes": {
-    "atividade_trabalho": -0.67,
-    "balanco_riscos": 2.0,
+    "atividade_trabalho": -0.5,
+    "balanco_riscos": 1.0,
     "decisao_votacao": -0.5,
-    "expectativas": 0.5,
+    "expectativas": 1.0,
     "externo": 1.0,
     "fiscal_credito": 0.0,
-    "inflacao_corrente": -0.5,
-    "orientacao_futura": 1.0,
+    "inflacao_corrente": -0.67,
+    "orientacao_futura": 0.25,
     "outro": 0.0
    },
    "mudancas": [
+    {
+     "tipo": "alterado",
+     "paragrafo": 2,
+     "paragrafo_anterior": 2,
+     "direcao": -1,
+     "trecho": "situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta.",
+     "padroes": [
+      "P10"
+     ],
+     "explicacao": "Inflação cheia voltou para dentro do intervalo de tolerância."
+    },
     {
      "tipo": "alterado",
      "paragrafo": 5,
@@ -2821,32 +2831,21 @@
      "padroes": [
       "P13"
      ],
-     "explicacao": "PIB confirmou a desaceleração, mais forte nos setores cíclicos."
+     "explicacao": "PIB confirma desaceleração, mais forte nos setores sensíveis aos juros; some a ressalva de sinais mistos."
     },
     {
      "tipo": "novo",
      "paragrafo": 6,
      "paragrafo_anterior": null,
      "direcao": -1,
-     "trecho": "é consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva",
+     "trecho": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento",
      "padroes": [
       "P13"
      ],
-     "explicacao": "Crédito livre desacelerando confirma a transmissão dos juros."
-    },
-    {
-     "tipo": "novo",
-     "paragrafo": 6,
-     "paragrafo_anterior": null,
-     "direcao": 1,
-     "trecho": "créditos com recursos direcionados mantiveram trajetória de expansão",
-     "padroes": [
-      "P12"
-     ],
-     "explicacao": "Crédito direcionado segue crescendo, atenuando a política monetária."
+     "explicacao": "Crédito livre desacelera, sinal de que os juros altos estão funcionando."
     }
    ],
-   "explicacao": "Repete orientação e assimetria altista da ata anterior com novo corte; mudanças são de conjuntura, com viés brando: PIB confirma desaceleração e inflação ao consumidor volta ao intervalo, compensado por preços ao produtor e crédito direcionado."
+   "explicacao": "Quarto corte de 0,25 p.p. com orientação idêntica (restrição adequada, assimetria altista). Diagnóstico um pouco mais brando: inflação dentro da tolerância e PIB confirmando desaceleração; preços ao produtor são a ressalva."
   }
  ]
 }

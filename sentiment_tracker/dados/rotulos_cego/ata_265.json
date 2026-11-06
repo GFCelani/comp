@@ -1,0 +1,362 @@
+{
+ "ata": 265,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O ambiente externo permanece desafiador, em função do momento de inflexão do ciclo econômico nos Estados Unidos",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "segue exigindo cautela por parte de países emergentes.",
+   "padroes": [
+    "P18"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "atividade_trabalho",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "o que levou a uma reavaliação do hiato para o campo positivo.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "medidas de inflação subjacente se situaram acima da meta para a inflação nas divulgações mais recentes",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "No cenário de referência, a trajetória para a taxa de juros é extraída da pesquisa Focus",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções do Copom são de desinflação, mas ainda com inflação acima da meta",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "externo",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "O cenário externo se mant ém desafiador, mas se mostra mais benigno do que na reunião anterior.",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "A resposta das políticas econômicas dos diferentes países a tal cenário também se mostra desafiadora.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O Comitê reiterou que não há relação mecânica entre a condução da política monetária norte-americana",
+   "padroes": [
+    "P14"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "Esse ritmo de crescimento da atividade, em contexto de hiato agora avaliado positivo, torna mais desafiador o processo de convergência",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o crescimento real de salários, em se mostrando persistente e acima de ganhos de produtividade, acabará tendo impacto sobre preços.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "vem tendo impactos relevantes sobre os preços de ativos e as expectativas.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A desancoragem das expectativas de inflação é um fator de desconforto comum a todos os membros do Comitê.",
+   "padroes": [
+    "P11",
+    "P06"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O ciclo de crédito segue com expansão em volume e redução de taxas na maior parte das linhas",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Observa-se, ademais, uma interrupção no processo desinflacionário no período mais recente.",
+   "padroes": [],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o cenário prospectivo de inflação se tornou mais desafiador, com o aumento das projeções de inflação de médio prazo",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "balanco_riscos",
+   "tom": 2,
+   "sinal": 1,
+   "trecho": "O Comitê avalia que há uma assimetria altista em seu balanço de riscos para os cenários prospectivos para a inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "outro",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O Copom passou então à discussão da condução da política monetária",
+   "padroes": [],
+   "confianca": 0.9
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "demanda uma política monetária mais contracionista.",
+   "padroes": [
+    "P15"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "Todos os membros do Comitê concordaram em iniciar gradualmente o ciclo de aperto de política monetária.",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "sem conferir indicação futura de seus próximos passos",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "decisao_votacao",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,25 ponto percentual, para 10,75% a.a.",
+   "padroes": [
+    "P06",
+    "P16"
+   ],
+   "confianca": 0.85
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a magnitude total do ciclo ora iniciado serão ditados pelo firme compromisso de convergência da inflação à meta",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 25,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.8
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 18,
+   "paragrafo_anterior": 18,
+   "direcao": 1,
+   "trecho": "O Comitê avalia que há uma assimetria altista em seu balanço de riscos para os cenários prospectivos para a inflação.",
+   "padroes": [
+    "P03"
+   ],
+   "explicacao": "Balanço de riscos passa formalmente a assimétrico para cima, com novo risco de câmbio depreciado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 20,
+   "paragrafo_anterior": null,
+   "direcao": 2,
+   "trecho": "demanda uma política monetária mais contracionista.",
+   "padroes": [
+    "P15"
+   ],
+   "explicacao": "Comitê justifica o início de um ciclo de alta de juros."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 21,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Todos os membros do Comitê concordaram em iniciar gradualmente o ciclo de aperto de política monetária.",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Unanimidade em iniciar o aperto, mas de forma gradual."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 22,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "sem conferir indicação futura de seus próximos passos",
+   "padroes": [
+    "P01",
+    "P02"
+   ],
+   "explicacao": "Sem orientação sobre o ritmo futuro, o que dá opcionalidade."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "paragrafo_anterior": 3,
+   "direcao": 1,
+   "trecho": "o que levou a uma reavaliação do hiato para o campo positivo.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Economia aquecida: hiato do produto agora considerado positivo."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 16,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "Observa-se, ademais, uma interrupção no processo desinflacionário no período mais recente.",
+   "padroes": [],
+   "explicacao": "A desinflação foi interrompida e a composição da inflação piorou."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 11,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o crescimento real de salários, em se mostrando persistente e acima de ganhos de produtividade, acabará tendo impacto sobre preços.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Salários reais acima da produtividade pressionam preços."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 25,
+   "direcao": -1,
+   "trecho": "não hesitará em elevar a taxa de juros para assegurar a convergência da inflação à meta se julgar apropriado.",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Ameaça de alta saiu porque a alta já foi feita."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 1.4,
+  "surpresa": 0.3,
+  "explicacao": "Início do ciclo de alta (0,25) com balanço de riscos assimétrico altista e hiato positivo; gradualismo e ausência de orientação futura moderam o tom."
+ }
+}

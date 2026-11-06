@@ -23,9 +23,9 @@ LOTES = RAIZ / "dados" / "lotes"
 IGUAL, PARECIDO = 0.97, 0.45
 
 
-def carregar() -> dict[int, list[dict]]:
+def carregar(origem: Path = BANCO) -> dict[int, list[dict]]:
     atas = defaultdict(list)
-    for l in BANCO.read_text(encoding="utf-8").splitlines():
+    for l in origem.read_text(encoding="utf-8").splitlines():
         if l.strip():
             p = json.loads(l)
             atas[p["ata"]].append(p)
@@ -72,9 +72,16 @@ def lote(atual: list[dict], anterior: list[dict] | None) -> dict:
 
 
 if __name__ == "__main__":
-    atas = carregar()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("atas", nargs="*", type=int)
+    ap.add_argument("--paragrafos", type=Path, default=BANCO, help="jsonl de parágrafos (padrão: banco do time)")
+    ap.add_argument("--saida", type=Path, default=LOTES, help="pasta dos lotes")
+    args = ap.parse_args()
+    atas = carregar(args.paragrafos)
     nums = list(atas)
-    alvo = [int(a) for a in sys.argv[1:]] or nums
+    alvo = args.atas or nums
+    LOTES = args.saida
     LOTES.mkdir(parents=True, exist_ok=True)
     for n in alvo:
         i = nums.index(n)

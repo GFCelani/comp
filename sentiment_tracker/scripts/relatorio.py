@@ -110,7 +110,38 @@ def main():
                       f"{g['veredito_analistas'] or '—'} | {g['d_pre2_pb'] if g['d_pre2_pb'] is not None else '—'} |")
         md.append("")
 
-    md += ["## 7. Limitações", "",
+    md += ["## 7. Melhorias desta versão (medidas, não supostas)", ""]
+    md += [f"- **A · gabarito de mercado menos ruidoso**: z médio do prefixado 1a e 2a, em 1 e 2 dias. "
+           f"Correlação com a surpresa dos analistas: {num(reac['z_pre2'].corr(reac['surpresa_analistas'].astype(float)))} "
+           f"(só 2a, 1 dia) → {num(reac['z_mercado'].corr(reac['surpresa_analistas'].astype(float)))} (média).",
+           f"- **B · encolhimento quando os sinais discordam** (`claude_encolhida`): correlação LOO "
+           f"{num(c['correlacao_loo_candidatos'].get('claude_surpresa'))} (surpresa crua) → "
+           f"{num(c['correlacao_loo_candidatos'].get('claude_encolhida'))}.",
+           "- **C · confiança calibrada**: acerto de direção fora da amostra por terço de confiança:"]
+    for f, v in c.get("confianca_por_faixa", {}).items():
+        md.append(f"  - {f} ({v['conf_min']}–{v['conf_max']}): {pct(v['acerto_direcao'])} de acerto "
+                  f"({v['n_direcionais']} atas direcionais), erro médio {num(v['erro_medio_abs'])}")
+    md += ["  O campo `confianca_calibrada` de cada ata traz esse acerto histórico da faixa.", ""]
+    m = c.get("loo_vs_mercado_z_dias_limpos")
+    if m:
+        md += [f"Contra o **mercado puro** (z médio, dias limpos): correlação {num(m['correlacao'])}, acerto de direção "
+               f"{pct(m['acerto_direcao'])} ({m['n_direcionais']}). O texto acompanha bem a leitura dos analistas, mas quase "
+               "não prevê o preço do dia: a reação dos juros no dia da ata é dominada por outros fatores.", ""]
+    tf = ler("teste_fora_amostra.json")
+    if tf:
+        md += ["## 8. Teste fora da amostra (atas de 2020, nunca usadas)", "",
+               f"Modelo congelado (estimador `{tf['estimador_congelado']}`, escalas de 2021+) aplicado às atas "
+               f"{tf['atas'][0]}–{tf['atas'][-1]}, rotuladas às cegas.", "",
+               "| Comparação | n | Correlação | Acerto de direção (n) | Erro médio | Erro de prever 0 |", "|---|---|---|---|---|---|"]
+        for nome, k in (("× gabarito combinado", "vs_rotulo_combinado"), ("× analistas", "vs_analistas"),
+                        ("× mercado (dias limpos)", "vs_mercado_z_dias_limpos")):
+            v = tf[k]
+            md.append(f"| {nome} | {v['n']} | {num(v['correlacao'])} | {pct(v['acerto_direcao'])} ({v['n_direcionais']}) | "
+                      f"{num(v['erro_medio_abs'])} | {num(v['erro_base_zero'])} |")
+        md += ["", "Leitura: em 2020 quase todas as atas foram \"em linha\" para os analistas (só 1 direcional), então o "
+               "teste confirma a ordenação (correlação positiva) mas mostra que o modelo **superestima a surpresa** de "
+               "atas em linha — erro médio maior que prever sempre 0. n = 8: checagem de sanidade, não estimativa precisa.", ""]
+    md += ["## 9. Limitações", "",
            "- **Amostra curta**: ~46 atas (2021–2026), um regime de alta, um de manutenção e dois de corte. "
            "Intervalos largos; não extrapolar para regimes diferentes.",
            "- **Padrões em amostra**: as regras P01–P18 foram destiladas da leitura dos analistas sobre essas "
@@ -120,7 +151,7 @@ def main():
            "- **Gabarito qualitativo**: \"esperado\" pelos analistas costuma ser o comunicado da semana anterior; "
            "veredito vem em geral de uma ou duas casas por ata.",
            "- **Rotulador único por ata**: cada ata foi rotulada uma vez; a variância entre execuções do Claude "
-           "não foi medida (não testado).",
+           "não foi medida (não testado). Próximo passo: 2ª leitura só do diff e média das duas.",
            "- Interpretação, não previsão; não é recomendação de investimento.", ""]
     (RES / "validacao.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md))

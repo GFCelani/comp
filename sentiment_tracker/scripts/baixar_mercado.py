@@ -25,7 +25,7 @@ import requests
 
 RAIZ = Path(__file__).resolve().parents[1]
 DADOS = RAIZ / "dados"
-INICIO = "2020-10-01"
+INICIO = "2018-06-01"
 UA = {"User-Agent": "Mozilla/5.0 (copom-sentiment-tracker)"}
 
 
@@ -75,7 +75,7 @@ def prefixado_constante() -> pd.DataFrame:
 
 def sgs(codigo: int, nome: str) -> pd.DataFrame:
     partes = []
-    for ini, fim in (("01/10/2020", "31/12/2023"), ("01/01/2024", "31/12/2027")):   # API limita a 10 anos
+    for ini, fim in (("01/06/2018", "31/12/2023"), ("01/01/2024", "31/12/2027")):   # API limita a 10 anos
         url = (f"https://api.bcb.gov.br/dados/serie/bcdata.sgs.{codigo}/dados?formato=json"
                f"&dataInicial={ini}&dataFinal={fim}")
         partes.append(pd.DataFrame(get(url, timeout=60).json()))
@@ -87,7 +87,7 @@ def sgs(codigo: int, nome: str) -> pd.DataFrame:
 
 def ibov() -> pd.DataFrame:
     url = ("https://query1.finance.yahoo.com/v8/finance/chart/%5EBVSP?interval=1d"
-           "&period1=1601510400&period2=4102444800")
+           "&period1=1527811200&period2=4102444800")
     r = get(url, timeout=60).json()["chart"]["result"][0]
     df = pd.DataFrame({"ts": r["timestamp"], "ibov": r["indicators"]["quote"][0]["close"]})
     df["data"] = pd.to_datetime(df["ts"], unit="s", utc=True).dt.tz_convert("America/Sao_Paulo").dt.normalize().dt.tz_localize(None)

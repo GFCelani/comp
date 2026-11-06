@@ -30,9 +30,9 @@ RAIZ = Path(__file__).resolve().parents[1]
 DADOS = RAIZ / "dados"
 
 
-def carregar_analistas() -> pd.DataFrame:
+def carregar_analistas(arquivos=None) -> pd.DataFrame:
     linhas = []
-    for f in sorted((DADOS / "analistas").glob("*.jsonl")):
+    for f in arquivos or sorted((DADOS / "analistas").glob("*.jsonl")):
         for l in f.read_text(encoding="utf-8").splitlines():
             if l.strip():
                 r = json.loads(l)
@@ -70,15 +70,17 @@ def mudanca_focus(focus: pd.DataFrame, data_pub: pd.Timestamp, data_reuniao: pd.
     return float(b.loc[b["Reuniao"] == prox, "Mediana"].iloc[0] - a.loc[a["Reuniao"] == prox, "Mediana"].iloc[0])
 
 
-def main() -> pd.DataFrame:
-    an = carregar_analistas()
+def main(arquivos=None, saida=None) -> pd.DataFrame:
+    an = carregar_analistas(arquivos)
     m = pd.read_csv(DADOS / "mercado.csv", parse_dates=["data"]).sort_values("data").reset_index(drop=True)
     for c in ("pre_1a", "pre_2a"):
         m["d_" + c] = m[c].diff() * 100                      # pontos-base
     m["d_dolar"] = m["dolar"].pct_change() * 100
     m["d_ibov"] = m["ibov"].pct_change() * 100
     # desvio robusto (MAD) das variações diárias nos 250 dias úteis anteriores
-    m["sd_pre2"] = (m["d_pre_2a"].abs().rolling(250, min_periods=60).median().shift(1)) * 1.4826
+    for c in ("pre_1a", "pre_2a"):
+        m["sd_" + c] = (m["d_" + c].abs().rolling(250, min_periods=60).median().shift(1)) * 1.4826
+    m["sd_pre2"] = m["sd_pre_2a"]
     focus = pd.read_csv(DADOS / "focus_selic.csv", parse_dates=["Data"])
 
     linhas = []
@@ -96,6 +98,15 @@ def main() -> pd.DataFrame:
         out["d_pre2"] = round(m.loc[i, "d_pre_2a"], 1)
         out["d_pre2_2d"] = round((m.loc[min(i + 1, len(m) - 1), "pre_2a"] - m.loc[i - 1, "pre_2a"]) * 100, 1)
         out["z_pre2"] = round(m.loc[i, "d_pre_2a"] / m.loc[i, "sd_pre2"], 2) if m.loc[i, "sd_pre2"] else np.nan
+        # melhoria A: z médio de 1a e 2a, em 1 dia (D-1→D) e 2 dias (D-1→D+1, desvio × √2)
+        j = min(i + 1, len(m) - 1)
+        zs = []
+        for c in ("pre_1a", "pre_2a"):
+            sd = m.loc[i, "sd_" + c]
+            if sd and not np.isnan(sd):
+                zs.append(m.loc[i, "d_" + c] / sd)
+                zs.append((m.loc[j, c] - m.loc[i - 1, c]) * 100 / (sd * np.sqrt(2)))
+        out["z_mercado"] = round(float(np.nanmean(zs)), 2) if zs else np.nan
         out["d_dolar"] = round(m.loc[i, "d_dolar"], 2)
         out["d_ibov"] = round(m.loc[i, "d_ibov"], 2)
         out["d_focus_prox"] = mudanca_focus(focus, d, pd.Timestamp(a["data_reuniao"]))
@@ -113,12 +124,19 @@ def main() -> pd.DataFrame:
     s_an = r["surpresa_analistas"].astype(float)
     s_mk = (r["z_pre2"].clip(-2, 2)).where(r["z_pre2"].abs() >= 1, 0)
     w_mk = r["peso_mercado"].where(r["z_pre2"].notna(), 0)
-    r["rotulo_surpresa"] = ((s_an.fillna(0) + w_mk * s_mk.fillna(0)) / (s_an.notna().astype(float) + w_mk)).round(2)
-    r.to_csv(DADOS / "reacao.csv", index=False)
+    r["rotulo_surpresa_v1"] = ((s_an.fillna(0) + w_mk * s_mk.fillna(0)) / (s_an.notna().astype(float) + w_mk)).round(2)
+    # melhoria A: mercado = z médio (1a e 2a, 1 e 2 dias), que tem menos ruído que só o 2a em 1 dia
+    s_mk2 = (r["z_mercado"].clip(-2, 2)).where(r["z_mercado"].abs() >= 1, 0)
+    w_mk2 = r["peso_mercado"].where(r["z_mercado"].notna(), 0)
+    r["rotulo_surpresa"] = ((s_an.fillna(0) + w_mk2 * s_mk2.fillna(0)) / (s_an.notna().astype(float) + w_mk2)).round(2)
+    r.to_csv(saida or DADOS / "reacao.csv", index=False)
     return r
 
 
 if __name__ == "__main__":
+    import sys
+    if len(sys.argv) == 3:                       # holdout: isolar_reacao.py <analistas.jsonl> <saida.csv>
+        main([Path(sys.argv[1])], Path(sys.argv[2])); raise SystemExit
     r = main()
     cols = ["ata", "data_publicacao", "veredito", "surpresa_analistas", "atribuida_a_ata", "n_fatores_externos",
             "d_pre2", "z_pre2", "d_focus_prox", "peso_mercado", "rotulo_surpresa"]

@@ -1,0 +1,247 @@
+{
+ "ata": 230,
+ "anterior": 229,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário externo, a pandemia da Covid -19 está provocando uma desaceleração significativa do crescimento global, queda nos preços das commodities e aumento da volatilidade nos preços de ativos. Nesse contexto, apesar da provisão adicional de estímulo s fiscal e monetário pelas principais economias, e de alguma moderação na volatilidade dos ativos financeiros, o ambiente para as economias emergentes segue desafiador, com saída de capitais significativamente superior à de episódios anteriores.",
+   "status": "alterado",
+   "paragrafo_anterior": 1,
+   "similaridade": 0.77,
+   "diff": "No cenário externo, a pandemia ~~causada pelo novo coronavírus~~ **da Covid -19** está provocando uma desaceleração significativa do crescimento global, queda nos preços das commodities e aumento da volatilidade nos preços de ~~ativos financeiros.~~ **ativos.** Nesse contexto, apesar da provisão adicional de estímulo **s fiscal e** monetário pelas principais economias, **e de alguma moderação na volatilidade dos ativos financeiros,** o ambiente para as economias emergentes ~~tornou-se desafiador.~~ **segue desafiador, com saída de capitais significativamente superior à de episódios anteriores.**"
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Dados mensais de atividade econômica disponíveis até o mês de março repercutem apenas parcialmente os efeitos da pandemia da Covid -19 sobre a economia brasileira. Indicadores de maior frequência e tempestividade, referentes ao mês de abril, mostram que a contração da atividade econômica será significativamente superior à prevista na última reunião do Copom.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Diversas medidas de inflação subjacente se encontram abaixo dos níveis compatíveis com o cumprimento da meta para a inflação no horizonte relevante para a política monetária.",
+   "status": "alterado",
+   "paragrafo_anterior": 3,
+   "similaridade": 0.96,
+   "diff": "Diversas medidas de inflação subjacente se encontram ~~em~~ **abaixo dos** níveis compatíveis com o cumprimento da meta para a inflação no horizonte relevante para a política monetária."
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "As expectativas de inflação para 2020, 2021 e 2022 apuradas pela pesquisa Focus encontram-se em torno de 2,0%, 3,3% e 3,5%, respectivamente.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "As projeções de curto prazo experimentaram revisões relevantes e incorporam a perspectiva de deflação significativa nos próximos meses. Houve recuo adicional no preço do petróleo e queda acentuada nos preços do produtor doméstico de combustíveis, que seguirão repercutindo, nas próximas semanas, sobre os preços ao consumidor. Os resultados mais recentes dos índices de preços evidenciaram efeitos desinflacionários significativos sobre preços de serviços e de bens industriais.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "As projeções de infla ção e cenários foram impactadas por hipóteses sobre a trajetória futura do preço do petróleo, que tem oscilado em patamares historicamente baixos em razão de um choque expansionista de oferta e, principalmente, da queda na demanda global. Os cenários a seguir supõem que o preço do petróleo (Brent) subirá cerca de 40% entre a média na semana anterior à da reunião do Copom e o final de 2020. 1 A menos de menção explícita em contrário, esta atualização leva em conta as mudanças ocorridas desde a reunião do Copom em março (229ª reunião).",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 7,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário híbrido, com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio constante a R$ 5,55/US$2, as projeções do Copom situam-se em torno de 2,4% para 2020 e 3,4% para 2021. Esse cenário supõe trajetória de juros que encerra 2020 em 2,75% a.a. e se eleva até 3,75% a.a. em 2021. Nesse cenário, as projeções para a inflação de preços administr ados são de 0,7% para 2020 e 3,9% para 2021.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 8,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário com taxa de juros constante a 3,75% a.a. e taxa de câmbio constante a R$5,55/US$, as projeções situam-se em torno de 2,3% para 2020 e 3,2% para 2021. Nesse cenário, as projeções para a inflação de preços administrados são de 0,7% para 2020 e 3,8% para 2021.",
+   "status": "alterado",
+   "paragrafo_anterior": 7,
+   "similaridade": 0.75,
+   "diff": "No cenário com taxa de juros constante a ~~4,25%~~ **3,75%** a.a. e taxa de câmbio constante a ~~R$4,75/US$,~~ **R$5,55/US$,** as projeções situam-se em torno de ~~3,0%~~ **2,3%** para 2020 e ~~3,6%~~ **3,2%** para 2021. Nesse cenário, as projeções para a inflação de ~~1 A menos de menção explícita em contrário, esta atualização leva em conta as mudanças ocorridas desde a reunião do Copom em fevereiro (228ª reunião).~~ preços administrados são de ~~1,5%~~ **0,7%** para 2020 e ~~3,9%~~ **3,8%** para 2021."
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 10,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "Por um lado, o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado. Esse risco se intensifica caso a pandemia provoque aumento s de incerteza e de poupança precaucional e, consequentemente, uma redução da demanda agregada com magnitude ou duração ainda maiores do que as estimadas.",
+   "status": "alterado",
+   "paragrafo_anterior": 9,
+   "similaridade": 0.81,
+   "diff": "Por um lado, o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado. Esse risco se intensifica caso ~~um agravamento da~~ **a** pandemia provoque aumento ~~da~~ **s de** incerteza e **de poupança precaucional e, consequentemente, uma** redução da demanda **agregada** com ~~maior~~ magnitude ou duração **ainda maiores** do que ~~o estimado.~~ **as estimadas.**"
+  },
+  {
+   "paragrafo": 11,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "Por outro lado, políticas fiscais de resposta à pandemia que piorem a trajetória fiscal do país de forma prolongada, ou frustrações em relação à continuidade das reformas, podem elevar os prêmios de risco e gerar uma trajetória para a inflação acima do projetado no horizonte relevante para a política monetária.",
+   "status": "alterado",
+   "paragrafo_anterior": 10,
+   "similaridade": 0.78,
+   "diff": "Por outro lado, ~~o aumento da potência da política monetária,~~ **políticas fiscais de resposta à pandemia que piorem** a ~~dete rioração~~ **trajetória fiscal** do ~~cenário externo~~ **país de forma prolongada,** ou frustrações em relação à continuidade das ~~reformas~~ **reformas,** podem elevar os prêmios de risco e gerar uma trajetória ~~da~~ **para a** inflação acima do projetado no horizonte relevante para a política monetária."
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Com relação à economia global, o Comitê entende que, assim como em outras crises internacionais, o aumento d a aversão ao risco e a consequente realocação de ativos tornam o ambiente desafiador para os países emergentes. Em contraste com outras crises mais recentes, em que o epicentro estava localizado no Hemisfério Norte, nessa ele se desloca para todos os países, juntamente com a pandemia. 2 Valor obtido pelo procedimento usual de arredondar a cotação média da taxa de câmbio R$/US$ observada nos cinco dias úteis encerrados no último dia da semana anterior à da reunião do Copom. Banco Central do Brasil 230ª Reunião do Copom Além disso, projeções apontam para uma recessão global com poucos precedentes históricos. Esses dois fatores ajudam a explicar uma saída de capitais de países emergentes significativamente superior à ocorrida em episódios anteriores. Entre os emergentes, aqueles com maior vulnerabilidade fiscal tendem a ser os mais prejudicados.",
+   "status": "alterado",
+   "paragrafo_anterior": 13,
+   "similaridade": 0.45,
+   "diff": "~~O~~ **Com relação à economia global, o** Comitê entende ~~que as informações disponíveis já são suficientes~~ **que, assim como em outras crises internacionais, o aumento d a aversão ao risco e a consequente realocação de ativos tornam o ambiente desafiador** para ~~evidenciar que a pandemia terá efeito contracionista extremamente significativo sobre a atividade global. As medidas fiscais e monetárias adotadas pelas principais economias tendem a mitigar apenas uma pequ ena parcela desses efeitos. Para~~ os países ~~emergentes,~~ **emergentes. Em contraste com outras crises mais recentes, em que** o ~~ambiente rapidamente~~ **epicentro estava localizado no Hemisfério Norte, nessa ele** se **desloca para todos os países, juntamente com a pandemia.** 2 Valor obtido pelo procedimento usual de arredondar a cotação média da taxa de câmbio R$/US$ observada nos cinco dias úteis encerrados ~~na sexta -feira~~ **no último dia da semana** anterior à **da** reunião do Copom. Banco Central do Brasil ~~229ª~~ **230ª** Reunião do Copom ~~transformou~~ **Além disso, projeções apontam para uma recessão global com poucos precedentes históricos. Esses dois fatores ajudam a explicar uma saída** de ~~favorável para desafiador. Assim como~~ **capitais de países emergentes significativamente superior à ocorrida** em ~~outras crises internacionais, o aumento de aversão ao risco e~~ **episódios anteriores. Entre os emergentes, aqueles com maior vulnerabilidade fiscal tendem** a ~~consequente realocação de ativos estão provocando substancial aperto nas condições financeiras.~~ **ser os mais prejudicados.**"
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom discutiram a evolução da atividade econômica doméstica à luz dos indicadores e informações disponíveis. Avaliaram que, embora haja poucos dados disponíveis para o mês de abril, há evidência suficiente de que a economia sofrerá forte contração no segundo trimestre d este ano. Os membros também d ebateram sobre a velocidade da recuperação econômica. Refletiram que, a menos de avanços médicos no combate à pandemia, é plausível um cenário em que a retomada, além de mais gradual do que a considerada, seja caraterizada por idas e vindas. O cenário básico considerado pelo Copom passou a ser de uma queda forte do PIB na primeira metade deste ano, seguid a de uma recuperação gradual a partir do terceiro trimestre deste ano.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom discutiram a respeito do nível de ociosidade na economia. Reafirmaram sua opinião de que o impacto da pandemia sobre a economia brasileira será desinflacionário e associado a forte aumento do nível de ociosidade dos fatores de produção. A elevação abrupta da incerteza sobre a economia deve resultar em aumento da poupança precaucional e consequente redução significativa da demanda agregada.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "O Comitê então discutiu a potencial existência de um limite efetivo mínimo para a taxa básica de juros brasileira. A maioria dos membros ponderou que o limite seria significativamente maior em economias emergentes do que em países desenvolvidos, devido à presença de um prêmio de risco. Foi ressaltado que esse prêmio tende a ser maior no Brasil, dadas a sua relativa fragilidade fiscal e as incertezas quanto à sua trajetória fiscal prospectiva. Nesse contexto, já estaríamos próximos do nível onde reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade nos mercados financeiros e nos preços de ativos. Por outro lado, um membro argument ou que, em princípio, não há razão para a existência de tal limite mínimo operacional, já que os tradicionais canais da política monetária continuariam operantes, sem descontinuidades, embora, possivelmente, com um aumento do efeito de variações da taxa de juros básica sobre os preços de ativos financeiros. O Comitê como um todo reconheceu a importância de gradualismo na condução da política monetária para avaliação da resposta dos preços de ativos financeiros.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Finalmente, refletiu-se sobre a taxa de juros estrutural da economia, que, na avaliação do Comitê, também espelha as expectativas dos agentes sobre a trajetória fiscal prospectiva. Para o Copom, a interação da deterioração do cenário externo com frustrações em relação à continuidade das reformas e possíveis alterações de caráter permanente no processo de ajuste das contas públicas pode ameaçar o processo de queda dos juros estruturais.",
+   "status": "alterado",
+   "paragrafo_anterior": 16,
+   "similaridade": 0.75,
+   "diff": "~~O Copom refletiu~~ **Finalmente, refletiu-se** sobre a taxa de juros ~~estrutura l~~ **estrutural** da ~~economia e como essa poderá evoluir nos próximos meses. Na~~ **economia, que, na** avaliação do Comitê, **também espelha as expectativas dos agentes sobre** a ~~possível~~ **trajetória fiscal prospectiva. Para o Copom, a** interação ~~entre a~~ **da** deterioração do cenário ~~externo,~~ **externo** com frustrações em relação à continuidade das reformas e possíveis alterações de caráter permanente no processo de ajuste das contas ~~públicas,~~ **públicas** pode ameaçar ~~a~~ **o processo de** queda dos juros ~~estruturais observada nos últimos anos.~~ **estruturais.**"
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Por outro lado, o Copom reconhece que, neste momento, o choque desinflacionário de demanda, ainda que associado a maior fragilidade fiscal, iniciou um processo de revisão para baixo nas expectativas de inflação, para níveis não compatíveis com as metas, em particular para o horizonte relevante da política monetária. Es se movimento ocorre tanto nas expectativas coletadas pela pesquisa Focus quanto nas expectativas implícitas nos títulos públicos. O Comitê reafirma seu compromisso com a meta para a inflação estabelecida pelo Conselho Monetário Nacional, que sempre foi e segue sendo o principal objetivo da política monetária.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 18,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Dois membros do Comitê ponderaram que, mesmo com a possibilidade de elevação da taxa de juros estrutural, poderia ser oportuno prover todo o estímulo necessário de imediato, em conjunto com a sinalização de manutenção da taxa básica de juros pelos próximos meses, de modo a reduzir os riscos de não cumprimento da meta para a inflação de 2021.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 19,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Entretanto, foi preponderante a avaliação de que, frente à conjuntura de elevada incerteza doméstica, o espaço remanescente para utilização da política monetária é incerto e pode ser pequeno. Assim, o Copom optou por uma provisão de estímulo mais moderada, com o benefício de acumular mais informação até sua próxima reunião.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 20,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, reduzir a taxa básica de juros em 0, 75 ponto percentual, para 3, 00% a.a. O Comitê entende que essa decisão reflete seu cenár io básico e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é compatível com a convergência da inflação para a meta no horizonte relevante, que inclui o ano-calendário de 2021.",
+   "status": "alterado",
+   "paragrafo_anterior": 20,
+   "similaridade": 0.96,
+   "diff": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, reduzir a taxa básica de juros em ~~0,5~~ **0, 75** ponto percentual, para ~~3,75%~~ **3, 00%** a.a. O Comitê entende que essa decisão reflete seu ~~cenário~~ **cenár io** básico e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é ~~compatív el~~ **compatível** com a convergência da inflação para a meta no horizonte relevante, que inclui o ~~ano -calendário 2020 e, principalmente,~~ **ano-calendário** de 2021."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira é essencial para permitir a recuperação sustentável da economia. O Comitê ressalta, ainda, que questionamentos sobre a continuidade das reformas e alterações de caráter permanente no processo de ajuste das contas públicas podem elevar a taxa de juros estrutural da economia.",
+   "status": "alterado",
+   "paragrafo_anterior": 16,
+   "similaridade": 0.53,
+   "diff": "O Copom ~~refletiu~~ **avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira é essencial para permitir a recuperação sustentável da economia. O Comitê ressalta, ainda, que questionamentos** sobre a ~~taxa de juros estrutura l da economia e como essa poderá evoluir nos próximos meses. Na avaliação do Comitê, a possível interação entre a deterioração do cenário externo, com frustrações em relação à~~ continuidade das reformas e ~~possíveis~~ alterações de caráter permanente no processo de ajuste das contas ~~públicas, pode ameaçar~~ **públicas podem elevar** a ~~queda dos~~ **taxa de** juros ~~estruturais observada nos últimos anos.~~ **estrutural da economia.**"
+  },
+  {
+   "paragrafo": 22,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom entende que, neste momento, a conjuntura econômica prescreve estímulo monetário extraordinariamente elevado, mas reforça que há Banco Central do Brasil 230ª Reunião do Copom potenciais limitações para o grau de ajuste adicional. O Comitê avalia que a trajetória fiscal ao longo do próximo ano, assim como a percepção sobre sua sustentabilidade, serão decisivas para determinar o prolongamento do estímulo.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 23,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Para a próxima reunião, condicional ao cenário fiscal e à conjuntura econômica, o Comitê considera um último ajuste, não maior do que o atual, para complementar o grau de estímulo necessário como reação às consequências econômicas da pandemia da Covid-19. No entanto, o Comitê reconhece que se elevou a variância do seu balanço de riscos e ressalta que novas informações sobre os efeitos da pandemia, assim como uma diminuição das incertezas no âmbito fiscal, serão essenciais para definir seus próximos passos.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 24,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Carolina de Assis Barros, Fabio Kanczuk, Fernanda Feitosa Nechio, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza.",
+   "status": "alterado",
+   "paragrafo_anterior": 25,
+   "similaridade": 0.95,
+   "diff": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Carolina de Assis Barros, Fabio Kanczuk, Fernanda Feitosa Nechio, ~~João Manoel Pinho de Mello,~~ Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza."
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Dados de atividade econômica divulgados desde a última reunião do Copom vinham em linha com o processo de recuperação gradual da economia brasileira. Entretanto, esses dados ainda não refletem os impactos da pandemia de COVID -19 na economia brasileira."
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "As projeções de curto prazo foram influenciadas significativamente pelos movimentos recentes nas cotações de commodities, em particular pelas expressivas retrações dos preços internacionais de petróleo, que repercutem rapidamente sobre os preços domésticos de combustíveis. As implicações da pandemia sobre o segmento de serviços, notadamente, sobre os preços de passagens aéreas, provavelmente irão se refletir nas leituras mensais de inflação, sobretudo a partir de maio."
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom discutiram a evolução da atividade econômica à luz dos indicadores e informações disponíveis. Avaliaram que os dados divulgados desde sua reunião anterior tiveram desempenho em linha com o esperado. Contudo, por ainda não refletirem os impactos da pandemia na economia brasileira, os mesmos te riam pouca relevância para a análise prospectiva."
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom deram continuidade ao debate a respeito do nível de ociosidade na economia. Frente aos dados disponíveis, o Copom concluiu que a economia continuava seu processo de recuperação gradual e que seguia o processo de fechamento do hiato. Contudo, h ouve consenso de que, no atual contexto da pandemia, o grau de ociosidade mensurado ficou defasado."
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "O Comitê então discutiu como a pandemia afeta a economia brasileira e, em particular, os cenários para a inflação prospectiva. O Copom c oncluiu que há três principais canais de transmissão. Primeiro, um choque de oferta, derivado da interrupção das cadeias produtivas. Segundo, um choque nos custos de produção, mensurado pela variação de preços das commodities e de importantes ativos financ eiros. Terceiro, uma re tração de demanda, proveniente do aumento da incerteza e das restrições impostas pela pandemia."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Na avaliação do Comitê, o primeiro efeito te rá pouca importância quantitativa, devido à pouca interligação da economia brasileira com as cadeias de produção mundiais. O segundo efeito provavelmente implicará forte impacto desinflacionário no curto prazo. Contudo, sua importância deve ser relativizada, devido à sua natureza temporária e à volatilidade dos preços das commodities medidos em moeda local. Finalmente, o terceiro efeito tende a ser bastante significativo no horizonte relevante para a política monetária porque os efeitos da pandemia sobre a atividade podem ser expressivos. De acordo com s imulações apresentadas na reunião do Copom, para compensar este terceiro efeito, seria necessária uma redução da taxa básica de juros superior a 0,50 ponto percentual."
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Em vista dessa percepção, o Comitê ponderou que uma redução da taxa básica de juros além de 0,50 ponto percentual poderia tornar-se contraproducente e resultar em apertos nas condições financeiras, com resultado líquido oposto ao desejado. Com base nas informações disponíveis até o momento, o Comitê vê como adequada a manutenção da taxa Selic em seu novo patamar. No entanto, o Comitê reconhece que novas informações sobre a conjuntura econômica serão essenciais para definir seus próximos passos."
+  },
+  {
+   "paragrafo": 18,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membro s do Comitê também discutiram a efetividade d a política monetária como política de estímulo à demanda. Concluíram que, embora neste momento seus efeitos s ejam limitados, os mesmos serão relevantes para acelerar a recuperação econômica, quando as restrições impostas pela pandemia começarem a arrefecer."
+  },
+  {
+   "paragrafo": 19,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Finalmente, o Copom avaliou o balanço de riscos em torno do cenário básico. Concluiu que, neste momento, o balanço de riscos tem variância maior do que a usual. Na visão do Comitê, a maior variância no balanço de riscos não necessariamente implica gradualismo na condução da política monetária, mas que a magnitude das próximas de cisões de política monetária esteja sujeita a maior incerteza."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom reitera que a conjuntura econômica prescreve política monetária estimulativa, ou seja, com taxas de juros abaixo da taxa estrutural."
+  },
+  {
+   "paragrafo": 22,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom enfatiza que perseverar no processo de reformas e ajustes necessários na economia brasileira é essencial para permitir a recuperação sustentável da economia. O Comitê ressalta, ainda, que questionamentos sobre a continuidade das r eformas e alterações de caráter permanente no processo de ajuste das contas públicas têm o potencial de elevar a taxa de juros estrutural da economia. Nessa situação, relaxamentos monetários adicionais podem tornar-se contraproducentes se resultarem em ape rto nas condições financeiras."
+  },
+  {
+   "paragrafo": 23,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom entende que a atual conjuntura prescreve cautela na condução da política monetária, e neste momento vê como adequada a manutenção da taxa Selic em seu novo patamar. No entanto, o Comitê reconhece que se elevou a vari ância do seu balanço de riscos e novas informações sobre a conjuntura econômica serão essenciais para definir seus próximos passos."
+  },
+  {
+   "paragrafo": 24,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Banco Central do Brasil ressalta que continuará fazendo uso de todo o seu arsenal de medidas de políticas monetária, camb ial e de estabilidade financeira no enfrentamento da crise atual."
+  }
+ ]
+}

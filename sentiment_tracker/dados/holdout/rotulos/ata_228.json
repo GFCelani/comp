@@ -1,0 +1,334 @@
+{
+ "ata": 228,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "indicam a continuidade do processo de recuperação gradual da economia brasileira",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "apesar do recente aumento de incerteza, o caráter acomodatício da política monetária nas principais economias",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Diversas medidas de inflação subjacente encontram-se em níveis compatíveis com o cumprimento da meta",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "As expectativas de inflação para 2020, 2021 e 2022",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as projeções condicionais para a inflação situam-se ao redor de 3,5% para 2020 e 3,7% para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as projeções situam-se em torno de 3,5% para 2020 e 3,8% para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o nível de ociosidade elevado pode continuar produzindo trajetória prospectiva abaixo do esperado",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o atual grau de estímulo monetário, que atua com defasagens sobre a economia, pode elevar a trajetória da inflação acima do esperado",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "os dados recentes de produção industrial e os indicadores preliminares de investimento tiveram desempenho abaixo do esperado",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "a dicotomia d os últimos dados sugere que pode haver menos espa ço de ociosidade do que o mensurado",
+   "padroes": [
+    "P06",
+    "P13"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "sinaliza que a ociosidade dos fatores de produção ainda é elevada",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Concluíram que essas se encontram em níveis favoráveis",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "outro",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Comitê julga que as transformações do mercado de crédito e capitais tendem a aumentar a potência da política monetária.",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "O eventual prolongamento ou intensificação do surto implicaria uma desaceleração adicional do crescimento global",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "produz inflação abaixo da meta para 2020 e ao redor da meta para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "prescreve política monetária estimulativa, ou seja, taxas de juros abaixo da taxa estrutural",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom considera que é importante observar os efeitos do ciclo de estímulo monetário iniciado em 2019",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Copom julga que é fundamental observar a evolução da atividade econômica e das projeções e expectativas de inflação ao longo dos próximos meses",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, pela redução da taxa básica de juros em 0,25 ponto percentual, para 4,25% a.a.",
+   "padroes": [
+    "P06",
+    "P15"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "a conjuntura econômica prescreve política monetária estimulativa",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "fiscal_credito",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "perseverar nesse processo é essencial para permitir a consolidação da queda da taxa de juros estrutural",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": 2,
+   "sinal": 2,
+   "trecho": "o Comitê vê como adequad a a interrupção do processo de flexibilização monetária",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 23,
+   "paragrafo_anterior": 21,
+   "direcao": 2,
+   "trecho": "o Comitê vê como adequad a a interrupção do processo de flexibilização monetária",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "O Copom sinaliza que encerra o ciclo de cortes da Selic."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o Copom considera que é importante observar os efeitos do ciclo de estímulo monetário iniciado em 2019",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Comitê quer esperar os efeitos dos cortes já feitos antes de agir."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 19,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "é fundamental observar a evolução da atividade econômica e das projeções e expectativas de inflação ao longo dos próximos meses",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Pausa por alguns meses para observar, reforçando o fim dos cortes."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 15,
+   "paragrafo_anterior": 15,
+   "direcao": -1,
+   "trecho": "O eventual prolongamento ou intensificação do surto implicaria uma desaceleração adicional do crescimento global",
+   "padroes": [],
+   "explicacao": "Coronavírus entra como risco de desaceleração mundial, o que é desinflacionário."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 10,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "tiveram desempenho abaixo do esperado",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Produção e investimento vieram mais fracos que o esperado."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 16,
+   "paragrafo_anterior": 16,
+   "direcao": -1,
+   "trecho": "produz inflação abaixo da meta para 2020",
+   "padroes": [
+    "P08",
+    "P10"
+   ],
+   "explicacao": "Projeção para 2020 passa de ligeiramente abaixo para abaixo da meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 12,
+   "paragrafo_anterior": 14,
+   "direcao": -1,
+   "trecho": "sinaliza que a ociosidade dos fatores de produção ainda é elevada",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Parte do comitê reforça que ainda há muita folga na economia."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.4,
+  "surpresa": 0.3,
+  "explicacao": "Corte de 0,25 p.p., mas a ata sinaliza interrupção do afrouxamento e observação dos efeitos defasados; diagnóstico de inflação abaixo da meta e coronavírus como risco baixista."
+ }
+}

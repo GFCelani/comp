@@ -1,0 +1,336 @@
+{
+ "ata": 233,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "tem resultado em um ambiente relativamente mais favorável para economias emergentes",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "vêm permitindo que a economia brasileira se recupere relativamente mais rápido que a d os demais países emergentes",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Diversas medidas de inflação subjacente permanecem abaixo dos níveis compatíveis com o cumprimento da meta",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "encontram-se em torno de 1,9%, 3,0% e 3,5%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "A inflação ao consumidor deve se elevar no curto prazo.",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "situam-se em torno de 2,1% para 2020, 2,9% para 2021 e 3,3% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "as projeções de inflação situam-se em torno de 2,1% para 2020, 3,0% para 2021 e 3,8% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "notadamente quando essa ociosidade está concentrada no setor de serviços",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Por outro lado, políticas fiscais de resposta à pandemia que piorem a trajetória fiscal do país de forma prolongada",
+   "padroes": [
+    "P03",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "há, contudo, bastante incerteza sobre a evolução desse cenário benigno",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "podem implicar um cenário doméstico caracterizado por uma retomada ainda mais gradual da economia",
+   "padroes": [
+    "P13",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "pressões desinflacionárias provenientes da redução de demanda podem ter duração maior do que em recessões anteriores",
+   "padroes": [
+    "P13",
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "já estaríamos próximos do nível a partir do qual reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade",
+   "padroes": [
+    "P07",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o Comitê concluiu que eventuais novas reduções na taxa de juros exigiriam cautela e gradualismo adicionais",
+   "padroes": [
+    "P01",
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Copom passou a utilizar uma “prescrição futura”",
+   "padroes": [
+    "P04"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom não elevaria a taxa de juros, mas poderia reduzi-la",
+   "padroes": [
+    "P01",
+    "P04",
+    "P16"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "à manutenção do regime fiscal, já que sua ruptura implicaria alterações significativas para a taxa de juros estrutural da economia",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "as projeções de inflação de seu cenário básico encontram-se significativamente abaixo da meta de inflação",
+   "padroes": [
+    "P01",
+    "P08"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, manter a taxa básica de juros em 2,00% a.a.",
+   "padroes": [
+    "P06",
+    "P15"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Copom avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira",
+   "padroes": [
+    "P12",
+    "P16"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Copom entende que a conjuntura econômica continua a prescrever estímulo monetário",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom não pretende reduzir o grau de estímulo monetário",
+   "padroes": [
+    "P01",
+    "P04"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 20,
+   "direcao": 1,
+   "trecho": "manter a taxa básica de juros em 2,00% a.a.",
+   "padroes": [
+    "P16"
+   ],
+   "explicacao": "Fim dos cortes: Selic mantida em 2%, como já indicado."
+  },
+  {
+   "tipo": "removido",
+   "paragrafo": null,
+   "paragrafo_anterior": 14,
+   "direcao": 1,
+   "trecho": "o Comitê concluiu que seria apropriado aumentar residualmente o grau de estímulo monetário",
+   "padroes": [
+    "P09"
+   ],
+   "explicacao": "Sai a justificativa para cortar mais."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 19,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "encontram-se significativamente abaixo da meta de inflação",
+   "padroes": [
+    "P01",
+    "P08"
+   ],
+   "explicacao": "Condições para manter juros baixos seguem plenamente satisfeitas."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 2,
+   "paragrafo_anterior": 2,
+   "direcao": 1,
+   "trecho": "se recupere relativamente mais rápido que a d os demais países emergentes",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Economia brasileira se recupera mais rápido que a de pares."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 5,
+   "paragrafo_anterior": 5,
+   "direcao": 1,
+   "trecho": "A inflação ao consumidor deve se elevar no curto prazo.",
+   "padroes": [
+    "P17"
+   ],
+   "explicacao": "Inflação de curto prazo sobe, embora por fatores temporários."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -0.8,
+  "surpresa": -0.1,
+  "explicacao": "Selic mantida em 2% e forward guidance reafirmado: condições satisfeitas, com projeções significativamente abaixo da meta; alta de inflação de curto prazo tratada como temporária."
+ }
+}

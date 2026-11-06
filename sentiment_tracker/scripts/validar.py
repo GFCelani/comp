@@ -14,7 +14,8 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[1]
-LOTES = RAIZ / "dados" / "lotes"
+import os
+LOTES = RAIZ / "dados" / os.environ.get("TOM_LOTES", "lotes")
 import os
 ROTULOS = RAIZ / "dados" / os.environ.get("TOM_ROTULOS", "rotulos")
 DIMENSOES = {"inflacao_corrente", "expectativas", "balanco_riscos", "atividade_trabalho", "fiscal_credito",

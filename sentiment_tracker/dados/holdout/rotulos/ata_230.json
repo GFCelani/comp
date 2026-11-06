@@ -1,0 +1,360 @@
+{
+ "ata": 230,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "o ambiente para as economias emergentes segue desafiador, com saída de capitais significativamente superior à de episódios anteriores",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "a contração da atividade econômica será significativamente superior à prevista na última reunião do Copom",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "Diversas medidas de inflação subjacente se encontram abaixo dos níveis compatíveis com o cumprimento da meta",
+   "padroes": [
+    "P10"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "encontram-se em torno de 2,0%, 3,3% e 3,5%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "incorporam a perspectiva de deflação significativa nos próximos meses",
+   "padroes": [],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Os cenários a seguir supõem que o preço do petróleo (Brent) subirá cerca de 40%",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "No cenário híbrido, com trajetória para a taxa de juros extraída da pesquisa Focus",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "inflacao_corrente",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "as projeções situam-se em torno de 2,3% para 2020 e 3,2% para 2021",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [
+    "P03"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "redução da demanda agregada com magnitude ou duração ainda maiores do que as estimadas",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "políticas fiscais de resposta à pandemia que piorem a trajetória fiscal do país de forma prolongada",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "externo",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Entre os emergentes, aqueles com maior vulnerabilidade fiscal tendem a ser os mais prejudicados.",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "há evidência suficiente de que a economia sofrerá forte contração no segundo trimestre d este ano",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o impacto da pandemia sobre a economia brasileira será desinflacionário e associado a forte aumento do nível de ociosidade",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "já estaríamos próximos do nível onde reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade nos mercados financeiros",
+   "padroes": [
+    "P06",
+    "P07"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "pode ameaçar o processo de queda dos juros estruturais.",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "expectativas",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "iniciou um processo de revisão para baixo nas expectativas de inflação, para níveis não compatíveis com as metas",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "orientacao_futura",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "poderia ser oportuno prover todo o estímulo necessário de imediato",
+   "padroes": [
+    "P06"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "o espaço remanescente para utilização da política monetária é incerto e pode ser pequeno",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "decisao_votacao",
+   "tom": -2,
+   "sinal": 2,
+   "trecho": "o Copom decidiu, por unanimidade, reduzir a taxa básica de juros em 0, 75 ponto percentual",
+   "padroes": [
+    "P06",
+    "P15"
+   ],
+   "confianca": 0.8
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "alterações de caráter permanente no processo de ajuste das contas públicas podem elevar a taxa de juros estrutural da economia.",
+   "padroes": [
+    "P07",
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "orientacao_futura",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "prescreve estímulo monetário extraordinariamente elevado, mas reforça que há",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 23,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "o Comitê considera um último ajuste, não maior do que o atual",
+   "padroes": [
+    "P01"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 24,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 20,
+   "direcao": -2,
+   "trecho": "reduzir a taxa básica de juros em 0, 75 ponto percentual",
+   "padroes": [
+    "P15"
+   ],
+   "explicacao": "Corte maior que o anterior, de 0,75 ponto."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 23,
+   "paragrafo_anterior": 23,
+   "direcao": -1,
+   "trecho": "o Comitê considera um último ajuste, não maior do que o atual",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Troca a indicação de manutenção por mais um corte, embora seja o último."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "iniciou um processo de revisão para baixo nas expectativas de inflação, para níveis não compatíveis com as metas",
+   "padroes": [
+    "P11"
+   ],
+   "explicacao": "Expectativas de inflação caem abaixo da meta, o que pede mais estímulo."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 18,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "poderia ser oportuno prover todo o estímulo necessário de imediato",
+   "padroes": [
+    "P06"
+   ],
+   "explicacao": "Dois membros defendiam cortar mais já."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 15,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "já estaríamos próximos do nível onde reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade",
+   "padroes": [
+    "P07"
+   ],
+   "explicacao": "Maioria vê juro perto de um piso por causa do risco fiscal."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 19,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "o espaço remanescente para utilização da política monetária é incerto e pode ser pequeno",
+   "padroes": [
+    "P01"
+   ],
+   "explicacao": "Pouco espaço para novos cortes."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 3,
+   "paragrafo_anterior": 3,
+   "direcao": -1,
+   "trecho": "abaixo dos",
+   "padroes": [
+    "P10"
+   ],
+   "explicacao": "Núcleos de inflação passam a estar abaixo do compatível com a meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 2,
+   "paragrafo_anterior": null,
+   "direcao": -1,
+   "trecho": "a contração da atividade econômica será significativamente superior à prevista na última reunião do Copom",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "A recessão será mais funda do que se previa."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": -1.0,
+  "surpresa": -0.2,
+  "explicacao": "Corte de 0,75 p.p. e indicação de um último ajuste não maior; diagnóstico fortemente desinflacionário, contrabalançado por limite efetivo mínimo e risco fiscal que restringem cortes adicionais."
+ }
+}

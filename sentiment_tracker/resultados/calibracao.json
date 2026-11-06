@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T14:08:39-03:00",
+ "gerado_em": "2026-11-06T14:46:24-03:00",
  "alvo": "rotulo_surpresa = média de surpresa dos analistas (peso 1) e z da variação do prefixado 2 anos no dia da ata (peso 0 a 0,5 conforme contaminação por outros eventos)",
  "features": [
   "claude_surpresa",
@@ -7,114 +7,192 @@
   "delta_nivel",
   "lex_delta_z"
  ],
- "estimador_escolhido": "claude_surpresa",
+ "estimador_escolhido": "claude_encolhida",
  "correlacao_loo_candidatos": {
-  "media_sinais": 0.539,
-  "claude_surpresa": 0.626,
-  "ridge": 0.537
+  "media_sinais": 0.401,
+  "claude_surpresa": 0.388,
+  "claude_encolhida": 0.441,
+  "claude_mudancas": 0.33,
+  "ridge": 0.261
  },
  "regra_escolha": "maior correlação leave-one-out; ridge só se superar o melhor sem ajuste por > 0,03",
  "candidatos_vs_rotulo": {
   "media_sinais": {
    "n": 46,
-   "correlacao": 0.539,
-   "acerto_direcao": 0.826,
+   "correlacao": 0.401,
+   "acerto_direcao": 0.696,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.533
+   "erro_medio_abs": 0.608
   },
   "claude_surpresa": {
    "n": 46,
-   "correlacao": 0.626,
-   "acerto_direcao": 0.826,
+   "correlacao": 0.388,
+   "acerto_direcao": 0.696,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.468
+   "erro_medio_abs": 0.6
+  },
+  "claude_encolhida": {
+   "n": 46,
+   "correlacao": 0.441,
+   "acerto_direcao": 0.696,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.573
+  },
+  "claude_mudancas": {
+   "n": 46,
+   "correlacao": 0.33,
+   "acerto_direcao": 0.783,
+   "n_direcionais": 23,
+   "erro_medio_abs": 0.801
   },
   "ridge": {
    "n": 46,
-   "correlacao": 0.537,
-   "acerto_direcao": 0.826,
+   "correlacao": 0.261,
+   "acerto_direcao": 0.696,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.494
+   "erro_medio_abs": 0.614
   }
  },
  "pesos_ridge": {
-  "claude_surpresa": 0.68,
-  "mudancas": -0.023,
-  "delta_nivel": -0.018,
-  "lex_delta_z": 0.144
+  "claude_surpresa": 0.382,
+  "mudancas": 0.034,
+  "delta_nivel": -0.11,
+  "lex_delta_z": 0.24
  },
- "intercepto_ridge": 0.08,
+ "intercepto_ridge": 0.121,
  "loo_vs_rotulo": {
   "n": 46,
-  "correlacao": 0.626,
-  "acerto_direcao": 0.826,
+  "correlacao": 0.441,
+  "acerto_direcao": 0.696,
   "n_direcionais": 23,
-  "erro_medio_abs": 0.468
+  "erro_medio_abs": 0.573
  },
  "loo_vs_analistas": {
   "n": 46,
-  "correlacao": 0.58,
-  "acerto_direcao": 0.826,
+  "correlacao": 0.489,
+  "acerto_direcao": 0.696,
   "n_direcionais": 23,
-  "erro_medio_abs": 0.55
+  "erro_medio_abs": 0.577
  },
  "loo_vs_di_dias_limpos": {
   "n": 36,
-  "correlacao": 0.542,
-  "acerto_direcao": 0.682,
+  "correlacao": 0.153,
+  "acerto_direcao": 0.5,
   "n_direcionais": 22,
-  "erro_medio_abs": 0.991,
+  "erro_medio_abs": 1.074,
   "nota": "d_pre2 em dezenas de pb; só atas com peso_mercado > 0"
+ },
+ "loo_vs_mercado_z_dias_limpos": {
+  "n": 36,
+  "correlacao": 0.092,
+  "acerto_direcao": 0.409,
+  "n_direcionais": 22,
+  "erro_medio_abs": 0.958,
+  "nota": "z médio do prefixado 1a/2a em 1 e 2 dias (melhoria A); peso_mercado > 0"
  },
  "sinais_isolados_vs_rotulo": {
   "claude_surpresa": {
    "n": 46,
-   "correlacao": 0.626,
-   "acerto_direcao": 0.826,
+   "correlacao": 0.388,
+   "acerto_direcao": 0.696,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.468
+   "erro_medio_abs": 0.6
   },
   "mudancas": {
    "n": 46,
-   "correlacao": 0.4,
-   "acerto_direcao": 0.696,
+   "correlacao": 0.297,
+   "acerto_direcao": 0.739,
    "n_direcionais": 23,
-   "erro_medio_abs": 1.146
+   "erro_medio_abs": 1.193
   },
   "delta_nivel": {
    "n": 46,
-   "correlacao": 0.357,
-   "acerto_direcao": 0.609,
+   "correlacao": 0.228,
+   "acerto_direcao": 0.522,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.582
+   "erro_medio_abs": 0.658
   },
   "lex_delta_z": {
    "n": 46,
-   "correlacao": 0.345,
+   "correlacao": 0.348,
    "acerto_direcao": 0.739,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.717
+   "erro_medio_abs": 0.736
   },
   "claude_nivel": {
    "n": 46,
-   "correlacao": 0.323,
-   "acerto_direcao": 0.652,
+   "correlacao": 0.21,
+   "acerto_direcao": 0.609,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.873
+   "erro_medio_abs": 0.924
   },
   "nivel": {
    "n": 46,
-   "correlacao": 0.313,
-   "acerto_direcao": 0.652,
+   "correlacao": 0.238,
+   "acerto_direcao": 0.565,
    "n_direcionais": 23,
-   "erro_medio_abs": 0.835
+   "erro_medio_abs": 0.838
   }
  },
  "base_ingenua_zero": {
-  "erro_medio_abs": 0.561,
+  "erro_medio_abs": 0.583,
   "nota": "prever sempre 'em linha' (0)"
  },
- "intervalo_previsao_95": 1.223,
+ "intervalo_previsao_95": 1.459,
  "n_atas_treino": 46,
- "aviso": "Amostra curta (atas desde 2021, n≈45): intervalos largos. Os padrões da Skill foram extraídos das mesmas atas; o leave-one-out cobre os pesos, não os padrões."
+ "aviso": "Amostra curta (atas desde 2021, n≈45): intervalos largos. Os padrões da Skill foram extraídos das mesmas atas; o leave-one-out cobre os pesos, não os padrões.",
+ "confianca_por_faixa": {
+  "baixa": {
+   "n": 17,
+   "conf_min": 28,
+   "conf_max": 42,
+   "acerto_direcao": 0.556,
+   "n_direcionais": 9,
+   "erro_medio_abs": 0.59
+  },
+  "media": {
+   "n": 14,
+   "conf_min": 43,
+   "conf_max": 53,
+   "acerto_direcao": 0.75,
+   "n_direcionais": 8,
+   "erro_medio_abs": 0.547
+  },
+  "alta": {
+   "n": 15,
+   "conf_min": 55,
+   "conf_max": 73,
+   "acerto_direcao": 0.833,
+   "n_direcionais": 6,
+   "erro_medio_abs": 0.579
+  }
+ },
+ "congelado": {
+  "estimador": "claude_encolhida",
+  "lex_nivel_media": 2.0142608695652173,
+  "lex_nivel_dp": 1.6042439054621838,
+  "lex_delta_dp": 0.9982648390526878,
+  "pesos_ridge": [
+   0.38153822689795874,
+   0.03421920298439236,
+   -0.11046324295809323,
+   0.24029814742132047
+  ],
+  "intercepto_ridge": 0.1210655305953992,
+  "intervalo_previsao_95": 1.4592265407292604,
+  "cortes_confianca": [
+   [
+    28,
+    0.556
+   ],
+   [
+    43,
+    0.75
+   ],
+   [
+    55,
+    0.833
+   ]
+  ]
+ }
 }

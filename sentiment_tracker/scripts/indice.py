@@ -69,7 +69,7 @@ def por_ata(r: dict) -> dict:
     dims = df.groupby("dimensao")["tom"].mean().round(2).to_dict()
     sinal = df[df["sinal"] >= 1]
     return {
-        "ata": r["ata"], "n_paragrafos": len(df), "n_nao_zero": int((df["tom"] != 0).sum()),
+        "ata": r["ata"], "reserva": r.get("rotulador") == "modelo_reserva", "n_paragrafos": len(df), "n_nao_zero": int((df["tom"] != 0).sum()),
         "nivel_ponderado": nivel_ponderado(df), "ic_lo": lo, "ic_hi": hi,
         "media_simples": float(df["tom"].mean()),
         "media_sem_zeros": float(df.loc[df["tom"] != 0, "tom"].mean()) if (df["tom"] != 0).any() else None,
@@ -99,7 +99,7 @@ def main():
     lex = pd.read_csv(DADOS / "lexico.csv")
     reac = pd.read_csv(DADOS / "reacao.csv")
     a = a.merge(lex, on="ata", how="left").merge(
-        reac[["ata", "data_publicacao", "surpresa_analistas", "rotulo_surpresa", "d_pre2", "z_pre2", "peso_mercado",
+        reac[["ata", "data_publicacao", "surpresa_analistas", "rotulo_surpresa", "d_pre2", "z_pre2", "z_mercado", "peso_mercado",
               "veredito"]], on="ata", how="left")
 
     # --- nível -------------------------------------------------------------------------------
@@ -113,6 +113,10 @@ def main():
     # Três candidatos competem fora da amostra (leave-one-out). Os dois primeiros não têm parâmetro
     # ajustado (a previsão de cada ata não usa o gabarito de nenhuma ata). Regra: vence a maior
     # correlação LOO; a ridge só vence se superar o melhor candidato sem ajuste por mais de 0,03.
+    # melhoria B: encolhe a surpresa do Claude quando os sinais independentes discordam
+    a["concord_surp"] = [concordancia([r.claude_surpresa, r.mudancas, r.lex_delta_z]) for r in a.itertuples()]
+    a["claude_encolhida"] = a["claude_surpresa"] * (0.5 + 0.5 * a["concord_surp"])
+    a["claude_mudancas"] = (a["claude_surpresa"] + a["mudancas"]) / 2
     treino = a.dropna(subset=["rotulo_surpresa"]).copy()
     X, y = treino[FEATURES].to_numpy(), treino["rotulo_surpresa"].to_numpy()
     loo_ridge = np.empty(len(y))
@@ -122,9 +126,11 @@ def main():
     ridge = Ridge(alpha=2.0).fit(X, y)
     cand = {"media_sinais": (X.mean(axis=1), 1, lambda df: df[FEATURES].mean(axis=1)),
             "claude_surpresa": (treino["claude_surpresa"].to_numpy(), 1, lambda df: df["claude_surpresa"]),
+            "claude_encolhida": (treino["claude_encolhida"].to_numpy(), 1, lambda df: df["claude_encolhida"]),
+            "claude_mudancas": (treino["claude_mudancas"].to_numpy(), 1, lambda df: df["claude_mudancas"]),
             "ridge": (loo_ridge, len(FEATURES) + 1, lambda df: pd.Series(ridge.predict(df[FEATURES].to_numpy()), index=df.index))}
     corr = {k: float(np.corrcoef(v[0], y)[0, 1]) for k, v in cand.items()}
-    sem_ajuste = max(("media_sinais", "claude_surpresa"), key=lambda k: corr[k])
+    sem_ajuste = max((k for k in cand if k != "ridge"), key=lambda k: corr[k])
     escolhido = "ridge" if corr["ridge"] > corr[sem_ajuste] + 0.03 else sem_ajuste
     loo, k, prever_fn = cand[escolhido]
     treino["surpresa_loo"] = loo
@@ -160,6 +166,9 @@ def main():
         "loo_vs_di_dias_limpos": {**metricas(limpo["surpresa_loo"] if "surpresa_loo" in limpo else
                                              loo[treino.index.isin(limpo.index)], limpo["d_pre2"] / 10),
                                   "nota": "d_pre2 em dezenas de pb; só atas com peso_mercado > 0"},
+        "loo_vs_mercado_z_dias_limpos": {**metricas(treino.loc[limpo.index, "surpresa_loo"] if False else
+                                                    loo[treino.index.isin(limpo.index)], limpo["z_mercado"].clip(-2, 2)),
+                                         "nota": "z médio do prefixado 1a/2a em 1 e 2 dias (melhoria A); peso_mercado > 0"},
         "sinais_isolados_vs_rotulo": {f: metricas(treino[f], y) for f in FEATURES + ["claude_nivel", "nivel"]},
         "base_ingenua_zero": {"erro_medio_abs": round(float(np.abs(y).mean()), 3),
                               "nota": "prever sempre 'em linha' (0)"},
@@ -177,6 +186,32 @@ def main():
         c_prec = float(np.clip(1 - (r["ic_hi"] - r["ic_lo"]) / 2, 0, 1))
         conf.append(round(100 * (0.3 * c_nivel + 0.3 * c_surp + 0.2 * c_prec + 0.2 * r["conf_rotulador"]), 0))
     a["confianca"] = conf
+    # melhoria C: a confiança prevê o acerto? acerto de direção e erro por terço de confiança (fora da amostra)
+    t = a.dropna(subset=["rotulo_surpresa", "surpresa_loo"]).copy()
+    t["faixa"] = pd.qcut(t["confianca"], 3, labels=["baixa", "media", "alta"], duplicates="drop")
+    faixas = {}
+    for f, g in t.groupby("faixa", observed=True):
+        d = g[g["rotulo_surpresa"].abs() >= 0.5]
+        faixas[str(f)] = {"n": int(len(g)), "conf_min": int(g["confianca"].min()), "conf_max": int(g["confianca"].max()),
+                          "acerto_direcao": round(float((np.sign(d["surpresa_loo"]) == np.sign(d["rotulo_surpresa"])).mean()), 3) if len(d) else None,
+                          "n_direcionais": int(len(d)),
+                          "erro_medio_abs": round(float((g["surpresa_loo"] - g["rotulo_surpresa"]).abs().mean()), 3)}
+    calib["confianca_por_faixa"] = faixas
+    cortes = sorted((v["conf_min"], v["acerto_direcao"]) for v in faixas.values())
+    def calibrar(c):
+        ac = None
+        for cmin, acc in cortes:
+            if c >= cmin and acc is not None:
+                ac = acc
+        return None if ac is None else int(round(100 * ac))
+    a["confianca_calibrada"] = a["confianca"].map(calibrar)
+    # nota do modelo reserva (sem IA, sem leitura de surpresa): confiança limitada e sem calibração
+    a.loc[a["reserva"], "confianca"] = a.loc[a["reserva"], "confianca"].clip(upper=30)
+    a.loc[a["reserva"], "confianca_calibrada"] = np.nan
+    calib["congelado"] = {"estimador": escolhido, "lex_nivel_media": float(lex["lex_nivel"].mean()),
+                          "lex_nivel_dp": float(a["lex_nivel"].std()), "lex_delta_dp": float(a["lex_delta"].std()),
+                          "pesos_ridge": final.coef_.tolist(), "intercepto_ridge": float(final.intercept_),
+                          "intervalo_previsao_95": float(meia_banda), "cortes_confianca": cortes}
 
     # --- saídas ------------------------------------------------------------------------------
     atas_meta = {x["numero"]: x for x in json.loads((BANCO / "atas.json").read_text(encoding="utf-8"))} \
@@ -195,6 +230,7 @@ def main():
             "surpresa": round(float(r["surpresa"]), 2), "surpresa_100": int(round(50 * r["surpresa"])),
             "surpresa_ip95": [round(float(r["surpresa"] - meia_banda), 2), round(float(r["surpresa"] + meia_banda), 2)],
             "confianca": int(r["confianca"]),
+            "confianca_calibrada": None if pd.isna(r["confianca_calibrada"]) else int(r["confianca_calibrada"]),
             "componentes": {k: round(float(r[k]), 2) for k in
                             ["nivel_ponderado", "claude_nivel", "lex_nivel_z", "claude_surpresa", "mudancas",
                              "delta_nivel", "lex_delta_z"]},

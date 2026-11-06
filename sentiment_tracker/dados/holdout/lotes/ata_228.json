@@ -1,0 +1,221 @@
+{
+ "ata": 228,
+ "anterior": 227,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Dados de atividade econômica divulgados desde o último Copom indicam a continuidade do processo de recuperação gradual da economia brasileira.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário externo, apesar do recente aumento de incerteza, o caráter acomodatício da política monetária nas principais economias ainda tem sido capaz de produzir ambiente relativamente favorável para economias emergentes.",
+   "status": "alterado",
+   "paragrafo_anterior": 3,
+   "similaridade": 0.73,
+   "diff": "No cenário externo, ~~a provisão~~ **apesar do recente aumento** de ~~estímulos monetários~~ **incerteza, o caráter acomodatício da política monetária** nas principais ~~economias, em contexto de inflação abaixo das metas,~~ **economias ainda** tem sido capaz de produzir ambiente relativamente favorável para economias emergentes."
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Diversas medidas de inflação subjacente encontram-se em níveis compatíveis com o cumprimento da meta para a inflação no horizonte relevante para a política monetária.",
+   "status": "alterado",
+   "paragrafo_anterior": 4,
+   "similaridade": 0.65,
+   "diff": "Diversas medidas de inflação subjacente encontram-se em níveis ~~confortáveis, inclusive os componentes mais sensíveis ao ciclo econômico e à~~ **compatíveis com o cumprimento da meta para a inflação no horizonte relevante para a** política monetária."
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "As expectativas de inflação para 2020, 2021 e 2022 apuradas pela pesquisa Fo cus encontram-se em torno de 3,4%, 3,75% e 3,5%, respectivamente.",
+   "status": "alterado",
+   "paragrafo_anterior": 5,
+   "similaridade": 0.95,
+   "diff": "As expectativas de inflação para ~~2019,~~ 2020, 2021 e 2022 apuradas pela pesquisa Fo cus encontram-se em torno de ~~3,8%, 3,6%,~~ **3,4%,** 3,75% e 3,5%, respectivamente."
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário híbrido com trajetória de taxa de juros da pesquisa Focus e taxa de câmbio constante em R$4,25/US$2, as projeções condicionais para a inflação situam-se ao redor de 3,5% para 2020 e 3,7% para 2021. Esse cenário supõe trajetória de juros que encerra 2020 em 4,25% a.a. e se eleva até 6,00% a.a. em 2021. Nesse cenário, as projeções para a inflação de preços administrados são de 3,7% para 2020 e 4,1% para 2021.",
+   "status": "alterado",
+   "paragrafo_anterior": 7,
+   "similaridade": 0.67,
+   "diff": "No cenário **híbrido** com trajetória de taxa de juros da pesquisa Focus e taxa de câmbio constante em ~~R$4,20/US$2,~~ **R$4,25/US$2,** as projeções condicionais para a inflação situam-se ao redor de ~~4,0% para 2019, 3,7%~~ **3,5%** para 2020 e 3,7% para **2021. Esse cenário supõe trajetória de juros que encerra 2020 em 4,25% a.a. e se eleva até 6,00% a.a. em** 2021. Nesse cenário, as projeções para a inflação de preços administrados são de ~~5,1% para 2019, 3,9%~~ **3,7%** para 2020 e 4,1% para 2021. ~~1 A menos de menção explícita em contrário, esta atualização leva em conta as mudanças ocorridas desde a reunião do Copom em outubro (226ª reunião).~~"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário com taxa de juros constante a 4,50% a.a. e taxa de câmbio constante a R$4,25/US$2, as projeções situam-se em torno de 3,5% para 2020 e 3,8% para 2021. Nesse cenário, as projeções para a inflação de preços administrados são de 3,7% para 2020 e 4,1% para 2021.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 7,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "Por um lado, (i) o nível de ociosidade elevado pode continuar produzindo trajetória prospectiva abaixo do esperado. 1 A menos de menção explícita em contrário, esta atualização leva em conta as mudanças ocorridas desde a reunião do Copom em dezembro (227ª reunião).",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "Por outro lado, (ii) o atual grau de estímulo monetário, que atua com defasagens sobre a economia, pode elevar a trajetória da inflação acima do esperado no horizonte relevante para a política monetária. O risco (ii) se intensifica no caso de (iii) aumento da potência da política monetária decorrente das transformações na intermediação financeira e no mercado de crédito e capitais, (iv) deterioração do cenário externo para economias emergentes ou (v) eventual frustração em relação à continuidade das reformas e à perseverança nos ajustes necessários na economia brasileira.",
+   "status": "alterado",
+   "paragrafo_anterior": 10,
+   "similaridade": 0.75,
+   "diff": "Por outro lado, (ii) o atual grau de estímulo monetário, que atua com defasagens sobre a economia, ~~em um contexto de transformações na intermediação financeira, aumenta a incerteza sobre os canais de transmissão e~~ pode elevar a trajetória da inflação **acima do esperado** no horizonte relevante para a política monetária. O risco (ii) se intensifica no caso de (iii) **aumento da potência da política monetária decorrente das transformações na intermediação financeira e no mercado de crédito e capitais, (iv)** deterioração do cenário externo para economias emergentes ou ~~(iv)~~ **(v)** eventual frustração em relação à ~~c ontinuidade~~ **continuidade** das reformas e à perseverança nos ajustes necessários na economia brasileira."
+  },
+  {
+   "paragrafo": 10,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Co pom discutiram a evolução da atividade econômica à luz dos indicadores e informações disponíveis. Avaliaram que os dados divulgados desde sua reunião anterior indicam que há uma dicotomia entre a evoluç ão do mercado de trabalho e o crescimento da produção de bens e serviços. Enquanto o mercado de trabalho segue em recuperação gradual, os dados recentes de produção industrial e os indicadores preliminares de investimento tiveram desempenho abaixo do esperado.",
+   "status": "alterado",
+   "paragrafo_anterior": 11,
+   "similaridade": 0.45,
+   "diff": "Os membros do Co pom ~~avaliaram~~ **discutiram** a evolução da atividade econômica à luz dos indicadores e informações disponíveis. ~~Concluíram~~ **Avaliaram** que os dados divulgados desde sua reunião anterior ~~sugerem~~ **indicam** que **há uma dicotomia entre** a ~~economia brasileira ganhou tração. Os trimestres seguintes devem apresentar alguma ace leração, que deve ser reforçada pelos estímulos decorrentes~~ **evoluç ão do mercado de trabalho e o crescimento** da ~~liberação~~ **produção** de ~~recursos~~ **bens e serviços. Enquanto o mercado de trabalho segue em recuperação gradual, os dados recentes de produção industrial e os indicadores preliminares de investimento tiveram desempenho abaixo** do ~~FGTS e PIS -PASEP – com impacto mais concentrado no último trimestre de 2019. O cenário básico do Copom supõe que o ritmo de crescimento subjacente da economia, que excl ui os efeitos de estímulos temporários, será gradual.~~ **esperado.**"
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Nesse contexto, os membros do Copom refletiram sobre o nível de ociosidade da economia. Alguns membros avaliaram que o esgotamento do modelo de alocação centralizada de capital e a longa duração da recessão pode m ter produzido restrições de oferta. Nesse sentido, a dicotomia d os últimos dados sugere que pode haver menos espa ço de ociosidade do que o mensurado por métodos tradicionais.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Outros membros do Copom ressalt aram que a dinâmica dos núcleos de inflação, não obstante os recentes efeitos do choque de preços de prote ína, sinaliza que a ociosidade dos fatores de produção ainda é elevada.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom avaliaram também a evolução de indicadores de condições financeiras. Concluíram que essas se encontram em níveis favoráveis, apesar de alguma volatilidade inerente a essas medidas. O ambiente com condições financeiras benignas resulta da ampliação do grau de estímulo monetário, do ambiente externo relativamente favorável para economias emergentes e das perspectivas de melhoria dos fundamentos da 2 Valor obtido pelo procedimento usual de arredondar a cotação média da taxa de câmbio R$/US$ observada nos cinco dias úteis encerrados na sexta -feira anterior à reunião do Copom. Banco Central do Brasil 228ª Reunião do Copom economia brasileira, como resultado da agenda de reformas e ajustes necessários na economia.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "O Comitê discutiu ainda as características do atual ciclo econômico, com menor participação do Estado na economia, e suas possíveis implicações para a atuação da política monetária. Alguns membros do Copom destacaram que as mudanças no mercado de crédito e na intermediação financeira, como o maior papel desempenhado pelo crédito com recursos livres e pelo mercado de capitais, devem impactar a transmissão da política monetária. Os membros do Copom também refletiram sobre a sensibilidade de variáveis macroeconômicas à política monetária, uma vez que faltam comparativos na história brasileira para o atual grau de estímulo. O Comitê julga que as transformações do mercado de crédito e capitais tendem a aumentar a potência da política monetária.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "No que tange à conjuntura internacional, os membros do Copom avaliaram que o cenário segue relativamente favorável para economias emergentes. O Comitê discutiu o s efeitos do coronavírus sobre a economia global. O eventual prolongamento ou intensificação do surto implicaria uma desaceleração adicional do crescimento global, com impactos sobre os preços das commodities e de importantes ativos financeiros. O Copom concluiu que a consequência desses efeitos para a condução da política monetária dependerá da magnitude relativa da desaceleração da economia global versus a reação dos ativos financeiros.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "No horizonte relevante para a política monetária, o cenário com taxa Selic extraída da pesquisa Focus e taxa de câmbio constante produz inflação abaixo da meta para 2020 e ao redor da meta para 2021. As projeções de curto prazo foram particularmente afetadas pelos efeitos do choque de preço s de proteínas que, após se manifestarem de forma mais intensa do que a esperada no final de 2019, mostram reversão parcial neste início de ano. No âmbito dos administrados, mantém-se a presença de condições benignas para a ocorrência de reajustes menores nas tarifas de energia elétrica.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "O Copom avalia que a conjuntura econômica com expectativas de inflação ancoradas, com medidas de inflação subjacente em níveis compatíveis com o cumprimento da meta, com cenários com projeções para a inflação abaixo ou ao redor da meta para o horizonte relevante de política monetária e com elevado grau de ociosidade na economia prescreve política monetária estimulativa, ou seja, taxas de juros abaixo da taxa estrutural. Os membros do Copom avaliam que as atuais taxas de juros reais ex-ante têm efeito estimulativo sobre a economia.",
+   "status": "alterado",
+   "paragrafo_anterior": 17,
+   "similaridade": 0.95,
+   "diff": "O Copom avalia que a conjuntura econômica com expectativas de inflação ancoradas, **com** medidas de inflação subjacente em níveis ~~confortáveis,~~ **compatíveis com o cumprimento da meta, com** cenários com projeções para a inflação abaixo ou ao redor da meta para o horizonte relevante de política monetária e **com** elevado grau de ociosidade na economia prescreve política monetária estimulativa, ou seja, ~~com~~ taxas de juros abaixo da taxa estrutural. Os membros do Copom avaliam que as atuais taxas de juros reais ex-ante têm efeito estimulativo sobre a economia."
+  },
+  {
+   "paragrafo": 18,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Contudo, em vista das múltiplas incertezas no que tange ao atual grau de ociosidade, à velocidade de recuperação da economia e ao aumento da potência da política monetária, que atua com defasagens na economia, o Copom considera que é importante observar os efeitos do ciclo de estímulo monetário iniciado em 2019. O Co mitê avalia que uma melhor compreensão desses efeitos é essencial para definir os próximos passos da política monetária.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 19,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "O Comitê entende que, num contexto de expectativas de inflação ancoradas, o choque nos preços de proteínas antecipou inflação do ano-calendário 2020 para o ano-calendário 2019. Tendo em vista que há incertezas sobre a defasagem e a magnitude dos efeitos do estímulo já concedido, o Copom julga que é fundamental observar a evolução da atividade econômica e das projeções e expectativas de inflação ao longo dos próximos meses, com peso crescente para o ano-calendário de 2021.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 20,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, pela redução da taxa básica de juros em 0,25 ponto percentual, para 4,25% a.a. O Comitê entende que essa decisão reflete seu cenário básico e balanço de riscos para a inflação prospectiva e é compatível com a convergência da inflação para a meta no horizonte relevante para a condução da política monetária, que inclui o ano-calendário de 2020 e, com peso crescente, o de 2021.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom reitera que a conjuntura econômica prescreve política monetária estimulativa, ou seja, com taxas de juros abaixo da taxa estrutural.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 22,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom avalia que o processo de reformas e ajustes necessários na economia brasileira tem avançado, mas enfatiza que perseverar nesse processo é essencial para permitir a consolidação da queda da taxa de juros estrutural e para a recuperação sustentável da economia. O Comitê ressalta ainda que a percepção de continuidade da agenda de reformas afeta as expectativas e projeções macroeconômicas correntes.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 23,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom entende que o atual estágio do ciclo econômico recomenda cautela na condução da política monetária. Considerando os efeitos defasados do ciclo de afrouxamento iniciado em julho de 2019, o Comitê vê como adequad a a interrupção do processo de flexibilização monetária. O Comitê enfatiza que seus próximos passos continuarão dependendo da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação, com peso crescente para o ano-calendário de 2021.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 24,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (Presidente), Banco Central do Brasil 228ª Reunião do Copom Bruno Serra Fernandes, Carolina de Assis Barros, F abio Kanczuk, Fernanda Feitosa Nechio, João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza.",
+   "status": "alterado",
+   "paragrafo_anterior": 22,
+   "similaridade": 0.93,
+   "diff": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (Presidente), **Banco Central do Brasil 228ª Reunião do Copom** Bruno Serra Fernandes, Carolina de Assis Barros, F abio Kanczuk, Fernanda Feitosa Nechio, João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza."
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Dados de atividade econômica a partir do segundo trimestre indicam que o processo de recuperação da economia brasileira ganhou tração, em relação ao observado até o primeiro trimestre de 2019. O cenário do Copom supõe que essa recuperação seguirá em ritmo gradual."
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "Os dados sugerem que a economia segue operando com alto nível de ociosidade dos fatores de produção, refletido nos baixos índices das medidas tradicionais de utilização da capacidade da indústria e, principalmente, na taxa de desemprego."
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura",
+   "texto": "No cenário com trajetórias para a taxa de juros e câmbio extraídas da pesquisa Focus, as projeções do Copom situam-se em torno de 4,0% para 2019, 3,5% para 2020 e 3,4% para 2021. Esse cenário supõe trajetória de juros que encerra 2019 em 4,50% a.a., reduz-se para 4,25% no início de 2020, encerra o ano em 4,50% e se eleva até 6,25% a.a. em 2021. Também supõe trajetória para a taxa de câmbio que termina 2019 em R$4,15/US$, 2020 em R$4,10/US$ e 2021 em R$4,00/US$. Nesse cenário, as projeções para a inflação de preços administrados são de 5,1% para 2019, 3,6% para 2020 e 3,5% para 2021."
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário básico",
+   "texto": "Por um lado, (i) o nível de ociosidade elevado pode continuar produzindo trajetória prospectiva abaixo do esperado."
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom avaliaram também a evolução de indicadores de condições financeiras. Concluíram que essas se encontram em níveis favoráveis, não obstante alguma volatilidade inerente a essas medidas. O ambiente com condições financeiras favoráveis resulta da ampliação do grau de estímulo monetário, do ambiente externo relativamente favorável para economias emergentes e das perspectivas de melhoria dos fundamentos da economia brasileira, como resultado da agenda de reformas e ajustes necessários na economia. Essa distensão das condições financeiras vem se refletindo de maneira mais nítida na dinâmica dos mercados de 2 Valor obtido pelo procedimento usual de arredondar a cotação média da taxa de câmbio R$/US$ observada nos cinco dias úteis encerrados na sexta -feira anterior à reunião do Copom. Banco Central do Brasil 227ª Reunião do Copom crédito livre e de capitais, que crescem a taxas robustas neste momento do ciclo econômico. Alguns membros do Copom apontaram que há evidência do começo de um processo gradual de desintermediação financeira."
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "Os membros do Copom também refletiram sobre o nível de ociosidade da economia. Alguns membros avaliaram que os últimos dados de atividade e a maior eficiência do mercado de crédito e capitais podem resultar em uma redução da ociosidade mais rápida do que antevisto e, com isso, produzir pressão altista na inflação. Por outro lado, os membros do Copom ressaltaram que a dinâmica dos núcleos de inflação sinaliza que a ociosidade dos fatores de produção ainda é elevada."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "No que tange à conjuntura internacional, os membros do Copom avaliaram que o cenário segue relativamente favorável para economias emergentes. Bancos centrais d e diversas economias, incluindo algumas centrais, têm provido estímulos monetários, o que contribui para o afrouxamento das condições financeiras globais."
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da",
+   "texto": "No horizonte relevante para a política monetária, o cenário com taxa Selic extraída da pesquisa Focus e taxa de câmbio constante produz inflação ligeiramente abaixo da meta para 2020 e ao redor da meta para 2021. As projeções de curto prazo foram particularmente afetadas pelos efeitos do choque de preço de proteínas, que ocorreu de forma mais intensa e prematura do que esperada anteriormente. As projeções consideram um efeito direto mais concentrado no último bimes tre deste ano, constituindo-se o principal fator de elevação das projeções para 2019. No âmbito dos administrados, menciona-se a presença de condições benignas para a ocorrência de reajustes menores nas tarifas de energia elétrica, que já vêm se materializando nos últimos meses e devem prosseguir nos trimestres seguintes."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom entende que o atual estágio do ciclo econômico recomenda cautela na condução da política monetária. O Comitê enfatiza que seus próximos passos continuarão dependendo da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação."
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "atas": [
+  228,
+  229,
+  230,
+  231,
+  232,
+  233,
+  234,
+  235
+ ],
+ "estimador_congelado": "claude_encolhida",
+ "vs_rotulo_combinado": {
+  "n": 8,
+  "correlacao": 0.699,
+  "acerto_direcao": 1.0,
+  "n_direcionais": 1,
+  "erro_medio_abs": 0.321,
+  "erro_base_zero": 0.145
+ },
+ "vs_analistas": {
+  "n": 8,
+  "correlacao": 0.634,
+  "acerto_direcao": 1.0,
+  "n_direcionais": 1,
+  "erro_medio_abs": 0.318,
+  "erro_base_zero": 0.125
+ },
+ "vs_mercado_z_dias_limpos": {
+  "n": 7,
+  "correlacao": 0.085,
+  "acerto_direcao": 0.333,
+  "n_direcionais": 3,
+  "erro_medio_abs": 0.546,
+  "erro_base_zero": 0.497
+ },
+ "claude_cru_vs_analistas": {
+  "n": 8,
+  "correlacao": 0.618,
+  "acerto_direcao": 1.0,
+  "n_direcionais": 1,
+  "erro_medio_abs": 0.425,
+  "erro_base_zero": 0.125
+ },
+ "por_ata": [
+  {
+   "ata": 228,
+   "nivel": 0.36,
+   "claude_surpresa": 0.3,
+   "mudancas": 0.0,
+   "lex_delta_z": -0.26,
+   "surpresa": 0.27,
+   "concord": 0.77,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": -0.73,
+   "peso_mercado": 0.25,
+   "veredito": "misto"
+  },
+  {
+   "ata": 229,
+   "nivel": -0.47,
+   "claude_surpresa": -0.3,
+   "mudancas": -1.7,
+   "lex_delta_z": 0.65,
+   "surpresa": -0.16,
+   "concord": 0.04,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": -1.34,
+   "peso_mercado": 0.0,
+   "veredito": "sem_fonte"
+  },
+  {
+   "ata": 230,
+   "nivel": -0.74,
+   "claude_surpresa": -0.2,
+   "mudancas": -1.7,
+   "lex_delta_z": -0.06,
+   "surpresa": -0.13,
+   "concord": 0.26,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": -0.31,
+   "peso_mercado": 0.25,
+   "veredito": "em_linha"
+  },
+  {
+   "ata": 231,
+   "nivel": -0.1,
+   "claude_surpresa": 0.7,
+   "mudancas": 1.88,
+   "lex_delta_z": -0.05,
+   "surpresa": 0.42,
+   "concord": 0.21,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": 0.37,
+   "peso_mercado": 0.12,
+   "veredito": "em_linha"
+  },
+  {
+   "ata": 232,
+   "nivel": -0.79,
+   "claude_surpresa": -0.7,
+   "mudancas": -1.7,
+   "lex_delta_z": 0.11,
+   "surpresa": -0.44,
+   "concord": 0.26,
+   "surpresa_analistas": -1,
+   "rotulo_surpresa": -0.8,
+   "z_mercado": 0.52,
+   "peso_mercado": 0.25,
+   "veredito": "mais_branda"
+  },
+  {
+   "ata": 233,
+   "nivel": -0.72,
+   "claude_surpresa": -0.1,
+   "mudancas": 1.27,
+   "lex_delta_z": 0.04,
+   "surpresa": -0.07,
+   "concord": 0.38,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": -0.36,
+   "z_mercado": -1.08,
+   "peso_mercado": 0.5,
+   "veredito": "em_linha"
+  },
+  {
+   "ata": 234,
+   "nivel": -0.08,
+   "claude_surpresa": 0.7,
+   "mudancas": 1.88,
+   "lex_delta_z": 0.05,
+   "surpresa": 0.43,
+   "concord": 0.24,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": 0.4,
+   "peso_mercado": 0.12,
+   "veredito": "em_linha"
+  },
+  {
+   "ata": 235,
+   "nivel": 0.27,
+   "claude_surpresa": 0.8,
+   "mudancas": 1.81,
+   "lex_delta_z": 0.05,
+   "surpresa": 0.51,
+   "concord": 0.28,
+   "surpresa_analistas": 0,
+   "rotulo_surpresa": 0.0,
+   "z_mercado": -0.07,
+   "peso_mercado": 0.25,
+   "veredito": "em_linha"
+  }
+ ],
+ "nota": "Modelo congelado com atas 2021–2026; atas de 2020 nunca vistas. n pequeno: ler como checagem de sanidade, não como estimativa precisa."
+}

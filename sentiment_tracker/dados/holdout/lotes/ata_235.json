@@ -1,0 +1,193 @@
+{
+ "ata": 235,
+ "anterior": 234,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário externo, a ressurgência da pandemia em algumas das principais economias tem revertido os ganhos na mobilidade e deverá afetar a atividade econômica no curto prazo. No entanto, os resultados promissores nos testes das vacinas contra a Covid -19 tendem a trazer melhora da confiança e normalização da atividade no médio prazo. A presença de ociosidade, assim como a comunicação dos principais bancos centrais, sugere que os estímulos monetários terão longa duração, permitindo um ambiente favorável para economias emergentes.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Em relação à atividade econômica brasileira, indicadores recentes sugerem a continuidade da recuperação desigual entre setores, em linha com o esperado. Contudo, prospectivamente, a incerteza sobre o ritmo de crescimento da economia permanece acima da usual, sobretudo para o período a partir do final deste ano, concomitantemente ao esperado arrefecimento dos efeitos dos auxílios emergenciais.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Diversas medidas de inflação subjacente apresentam-se em níveis compatíveis com o cumprimento da meta para a inflação no horizonte relevante para a política monetária.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "As expectativas de inflação para 2020, 2021 e 2022 apuradas pela pesquisa Focus encontram-se em torno de 4,2%, 3,3% e 3,5%, respectivamente.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "As últimas leituras de inflação foram acima do esperado e, em dezembro, apesar do arrefecimento previsto para os preços de alimentos, a inflação ainda deve se mostrar elevada, com coleta extraordinária de preços de mensalidades escolares e transição para o mais elevado patamar de bandeira tarifária de energia elétrica. Apesar da pressão inflacionária mais forte no curto prazo, o Comitê mantém o diagnóstico de que os choques atuais são temporários, mas segue monitorando sua evolução com atenção, em particular as medidas de inflação subjacente.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário básico, com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio partindo de R$5,25/US$2, e evoluindo segundo a paridade do poder de compra (PPC), as projeções de inflação do Copom situam-se em torno de 4,3% para 2020, 3,4% para 2021 e 3,4% para 2022. Esse cenário supõe trajetória de juros que encerra 2020 em 2,00% a.a. e se eleva até 3,00% a.a. em 2021 e 4,50% a.a. em 2022. Nesse cenário, as projeções para a inflação de preços administrados são de 2,3% para 2020, 5,7% para 2021 e 3,6% para 2022.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 7,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário com taxa de juros constante a 2,00% a.a. e taxa de câmbio partindo de R$5,25/US$, e evoluindo segundo a PPC, as projeções de inflação situam-se em torno de 4,3% para 2020, 3,5% para 2021 e 4,0% para 2022. Nesse cenário, as projeções para a inflação de preços administrados são de 2,3% para 2020, 5,7% para 2021 e 3,7% para 2022.",
+   "status": "alterado",
+   "paragrafo_anterior": 7,
+   "similaridade": 0.96,
+   "diff": "No cenário com taxa de juros constante a 2,00% a.a. e taxa de câmbio partindo de ~~R$5,60/US$,~~ **R$5,25/US$,** e evoluindo segundo a PPC, as projeções de inflação situam-se em torno de ~~3,1%~~ **4,3%** para 2020, ~~3,2%~~ **3,5%** para 2021 e ~~3,8%~~ **4,0%** para 2022. Nesse cenário, as projeções para a inflação de preços administrados são de ~~0,8%~~ **2,3%** para 2020, ~~5,1%~~ **5,7%** para 2021 e ~~4,0%~~ **3,7%** para 2022."
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "Por um lado, o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado, notadamente quando essa ociosidade está concentrada no setor de serviços. Esse risco se intensifica caso uma reversão mais lenta dos efeitos da pandemia prolongue o ambiente de elevada incerteza e de aumento da poupança precaucional.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 10,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "Por outro lado, um prolongamento das políticas fiscais de resposta à pandemia que piore a trajetória fiscal do país, ou frustrações em relação à continuidade das reformas, podem elevar os prêmios de risco. O risco fiscal elevado segue criando uma assimetria altista no balanço de riscos, ou seja, com trajetórias para a inflação acima do projetado no horizonte relevante para a política monetária.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Com relação à economia internacional, o Comitê avaliou que as novas informações trazem impactos distintos para os diferentes horizontes. No curto prazo, a ressurgência da pandemia e o consequente aumento do distanciamento social em algumas das principais economias devem interromper a recuperação da demanda. No médio prazo, entretanto, os resultados positivos dos testes das vacinas, somados aos estímulos monetários e fiscais, podem implicar uma recuperação ainda mais robusta. A p resença de ociosidade econômica por um período prolongado, associada à comunicação dos bancos centrais das principais economias, cria um ambiente de liquidez e de retorno do fluxo de capitais, favorável a economias emergentes.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Os membros do Copom discutiram a evolução da atividade econômica doméstica à luz dos indicadores e informações disponíveis. Avaliaram que os programas governamentais de recomposição de renda têm permitido uma retomada relativamente forte do consumo de bens duráveis e do investimento. Entretanto, os dados recentes continuam refletindo uma r ecuperação desigual da atividade econômica. Prospectivamente, a pouca previsibilidade associada à evolução da pandemia e a o necessário ajuste do s gastos públicos a partir d e 2021 aumenta a incerteza sobre a continuidade da retomada da atividade econômica. O Comitê ponderou que os riscos associados à evolução da pandemia podem implicar um cenário doméstico caracterizado por uma retomada ainda mais gradual.",
+   "status": "alterado",
+   "paragrafo_anterior": 12,
+   "similaridade": 0.81,
+   "diff": "Os membros do Copom discutiram a evolução da atividade econômica doméstica à luz dos indicadores e informações disponíveis. Avaliaram que os ~~dados recentes sugerem uma recuperação desigual da atividade econômica. Os~~ programas governamentais de recomposição de renda têm permitido uma retomada relativamente forte do consumo de bens duráveis e do investimento. ~~Contudo, várias atividades do setor de serviços, sobretudo aquela s mais diretamente afetadas pelo distanciamento social, permanecem bastante deprimidas.~~ **Entretanto, os dados recentes continuam refletindo uma r ecuperação desigual da atividade econômica.** Prospectivamente, a pouca previsibilidade associada à evolução da pandemia e ~~ao~~ **a o** necessário ajuste do s gastos públicos a partir d e 2021 aumenta a incerteza sobre a continuidade da retomada da atividade econômica. O Comitê ponderou que ~~es sa imprevisibilidade e~~ os riscos associados à evolução da pandemia podem implicar um cenário doméstico caracterizado por uma retomada ainda mais ~~gradual da economia.~~ **gradual.**"
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Os membros do Copom discutiram a respeito do nível de ociosidade na economia. Assim como no caso da atividade, o Comitê considera que a pandemia continua produzindo efeitos heterogêneos sobre os setores econômicos. Os programas governamentais de recomposição de renda reduziram a ociosidade no setor de bens. As atividades de serviços, entretanto, sobretudo as mais diretamente afetadas pelo distanciamento social, enfrentam maior redução da demanda. Prospectivamente, a evolução desses hiatos setoriais dependerá da evolução da pandemia e do ajuste nos gastos públicos.",
+   "status": "alterado",
+   "paragrafo_anterior": 13,
+   "similaridade": 0.57,
+   "diff": "Os membros do Copom discutiram a respeito do nível de ociosidade na economia. Assim como no caso da atividade, o Comitê considera que a pandemia ~~deve continuar a ter~~ **continua produzindo** efeitos heterogêneos sobre os setores econômicos. ~~Dada~~ **Os programas governamentais de recomposição de renda reduziram** a ~~natureza do choque, o~~ **ociosidade no** setor de ~~serviços deve continuar~~ **bens. As atividades de serviços, entretanto, sobretudo as mais diretamente afetadas pelo distanciamento social, enfrentam maior redução da demanda. Prospectivamente,** a ~~apresentar maior ociosidade~~ **evolução desses hiatos setoriais dependerá da evolução da pandemia e** do ~~que os demais. O Comitê concluiu que a natureza da crise provavelmente implica que pressões desinflacionárias provenientes da redução de demanda podem ter duração maior do que em recessões anteriores.~~ **ajuste nos gastos públicos.**"
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "A seguir, o Comitê passou à discussão sobre a implementação de política monetária propriamente dita. D esde sua 232ª reunião, o Copom utiliza um forward guidance, segundo o qual não pretende reduzir o grau de estímulo monetário desde que determinadas condições sejam satisfeitas. O Copom avaliou que essas condições seguem satisfeitas: as expectativas de inflação assim como as projeções de inflação de seu cenário básico permanecem abaixo da meta de inflação para o horizonte relevante de política monetária; o regime fiscal não foi alterado; e as expectativas de inflação de longo prazo permanecem ancoradas.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom prosseguiu sua análise considerando não somente o cenário básico como também o balanço de riscos. O Copom ponderou que, neste momento, a assimetria altista no balanço de riscos causada pelos riscos fiscais é suficiente para compensar o fato de seu cenário básico projetar inflações abaixo da meta no horizonte relevante. O Copom assim concluiu que o atual nível de estímulo monetário, produzido pela manutenção da taxa básica de juros em 2,00% a.a. e pelo forward guidance, está adequado.",
+   "status": "alterado",
+   "paragrafo_anterior": 17,
+   "similaridade": 0.87,
+   "diff": "O Copom prosseguiu sua análise considerando não somente o cenário básico como também o balanço de ~~riscos e as restrições de natureza prudencial. Independentemente das restrições prudenciais, o~~ **riscos. O** Copom ponderou que, neste momento, a assimetria altista no balanço de riscos causada pelos riscos fiscais é suficiente para compensar o fato de seu cenário básico projetar inflações abaixo da meta no horizonte relevante. O Copom assim concluiu que o atual nível de estímulo monetário, produzido pela manutenção da ~~t axa~~ **taxa** básica de juros em 2,00% a.a. e pelo forward guidance, está ~~adequado, independentemente das restrições de natureza prudencial.~~ **adequado.**"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê novamente refletiu sobre a interpretação da cláusula fiscal de seu forward guidance, que condiciona a não elevação dos juros à manutenção do atual regime fiscal. O Comitê reafirmou que alterações de política fiscal que afetem a trajetória da dívida pública ou comprometam a âncora fiscal motivariam uma reavaliaçã o, mesmo que o teto dos gastos ainda esteja n ominalmente mantido. Es sa reavaliação seguiria o receituário d o regime de metas para a inflação, sendo baseada na avaliação da inflação prospectiva e de seu balanço de riscos.",
+   "status": "alterado",
+   "paragrafo_anterior": 18,
+   "similaridade": 0.95,
+   "diff": "~~Finalmente, o~~ **O** Comitê ~~discutiu~~ **novamente refletiu sobre** a interpretação da cláusula fiscal de seu forward guidance, que condiciona a não elevação dos juros à manutenção do atual regime fiscal. O Comitê ~~refletiu~~ **reafirmou** que alterações de política fiscal que afetem a trajetória da dívida pública ou comprometam a âncora fiscal motivariam uma ~~reavaliação,~~ **reavaliaçã o,** mesmo que o teto dos gastos ainda esteja ~~nominalmente~~ **n ominalmente** mantido. ~~Essa~~ **Es sa** reavaliação seguiria o receituário ~~do~~ **d o** regime de metas para a inflação, sendo baseada na avaliação da inflação prospectiva e de seu balanço de riscos."
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Finalmente, o Comitê avaliou os próximos passos da política monetária, em especial a evolução da cláusula do forward guidance sobre a convergência das expectativas e projeções de inflação para a meta. Na avaliação do Copom, essa convergência pode ocorrer por duas razões: (i) elevação das expectativas e projeções para 2021; e (ii) mudança do horizonte, com aumento do peso relativo do ano -calendário 2022, para o qual as expectativas e projeções estão, no momento, suficientemente próximas da meta. Assim sendo, o Comitê decidiu adicionar à sua comunicação que, embora haja a possibilidade de o forward guidance ser retirado em breve, isso não implicaria mecanicamente aumento de juros.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 18,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, manter a taxa bási ca de juros em 2,00% a.a. O Comitê entende que essa decisão reflete seu cenário básico e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é compatível com a convergência da inflação para a meta no horizonte relevante, que inclui os anos-calendário de 2021 e 2022.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 19,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira é essencial para permitir a recuperação sustentável da economia. O Comitê ressalta, ainda, que questionamentos sobre a continuidade das reformas e alterações de caráter permanente no processo de ajuste das contas públicas podem elevar a taxa de juros estrutural da economia.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 20,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Comitê considera adequado o atual nível extraordinariamente elevado de estímulo monetário que vem sendo produzido pela manutenção da taxa básica de juros em 2,00% a.a. e pelo forward guidance adotado em sua 232ª reunião, segundo o qual o Copom não pretende reduzir o grau de estímulo monetário desde que determinadas condições sej am satisfeitas. O Copom avalia que essas condições seguem satisfeitas. Apesar da elevação desde a última reunião, em particular para o ano de 2021, as expectativas de inflação, assim como as projeções de inflação de seu cenário básico, permanecem abaixo da meta de inflação para o horizonte relevante de política monetária; o regime fiscal não foi alterado; e as expectativas de inflação de longo prazo permanecem ancoradas.",
+   "status": "alterado",
+   "paragrafo_anterior": 22,
+   "similaridade": 0.9,
+   "diff": "O Comitê considera adequado o atual nível **extraordinariamente elevado** de estímulo monetário que vem sendo produzido pela manutenção da taxa básica de juros em 2,00% a.a. e pelo forward guidance adotado em sua 232ª reunião, segundo o qual o Copom não pretende reduzir o grau de estímulo monetário desde que determinadas condições ~~sejam~~ **sej am** satisfeitas. O Copom avalia que essas condições seguem ~~satisfeitas:~~ **satisfeitas. Apesar da elevação desde a última reunião, em particular para o ano de 2021,** as expectativas de inflação, assim como as projeções de inflação de seu cenário básico, ~~encon tram-se significativamente~~ **permanecem** abaixo da meta de inflação para o horizonte relevante de política monetária; o regime fiscal não foi alterado; e as expectativas de inflação de longo prazo permanecem ancoradas."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom avalia que, desde a adoção do forward guidance, observou-se uma reversão da tendência de queda das expectativas de inflação em relação às metas para o horizonte relevante. Além disso, ao longo dos próximos meses, o ano -calendário de 2021 perderá relevância em detrimento ao de 2022, que está com projeções e expectativas de inflação em torno da meta. A manutenção desse cenário de convergência da inflação sugere que, em breve, as condições para a manutenção do forward guidance podem não mais ser satisfeitas, o que não implica mecanicamente uma elevação da taxa de juros pois a conjuntura econômica continua a prescrever estímulo extraordinariamente elevado frente às incertezas quanto à evolução da atividade. No cenário de retirada do forward guidance, a condução da política monetária seguirá o receituário do regime de metas para a inflação, baseado na análise da inflação prospectiva e de seu balanço de riscos.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 22,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Carolina de Assis Barros, Fabio Kanczuk, Fernanda Feitosa Nec hio, João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza.",
+   "status": "igual"
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário externo, a forte retomada em alguns setores produtivos parece sofrer alguma desaceleração, em parte devida à ressurgência da pandemia em algumas das principais economias. Há bastante incerteza sobre a evolução desse cenário, frente a uma possível redução dos estímulos governamentais e à própria evolução da Covid-19. Contudo, a moderação na volatilidade dos ativos financeiros segue resultando em um ambiente relativamente favorável para economias emergentes."
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Em relação à atividade econômica brasileira, indicadores recentes sugerem uma recuperação desigual entre setores, similar à que ocorre em outras economias. Os setores mais diretamente afetados pelo distanciamento social permanecem deprimidos, apesar da recomposição da renda gerada pelos programas de governo. Prospectivamente, a incerteza sobre o ritmo de crescimento da economia permanece acima da usual, sobretudo para o período a partir do final deste ano, concomitantemente ao esperado arrefecimento dos efeitos dos auxílios emergenciais."
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "As últimas leituras de inflação foram acima do esperado, e o Comitê elevou sua projeção para os meses restantes de 2020. Contribuem para essa revisão a continuidade da alta nos preços dos alimentos e de bens industriais, consequência da depreciação persistente do Real, da elevação de preço das commodities e dos programas de transferência de renda. Por um lado, a normalização parcial dos preços ainda deprimidos deve continuar, em um contexto de recuperação dos índices de mobilidade e do nível de atividade. Por outro lado, espera-se a reversão na elevação extraordinária dos preços de alguns produtos, afetados por redução provisória na oferta em conjunção com um aumento ocasional na demanda. Dessa forma, apesar de a pressão inflacionária ter sido mais forte que a esperada, o Comitê mantém o diagnóstico de que esse choque é temporário, mas monitora sua evolução com atenção."
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Com relação à economia internacional, a recente ressurgência da pandemia e o consequente aumento do afastamento social em algumas das principais economias podem interromper a recuperação da demanda. Uma possível redução abrupta e não organizada dos estímulos governamentais também adiciona risc o à retomada econômica. Por ora, no entanto, a moderação na volatilidade dos ativos financeiros continua resultando em um ambiente relativamente favorável para economias emergentes. O Comitê ponderou que há, contudo, bastante incerteza sobre a evolução desse cenário."
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê retomou a discussão sobre um potencial limite efetivo mínimo para a taxa básica de juros brasileira e sua associação a questões de natureza prudencial e de estabilidade financeira. Considerando o longo histórico da economia brasileira operando co m a taxa básica de juros em nível muito elevado, os juros baixos sem precedentes podem comprometer o desempenho de alguns mercados e setores econômicos, com potencial impacto sobre a intermediação financeira. Para a maioria de seus membros, já estaríamos próximos do nível a partir do qual reduções adicionais na taxa de juros poderiam ser acompanhadas de instabilidade nos preços de ativos."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Em seguida, os membros do Copom debateram sobre a manutenção da sinalização de que “o espaço remanescente para utilização da política monetária, se houver, deve ser pequeno”. O Comitê avaliou que essa sinalização está ligada às restrições de caráter prudencial para movimentos de redução da taxa básica de juros e, portanto, precisa ser mantida na comunicação."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom entende que a conjuntura econômica continua a prescrever estímulo monetário extraordinariamente elevado, mas reconhece que, devido a questões prudenciais e de estabilidade financeira, o espaço remanescente para utilização da política monetária, se houver, deve ser pequeno."
+  }
+ ]
+}

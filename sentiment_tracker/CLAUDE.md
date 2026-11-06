@@ -83,24 +83,17 @@ export TOM_ROTULOS=rotulos_cego
   "ganhar" do gabarito sem refazer a validação.
 - Sem segredos no código: o único usado é o do pipeline (`CLAUDE_CODE_OAUTH_TOKEN`, na nuvem).
 
-## ESTADO DO TRABALHO E PRÓXIMOS PASSOS (handoff, 06/11 ~14h20)
-Feito: mercado, leitura de analistas (47 atas), reação isolada, padrões, Skill cega, lotes, léxico,
-índice com confiança e escolha leave-one-out, modelo reserva, avaliar_ata.py, relatorio.py.
-Rótulos v1 (contaminados) completos: `dados/rotulos/` (46) e referência em
-`resultados/calibracao_v1_contaminado.json`.
+## ESTADO DO TRABALHO (06/11, fim da sessão)
+Concluído: 46 atas rotuladas às cegas (`dados/rotulos_cego/`, todas validadas), índice oficial
+(`TOM_ROTULOS=rotulos_cego`), melhorias A (gabarito de mercado com menos ruído), B (encolhimento da surpresa
+quando os sinais discordam; escolhido por leave-one-out) e C (confiança calibrada pelo acerto real),
+teste fora da amostra com atas de 2020 (`scripts/teste_fora.py`, dados em `dados/holdout/`), modelo
+reserva retreinado, `avaliar_ata.py --reserva` testado de ponta a ponta. Números em `resultados/validacao.md`.
 
-Pendente:
-1. **Rotulagem cega das atas que faltarem em `dados/rotulos_cego/`** (confira com
-   `ls dados/rotulos_cego`; ao fechar esta sessão faltavam 241 246 247 253 258 259 265 271 276 277).
-   Para cada uma, rode subagentes em paralelo com este prompt (troque N):
-   "Rotule a ata N seguindo `sentiment_tracker/skill/tom-copom/SKILL.md` e `regras.md`. Leia
-   `dados/lotes/ata_N.json`, grave `dados/rotulos_cego/ata_N.json` (`skill_versao` 1.1-cega) e rode
-   `.venv/bin/python scripts/validar.py --dir rotulos_cego --trechos N` até OK. PROIBIDO ler `resultados/`,
-   `dados/analistas/`, `dados/reacao.csv`, `dados/mercado.csv`, `dados/lexico.csv`, `dados/rotulos/`,
-   `banco/rotulos.jsonl`."
-2. Com as 46 cegas: `export TOM_ROTULOS=rotulos_cego` e rodar `indice.py`, `modelo_reserva.py`,
-   `relatorio.py` (gera `resultados/validacao.md` com o teste de vazamento v1 × cega).
-3. Testar `scripts/avaliar_ata.py 281 --reserva` (caminho sem IA) e, se houver `claude` logado,
-   `avaliar_ata.py 281` (cuidado: sobrescreve `dados/rotulos_cego/ata_281.json` se TOM_ROTULOS=rotulos_cego;
-   teste com uma cópia). Ata 282 deve sair em 10/11.
-4. Integração: copiar `resultados/indice_modelo.json` e `metricas_modelo.json` para `../banco/`.
+Próximos passos sugeridos:
+1. Integrar: copiar `resultados/indice_modelo.json` e `metricas_modelo.json` para `../banco/`.
+2. Ata 282 (sai 10/11): `TOM_ROTULOS=rotulos_cego .venv/bin/python scripts/avaliar_ata.py 282` (caminho com
+   `claude -p` ainda não testado; o caminho `--reserva` foi testado).
+3. Precisão: 2ª leitura independente só do diff de cada ata e média das duas (reduz variância, mede o
+   intervalo entre execuções); ampliar o holdout para 2019 (atas 220–227 já baixadas em `dados/holdout/`).
+4. O modelo superestima a surpresa de atas "em linha" (ver teste fora da amostra): calibrar a escala.

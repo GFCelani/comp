@@ -1,0 +1,324 @@
+{
+ "ata": 235,
+ "rotulador": "claude-opus-subagente",
+ "skill_versao": "1.1-cega",
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "sugere que os estímulos monetários terão longa duração, permitindo um ambiente favorável para economias emergentes",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 2,
+   "dimensao": "atividade_trabalho",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "indicadores recentes sugerem a continuidade da recuperação desigual entre setores, em linha com o esperado",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 3,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "Diversas medidas de inflação subjacente apresentam-se em níveis compatíveis com o cumprimento da meta",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 4,
+   "dimensao": "expectativas",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "encontram-se em torno de 4,2%, 3,3% e 3,5%, respectivamente",
+   "padroes": [
+    "P11"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 5,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Apesar da pressão inflacionária mais forte no curto prazo, o Comitê mantém o diagnóstico de que os choques atuais são temporários",
+   "padroes": [
+    "P17"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 6,
+   "dimensao": "inflacao_corrente",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "as projeções de inflação do Copom situam-se em torno de 4,3% para 2020, 3,4% para 2021 e 3,4% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 7,
+   "dimensao": "inflacao_corrente",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "as projeções de inflação situam-se em torno de 4,3% para 2020, 3,5% para 2021 e 4,0% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 8,
+   "dimensao": "balanco_riscos",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas as direções.",
+   "padroes": [],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 9,
+   "dimensao": "balanco_riscos",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "o nível de ociosidade pode produzir trajetória de inflação abaixo do esperado",
+   "padroes": [
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 10,
+   "dimensao": "balanco_riscos",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Por outro lado, um prolongamento das políticas fiscais de resposta à pandemia que piore a trajetória fiscal do país",
+   "padroes": [
+    "P03",
+    "P12",
+    "P16"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 11,
+   "dimensao": "externo",
+   "tom": 0,
+   "sinal": 1,
+   "trecho": "podem implicar uma recuperação ainda mais robusta",
+   "padroes": [],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 12,
+   "dimensao": "atividade_trabalho",
+   "tom": -1,
+   "sinal": 1,
+   "trecho": "podem implicar um cenário doméstico caracterizado por uma retomada ainda mais gradual.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 13,
+   "dimensao": "atividade_trabalho",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "Os programas governamentais de recomposição de renda reduziram a ociosidade no setor de bens.",
+   "padroes": [
+    "P13"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 14,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "não pretende reduzir o grau de estímulo monetário desde que determinadas condições sejam satisfeitas",
+   "padroes": [
+    "P01",
+    "P04",
+    "P16"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 15,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "a assimetria altista no balanço de riscos causada pelos riscos fiscais é suficiente para compensar",
+   "padroes": [
+    "P03",
+    "P09"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 16,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "O Comitê reafirmou que alterações de política fiscal que afetem a trajetória da dívida pública ou comprometam a âncora fiscal",
+   "padroes": [
+    "P12"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 17,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "embora haja a possibilidade de o forward guidance ser retirado em breve, isso não implicaria mecanicamente aumento de juros",
+   "padroes": [
+    "P01",
+    "P14"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 18,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 2,
+   "trecho": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis",
+   "padroes": [
+    "P15"
+   ],
+   "confianca": 0.6
+  },
+  {
+   "paragrafo": 19,
+   "dimensao": "fiscal_credito",
+   "tom": 1,
+   "sinal": 1,
+   "trecho": "O Copom avalia que perseverar no processo de reformas e ajustes necessários na economia brasileira",
+   "padroes": [
+    "P12",
+    "P16"
+   ],
+   "confianca": 0.4
+  },
+  {
+   "paragrafo": 20,
+   "dimensao": "orientacao_futura",
+   "tom": -1,
+   "sinal": 2,
+   "trecho": "O Copom avalia que essas condições seguem satisfeitas.",
+   "padroes": [
+    "P04",
+    "P10"
+   ],
+   "confianca": 0.5
+  },
+  {
+   "paragrafo": 21,
+   "dimensao": "orientacao_futura",
+   "tom": 1,
+   "sinal": 2,
+   "trecho": "em breve, as condições para a manutenção do forward guidance podem não mais ser satisfeitas",
+   "padroes": [
+    "P01",
+    "P14"
+   ],
+   "confianca": 0.7
+  },
+  {
+   "paragrafo": 22,
+   "dimensao": "decisao_votacao",
+   "tom": 0,
+   "sinal": 0,
+   "trecho": "Votaram por essa decisão os seguintes membros do Comitê",
+   "padroes": [],
+   "confianca": 0.9
+  }
+ ],
+ "mudancas": [
+  {
+   "tipo": "novo",
+   "paragrafo": 17,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "embora haja a possibilidade de o forward guidance ser retirado em breve, isso não implicaria mecanicamente aumento de juros",
+   "padroes": [
+    "P01",
+    "P14"
+   ],
+   "explicacao": "Promessa de juros baixos pode acabar em breve, sem alta automática."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 21,
+   "paragrafo_anterior": null,
+   "direcao": 1,
+   "trecho": "em breve, as condições para a manutenção do forward guidance podem não mais ser satisfeitas",
+   "padroes": [
+    "P01",
+    "P14"
+   ],
+   "explicacao": "Expectativas subiram e 2022 está na meta: a orientação deve cair."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 20,
+   "paragrafo_anterior": 20,
+   "direcao": 1,
+   "trecho": "Apesar da elevação desde a última reunião, em particular para o ano de 2021",
+   "padroes": [
+    "P10",
+    "P11"
+   ],
+   "explicacao": "Expectativas deixam de estar \"significativamente\" abaixo da meta."
+  },
+  {
+   "tipo": "novo",
+   "paragrafo": 5,
+   "paragrafo_anterior": 5,
+   "direcao": 1,
+   "trecho": "a inflação ainda deve se mostrar elevada",
+   "padroes": [
+    "P17"
+   ],
+   "explicacao": "Inflação de curto prazo segue alta, embora vista como temporária."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 13,
+   "paragrafo_anterior": 13,
+   "direcao": 1,
+   "trecho": "Os programas governamentais de recomposição de renda reduziram a ociosidade no setor de bens.",
+   "padroes": [
+    "P13"
+   ],
+   "explicacao": "Sai a ideia de pressão desinflacionária prolongada; folga menor em bens."
+  },
+  {
+   "tipo": "alterado",
+   "paragrafo": 7,
+   "paragrafo_anterior": 7,
+   "direcao": 1,
+   "trecho": "4,0% para 2022",
+   "padroes": [
+    "P08"
+   ],
+   "explicacao": "Com juros constantes, projeção de 2022 fica acima da meta."
+  }
+ ],
+ "resumo": {
+  "tom_nivel": 0.2,
+  "surpresa": 0.8,
+  "explicacao": "Selic em 2%, mas a ata prepara a retirada do forward guidance em breve, com expectativas em alta e 2022 na meta, ressalvando que isso não implica alta mecânica de juros."
+ }
+}
