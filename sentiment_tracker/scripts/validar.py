@@ -83,7 +83,33 @@ def checar(n: int) -> list[str]:
     return erros
 
 
+def checar_segunda() -> list[str]:
+    """2ª leitura: formato, faixa −2..+2 e trechos literais do texto de diff (sem ~~ e **)."""
+    erros, pasta = [], RAIZ / "dados" / "segunda_leitura"
+    for f in sorted(pasta.glob("ata_*.json")):
+        r = json.loads(f.read_text(encoding="utf-8"))
+        n = r.get("ata")
+        bruto = (pasta / "entrada" / f"ata_{n}.txt").read_text(encoding="utf-8")
+        versao_nova = re.sub(r"~~.*?~~", " ", bruto, flags=re.S).replace("**", "")
+        versao_antiga = re.sub(r"\*\*.*?\*\*", " ", bruto, flags=re.S).replace("~~", "")
+        texto = versao_nova + "\n" + versao_antiga
+        if r.get("direcao") not in ("mais_dura", "em_linha", "mais_branda"):
+            erros.append(f"2ª leitura ata {n}: direção inválida")
+        if not isinstance(r.get("surpresa"), (int, float)) or not -2 <= r["surpresa"] <= 2:
+            erros.append(f"2ª leitura ata {n}: surpresa fora de −2..+2")
+        for e in r.get("evidencias", []):
+            if not contem(texto, e.get("trecho", "")):
+                erros.append(f"2ª leitura ata {n}: trecho não literal: {e.get('trecho', '')[:70]!r}")
+    return erros
+
+
 if __name__ == "__main__":
+    if "--segunda" in sys.argv:
+        e = checar_segunda()
+        print(f"{len(list((RAIZ / 'dados' / 'segunda_leitura').glob('ata_*.json')))} arquivos; {len(e)} problema(s)")
+        for x in e:
+            print("  -", x)
+        sys.exit(1 if e else 0)
     ap = argparse.ArgumentParser()
     ap.add_argument("--trechos", nargs="*", type=int)
     ap.add_argument("--dir", help="pasta de rótulos dentro de dados/ (padrão: rotulos)")
