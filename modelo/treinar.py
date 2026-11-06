@@ -194,7 +194,16 @@ def main() -> int:
                               "previsoes_ata_a_ata": vt[n]["previsoes_ata_a_ata"]} for n in ORDEM},
            "criterio_escolha": "maior acurácia na validação no tempo; empate: maior acurácia balanceada, "
                                "depois o mais simples (árvore, logística, floresta)",
-           "n_atas_treino": int(len(treino))}
+           "n_atas_treino": int(len(treino)),
+           # compatibilidade com o painel atual (site/components/painel/modelo.ts)
+           "modelo_publicado": melhor,
+           "importancias": [{"variavel": d["nome"], "importancia": d["importancia"]} for d in variaveis],
+           "descricoes_variaveis": DESC,
+           "validacao_tempo": {"inicio_ata": int(atas[INICIO]), "fim_ata": int(atas[-1]), "n": v["n"],
+                               "metodos": {n: {**{k: vt[n][k] for k in ("acuracia", "acuracia_balanceada",
+                                                                        "matriz_confusao", "viradas")},
+                                               "previsoes": vt[n]["previsoes_ata_a_ata"]} for n in ORDEM}}}
+    previsao_atual["por_modelo"] = {melhor: probs}
     (B / "metricas_modelo.json").write_text(json.dumps(met, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     fora = {p["ata"]: p["probabilidades"] for p in v["previsoes_ata_a_ata"]}
