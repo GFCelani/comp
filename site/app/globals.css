@@ -387,3 +387,81 @@ details > summary::-webkit-details-marker {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- animações do hero (uma vez, < 1,2 s) ---------- */
+html {
+  scroll-behavior: smooth;
+}
+@keyframes sobe {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes da-direita {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes revela {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ponteiro {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(var(--angulo));
+  }
+}
+.manchete-anim .palavra {
+  display: inline-block;
+  white-space: pre;
+}
+/* antes de medir as linhas: escondida, com rede de segurança de 1 s */
+.manchete-anim:not(.pronta) .palavra {
+  opacity: 0;
+  animation: revela 0.01s 1s forwards;
+}
+.manchete-anim.pronta .palavra {
+  animation: sobe 520ms cubic-bezier(0.22, 0.7, 0.28, 1) both;
+  animation-delay: calc(var(--linha, 0) * 85ms);
+}
+.entra-1 {
+  animation: sobe 520ms cubic-bezier(0.22, 0.7, 0.28, 1) 330ms both;
+}
+.entra-2 {
+  animation: sobe 520ms cubic-bezier(0.22, 0.7, 0.28, 1) 430ms both;
+}
+.entra-cartao {
+  animation: da-direita 620ms cubic-bezier(0.22, 0.7, 0.28, 1) 180ms both;
+}
+.medidor-ponteiro {
+  transform: rotate(var(--angulo));
+  animation: ponteiro 800ms cubic-bezier(0.22, 0.7, 0.28, 1) 320ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .manchete-anim .palavra,
+  .manchete-anim:not(.pronta) .palavra,
+  .entra-1,
+  .entra-2,
+  .entra-cartao,
+  .medidor-ponteiro {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -18,10 +18,11 @@ import { PergunteAsAtas } from "@/components/PergunteAsAtas";
 import { Rodape } from "@/components/Rodape";
 import { Cabecalho } from "@/components/Cabecalho";
 import { ParagrafoCitado } from "@/components/ParagrafoCitado";
+import { ManchetePorLinha, ContaAte } from "@/components/HeroAnimacoes";
+import { Medidor } from "@/components/Medidor";
 
 export const revalidate = 60;
 
-type Acerto = { acuracia: number; acerto_sinal: number | null; n: number; n_direcionais?: number | null; previsto?: string | null };
 
 function Aguardando({ texto = "aguardando" }: { texto?: string }) {
   return <span className="aguardando">{texto}</span>;
@@ -36,6 +37,27 @@ function OrigemTexto({ origem }: { origem?: string | null }) {
 function corPrevisto(p: string) {
   return p === "aperto" ? "text-duro" : p === "afrouxamento" ? "text-brando" : "text-tinta";
 }
+
+function corIndice(v: number | null | undefined) {
+  return v != null && v > 0 ? "text-duro" : v != null && v < 0 ? "text-brando" : "text-tinta";
+}
+
+type MetodoPrevisao = {
+  nome: string;
+  rotulo_pt?: string;
+  acuracia_loo: number | null;
+  acerto_sinal: number | null;
+  n: number | null;
+  previsto_proxima: string | null;
+  disponivel: boolean;
+};
+
+const NOME_CURTO: Record<string, string> = {
+  ingenua: "repetir a última decisão",
+  variacao_tom: "variação do tom com a decisão atual",
+  nivel_tom: "nível do tom",
+  modelo_parceiro: "modelo do parceiro",
+};
 
 function maiuscula(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -76,25 +98,20 @@ export default async function Pagina() {
   const manchete = campos.manchete?.texto ?? null;
   const linhaFina = campos.manchete?.linha_fina ?? null;
 
-  const acertoIndice: Acerto | null =
-    (pv?.acerto?.indice as Acerto | undefined) ??
-    (mp ? { acuracia: mp.indice.acuracia, acerto_sinal: mp.indice.acerto_sinal, n: mp.n_atas } : null);
-  const acertoIngenua: Acerto | null =
-    (pv?.acerto?.ingenua as Acerto | undefined) ??
-    (mp ? { acuracia: mp.ingenua.acuracia, acerto_sinal: mp.ingenua.acerto_sinal, n: mp.n_atas } : null);
   const periodo =
     (pv?.acerto as { periodo?: { inicio: string; fim: string } } | null | undefined)?.periodo ?? mp?.periodo ?? null;
-  const fraseMelhor =
-    acertoIndice && acertoIngenua
-      ? acertoIndice.acuracia < acertoIngenua.acuracia
-        ? "Até aqui, repetir a última decisão acertou mais que o nosso índice."
-        : acertoIndice.acuracia > acertoIngenua.acuracia
-          ? "Até aqui, o nosso índice acertou mais que repetir a última decisão."
-          : "Até aqui, os dois métodos empatam."
-      : null;
 
   const notas: Record<string, number> = {};
   for (const a of atas) for (const p of a.paragrafos) notas[`${a.numero}.${p.paragrafo}`] = p.nota;
+
+  const pvx = pv as (typeof pv & { metodo_escolhido?: string; acuracia_escolhido?: number; metodos?: MetodoPrevisao[] }) | null | undefined;
+  const metodos: MetodoPrevisao[] = pvx?.metodos ?? [];
+  const escolhido = metodos.find((m) => m.nome === pvx?.metodo_escolhido) ?? null;
+  const acuraciaEscolhido = pvx?.acuracia_escolhido ?? escolhido?.acuracia_loo ?? null;
+  const nEscolhido = escolhido?.n ?? null;
+  const nomeMetodo = pvx?.metodo_escolhido ? NOME_CURTO[pvx.metodo_escolhido] ?? escolhido?.rotulo_pt ?? pvx.metodo_escolhido : "aguardando";
+  const tomPerde =
+    escolhido?.nome === "ingenua" && metodos.some((m) => (m.nome === "nivel_tom" || m.nome === "variacao_tom") && m.disponivel);
 
   const anterior = serie.length > 1 ? serie[serie.length - 2] : null;
   const ataRelatorio = pv?.base_ata ?? u.numero;
@@ -110,22 +127,24 @@ export default async function Pagina() {
       <main id="conteudo" className="flex-1">
         {/* 1. Capa */}
         <section className="envelope pt-[104px] sm:pt-[112px] lg:pt-[124px]" aria-labelledby="manchete">
-          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] items-start">
+          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-stretch">
             <div>
-              <p className="rotulo num">
+              <p className="rotulo num entra-1" style={{ animationDelay: "0ms" }}>
                 Ata da {u.numero}ª reunião do Copom, de {data(u.data_reuniao)}
               </p>
-              <h1 id="manchete" className="titulo-serifa mt-4 text-[2.25rem] leading-[1.08] sm:text-[2.75rem] lg:text-[clamp(2.6rem,3.5vw,3.25rem)] lg:leading-[1.06] tracking-[-0.025em] max-w-[24ch]">
-                {manchete ?? <>A manchete desta ata está sendo escrita</>}
-              </h1>
+              <ManchetePorLinha
+                id="manchete"
+                texto={manchete ?? "A manchete desta ata está sendo escrita"}
+                className="titulo-serifa mt-4 text-[2.25rem] leading-[1.08] sm:text-[2.75rem] lg:text-[clamp(2.6rem,3.5vw,3.25rem)] lg:leading-[1.06] tracking-[-0.025em] max-w-[24ch]"
+              />
               {linhaFina ? (
-                <p className="mt-5 text-[1.0625rem] sm:text-lg lg:text-[1.1875rem] leading-[1.55] text-tinta-2 max-w-[60ch]">{linhaFina}</p>
+                <p className="entra-1 mt-5 text-[1.0625rem] sm:text-lg lg:text-[1.1875rem] leading-[1.55] text-tinta-2 max-w-[60ch]">{linhaFina}</p>
               ) : (
-                <p className="mt-5">
+                <p className="entra-1 mt-5">
                   <Aguardando texto="linha fina aguardando o pipeline" />
                 </p>
               )}
-              <dl className="mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
+              <dl className="entra-2 mt-6 pt-4 border-t border-linha grid gap-x-8 gap-y-3 sm:flex sm:flex-wrap text-sm num">
                 <div>
                   <dt className="text-tinta-3">Selic após a reunião</dt>
                   <dd className="mt-0.5 font-medium">
@@ -154,58 +173,69 @@ export default async function Pagina() {
               </dl>
             </div>
 
-            {/* Cartão de destaque: dois chamados */}
-            <aside className="cartao-destaque overflow-hidden" aria-label="Destaques">
-              <a href="#relatorio" className="group block px-6 py-5 bg-fundo-petroleo hover:bg-[#e4efed] transition-colors">
+            {/* Cartão de destaque: esticado até a altura do bloco de texto */}
+            <aside className="entra-cartao cartao-destaque overflow-hidden flex flex-col" aria-label="Destaques">
+              <div className="px-6 pt-5 pb-5 bg-fundo-petroleo">
                 <p className="rotulo text-acento">Leia o relatório de hoje</p>
                 <p className="titulo-serifa mt-1.5 text-[1.3125rem] leading-[1.25]">
                   O que mudou na ata {ataRelatorio}
                   <br />e o que isso pode significar
                 </p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-acento">
-                  ler o relatório
-                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-y-0.5">
-                    <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                <a
+                  href="#relatorio"
+                  className="group mt-4 flex w-full items-center justify-center gap-2 rounded-[10px] bg-acento px-4 py-3 text-[0.9375rem] font-medium text-papel shadow-[0_1px_2px_rgb(16_19_23/0.12)] transition-[background-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-acento-2 hover:shadow-[0_10px_24px_-12px_rgb(17_100_107/0.6)]"
+                >
+                  Ler o relatório
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-y-0.5">
+                    <path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </span>
-              </a>
+                </a>
+              </div>
 
-              <div id="previsao" className="border-t border-linha px-6 py-5">
+              <div id="previsao" className="flex-1 flex flex-col justify-between gap-4 border-t border-linha px-6 py-5">
                 <div className="flex items-baseline justify-between gap-4">
                   <p className="rotulo">Nossa previsão</p>
-                  <p className="text-xs text-tinta-3 num">{proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}</p>
+                  <p className="text-xs text-tinta-3 num">
+                    {proxima?.numero ? `${proxima.numero}ª reunião` : "próxima reunião"}
+                    {proxima?.data ? `, ${dataCurta(proxima.data).slice(0, 5)}` : ""}
+                  </p>
                 </div>
                 {pv ? (
                   <>
-                    <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
-                      <div>
-                        <p className="flex items-baseline gap-2.5 flex-wrap">
-                          <span className={`titulo-serifa text-[2.5rem] leading-none ${corPrevisto(pv.previsto)}`}>{maiuscula(previsaoRotulo[pv.previsto])}</span>
-                          <span className="text-tinta-2">da Selic</span>
-                        </p>
-                        <p className="mt-2 text-sm text-tinta-2 num">
-                          em {proxima?.data ? <strong className="font-medium text-tinta">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
+                      <div className="min-w-0">
+                        <p className={`titulo-serifa text-[2.25rem] leading-none entra-2 ${corPrevisto(pv.previsto)}`}>{maiuscula(previsaoRotulo[pv.previsto])}</p>
+                        <p className="mt-2 text-sm text-tinta-2">
+                          da Selic em {proxima?.data ? <strong className="font-medium text-tinta num">{data(proxima.data)}</strong> : <Aguardando texto="data aguardando o calendário do BC" />}
                         </p>
                       </div>
                       <div className="text-right border-l border-linha pl-4">
                         <p className="text-xs text-tinta-3">Acurácia</p>
-                        {acertoIndice ? (
+                        {acuraciaEscolhido != null ? (
                           <>
-                            <p className="mt-1 num text-[1.625rem] leading-none font-medium tracking-tight">{pct(acertoIndice.acuracia)}</p>
-                            <p className="mt-1 text-xs text-tinta-3 num">em {acertoIndice.n} reuniões</p>
+                            <p className="mt-1 text-[1.75rem] leading-none font-medium tracking-tight">
+                              <ContaAte valor={acuraciaEscolhido} />
+                            </p>
+                            <p className="mt-1 text-xs text-tinta-3 num">{nEscolhido ? `em ${nEscolhido} reuniões` : ""}</p>
                           </>
                         ) : (
                           <Aguardando />
                         )}
                       </div>
                     </div>
-                    <p className="mt-4 pt-3 border-t border-linha text-[0.8125rem] text-tinta-2 num">
-                      Pelo índice da ata {pv.base_ata} ({fmtIndice(pv.indice)}).{" "}
-                      <a href="#numeros" className="link">ver os números</a>
+                    <p className="text-sm text-tinta-2 leading-snug">
+                      Método: <span className="text-tinta font-medium">{nomeMetodo}</span>, o de maior acerto no histórico.
                     </p>
+                    <div className="flex items-center gap-3 pt-3 border-t border-linha">
+                      <Medidor valor={pv.indice} className="h-[30px] w-[50px] shrink-0" />
+                      <p className="text-[0.8125rem] text-tinta-2 leading-snug num">
+                        Tom da ata {pv.base_ata}: <span className={corIndice(pv.indice)}>{fmtIndice(pv.indice)}</span>, só contexto.{" "}
+                        <a href="#numeros" className="link whitespace-nowrap">ver os números</a>
+                      </p>
+                    </div>
                   </>
                 ) : (
-                  <p className="mt-3">
+                  <p>
                     <Aguardando texto="previsão aguardando o pipeline" />
                   </p>
                 )}
@@ -313,7 +343,7 @@ export default async function Pagina() {
 
             <div id="numeros" className="mt-16">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
-                <h3 className="titulo-serifa text-[1.625rem] leading-tight">Quanto o sinal acertou</h3>
+                <h3 className="titulo-serifa text-[1.625rem] leading-tight">Quanto cada método acertou</h3>
                 {periodo && (
                   <p className="text-sm text-tinta-3 num">
                     Direção da Selic na reunião seguinte, {dataCurta(periodo.inicio)} a {dataCurta(periodo.fim)}
@@ -321,32 +351,35 @@ export default async function Pagina() {
                 )}
               </div>
               <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-y-8">
-                <Numero
-                  destaque
-                  valor={acertoIndice ? pct(acertoIndice.acuracia) : <Aguardando />}
-                  rotulo="Nosso índice de tom"
-                  contexto={acertoIndice ? `Das ${acertoIndice.n} reuniões avaliadas, a fração em que acertou a direção.` : "Aguardando as métricas do pipeline."}
-                />
-                <Numero
-                  valor={acertoIngenua ? pct(acertoIngenua.acuracia) : <Aguardando />}
-                  rotulo="Repetir a última decisão"
-                  contexto={fraseMelhor ?? "A base de comparação, sem ler a ata."}
-                />
-                <Numero
-                  valor={acertoIndice?.acerto_sinal != null ? pct(acertoIndice.acerto_sinal) : <Aguardando />}
-                  rotulo="Acerto de sinal"
-                  contexto={
-                    acertoIndice?.n_direcionais
-                      ? `Nas ${acertoIndice.n_direcionais} vezes em que o índice apontou alta ou corte.`
-                      : "Quando o índice apontou alta ou corte."
-                  }
-                />
+                {metodos.filter((m) => m.disponivel).length ? (
+                  metodos
+                    .filter((m) => m.disponivel)
+                    .map((m) => (
+                      <Numero
+                        key={m.nome}
+                        destaque={m.nome === escolhido?.nome}
+                        valor={m.acuracia_loo != null ? pct(m.acuracia_loo) : <Aguardando />}
+                        rotulo={maiuscula(NOME_CURTO[m.nome] ?? m.rotulo_pt ?? m.nome)}
+                        contexto={`${m.nome === escolhido?.nome ? "Método publicado. " : ""}${
+                          m.n ? `Acerto em ${m.n} reuniões. ` : ""
+                        }${m.previsto_proxima ? `Para a próxima: ${previsaoRotulo[m.previsto_proxima as keyof typeof previsaoRotulo] ?? m.previsto_proxima}.` : ""}`}
+                      />
+                    ))
+                ) : (
+                  <Numero valor={<Aguardando />} rotulo="Métodos de previsão" contexto="Aguardando as métricas do pipeline." />
+                )}
                 <Numero
                   valor={pv?.focus_selic ? fmtSelic(pv.focus_selic.mediana) : <Aguardando />}
                   rotulo={pv?.focus_selic ? `Focus: Selic no fim de ${pv.focus_selic.ano_referencia}` : "Focus"}
                   contexto={pv?.focus_selic ? `Mediana do mercado, coleta de ${dataCurta(pv.focus_selic.data)}.` : "Aguardando o dado do Focus."}
                 />
               </div>
+              {tomPerde && (
+                <p className="mt-8 max-w-[70ch] text-[0.9375rem] text-tinta-2">
+                  O tom das atas ainda não bate repetir a última decisão: por isso a previsão publicada usa o método de maior acerto,
+                  e o tom entra como explicação do que mudou na comunicação.
+                </p>
+              )}
               <p className="mt-10 text-sm text-tinta-3">
                 Detalhes, matriz de confusão e validação no{" "}
                 <Link href="/painel" className="link-tinta">

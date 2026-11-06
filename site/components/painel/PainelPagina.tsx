@@ -67,7 +67,7 @@ export async function PainelPagina({ secaoInicial }: { secaoInicial: IdSecao }) 
       contexto={contexto}
       secoes={{
         "visao-geral": <SecaoVisaoGeral dados={dados} previsao={campos.previsao ?? null} />,
-        modelos: <SecaoModelos dados={dados} />,
+        modelos: <SecaoModelos dados={dados} previsao={campos.previsao ?? null} />,
         validacao: <SecaoValidacao dados={dados} />,
         dados: <SecaoDados dados={dados} />,
         textos: (

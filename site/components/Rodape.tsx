@@ -8,7 +8,7 @@ export async function Rodape() {
   const verificacao = await fraseUltimaVerificacao();
   const gerado = dataHora(dados.gerado_em);
   return (
-    <footer className="mt-28 sm:mt-36 bg-fundo-quente border-t border-[#efe4d6]">
+    <footer className="bg-papel-2 border-t border-linha">
       <div className="envelope py-12 sm:py-16 grid gap-10 md:grid-cols-[1.3fr_1fr_1fr] text-sm text-tinta-2">
         <div>
           <Logo tamanho="sm" />
@@ -23,7 +23,7 @@ export async function Rodape() {
           <p className="font-medium text-tinta">Fontes</p>
           <ul className="mt-3 grid gap-2">
             <li>
-              <a href="https://www.bcb.gov.br/publicacoes/atascopom" target="_blank" rel="noopener noreferrer" className="link-tinta text-apoio">
+              <a href="https://www.bcb.gov.br/publicacoes/atascopom" target="_blank" rel="noopener noreferrer" className="link-tinta text-tinta-2 hover:text-tinta">
                 Atas do Copom, Banco Central
               </a>
             </li>
@@ -51,12 +51,12 @@ export async function Rodape() {
           <p className="mt-4 leading-relaxed">{verificacao}</p>
         </div>
       </div>
-      <div className="border-t border-[#efe4d6]">
-        <div className="envelope py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-tinta-3">
-          <a href="https://github.com/GFCelani/comp" target="_blank" rel="noopener noreferrer" className="link-tinta text-apoio">
+      <div className="border-t border-linha">
+        <div className="envelope py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-tinta-2">
+          <a href="https://github.com/GFCelani/comp" target="_blank" rel="noopener noreferrer" className="link-tinta text-tinta-2 hover:text-tinta">
             código e dados no GitHub
           </a>
-          <Link href="/painel" className="link-tinta text-apoio">
+          <Link href="/painel" className="link-tinta text-tinta-2 hover:text-tinta">
             painel
           </Link>
         </div>

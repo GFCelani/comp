@@ -1,10 +1,9 @@
-import type { DadosSite, MetricasLado } from "@/lib/dados";
+import type { DadosSite } from "@/lib/dados";
+import type { PrevisaoProxima } from "@/lib/previsao";
 import { data, indice as fmtIndice, pct, previsaoRotulo } from "@/lib/formato";
 import { Matriz } from "@/components/Matriz";
 import { BlocoAguardando, Cartao } from "./Partes";
-import { fraseMelhor } from "./SecaoVisaoGeral";
-
-type Lado = MetricasLado & { n_previsoes_direcionais?: number | null };
+import { DESCRICAO, fraseTom, lerMetodos, NOME_CURTO, type Metodo } from "./metodos";
 
 const rotulosPrev = (r: string[]) => r.map((x) => previsaoRotulo[x as keyof typeof previsaoRotulo] ?? x);
 
@@ -17,73 +16,79 @@ function Numero({ rotulo, valor }: { rotulo: string; valor: React.ReactNode }) {
   );
 }
 
-function ColunaMetodo({ titulo, descricao, m, destaque }: { titulo: string; descricao: string; m: Lado; destaque?: boolean }) {
+function Aguard({ children }: { children?: React.ReactNode }) {
+  return <span className="aguardando">{children ?? "aguardando"}</span>;
+}
+
+function ColunaMetodo({ m }: { m: Metodo }) {
   return (
     <Cartao
       titulo={
         <>
-          {titulo}
-          {destaque && <span className="selo selo-ok ml-2 align-[1px]">acertou mais</span>}
+          {NOME_CURTO[m.nome]}
+          {m.escolhido && <span className="selo selo-ok ml-2 align-[1px]">método publicado</span>}
         </>
       }
-      descricao={descricao}
+      descricao={`${m.rotulo}. ${DESCRICAO[m.nome]}`}
     >
-      <dl className="grid grid-cols-3 gap-3">
-        <Numero rotulo="acurácia" valor={pct(m.acuracia)} />
-        <Numero rotulo="acerto de sinal" valor={m.acerto_sinal === null ? <span className="aguardando">aguardando</span> : pct(m.acerto_sinal)} />
-        <Numero
-          rotulo="direcionais"
-          valor={typeof m.n_previsoes_direcionais === "number" ? m.n_previsoes_direcionais : <span className="aguardando">aguardando</span>}
-        />
-      </dl>
-      <p className="mt-3 text-xs leading-relaxed text-tinta-3">
-        {m.atas.length} reuniões avaliadas. Direcionais: quantas vezes o método previu alta ou corte; o acerto de sinal
-        conta só essas.
-      </p>
-      <div className="mt-5 border-t border-linha pt-5">
-        <Matriz
-          rotulos={rotulosPrev(m.matriz_confusao.rotulos)}
-          valores={m.matriz_confusao.valores}
-          legenda={`Matriz de confusão: ${titulo}`}
-        />
-      </div>
+      {m.disponivel ? (
+        <>
+          <dl className="grid grid-cols-2 gap-x-3 gap-y-4">
+            <Numero rotulo="acurácia LOO" valor={m.acuracia === null ? <Aguard /> : pct(m.acuracia)} />
+            <Numero rotulo="acerto de sinal" valor={m.acertoSinal === null ? <Aguard /> : pct(m.acertoSinal)} />
+            <Numero rotulo="direcionais" valor={m.direcionais ?? <Aguard />} />
+            <Numero rotulo="próxima reunião" valor={m.proxima ? previsaoRotulo[m.proxima] : <Aguard />} />
+          </dl>
+          <p className="mt-3 text-xs leading-relaxed text-tinta-3">
+            {m.n ?? <Aguard />} reuniões avaliadas. Direcionais: quantas vezes o método previu alta ou corte; o acerto
+            de sinal conta só essas.
+          </p>
+          <div className="mt-5 border-t border-linha pt-5">
+            {m.matriz ? (
+              <Matriz
+                rotulos={rotulosPrev(m.matriz.rotulos)}
+                valores={m.matriz.valores}
+                legenda={`Matriz de confusão: ${NOME_CURTO[m.nome]}`}
+              />
+            ) : (
+              <Aguard>matriz aguardando</Aguard>
+            )}
+          </div>
+        </>
+      ) : (
+        <BlocoAguardando texto={m.motivo ? `Aguardando: ${m.motivo}.` : "Aguardando os dados deste método."} />
+      )}
     </Cartao>
   );
 }
 
-export function SecaoModelos({ dados }: { dados: DadosSite }) {
+export function SecaoModelos({ dados, previsao }: { dados: DadosSite; previsao: PrevisaoProxima | null }) {
   const { metricas_previsao: mp, metricas_modelo: mm } = dados;
+  const { lista, escolhido } = lerMetodos(dados, previsao);
+  const temNovos = lista.some((m) => m.temDados);
+  const frase = fraseTom(lista);
   return (
     <div className="grid gap-6">
-      {mp ? (
+      {mp && temNovos ? (
         <>
           <p className="max-w-[72ch] text-sm leading-relaxed text-tinta-2">
-            {mp.n_atas} reuniões de {data(mp.periodo.inicio)} a {data(mp.periodo.fim)}. A regra foi fixada antes de olhar
-            os resultados: índice acima de +0,25 prevê alta, abaixo de −0,25 prevê corte, entre os dois prevê manutenção.{" "}
-            <span className="text-tinta">{fraseMelhor(mp)}</span>
+            {mp.n_atas} reuniões de {data(mp.periodo.inicio)} a {data(mp.periodo.fim)}, avaliadas por validação
+            leave-one-out. As regras foram fixadas antes de olhar os resultados, e o site publica a previsão do método
+            com maior acurácia
+            {escolhido ? <>: hoje, {escolhido.rotulo.charAt(0).toLowerCase() + escolhido.rotulo.slice(1)}.</> : "."}{" "}
+            {frase && <span className="text-tinta">{frase}</span>}
           </p>
-          <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
-            <ColunaMetodo
-              titulo="Índice de tom (regra ±0,25)"
-              descricao="Prevê a reunião seguinte a partir do índice da ata."
-              m={mp.indice as Lado}
-              destaque={mp.melhor === "indice"}
-            />
-            <ColunaMetodo
-              titulo="Repetir a última decisão"
-              descricao="Previsão ingênua: aposta que o Copom repete o que acabou de fazer."
-              m={mp.ingenua as Lado}
-              destaque={mp.melhor === "ingenua"}
-            />
-            <div className="lg:col-span-2 xl:col-span-1">
-              <ModeloParceiro mm={mm} />
-            </div>
+          <div className="grid gap-4 md:grid-cols-2 2xl:grid-cols-4">
+            {lista.map((m) => (
+              <ColunaMetodo key={m.nome} m={m} />
+            ))}
           </div>
+          {mm && <ModeloParceiro mm={mm} />}
         </>
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
-          <Cartao titulo="Índice de tom × repetir a última decisão">
-            <BlocoAguardando texto="As métricas de previsão ainda não foram geradas pelo pipeline." />
+          <Cartao titulo="Comparação dos métodos de previsão">
+            <BlocoAguardando texto="As métricas por método ainda não foram geradas pelo pipeline." />
           </Cartao>
           <ModeloParceiro mm={mm} />
         </div>
@@ -102,7 +107,7 @@ function ModeloParceiro({ mm }: { mm: DadosSite["metricas_modelo"] }) {
   }
   return (
     <Cartao
-      titulo="Modelo do parceiro"
+      titulo="Modelo do parceiro: nota por parágrafo"
       descricao={`${mm.metodo} · ${mm.n_paragrafos.toLocaleString("pt-BR")} parágrafos · gerado em ${data(mm.gerado_em.slice(0, 10))}`}
     >
       <dl className="grid grid-cols-3 gap-3">
