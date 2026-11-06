@@ -1,0 +1,228 @@
+{
+ "ata": 248,
+ "anterior": 247,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "O ambiente externo mantém- se adverso e volátil, com maiores revisões negativas para o crescimento global, em um ambiente inflacionário ainda pressionado.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "O crescimento de grandes economias tem sido revisado para baixo, tanto para este quanto para o próximo ano, em função da expectativa de continuidade da reversão dos estímulos implementados durante o longo período da pandemia, em particular os de política monetária. Além disso, a guerra na Ucrânia gera impactos sobre o fornecimento de gás natural, adicionando incerteza sobre o cenário econômico europeu, enquanto a deterioração do setor imobiliário, aliada à política de combate à Covid-19, impactam negativamente as perspectivas de crescimento chinesas.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "As taxas de inflação de algumas economias avançadas divulgadas no período sugerem pressões ainda fortes, mas já se observa uma normalização incipiente nas cadeias de suprimento e uma acomodação nos preços das principais commodities no período recente. Aliada à recomposição nos estoques de produtos industrializados, esses desenvolvimentos podem implicar moderação nas pressões inflacionárias ligadas a bens. Por outro lado, o grau de ociosidade do mercado de trabalho nessas economias sugere que pressões inflacionárias no setor de serviços podem demorar a se dissipar.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "Bancos centrais de países desenvolvidos e emergentes têm adotado uma postura mais contracionista em reação ao avanço da inflação. A aceleração do processo de normalização da política monetária nos países avançados, o aumento da aversão a risco e a mudança da perspectiva de crescimento econômico têm impactado as condições financeiras tanto de países avançados quanto de emergentes, com efeito sobre a volatilidade dos ativos e as expectativas de crescimento econômico. O Comitê segue acompanhando os riscos em torno de uma desaceleração global em ambiente de inflação significativamente pressionada.",
+   "status": "alterado",
+   "paragrafo_anterior": 3,
+   "similaridade": 0.78,
+   "diff": "Bancos centrais de países desenvolvidos e emergentes têm adotado uma postura mais contracionista em reação ao avanço da ~~inflação, ainda que, em parte dessas economias, as taxas~~ **inflação. A aceleração do processo** de ~~juros correntes sigam em campo avaliado como expansionista. A reprecificação~~ **normalização** da política monetária nos países avançados, o aumento da aversão a risco e a mudança da perspectiva de crescimento econômico têm impactado as condições financeiras tanto de países avançados quanto de ~~emergentes.~~ **emergentes, com efeito sobre a volatilidade dos ativos e as expectativas de crescimento econômico.** O Comitê ~~discutiu também~~ **segue acompanhando** os ~~crescentes~~ riscos em torno de uma desaceleração global em ambiente de inflação significativamente pressionada."
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "No âmbito doméstico, o conjunto dos indicadores de atividade econômica divulgado desde a última reunião do Copom segue indicando crescimento ao longo do s egundo trimestre, com uma retomada no mercado de trabalho mais forte do que era esperada pelo Comitê. Tanto os indicadores referentes à contratação de emprego formal quanto as taxas de ocupação e desocupação sugerem uma normalização rápida dos setores intensivos em trabalho após a pandemia.",
+   "status": "alterado",
+   "paragrafo_anterior": 4,
+   "similaridade": 0.53,
+   "diff": "No âmbito doméstico, o conjunto dos indicadores de atividade econômica divulgado desde a última reunião do Copom ~~indica um~~ **segue indicando** crescimento ~~acima~~ **ao longo do s egundo trimestre, com uma retomada no mercado de trabalho mais forte** do que era ~~esperado~~ **esperada** pelo Comitê. ~~Indicadores relativos ao mercado~~ **Tanto os indicadores referentes à contratação** de **emprego formal quanto as taxas de ocupação e desocupação sugerem uma normalização rápida dos setores intensivos em** trabalho ~~seguem em recuperação e~~ **após** a ~~divulgação do PIB do primeiro trimestre apontou ritmo de atividade acima do esperado, elevando o carreg amento estatístico para est e ano. O consumo das fam ílias segue contribuindo positivamente, enquanto, no último trimestre, a formação bruta de capital fixo contribuiu negativamente.~~ **pandemia.**"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, se mostrando mais persistente que o antecipado. A redução de impostos sobre os preços de energia já começa a ser observad a nos indic adores de alta frequência, mas o s componentes mais sensíveis ao ciclo econômico e à política monetária, que apresentam maior inércia inflacionária, mantêm-se acima do intervalo compatível com o cumprimento da meta para a inflação. As expectativas de inflação para 2022, 2023 e 2024 apuradas pela pesquisa Focus encontram-se em torno de 7,2%, 5,3% e 3,3%, respectivamente.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 7,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "No cenário de referência, a trajetória para a taxa de juros é extraída da pesquisa Focus e a taxa de câmbio parte de USD/BRL 5,302, evoluindo segundo a paridade do poder de compra (PPC). Esse cenário supõe trajetória de juros que termina 2022 em 13,75% a.a., reduz-se para 11,00% em 2023 e 8,00% em 2024. Supõe-se que o preço do petróleo segue aproximadamente a curva futura pelos próximos seis meses e passa a aumentar 2% ao ano posteriormente. Além disso, adota-se a hipótese de bandeira tarifária \"amarela\" em dezembro de 2022, de 2023 e de 2024. Nesse cenário, as projeções de inflação do Copom situam-se em 6,8% para 2022, 4,6% para 2023 e 2,7% para 2024. As projeções para a inflação de preços administrados são de -1,3% para 2022, 8,4% para 2023 e 3,6% para 2024. As projeções do cenário de referência incorporam o impacto das medidas tributárias recentemente aprovadas. Para o horizonte de seis trimestres à frente, que suaviza o efeito ano-calendário, mas incorpora os impactos secundários das medidas tributárias que incidem entre 2022 e o primeiro trimestre de 2023, a projeção de inflação acumulada em doze meses situa-se em 3,5%. O Comitê julga que a incerteza em torno das suas premissas e projeções atualmente é maior do que o usual.",
+   "status": "alterado",
+   "paragrafo_anterior": 6,
+   "similaridade": 0.81,
+   "diff": "No cenário de referência, a trajetória para a taxa de juros é extraída da pesquisa Focus e a taxa de câmbio parte de USD/BRL ~~4, 902,~~ **5,302,** evoluindo segundo a paridade do poder de compra (PPC). Esse cenário supõe trajetória de juros que termina 2022 em ~~13,25%~~ **13,75%** a.a., reduz-se para ~~10,0%~~ **11,00%** em 2023 e ~~7,50%~~ **8,00%** em 2024. ~~Optou-se por manter a premissa de~~ **Supõe-se** que o preço do petróleo segue aproximadamente a curva futura pelos próximos seis ~~meses, terminando o ano em US$110/barril,~~ **meses** e passa a aumentar 2% ao ano ~~a partir d e janeiro de 2023.~~ **posteriormente.** Além disso, adota-se a hipótese de bandeira tarifária \"amarela\" em dezembro de 2022, de 2023 e de 2024. Nesse cenário, as projeções de inflação do Copom situam-se em ~~8,8%~~ **6,8%** para 2022, ~~4,0%~~ **4,6%** para 2023 e 2,7% para 2024. As projeções para a inflação de preços administrados são de ~~7,0%~~ **-1,3%** para 2022, ~~6,3%~~ **8,4%** para 2023 e ~~3,3%~~ **3,6%** para 2024. As projeções do cenário de referência ~~não~~ incorporam o impacto das medidas tributárias ~~sobre preços~~ **recentemente aprovadas. Para o horizonte** de ~~combustíveis, energia elétrica~~ **seis trimestres à frente, que suaviza o efeito ano-calendário, mas incorpora os impactos secundários das medidas tributárias que incidem entre 2022** e ~~telecomunicações que estão~~ **o primeiro trimestre de 2023, a projeção de inflação acumulada** em ~~tramitação.~~ **doze meses situa-se em 3,5%.** O Comitê julga que a incerteza em torno das suas premissas e projeções atualmente é maior do que o ~~usual e cresceu desde a última reunião.~~ **usual.**"
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê avalia que o cenário inflacionário global segue desafiador. As pressões advindas tanto de uma demanda por bens persistentemente alta como de choques de oferta ligados à guerra na Ucrânia, à política chinesa de combate à Covid-19 e às políticas que restringem o comércio de produtos agrícolas em países produtores de commodities podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas. No entanto, a reavaliação da demanda global futura tem provocado queda nos preços das principais commodities assim como uma perspectiva de menor desequilíbrio no mercado de bens industriais. O Comitê nota que, ainda assim, permanecem pontos de atenção referentes a questões geopolíticas e particulares em tais mercados.",
+   "status": "alterado",
+   "paragrafo_anterior": 7,
+   "similaridade": 0.61,
+   "diff": "O Comitê avalia que o cenário inflacionário global segue ~~marcado por~~ **desafiador. As** pressões ~~inflacionárias~~ advindas tanto de uma demanda por bens persistentemente ~~alta,~~ **alta** como de choques de oferta ligados à guerra na ~~Ucrânia e~~ **Ucrânia,** à política chinesa de combate à ~~Covid-19. O Comitê avalia ainda que as recentes~~ **Covid-19 e às** políticas que restringem o comércio de produtos agrícolas em países produtores de ~~commodities, concomitante aos efeitos da guerra na Ucrânia, trazem um risco adicional para as pressões inflacionárias globais. Na visão do Comitê, esses desenvolvimentos~~ **commodities** podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas. **No entanto, a reavaliação da demanda global futura tem provocado queda nos preços das principais commodities assim como uma perspectiva de menor desequilíbrio no mercado de bens industriais. O Comitê nota que, ainda assim, permanecem pontos de atenção referentes a questões geopolíticas e particulares em tais mercados.**"
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê discutiu os impactos da sincronia global no processo de retirada de estímulos. O Comitê notou um ritmo mais acelerado no processo de ajuste da política monetária nas economias avançadas, assim como a determinação presente na comunicação de importantes bancos centrais em reduzir as pressões inflacionárias. Notou-se que tal movimento eleva a volatilidade dos mercados, impactando de forma heterogênea os diferentes ativos e suscita ndo um aumento na aversão a risco. Além disso, dada a persistência do processo inflacionário n as economias avançadas e as consequentes reações de vários bancos centrais, o Comitê avalia que houve um aumento da probabilidade de cenários alternativos que incorporam uma desaceleração da atividade global mais pronunciada. Concorrem nesse sentido a incerteza sobre o cenário de energia na Europa, a dinâmica de setores mais sensíveis a juros nos Estados Unidos e as perspectivas de crescimento mais gradual na China.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 10,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "No cenário doméstico, o Comitê avalia que políticas temporárias de apoio à renda devem trazer estímulo à demanda agregada e que o prolongamento de tais políticas pode elevar os prêmios de risco do país e as expectativas de inflação à medida que pressionam a demanda agregada e pioram a trajetória fiscal. O Comitê reitera que há vários canais pelos quais a política fiscal pode afetar a inflação, incluindo seu efeito sobre a atividade, preços de ativos e expectativas de inflação.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 11,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "Os dados referentes ao mercado de trabalho, em especial o volume de contratações e a taxa de desocupação, surpreenderam no período e indicam um estreitamento da estimativa do hiato do produto mais célere que o antecipado. Entretanto, o Comitê avalia que ainda há ociosidade na e conomia. De todo modo, nota-se que avaliações sobre o hiato, especialmente no que tange ao componente ligado ao mercado de trabalho, estão sempre sujeitas à incerteza, especialmente em uma conjuntura como a atual em que a economia ainda se normaliza após a pandemia e onde há notável heterogeneidade setorial nesse processo. O Comitê seguirá acompanhando e analisando o hiato do produto à luz das próximas divul gações. O Comitê segue avaliando que a atividade deve desacelerar nos próximos trimestres, quando os impactos defasados da política monetária se fizerem mais presentes.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 12,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê ressalta que, em seus cenários para a inflação, permanecem fatores de risco em ambas as direções. Entre os riscos de alta para o cenário inflacionário e as expectativas de inflação, destacam-se (i) uma maior persistência das pressões inflacionárias globais; e (ii) a incerteza sobre o futuro do arcabouço fiscal do país e estímulos fiscais adicionais que impliquem sustentação da demanda agregada, parcialmente incorporados nas expectativas de inflação e nos preços de ativos. Entre os riscos de baixa, ressaltam-se (i) uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local; e (ii) uma desaceleração da atividade econômica mais acentuada do que a projetada. O Comitê pondera que a possibilidade de que medidas fiscais de estímulo à demanda se tornem permanentes acentua os riscos de alta para o cenário inflacionário. Por outro lado, nota que o aumento do risco de desaceleração da economia global também acentua os riscos de baixa. O Comitê avalia que a co njuntura ainda particularmente incerta e volátil requer serenidade na avaliação dos riscos.",
+   "status": "alterado",
+   "paragrafo_anterior": 12,
+   "similaridade": 0.85,
+   "diff": "O Comitê ressalta que, em seus cenários para a inflação, permanecem fatores de risco em ambas as direções. Entre os riscos de alta para o cenário inflacionário e as expectativas de inflação, destacam-se (i) uma maior persistência das pressões inflacionárias globais; e (ii) a incerteza sobre o futuro do arcabouço fiscal do país e ~~políticas~~ **estímulos** fiscais **adicionais** que impliquem sustentação da demanda agregada, parcialmente ~~incorporadas~~ **incorporados** nas expectativas de inflação e nos preços de ativos. Entre os riscos de baixa, ressaltam-se (i) uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local; e (ii) uma desaceleração da atividade econômica mais acentuada do que a projetada. ~~Avaliou-se~~ **O Comitê pondera** que ~~as~~ **a possibilidade de que** medidas ~~tributárias em tramitação reduzem sensivelmente a inflação no ano corrente, embora elevem, em menor magnitude, a inflação no ho rizonte relevante~~ **fiscais** de ~~política monetária.~~ **estímulo à demanda se tornem permanentes acentua os riscos de alta para o cenário inflacionário. Por outro lado, nota que o aumento do risco de desaceleração da economia global também acentua os riscos de baixa.** O Comitê avalia que a ~~conjuntura~~ **co njuntura ainda** particularmente incerta e volátil requer serenidade na avaliação dos riscos."
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom passou então à discussão da condução da política monetária, considerando o conjunto de projeções analisado, assim como o balanço de riscos para a inflação prospectiva.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Seguindo sua governança usual, o horizonte relevante para a política monetária passou a se referir ao ano de 2023 e, em grau menor, ao de 2024. No entanto, n esta reunião, notou-se que as projeções de inflação para os anos de 2022 e 2023 estavam sujeitas a impactos elevados associados às alterações tributárias entre anos-calendário. Assim, o Comitê optou por dar ênfase à inflação acumulada em doze meses no primeiro trimestre de 2024, que reflete o horizonte relevante, suaviza os efeitos diretos decorrentes das mudanças tributárias, mas incorpora seus impactos secundários sobre as projeções de inflação relevantes para a decisão de política monetária.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "A projeção da inflação de doze meses no primeiro trimestre de 2024, que incorpora os efeitos secundários das alterações tributárias, assim como efeitos acumulados da manutenção da taxa de juros em patamar significativamente contracionista, é compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante. O Comitê notou que a projeção de inflação para o ano-calendário de 2024 também se encontra ao redor da meta estipulada.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom iniciou sua discussão com a avaliação do ciclo de ajuste empreendido até a presente reunião. Ressaltou-se que o ciclo de aperto monetário corrente foi bastante intenso e tempestivo e que, devido às defasagens longas e variáveis d a política monetária, ainda não se observa grande parte do efeito contracionista esperado bem como seu impacto sobre a inflação corrente. Esses impactos devem ficar mais claros nos indicadores de atividade referentes ao segundo semestre, mas o Comitê antecipa que medidas de sustentação da demanda agregada, que serão implementad as no curto prazo, devem dificultar uma avaliação mais precisa sobre o estágio do ciclo econômico e dos impactos da política monetária.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê notou que a dinâmica inflacionária de curto prazo segue desafiadora, com avanço das medidas de inflação subjacente em ambiente de surpresas na atividade corrente, e que suas projeções seguiram se deteriorando, ainda que o cenário esteja cercado de incerteza e volatilidade acima do usual. Ressaltou-se que a elevação das expectativas e das projeções de médio prazo se concentrou na inflação de preços administrados, em função do caráter temporário de algumas medidas tributárias.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 18,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê avaliou, com base nas projeções utilizadas e seu balanço de riscos, que a estratégia exigida para trazer a inflação projetada para o redor da meta no horizonte relevante requeria que o ciclo de aperto monetário continuasse avançando significativamente em território ainda mais contracionista, com um ajuste adicional nesta reunião e a manutenção da taxa de juros em território significativamente contracionista por um período suficientemente prolongado.",
+   "status": "alterado",
+   "paragrafo_anterior": 20,
+   "similaridade": 0.49,
+   "diff": "O ~~Copom considera que, diante~~ **Comitê avaliou, com base nas projeções utilizadas e seu balanço** de ~~suas projeções e do risco de desancoragem das expectativas~~ **riscos, que a estratégia exigida** para ~~prazos mais longos, é apropriado~~ **trazer a inflação projetada para o redor da meta no horizonte relevante requeria** que o ciclo de aperto monetário ~~continue~~ **continuasse** avançando significativamente em ~~terri tório~~ **território** ainda mais ~~contracionista. O Comitê enfatiza que irá perseverar~~ **contracionista, com um ajuste adicional nesta reunião e a manutenção da taxa de juros** em ~~sua estratégia até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas em torno de suas metas.~~ **território significativamente contracionista por um período suficientemente prolongado.**"
+  },
+  {
+   "paragrafo": 19,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom então debateu as opções de política monetária para esta reunião. Concluiu-se que um novo ajuste de 0,50 ponto percentual era apropriado frente a um ambiente de elevada incerteza, apesar do estágio já significativamente contracionista da política monetária, que, considerand o suas defasagens, deve impactar a economia mais fortemente a partir do segundo semestre deste ano.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 20,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê optou por sinalizar que avaliará a necessidade de um ajuste residual, de menor magnitude, na próxima reunião, com o objetivo de trazer a inflação para o redor da meta no horizonte relevante. Além disso, dada a persistência dos choques recentes, o Comitê seguirá vigilante e avaliará se somente a perspectiva de manutenção da taxa básica de juros por um período suficientemente longo assegurará tal convergência. Essa estratégia foi considerada a mais adequada para garantir a convergência da inflação ao longo do horizonte relevante, assim como a ancoragem das expectativas de prazos mais longos, ao mesmo tempo que reflete o aperto monetário já empreendido, reforça a postura de cautela da política monetária e ressalta a incerteza do cenário.",
+   "status": "alterado",
+   "paragrafo_anterior": 18,
+   "similaridade": 0.75,
+   "diff": "O ~~Copom debateu~~ **Comitê optou por sinalizar que avaliará** a ~~sinalização~~ **necessidade de um ajuste residual, de menor magnitude, na próxima reunião, com o objetivo de trazer a inflação** para ~~a próxima reunião. Dad a~~ **o redor da meta no horizonte relevante. Além disso, dada** a persistência dos choques recentes, o Comitê ~~avaliou que~~ **seguirá vigilante e avaliará se** somente a perspectiva de manutenção da taxa básica de juros por um período suficientemente longo ~~não asseguraria, neste momento, a convergência da inflação para o redor da meta no horizonte relevante. O Comitê optou então, por sinalizar, um novo ajuste de igual ou menor magnitude.~~ **assegurará tal convergência.** Essa estratégia foi considerada a mais adequada para garantir a convergência da inflação ao longo do horizonte relevante, assim como a ancoragem das expectativas de prazos mais longos, ao mesmo tempo que reflete o aperto monetário já empreendido, reforça a postura de cautela da política monetária e ressalta a incerteza do cenário."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando os cenários avaliados, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, elevar a taxa b ásica de juros em 0,50 ponto percentual, para 13,75% a.a. O Comitê entende que essa decisão reflete a incerteza ao redor de seus cenários e um balanço de riscos com variância ainda maior do que a usual para a inflação prospectiva, e é compatível com a estr atégia de convergência da inflação para o redor da meta ao longo do horizonte relevante, que inclui o ano de 2023 e, em grau menor, o de 2024. Sem prejuízo de seu objetivo fundamental de assegurar a estabilidade de preços, essa decisão também implica suavização das flutuações do nível de atividade econômica e fomento do pleno emprego.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 22,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom considera que, diante de suas projeções e do risco de desancoragem das expectativas para prazos mais longos, é apropriado que o ciclo de aperto monetário continue avançando significativamente em território ainda mais contracionista. O Comitê enfatiza que irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas em torno de suas metas.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 23,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Comitê ava liará a necessidade de um ajuste residual, de menor magnitude, em sua próxima reunião. O Copom enfatiza que seguirá vigilante e que os passos futuros da política monetária poderão ser ajustados para assegurar a convergência da inflação para suas metas. Not a ainda que a incerteza da atual conjuntura, tanto doméstica quanto global, aliada ao estágio avançado do ciclo de ajuste e seus impactos acumulados ainda por serem observados, demanda cautela adicional em sua atuação.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 24,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os seguintes membros do Comitê: Roberto de Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Carolina de Assis Barros, Diogo Abry Guillen, Fernanda Magalhães Rumenos Guardado, Maurício Costa de Moura, Otávio Ribeiro Damaso, Paulo Sérgio Neves de Souza e Renato Dias de Brito Gomes.",
+   "status": "igual"
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "O ambiente externo seguiu se deteriorando, marcado por revisões negativas para o crescimento global prospectivo em um ambiente de fortes e persistentes pressões inflacionárias. Essas pressões, decorrentes da recuperação global após a pandemia, foram exacerbadas pelo avanço nos preços de commoditi es este ano e, mais recentemente, pela onda da Covid-19 na China, prolongando ainda mais o processo de normalização do suprimento de insumos industriais. A reorganização das cadeias de produção globais, já impulsionada pela guerra na Ucrânia, deve se intensificar, com a busca por uma maior regionalização na cadeia de suprimentos. Na visão do Comitê, esses desenvolvimentos podem ter consequências de longo prazo e se traduzir em pressões inflacionárias mais prolongadas na produção global de bens."
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "O crescimento de grandes economias tem sido revisado para baixo, tanto para este quanto para o próximo ano, em função da expectati va de reversão dos estímulos implementados durante o longo período da pandemia, em particular os de política monetária. Notou-se, ademais, revisões negativas de crescimento para a China, em parte refletindo a política de Zero Covid adotada por esse país."
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário do Copom",
+   "texto": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, se mostrando mais persistente que o antecipado. A inflação de serviços e de bens industriais se mantém alta, e os recentes choques continuam levando a um forte aumento nos componentes ligados a alimentos e combustíveis. As leituras recentes vieram acima do esperado e a surpresa ocorreu tanto em componentes mais voláteis como n aqueles mais associados à inflação subjacente. Os componentes mais sensíveis ao ciclo econômico e à política monetária seguem com inflação elevad a e as diversas medidas de inflação subjacente aceleraram, mantendo-se acima do intervalo compatível com o cumprimento da meta para a inflação. As expectativas de inflaç ão para 2022, 2023 e 2024 apuradas pela pesquisa Focus encontram-se em torno de 8,5%, 4,7% e 3,25%, respectivamente."
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê discutiu os crescentes riscos em torno de uma desaceleração global mais acentuada em ambiente de inflação significativamente pressionada. O Comitê já antecipa uma desaceleração da atividade global nos próximos trimestres, em função das tensões geopolíticas e do aperto na política monetária e nas condições financeiras em curso em diversas economias centrais. O Comitê avalia que a sincronia global no processo de retirada de estímulos introduz riscos adicionais aos mercados e pode potencializar seu impacto no cenário prospectivo."
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "Nesse contexto de desaceleração global, o Comitê avalia que há possibilidade de reversão, ainda que parcial, d o aumento dos preços de commodities internacionais em moeda local observado nos últimos trimestres."
+  },
+  {
+   "paragrafo": 10,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê reforça que a incerteza sobre o futuro do arcabouço fiscal do país e políticas fiscais que sustentem a demanda agregada podem trazer um risco de alta para o cenário inflacionário e para as expectativas de inflação."
+  },
+  {
+   "paragrafo": 11,
+   "secao": "B) Cenários e análise de riscos",
+   "texto": "O Comitê avalia que os dados recentes de atividade doméstica, que suscitaram uma revisão positiva para o crescimento em 2022, ainda refletem, majoritariamente, o processo de normalização da economia após a pandemia, tanto no maior consumo de serviços quanto na utilização do excesso de poupança observado em relação ao precedente histórico, e o estímulo fiscal transitório efetuado no primeiro semestre do ano. O Comitê avalia que a atividade deve desacelerar nos próximos trimestres quando os impactos defasados da política monetária se fizerem mais presentes."
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom iniciou sua discussão com a avaliação do ciclo de ajuste empreendido até a presente reunião. Ressaltou-se que o ciclo de aperto monetário corrente foi bastante intenso e tempestivo e que, devido às defasagens de política monetária, ainda não se observa grande parte do efeito contr acionista esperado bem como seu impacto sobre a inflação corrente."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Ainda assim, o Comitê notou que ocorreu deterioração tanto na dinâmica inflacionária de curto prazo quanto em suas projeções mais longas, ainda que o cenário esteja cercado de incerteza e volatilidade acima do usual."
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê avalia, com base nas projeções utilizadas e seu balanço de riscos, que a estratégia requerida para trazer a inflação projetada em 4,0% para o redor da meta no horizonte relevante conjuga, de um lado, taxa de juros terminal acima da utilizada no cenário de referência e, de outro, manutenção da taxa de juros em território significativamente contracionista por um período mais prolongado que o utilizado no cenário de referência. Dessa forma, a estratégia de convergência para o redor da meta exige uma taxa de juros mais contracionista do que o utilizado no cenário de referência por todo o horizonte relevante."
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Para a próxima reunião, o Comitê antevê um novo ajuste, de igual ou menor magnitude. O Comitê nota que a crescente incerteza da atual conjuntura, aliada ao estágio avançado do ciclo de ajuste e seus impactos ainda por serem observados, demanda cautela adicional em sua atuação. O Copom enfatiza que os passos futuros da política monetária poderão ser ajustados para assegurar a convergência da inflação para suas metas, e dependerão da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação para o horiz onte relevante da política monetária."
+  }
+ ]
+}

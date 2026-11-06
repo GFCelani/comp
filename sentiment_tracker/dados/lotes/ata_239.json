@@ -1,0 +1,192 @@
+{
+ "ata": 239,
+ "anterior": 238,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário externo, estímulos fiscais e monetários em alguns países desenvolvidos promovem uma recuperação robusta da atividade econômica. Devido à presença de ociosidade, a comunicação dos principais bancos centrais sugere que os estímulos monetários terão longa duração. Contudo, a incerteza segue elevada e uma nova rodada de questionamentos dos mercados a respeito dos riscos inflacionários nessas economias pode tornar o ambiente desafiador para países emergentes.",
+   "status": "alterado",
+   "paragrafo_anterior": 1,
+   "similaridade": 0.79,
+   "diff": "No cenário externo, ~~novos~~ estímulos fiscais **e monetários** em alguns países ~~desenvolvidos, unidos ao avanço da implementação dos programas de imunização contra a Covid -19, devem promover~~ **desenvolvidos promovem** uma recuperação ~~mais~~ robusta da atividade ~~ao longo do ano. A~~ **econômica. Devido à** presença de ociosidade, ~~assim como~~ a comunicação dos principais bancos ~~centrais,~~ **centrais** sugere que os estímulos monetários terão longa duração. Contudo, **a incerteza segue elevada e uma nova rodada de** questionamentos dos mercados a respeito ~~de~~ **dos** riscos inflacionários nessas economias ~~podem~~ **pode** tornar o ambiente desafiador para países emergentes."
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Em relação à atividade econômica brasileira, apesar da intensidade da segunda onda da pandemia, os indicadores recentes continuam mostrando evolução mais positiva do que o esperado, implicando revisões relevantes nas projeções de crescimento. Os riscos para a recuperação econômica reduziram-se significativamente.",
+   "status": "alterado",
+   "paragrafo_anterior": 2,
+   "similaridade": 0.5,
+   "diff": "Em relação à atividade econômica brasileira, **apesar da intensidade da segunda onda da pandemia, os** indicadores recentes ~~mostram uma~~ **continuam mostrando** evolução mais positiva do que o esperado, ~~apesar~~ **implicando revisões relevantes nas projeções** de **crescimento. Os riscos para** a ~~intensidade da segunda onda da pandemia estar maior do que o antecipado. Prospectivamente, a incerteza sobre o ritmo de crescimento da economia ainda permanece acima da usual, mas aos poucos deve ir retornando à normalidade.~~ **recuperação econômica reduziram-se significativamente.**"
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação.",
+   "status": "alterado",
+   "paragrafo_anterior": 3,
+   "similaridade": 0.95,
+   "diff": "As diversas medidas de inflação subjacente apresentam-se ~~no topo~~ **acima** do intervalo compatível com o cumprimento da meta para a inflação."
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "As expectativas de inflação para 2021, 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 5,8%, 3,8% e 3,25%, respectivamente.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "A persistência da pressão inflacionária revela-se maior que o esperado, sobretudo entre os bens industriais. Adicionalmente, a lentidão da normalização nas condições de oferta, a resiliência da demanda e implicações da deterioração do cenário hídrico sobre as tarifas de energia elétrica contribuem para manter a inflação elevada no curto prazo, a despeito da recente apreciação do Real. O Comitê segue atento à evolução desses choques e seus potenciais efeitos secundários, assim como ao comportamento dos preços de serviços conforme os efeitos da vacinação sobre a economia se tornam mais significativos.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "No cenário básico, com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio partindo de USD/BRL 5,052, e evoluindo segundo a paridade do poder de compra (PPC), as projeções de inflação do Copom situam-se em torno de 5,8% para 2021 e 3,5% para 2022. Esse cenário supõe trajetória de juros que se eleva para 6,25% a.a. neste ano e para 6,50% a.a. em 2022. Nesse cenário, as projeções para a inflação de preços administrados são de 9,7% para 2021 e 5,1% para 2022. Adota-se uma hipótese neutra para a bandeira tarifária de energia elétrica, que se mantém em “vermelha patamar 1” em dezembro de cada ano-calendário.",
+   "status": "alterado",
+   "paragrafo_anterior": 6,
+   "similaridade": 0.84,
+   "diff": "No cenário básico, com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio partindo de ~~R$5,40/US$2,~~ **USD/BRL 5,052,** e evoluindo segundo a paridade do poder de compra (PPC), as projeções de inflação do Copom situam-se em torno de ~~5,1%~~ **5,8%** para 2021 e ~~3,4%~~ **3,5%** para 2022. Esse cenário supõe trajetória de juros que se eleva para ~~5,50%~~ **6,25%** a.a. neste ano e para ~~6,25%~~ **6,50%** a.a. em 2022. Nesse cenário, as projeções para a inflação de preços administrados são de ~~8,4%~~ **9,7%** para 2021 e ~~5,0%~~ **5,1%** para 2022. **Adota-se uma hipótese neutra para a bandeira tarifária de energia elétrica, que se mantém em “vermelha patamar 1” em dezembro de cada ano-calendário.**"
+  },
+  {
+   "paragrafo": 7,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "O cenário básico do Copom para a inflação envolve fatores de risco em ambas a s direções.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "Por um lado, uma possível reversão, ainda que parcial, do aumento recente nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo do cenário básico.",
+   "status": "alterado",
+   "paragrafo_anterior": 8,
+   "similaridade": 0.46,
+   "diff": "Por um lado, ~~o processo de recuperação econômica dos efeitos da pandemia pode ser mais lento~~ **uma possível reversão, ainda que parcial,** do ~~que o estimado, produzindo~~ **aumento recente nos preços das commodities internacionais em moeda local produziria** trajetória de inflação abaixo do ~~esperado.~~ **cenário básico.**"
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário básico para a inflação",
+   "texto": "Por outro lado, novos prolongamentos das políticas fiscais de resposta à pandemia que pressionem a demanda agregada e piorem a trajetória fiscal podem elevar os prêmios de risco do país. Apesar da melhora recente nos indicadores de sustentabilidade da dívida pública, o risco fiscal elevado segue criando uma assimetria altista no balanço de riscos, ou seja, com trajetórias para a inflação acima do projetado no horizonte relevante para a política monetária.",
+   "status": "alterado",
+   "paragrafo_anterior": 9,
+   "similaridade": 0.77,
+   "diff": "Por outro lado, novos prolongamentos das políticas fiscais de resposta à pandemia que **pressionem a demanda agregada e** piorem a trajetória fiscal ~~do país, ou frustrações em relação à continuidade das reformas,~~ podem ~~pressionar ainda mais~~ **elevar** os prêmios de risco do país. ~~O~~ **Apesar da melhora recente nos indicadores de sustentabilidade da dívida pública, o** risco fiscal elevado segue criando uma assimetria altista no balanço de riscos, ou seja, com trajetórias para a inflação ~~acim a~~ **acima** do projetado no horizonte relevante para a política monetária."
+  },
+  {
+   "paragrafo": 10,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Com relação ao ambiente internacional, o Comitê avaliou que os estímulos fiscais e monetários estão promovendo crescimento econômico robusto e que a s últimas divulgações de inflação surpreenderam em vários países, tanto desenvolvidos quanto emergentes. Para o Comitê, novas discussões sobre o risco de um aumento duradouro da inflação nos Estados Unidos podem tornar o ambiente para as economias emergentes desafiador. O Copom n otou que a inflação de bens comercializáveis no Brasil foi superior à observada em vários de seus pares e que esse processo pode se inverter no futuro, criando um novo risco baixista para a inflação. O recente aumento do peso de itens comercializáveis no índice de inflação aumentaria a relevância desse evento.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Os membros do Copom discutiram a evolução da atividade econômica doméstica à luz dos indicadores e informações disponíveis. Consideraram que, a despeito da intensidade da segunda onda da pandemia, os últimos dados disponíveis continuam surpreendendo positivamente. Discutiram também a duração dos problemas nas cadeias de oferta. Para o Comitê, o segundo semestre do ano deve mostrar uma retomada robusta da atividade, na medida em que os efeitos da vacinação sejam sentidos de forma mais abrangente. O Comitê notou que a mediana das projeções de crescimento, segundo a pesquisa Focus, sofreu revisões significativas e passou a ser mais otimista do que as do seu cenário básico. O Comitê também avaliou que os riscos baixistas para a inflação oriundos de fatores que podem afetar a recuperação econômica reduziram-se significativamente.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Os membros do Copom discutiram a respeito do nível de ociosidade na economia. Embora a ociosidade como um todo evolua rapidamente para retornar ao nível do fim de 2019, o Comitê considera que a pandemia ainda segue produzindo efeitos heterogêneos sobre os setores econômicos, com consequências para a dinâmica recente e prospectiva da inflação. O Copom avalia que os dados de atividade e do mercado de trabalho formal sugerem que a ociosidade da economia como um todo se reduziu mais rapidamente que o previsto, apesar do aumento da taxa de desemprego.",
+   "status": "alterado",
+   "paragrafo_anterior": 12,
+   "similaridade": 0.84,
+   "diff": "Os membros do Copom discutiram a respeito do nível de ociosidade na economia. Embora a ociosidade como um todo evolua **rapidamente** para retornar ao nível do fim de ~~2019 nos próximos trimestres,~~ **2019,** o Comitê considera que a pandemia ~~produziu~~ **ainda segue produzindo** efeitos heterogêneos sobre os setores ~~econômicos. Enquanto o setor de bens opera~~ **econômicos,** com ~~baixa ociosidade, o setor de serviços mostra dificuldades~~ **consequências** para ~~se recuperar.~~ **a dinâmica recente e prospectiva da inflação.** O Copom avalia que os dados de atividade e do mercado de trabalho formal sugerem que a ociosidade da economia como um todo se reduziu mais rapidamente que o previsto, apesar do aumento da taxa ~~do~~ **de** desemprego."
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "A seguir, o Cop om passou à discussão da implementação da política monetária, considerando não somente o cenário básico como também o balanço de riscos para a inflação. De acordo com o cenário básico, que utiliza a trajetória para a taxa de juros extraída da pesquisa Focus, as projeções de inflação estão alinhadas à meta para 2022. O Comitê ponderou que, apesar da evolução recente mais positiva, os riscos fiscais continuam implicando um viés de alta nas projeções. Essa assimetria no balanço de riscos afeta o grau apropriado de estímulo monetário, justificando assim uma trajetória para a política monetária menos estimulativa do que a utilizada no cenário básico.",
+   "status": "alterado",
+   "paragrafo_anterior": 13,
+   "similaridade": 0.84,
+   "diff": "A seguir, o Cop om passou à discussão da implementação da política monetária, considerando não somente o cenário básico como também o balanço de riscos para a inflação. De acordo com o cenário básico, que utiliza a trajetória para a taxa de juros extraída da pesquisa Focus, as projeções de inflação estão ~~levemente inferiores~~ **alinhadas** à meta para 2022. O Comitê ponderou ~~que~~ **que, apesar da evolução recente mais positiva,** os riscos fiscais ~~de curto prazo seguem elevados,~~ **continuam** implicando um viés de alta ~~nessas~~ **nas** projeções. Essa assimetria no balanço de riscos afeta o grau apropriado de estímulo monetário, justificando assim uma ~~elevação de juros de 0,75 ponto percentual nesta reunião.~~ **trajetória para a política monetária menos estimulativa do que a utilizada no cenário básico.**"
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom então considerou diferentes trajetórias de normalização de juros. Levando em conta o cenário básico e o balanço de riscos, o Comitê observou que, caso não haja mudança nos condicionantes de inflação, elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções em torno da meta de inflação no horizonte relevante. Sendo assim, tornou-se apropriada a normalização da taxa de juros para esse patamar. O Comitê decidiu comunicar es sa decisão, mantendo a transparência sobre a trajetória de política monetária implícita nas suas projeções e reafirmando que essa visão ser á sistematicamente reavaliada conforme ocorrem mudanças nos determinantes de inflação ou no balanço de riscos.",
+   "status": "alterado",
+   "paragrafo_anterior": 14,
+   "similaridade": 0.6,
+   "diff": "O Copom então considerou diferentes trajetórias de normalização de juros. Levando em conta o cenário básico e o balanço de riscos, o Comitê ~~avaliou qu e na próxima reunião seria adequad o outro ajuste da mesma magnitude,~~ **observou que,** caso não haja mudança nos condicionantes de ~~inflação. Adicionalmente, observou que~~ **inflação,** elevações de juros subsequentes, sem interrupção, até o patamar considerado neutro implicam projeções ~~consideravelmente abaixo~~ **em torno** da meta de inflação no horizonte ~~re levante.~~ **relevante. Sendo assim, tornou-se apropriada a normalização da taxa de juros para esse patamar.** O ~~Copom reafirmou~~ **Comitê decidiu comunicar es sa decisão, mantendo a transparência sobre a trajetória de política monetária implícita nas suas projeções e reafirmando** que essa visão ~~para as próximas reuniões pode~~ ser ~~alterada caso haja mudança nas projeções~~ **á sistematicamente reavaliada conforme ocorrem mudanças nos determinantes** de inflação ou no balanço de ~~riscos, uma vez que a decisão continuará dependendo da evolução da atividade econômica, do balanço de riscos, e das projeções e expectativas de inflação.~~ **riscos.**"
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Frente à revisão da trajetória de política monetária implícita nas suas projeções, o Comitê avaliou uma redução mais tempestiva dos estímulos monetários já nes ta reunião. Considerando os diversos cenários alternativos, o Comitê entendeu que a melhor estratégia seria a manutenção do atual ritmo de redução de estímulos, mas destacando a possibilidade de ajuste mais tempestivo na próxima reunião. Na opinião do Comitê, essa estratégia tem as seguintes duas vantagens.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Primeira, acumular mais informações sobre os tradicionais determinantes da inflação e, em particular, de alguns de seus aspectos qualitativos: (i) a evolução dos preços mais inerciais, conforme o setor de Serviços se recupera, e (ii) o comportamento das expectativas de inflação, tanto da pesquisa Focus quanto o implícito nos preços de mercado.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Segunda, esclarecer a distinção entre transparência sobre as projeções condicionais e intenções invariantes de política monetária. O compromisso inequívoco do Banco Central é com a convergência da inflação para a meta no horizonte relevante e os passos futuros da política monetária são livremente ajustados com es se objetivo, conforme novas informações se tornam disponíveis. Desse modo, indicações sobre a trajetória futura dos juros, sejam para a próxima reunião ou para o patamar final, são elementos úteis para a compreensão da função de reação da política monetária. As informações obtidas no período entre as reuniões do Copom modificam as hipóteses presentes no cenário básico e no balanço de risco, e naturalmente alteram a trajetória futura dos juros.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 18,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando o cenário básico, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 0,75 ponto percentual, para 4,25% a.a. O Comitê entende que essa decisão reflete seu cenário básico e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é compatível com a convergência da inflação para a meta no horizonte relevante, que inclui o ano -calendário de 2022. Sem prejuízo de seu objetivo fundamental de assegurar a estabilida de de preços, essa decisão também implica suavização das flutuações do nível de atividade econômica e fomento do pleno emprego.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 19,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Neste momento, o cenário básico do Copom indica ser apropriada a normalização da taxa de juros para patamar considerado neutro. Esse ajuste é necessário para mitigar a disseminação dos atuais choques temporários sobre a inflação. O Comitê enfatiza, novamente, que não há compromisso com essa posição e que os passos futuros da política monetária poderão ser ajustados para assegurar o cumprimento da meta de inflação.",
+   "status": "alterado",
+   "paragrafo_anterior": 17,
+   "similaridade": 0.78,
+   "diff": "Neste momento, o cenário básico do Copom indica ser apropriada ~~uma~~ **a** normalização ~~parcial~~ da taxa de ~~juros, com~~ **juros para patamar considerado neutro. Esse ajuste é necessário para mitigar** a ~~manutenção de algum estímulo monetário ao longo do processo de recuperação econômica.~~ **disseminação dos atuais choques temporários sobre a inflação.** O Comitê enfatiza, ~~entretanto,~~ **novamente,** que não há compromisso com essa posição e que os passos futuros da política monetária poderão ser ajustados para assegurar o cumprimento da meta de inflação."
+  },
+  {
+   "paragrafo": 20,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Para a próxima reunião, o Comitê antevê a continuação do processo de normalização monetária com outro ajuste da mesma magnitude. Contudo, uma deterioração das expectativas de inflação para o horizonte relevante pode exigir uma redução mais tempestiva dos estímulos monetários. O Comitê ressalta que essa avaliação também dependerá da evolução da atividade econômica, do balanço de riscos e de como esses fatores afetam as projeções de inflação.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os segui ntes membros do Comitê: Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Caroli na de Assis Barros, Fabio Kanczuk, João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza.",
+   "status": "alterado",
+   "paragrafo_anterior": 19,
+   "similaridade": 0.95,
+   "diff": "Votaram por essa decisão os ~~seguintes~~ **segui ntes** membros do ~~Com itê:~~ **Comitê:** Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, ~~Carolina~~ **Caroli na** de Assis Barros, Fabio Kanczuk, ~~Fernanda Feitosa Nechio,~~ João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza."
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Com exceção do petróleo, os preços internacionais das commodities continuaram em elevação, com impacto sobre as projeções de preços de alimentos e bens industriais. Além disso, a transição para patamares mais elevados de bandeira tarifária de energia elétrica deve manter a inflação pressionada no curto prazo. O Comitê m antém o diagnóstico de que os choques atuais são temporários, mas segue atento à sua evolução."
+  },
+  {
+   "paragrafo": 10,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Com relação ao ambiente internacional, o Comitê avaliou que os avanços na implementação dos programas de imunização contra a Covid -19, os novos estímulos fiscais em alguns países desenvolvidos e a comunicação dos bancos centrais das principais economias de que os estímulos monetários terão longa duração devem implicar cresciment o econômico robusto durante o ano. Contudo, a discussão sobre “reflação”, em particular sobre o risco de um aumento duradouro da inflação nos Estados Unidos, poderia tornar o ambiente para as economias emergentes mais desafiador."
+  },
+  {
+   "paragrafo": 11,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Os membros do Copom discutiram a evolução da atividade econômica doméstica à luz dos indicadores e informações disponíveis. Consideraram que, a despeito da intensidade da segunda onda da pand emia ter sido maior que a esperada, os últimos dados disponíveis de atividade têm surpreendido positivamente. Para o Comitê, o segundo semestre do ano deve mostrar uma retomada robusta da atividade, na medida em que os efeitos da vacinação sejam sentidos de forma mais abrangente."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Comitê então discutiu a comunicação da política monetária e, em particular, a menção à “normalização parcial” dos juros. Os membros do Comitê apontaram que “normalização parcial” reflete suas opiniões sobre a política monetária adequada para a convergência da inflação para a meta no horizonte relevante. O Co pom entende que a menção à “normalização parcial”, assim como a divulgação do juro neutro e do hiato do produto implícitos nos modelos utilizados pelo Comitê, amplia a transparência sobre a função de reação do Banco Central e, consequentemente, aumenta a eficiência da política monetária. Naturalmente, o Copom reavalia seu cenário a cada reunião tendo como compromisso a convergência da inflação para a meta no horizonte relevante."
+  },
+  {
+   "paragrafo": 18,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Para a próxima reunião, o Comitê antevê a continuação do processo de normalização parcial do estímulo monetário com outro ajuste da mesma magnitude. O Copom ressalta que essa visão continuará dependendo da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação."
+  }
+ ]
+}

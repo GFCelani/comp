@@ -1,0 +1,190 @@
+{
+ "ata": 244,
+ "anterior": 243,
+ "paragrafos": [
+  {
+   "paragrafo": 1,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "No cenário externo, o ambiente segue menos favorável. A maior persistência inflacionária aumenta o risco de um aperto monetário mais célere nos EUA, tornando as condições financeiras mais desafiadoras para economias emergentes. Além disso, a nova onda da Covid-19 adiciona incerteza quanto ao ritmo da atividade, ao mesmo tempo que pode postergar a normalização das cadeias globais de produção. Desde a última reunião, a maioria das commodities reverteu a queda observada no fim do ano e, em alguns casos, atingiram recordes recentes, reforçando o ambiente global de preços mais pressionados.",
+   "status": "alterado",
+   "paragrafo_anterior": 1,
+   "similaridade": 0.49,
+   "diff": "No cenário externo, o ambiente ~~se tornou~~ **segue** menos favorável. ~~Alguns bancos centrais das principais economias expressaram claramente a necessidade de cautela frente à~~ **A** maior persistência ~~da inflaçã o,~~ **inflacionária aumenta o risco de um aperto monetário mais célere nos EUA,** tornando as condições financeiras mais desafiadoras para economias emergentes. Além disso, a ~~questão imobiliária na China, a possibilidade de~~ nova onda da Covid-19 ~~durante o inverno e o aparecimento da variante Ômicron adicionam~~ **adiciona** incerteza quanto ao ritmo **da atividade, ao mesmo tempo que pode postergar a normalização das cadeias globais** de ~~recuperação nas economias centrais. Esses eventos geraram quedas nos~~ **produção. Desde a última reunião, a maioria das commodities reverteu a queda observada no fim do ano e, em alguns casos, atingiram recordes recentes, reforçando o ambiente global de** preços ~~de commodities importantes, mas ainda é cedo para prever a extensão deste movimento.~~ **mais pressionados.**"
+  },
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "Em relação à atividade econômica brasileira, indicadores relativos ao comércio e serviços mostraram evolução ligeiramente melhor que a esperada em novembro, enquanto a indústria apresentou recuperação em dezembro. I ndicadores do mercado de trabalho mostraram recuperação consistente de empregos no último trimestre de 2021.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "Para 2022, se por um lado a elevação dos prêmios de risco e o aperto mais intenso das condições financeiras atuam desestimulando a atividade econômica, por outro, o Copom segue avaliando que o crescimento tende a ser beneficiado pelo desempenho da agropecuária e pelo processo remanescente de normalização da economia – particularmente no setor de serviços e no mercado de trabalho. Entretanto, os índices de confiança divulgados desde a última reunião seguem mostrando deterioração, e desenvolvimentos climáticos afetaram as projeções de importantes culturas agrícolas.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, e segue se mostrando mais persistente que o antecipado. A alta nos preços dos bens industriais não arrefeceu e deve persistir no curto prazo, enquanto a inflação de serviços acelerou, ainda refletindo a gradual normalização da atividade no setor. As leituras recentes vieram acima do esperado e a surpresa ocorreu tanto nos componentes mais voláteis como, principalmente, nos mais associados à inflação subjacente.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 5,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "As diversas medidas de inflação subjacente apresentam-se acima do intervalo compatível com o cumprimento da meta para a inflação. As expectativas de inflação para 2022 e 2023 apuradas pela pesquisa Focus encontram-se em torno de 5,4% e 3,5%, respectivamente.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 6,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "No cenário de referência2, com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio partindo de USD/BRL 5,453, e evoluindo segundo a paridade do poder de compra (PPC), as projeções de inflação do Copom situam-se em torno de 5,4% para 2022 e 3,2% para 2023. Esse cenário supõe trajetória de juros que se eleva para 12% a.a. no primeiro semestre de 2022, termina o ano em 11,75% a.a. e reduz-se para 8,00% a.a. em 2023. Nesse cenário, as projeções para a inflação de preços administrados são de 6,6% para 2022 e 5,4% para 2023. Adota-se a hipótese de bandeira tarifária “vermelha patamar 1” em dezembro de 2022 e dezembro de 2023.",
+   "status": "alterado",
+   "paragrafo_anterior": 6,
+   "similaridade": 0.87,
+   "diff": "No cenário ~~básico,~~ **de referência2,** com trajetória para a taxa de juros extraída da pesquisa Focus e taxa de câmbio partindo de USD/BRL ~~5,652,~~ **5,453,** e evoluindo segundo a paridade do poder de compra (PPC), as projeções de inflação do Copom situam-se em torno de ~~10,2% para 2021, 4,7%~~ **5,4%** para 2022 e 3,2% para 2023. Esse cenário supõe trajetória de juros que se eleva para ~~9,25%~~ **12%** a.a. ~~neste ano e para 11,75% a.a. durante~~ **no primeiro semestre de** 2022, ~~terminando~~ **termina** o ano em ~~11,25% a.a.,~~ **11,75% a.a.** e reduz-se para 8,00% a.a. em 2023. Nesse cenário, as projeções para a inflação de preços administrados são de ~~16,7% para 2021, 3,8%~~ **6,6%** para 2022 e ~~5,2%~~ **5,4%** para 2023. ~~Adotam-se bandeira tarifária “escassez hídrica” em dezembro de 2021 e~~ **Adota-se** a hipótese de bandeira tarifária “vermelha patamar ~~2”~~ **1”** em dezembro de 2022 e dezembro de 2023."
+  },
+  {
+   "paragrafo": 7,
+   "secao": "A) Atualização da conjuntura econômica e do cenário de referência do Copom",
+   "texto": "Em relação aos preços administrados, a revisão se deveu majoritariamente ao forte avanço nas cotações do petróleo desde a última reunião do Comitê, assim como a itens administrados cujas variações devem se repetir ao longo do ano. Essas pressões foram apenas parcialmente compensadas pela mudança na hipótese de bandeira tarifária para o final de 2022, que refletiu a melhora do cenário hídrico.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 8,
+   "secao": "B) Riscos em torno do cenário de referência para a inflação",
+   "texto": "O cenário de referência do Copom para a inflação envolve fatores de risco em ambas 1º e 2 de fevereiro as direções.",
+   "status": "alterado",
+   "paragrafo_anterior": 7,
+   "similaridade": 0.82,
+   "diff": "O cenário ~~básico~~ **de referência** do Copom para a inflação envolve fatores de risco em ambas **1º e 2 de fevereiro** as direções."
+  },
+  {
+   "paragrafo": 9,
+   "secao": "B) Riscos em torno do cenário de referência para a inflação",
+   "texto": "Por um lado, uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo do cenário de referência.",
+   "status": "alterado",
+   "paragrafo_anterior": 8,
+   "similaridade": 0.95,
+   "diff": "Por um lado, uma possível reversão, ainda que parcial, do aumento nos preços das commodities internacionais em moeda local produziria trajetória de inflação abaixo do cenário ~~básico.~~ **de referência.**"
+  },
+  {
+   "paragrafo": 10,
+   "secao": "B) Riscos em torno do cenário de referência para a inflação",
+   "texto": "Por outro lado, políticas fiscais que impliquem impulso adicional da demanda agregada ou piorem a trajetória fiscal futura podem impactar negativamente preços de ativos importantes e elevar os prêmios de risco do país.",
+   "status": "alterado",
+   "paragrafo_anterior": 9,
+   "similaridade": 0.64,
+   "diff": "Por outro lado, ~~novos prolongamentos das~~ políticas fiscais ~~de resposta à pandemia~~ que ~~pressionem a~~ **impliquem impulso adicional da** demanda agregada ~~e~~ **ou** piorem a trajetória fiscal **futura** podem **impactar negativamente preços de ativos importantes e** elevar os prêmios de risco do país."
+  },
+  {
+   "paragrafo": 11,
+   "secao": "B) Riscos em torno do cenário de referência para a inflação",
+   "texto": "Apesar do desempenho mais positivo das contas públicas, o Comitê avalia que a incerteza em relação ao arcabouço fiscal segue mantendo elevado o risco de desancoragem das expectativas de inflação, e, portanto, a assimetria altista no balanço de riscos. Isso implica maior probabilidade de trajetórias para inflação acima do projetado de acordo com o cenário de referência.",
+   "status": "alterado",
+   "paragrafo_anterior": 10,
+   "similaridade": 0.91,
+   "diff": "Apesar do desempenho mais positivo das contas públicas, o Comitê avalia que ~~questionamentos~~ **a incerteza** em relação ao arcabouço fiscal ~~elevam~~ **segue mantendo elevado** o risco de desancoragem das expectativas de inflação, ~~mantendo~~ **e, portanto,** a assimetria altista no balanço de riscos. Isso implica maior probabilidade de trajetórias para inflação acima do projetado de acordo com o cenário ~~básico.~~ **de referência.**"
+  },
+  {
+   "paragrafo": 12,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "A incerteza em relação ao futuro do arcabouço fiscal atual resulta em elevação dos prêmios de risco e eleva o risco de desancoragem das expectativas de inflação. Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas. O Copom reitera que o processo de reformas e ajustes necessários na economia brasileira é essencial para o crescimento sustentável da economia. Esmorecimento no esforço de reformas estruturais e alterações de caráter permanente no processo de ajuste das contas públicas pode m elevar a taxa de juros estrutural da economia. Adicionalmente, o Comitê nota que mesmo políticas fiscais que tenham efeitos baixistas sobre a inflação no curto prazo podem causar deterioração nos prêmios de risco, aumento das expectat ivas de inflação e, consequentemente, um efeito altista na inflação prospectiva.",
+   "status": "alterado",
+   "paragrafo_anterior": 11,
+   "similaridade": 0.8,
+   "diff": "~~Questionamentos~~ **A incerteza** em relação ao futuro do arcabouço fiscal atual ~~resultam~~ **resulta** em elevação dos prêmios de risco e ~~elevaram~~ **eleva** o risco de desancoragem das expectativas de inflação. Isso implica atribuir maior probabilidade para cenários alternativos que considerem taxas neutras de juros mais elevadas. O Copom reitera que o processo de reformas e ajustes necessários na economia brasileira é essencial para o crescimento sustentável da economia. ~~Esmorec imento~~ **Esmorecimento** no esforço de reformas estruturais e alterações de caráter permanente no processo de ajuste das contas públicas pode m elevar a taxa de juros estrutural da economia. **Adicionalmente, o Comitê nota que mesmo políticas fiscais que tenham efeitos baixistas sobre a inflação no curto prazo podem causar deterioração nos prêmios de risco, aumento das expectat ivas de inflação e, consequentemente, um efeito altista na inflação prospectiva.**"
+  },
+  {
+   "paragrafo": 13,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "O Copom passou à discussão da implementação da política monetária, considerando não somente o cenário de referência como também o balanço de riscos para a inflação. De acordo com o cenário de referência, que utiliza a trajetória para a taxa de juros extraída da pesquisa Focus e o câmbio seguindo a paridade do poder de compra, as projeções de inflação estão acima do limite superior do intervalo de tolerância da meta para 2022 e ao redor da meta para 2023.",
+   "status": "alterado",
+   "paragrafo_anterior": 12,
+   "similaridade": 0.91,
+   "diff": "O Copom passou à discussão da implementação da política monetária, considerando não somente o cenário ~~básico~~ **de referência** como também o balanço de riscos para a inflação. De acordo com o cenário ~~básico,~~ **de referência,** que utiliza a ~~trajet ória~~ **trajetória** para a taxa de juros extraída da pesquisa Focus e o câmbio seguindo a paridade do poder de compra, as projeções de inflação estão acima **do limite superior do intervalo de tolerância** da meta para 2022 e ao redor da meta para 2023."
+  },
+  {
+   "paragrafo": 14,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Quanto ao balanço de riscos, o Comitê ponderou que o risco de desancoragem das expectativas para prazos mais longos, derivado dos desenvolvimentos no cenário fiscal, mantém o viés a ltista para as projeções do seu cenário de referência. Como consequência, o Copom avaliou que, considerado esse viés devido à assimetria de riscos, suas projeções se encontram acima da meta tanto para 2022 com o para 2023. Diante desse resultado, novamente o Copom concluiu que o ciclo de aperto monetário deverá ser mais contracionista do que o utilizado no cenário de referência ao longo do horizonte relevante.",
+   "status": "alterado",
+   "paragrafo_anterior": 13,
+   "similaridade": 0.94,
+   "diff": "Quanto ao balanço de riscos, o Comitê ponderou que o risco de desancoragem das expectativas para prazos mais longos, derivado dos desenvolvimentos no cenário fiscal, ~~indica que há~~ **mantém o** viés ~~altista~~ **a ltista** para as projeções do seu cenário ~~básico.~~ **de referência.** Como consequência, o Copom avaliou que, considerado ~~es se~~ **esse** viés devido à assimetria de riscos, suas projeções se encontram acima da meta tanto para 2022 ~~como~~ **com o** para 2023. Diante desse resultado, **novamente** o Copom concluiu que o ciclo de aperto monetário deverá ser mais contracionista do que o utilizado no cenário ~~básico por todo o~~ **de referência ao longo do** horizonte relevante."
+  },
+  {
+   "paragrafo": 15,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "A seguir, o Copom avaliou o ritmo apropriado de eleva ção dos juros. Para tal, analisou suas projeções de inflação utilizando simulações com trajetórias de política monetária com diferentes taxas terminais, ritmos de ajuste e duração do aperto monetário. Vale notar que os cenários considerados, consistentes com a convergência da inflação para suas metas, pressupunham trajetória da taxa de juros superior à s utilizadas no cenário de referência.",
+   "status": "alterado",
+   "paragrafo_anterior": 14,
+   "similaridade": 0.64,
+   "diff": "A seguir, o Copom avaliou o ritmo apropriado de ~~elevação~~ **eleva ção** dos juros. Para tal, analisou suas projeções de inflação utilizando simulações com trajetórias de política monetária com diferentes taxas terminais, ~~sob diversos cenários alternativos. O Comitê também comparou cenários envolvendo~~ ritmos de ajuste ~~maiores~~ **e duração** do **aperto monetário. Vale notar** que ~~o de 1,50 ponto percentual~~ **os cenários considerados, consistentes** com ~~cenários em que~~ a **convergência da inflação para suas metas, pressupunham trajetória da** taxa de juros ~~permanece elevada por período mais longo do que a implícita~~ **superior à s utilizadas** no cenário ~~básico.~~ **de referência.**"
+  },
+  {
+   "paragrafo": 16,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Com base nesses resultados, os membros do Copom debateram a estratégia mais apropriada. Concluiu- se que u m novo ajuste de 1,50 ponto percentual, seguido de ajustes adicionais em ritmo menor nas próximas reuniões, é a estratégia mais adequada para atingir aperto monetário suficiente e garantir a convergência da inflação ao longo do horizonte relevante, assim c omo a ancoragem das expectativas de prazos mais longos. 1º e 2 de fevereiro",
+   "status": "alterado",
+   "paragrafo_anterior": 15,
+   "similaridade": 0.77,
+   "diff": "Com base nesses resultados, os membros do Copom debateram a estratégia mais apropriada. ~~Conclui u-se~~ **Concluiu- se** que ~~o ritmo de~~ **u m novo** ajuste de 1,50 ponto percentual, ~~neste momento,~~ **seguido de ajustes adicionais em ritmo menor nas próximas reuniões,** é ~~adequado~~ **a estratégia mais adequada** para ~~atingir, ao longo do ciclo de~~ **atingir** aperto ~~monetário, um patamar suficientemente contracionista para não s omente~~ **monetário suficiente e** garantir a convergência da inflação ao longo do horizonte relevante, ~~mas também consolidar~~ **assim c omo** a ancoragem das expectativas de prazos mais longos. **1º e 2 de fevereiro**"
+  },
+  {
+   "paragrafo": 17,
+   "secao": "C) Discussão sobre a condução da política monetária",
+   "texto": "Finalmente, a incerteza particularmente elevada sobre preços de importante s ativos e commodities, assim como o estágio do ciclo, fez o Comitê considerar mais adequado, neste momento, não sinalizar a magnitude dos seus próximos ajustes.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 18,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Considerando o cenário de referência, o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para 10,75% a.a. O Comitê entende que essa decisão reflete seu cenário de referência e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é compatível com a convergência da inflação para as metas ao longo do horizonte relevante, que inclui os anos-calendário de 2022 e, em grau maior, de 2023. Sem prejuízo de seu objetivo fundamental de assegurar a estabilidade de preços, essa decisão também implica suavização das flutuações do nível de atividade econômica e fomento do pleno emprego.",
+   "status": "alterado",
+   "paragrafo_anterior": 16,
+   "similaridade": 0.96,
+   "diff": "Considerando o cenário ~~básico,~~ **de referência,** o balanço de riscos e o amplo conjunto de informações disponíveis, o Copom decidiu, por unanimidade, elevar a taxa básica de juros em 1,50 ponto percentual, para ~~9,25%~~ **10,75%** a.a. O Comitê entende que essa decisão reflete seu cenário ~~básico~~ **de referência** e um balanço de riscos de variância maior do que a usual para a inflação prospectiva e é compatível com a convergência da inflação para as metas ao longo do horizonte relevante, que inclui os ~~anos -calendário~~ **anos-calendário** de 2022 ~~e~~ **e, em grau maior, de** 2023. Sem prejuízo de seu ~~o bjetivo~~ **objetivo** fundamental de assegurar a estabilidade de preços, essa decisão também implica suavização das flutuações do nível de atividade econômica e fomento do pleno emprego."
+  },
+  {
+   "paragrafo": 19,
+   "secao": "D) Decisão de política monetária",
+   "texto": "O Copom considera que, diante do aumento de suas projeções e do risco de desancoragem das expectativas para prazos mais longos, é apropriado que o ciclo de aperto monetário avance significativamente em território contracionista. O Comitê enfatiza que irá perseverar em sua estratégia até que se consolide não apenas o processo de desinflação como também a ancoragem das expectativas em torno de suas metas.",
+   "status": "igual"
+  },
+  {
+   "paragrafo": 20,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Em relação aos seus próximos passos, o Comitê antevê como mais adequada, neste momento, a redução do ritmo de ajuste da taxa básica de juros. Essa sinalização reflete o estágio do ciclo de aperto, cujos efeitos cumulativos se manifestarão ao longo do horizonte relevante. O Copom enfatiza que os passos futuros da política monetária poderão ser ajustados para assegurar a convergência da inflação para suas metas, e dependerão da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação para o horizonte relevante da política monetária.",
+   "status": "novo"
+  },
+  {
+   "paragrafo": 21,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Votaram por essa decisão os seguintes membros do Comitê: Roberto Oliveira Campos Neto (presidente), Bruno Serra Fernandes, Carolina de Assis Barros, Fernanda Magalhães Rumenos Guardado, João Manoel Pinho de Mello, Maurício Costa de Moura, Otávio Ribeiro Damaso e Paulo Sérgio Neves de Souza.",
+   "status": "igual"
+  }
+ ],
+ "removidos": [
+  {
+   "paragrafo": 2,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Em relação à atividade econômica brasileira, a divulgação do PIB do terceiro trimestre revelou evolução ligeiramente abaixo da esperada, apesar de as atividades mais atingidas pela pandemia terem continuado em trajetória de recuperação robusta. Indicadores de mais alta frequência indicam recuo da atividade econômica, difundido entre vários setores, em setembro e possivelmente em outubro. No mesmo sentido, os índices de confiança já disponíveis para os meses iniciais do trimestre corrente mostram deterioração. Consequentemente, o Comitê revisou para baixo suas expectativas para a atividade no curto prazo."
+  },
+  {
+   "paragrafo": 3,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "Para 2022, se por um lado a elevação dos prêmios de risco e o aperto mais intenso das condições financeiras atuam desestimulando a atividade econômica, por outro, o Copom avalia que o crescimento tende a ser beneficiado pelo desempenho da agropecuária e pelo processo remanescente de normalização da economia – particularmente no setor de serviços e no mercado de trabalho – conforme a crise sanitária arrefece."
+  },
+  {
+   "paragrafo": 4,
+   "secao": "A) Atualização da conjuntura econômica e do cenário básico do Copom",
+   "texto": "A inflação ao consumidor segue elevada, com alta disseminada entre vários componentes, e tem se mostrado mais persistente que o antecipado. A alta nos preços dos bens industriais ainda não arrefeceu e deve persistir no curto prazo, enquanto a inflação de serviços acelerou, refletindo a gradual normalização da atividade no setor, dinâmica que já era esperada. As le ituras recentes vieram acima do esperado e a surpresa ocorreu tanto nos componentes mais voláteis como nos mais associados à inflação subjacente. Prospectivamente, a queda significativa dos preços internacionais de commodities energéticas, que têm exibido volatilidade substancial, limitou a revisão para cima das projeções de curto prazo."
+  },
+  {
+   "paragrafo": 18,
+   "secao": "D) Decisão de política monetária",
+   "texto": "Para a próxima reunião, o Comitê antevê outro ajuste da mesma magnitude. O Copom enfatiza que os passos futuros da política monetária poderão ser ajustados para assegurar a convergência da inflação para suas metas, e dependerão da evolução da atividade econômica, do balanço de riscos e das projeções e expectativas de inflação para o horizonte relevante da política monetária."
+  }
+ ]
+}
