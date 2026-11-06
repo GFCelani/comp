@@ -92,7 +92,8 @@ export default async function Pagina() {
   const proxima = pv?.proxima_reuniao;
   const ud = pv?.ultima_decisao_conhecida;
 
-  const manchete = campos.manchete?.texto ?? null;
+  // só a informação principal: sem a assinatura ", prevê o CopomAI" do modelo de texto
+  const manchete = campos.manchete?.texto?.replace(/,?\s*prevê o CopomAI\.?\s*$/i, "").trim() || null;
   const linhaFina = campos.manchete?.linha_fina ?? null;
 
   const periodo =
