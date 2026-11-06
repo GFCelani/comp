@@ -36,11 +36,11 @@ export function Matriz({
   const total = valores.flat().reduce((s, v) => s + v, 0);
   const acertos = valores.reduce((s, linha, i) => s + (linha[i] ?? 0), 0);
   // colunas de largura igual; mais largas só quando o rótulo pede (ex.: "manutenção")
-  const largura = Math.max(...colunas.map((r) => r.length)) > 4 ? "4.25rem" : "3rem";
+  const largura = Math.max(...colunas.map((r) => r.length)) > 4 ? "4rem" : "3rem";
 
   return (
     <figure className="min-w-0">
-      <div className="relative -mx-1.5 overflow-x-auto">
+      <div className="relative -mx-2 overflow-x-auto px-0.5">
         <table className="num border-separate border-spacing-1.5" aria-label={legenda}>
           <caption className="sr-only">
             {legenda}. Linhas: {eixoLinha}. Colunas: {eixoColuna}. Acertos na diagonal: {acertos} de {total}.

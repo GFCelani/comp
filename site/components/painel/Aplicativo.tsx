@@ -171,7 +171,7 @@ export function Aplicativo({
         </header>
 
         <main id="conteudo" tabIndex={-1} className="outline-none lg:pl-[240px]">
-          <div className="mx-auto w-full max-w-[1200px] px-4 pt-6 pb-16 sm:px-6 lg:px-10 lg:pt-10">
+          <div className="mx-auto w-full max-w-[1200px] px-4 pt-6 pb-16 sm:px-6 lg:px-8 lg:pt-10 xl:px-10">
             <header className="mb-6 lg:mb-8">
               <h1 className="font-serif text-[28px] font-medium leading-tight tracking-[-0.01em] sm:text-[32px]">
                 {atual.titulo}
