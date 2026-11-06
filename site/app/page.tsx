@@ -287,7 +287,7 @@ export default async function Pagina() {
               <div className="cartao p-6 sm:p-7 self-start">
                 <p className="rotulo">Índice de tom da ata {u.numero}</p>
                 <p className="mt-3 flex items-baseline gap-3">
-                  <span className="num text-[3.5rem] leading-none font-medium tracking-[-0.035em] text-acento">{fmtIndice(u.indice)}</span>
+                  <span className={`num text-[3.5rem] leading-none font-medium tracking-[-0.035em] ${u.indice != null && u.indice > 0 ? "text-duro" : u.indice != null && u.indice < 0 ? "text-brando" : "text-tinta"}`}>{fmtIndice(u.indice)}</span>
                   <span className="text-lg text-tinta-2">{tomRotulo(u.indice)}</span>
                 </p>
                 <div className="mt-8">
