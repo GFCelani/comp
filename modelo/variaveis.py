@@ -1,9 +1,8 @@
-"""Gera modelo/base_modelo.csv: uma linha por ata (236..281) com as variáveis do modelo de decisão.
+"""Gera modelo/base_modelo.csv: uma linha por ata (236..281) com as variáveis do modelo de nota de tom.
 
+Todas as variáveis vêm das atas (banco/paragrafos.jsonl) e dos rótulos (banco/rotulos.jsonl, banco/indice.json).
 Alvo: proxima_decisao (alta, manutencao, corte). A 281 recebe como alvo a decisão da 282
-(validacao/selic_oficial.csv, fonte: endpoint oficial historicotaxasjuros do BC).
-A linha de previsão da 283 (prever=1) usa o texto da 281 com decisao_atual = decisão da 282.
-Sem chamadas ao Claude.
+(validacao/selic_oficial.csv). Listas de termos e mapeamento de seções fixados em DECISOES.md. Sem Claude.
 """
 import json
 import re
@@ -11,17 +10,35 @@ import sys
 import unicodedata
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 RAIZ = Path(__file__).resolve().parents[1]
 B = RAIZ / "banco"
 SAIDA = RAIZ / "modelo" / "base_modelo.csv"
 
-# Lista FIXA (DECISOES.md), definida antes de qualquer teste. Prefixos sem acento.
+# Lista FIXA (DECISOES.md). Prefixos sem acento.
 TERMOS_VIRADA = ["interrupcao", "pausa", "prolongad", "magnitude", "calibragem", "calibracao", "encerramento",
                  "continuidade", "ritmo", "ajuste", "ciclo", "interromper", "antecipar", "vigilante",
                  "perseveranca", "serenidade"]
-META = {2021: 3.75, 2022: 3.50, 2023: 3.25}  # 3,00 de 2024 em diante
+TEMAS = {
+    "inflacao": ["inflac", "ipca", "precos", "desinflac"],
+    "expectativas": ["expectativ", "focus", "projec", "ancorag", "desancorag"],
+    "atividade": ["atividade", "pib", "crescimento", "demanda", "hiato", "consumo"],
+    "mercado_trabalho": ["mercado de trabalho", "emprego", "desemprego", "desocupac", "salari", "rendimento"],
+    "cambio": ["cambi", "dolar", "moeda"],
+    "fiscal": ["fiscal", "divida publica", "gasto", "despesa", "endividamento"],
+    "cenario_externo": ["extern", "global", "internacion", "estados unidos", "economias avancadas", "emergentes",
+                        "commodit"],
+}
+# Seção → chaves no título (sem acento). Externo e expectativas não têm título próprio → 0.
+SECOES = {
+    "cenario_externo": [],
+    "cenario_domestico": ["conjuntura"],
+    "expectativas_projecoes": [],
+    "balanco_riscos": ["risco"],
+    "decisao_orientacao": ["conducao", "decis"],
+}
 NORM = {"baixa": "corte", "corte": "corte", "alta": "alta", "manutencao": "manutencao"}
 
 
@@ -29,9 +46,8 @@ def sem_acento(s: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFKD", s.lower()) if not unicodedata.combining(c))
 
 
-def contar_termos(texto: str) -> int:
-    t = sem_acento(texto)
-    return sum(len(re.findall(r"\b" + termo, t)) for termo in TERMOS_VIRADA)
+def contar(texto_sa: str, termos) -> int:
+    return sum(len(re.findall(r"\b" + t, texto_sa)) for t in termos)
 
 
 def ler_jsonl(p: Path):
@@ -53,65 +69,54 @@ def montar() -> pd.DataFrame:
     pars = pd.DataFrame(ler_jsonl(B / "paragrafos.jsonl"))
     rot = pd.DataFrame(ler_jsonl(B / "rotulos.jsonl"))[["ata", "paragrafo", "nota"]]
     pars = pars.merge(rot, on=["ata", "paragrafo"], how="left")
-    focus = pd.read_csv(RAIZ / "data" / "case1_focus" / "focus_anuais.csv")
-    focus = focus[(focus["Indicador"] == "Selic") & (focus["baseCalculo"] == 0)].copy()
-    focus["DataReferencia"] = focus["DataReferencia"].astype(str)
-    sgs = pd.read_csv(RAIZ / "data" / "case1_focus" / "sgs_realizado.csv")
-    ipca = sgs[sgs["serie"] == "ipca_12m"].sort_values("data")
+    pars["secao_sa"] = pars["secao"].map(sem_acento)
     of = oficial()
 
-    linhas, ant = [], None
+    linhas, niveis, ant_n = [], [], None
     for a in atas:
         n = a["numero"]
         p = pars[pars["ata"] == n]
-        dec = p[p["secao"].map(lambda s: "decis" in sem_acento(s))]
-        fonte_sec = "secao_decisao"
-        if dec.empty:
-            ult = list(dict.fromkeys(p["secao"]))[-3:]
-            dec, fonte_sec = p[p["secao"].isin(ult)], "ultimas_3_secoes"
-        notas = p["nota"].dropna()
+        notas = p["nota"].dropna().astype(float)
+        tot = max(len(notas), 1)
         nivel = float(indice.get(n, 0.0) or 0.0)
-        d = a["data_reuniao"]
-        ano = d[:4]
-        fsub = focus[(focus["Data"] <= d) & (focus["DataReferencia"] == ano)].sort_values("Data")
-        med = float(fsub["Mediana"].iloc[-1]) if len(fsub) else None
-        isub = ipca[ipca["data"] <= d]
-        ipca12 = float(isub["valor"].iloc[-1]) if len(isub) else None
+        niveis.append(nivel)
+        texto = sem_acento(" ".join(p["texto"]))
+        palavras = max(len(texto.split()), 1)
+        dec = p[p["secao_sa"].str.contains("decis")]
         alvo = a.get("proxima_decisao")
         fonte_alvo = "banco/atas.json"
         if not alvo and (n + 1) in of:
             alvo, fonte_alvo = of[n + 1]["decisao"], "validacao/selic_oficial.csv (historicotaxasjuros)"
-        linhas.append({
-            "ata": n, "data_reuniao": d, "decisao_atual": a["decisao"],
-            "tom_nivel": round(nivel, 4),
-            "tom_variacao": round(nivel - ant, 4) if ant is not None else 0.0,
-            "tom_orientacao": round(float(dec["nota"].dropna().mean()), 4) if dec["nota"].notna().any() else 0.0,
-            "saldo_duro_brando": round(((notas > 0).sum() - (notas < 0).sum()) / max(len(p), 1), 4),
-            "sinais_virada": int(sum(contar_termos(t) for t in dec["texto"])),
-            "distancia_focus": round(a["selic_apos"] - med, 4) if med is not None else None,
-            "hiato_inflacao": round(ipca12 - META.get(int(ano), 3.0), 4) if ipca12 is not None else None,
-            "ipca_12m_usado": ipca12, "focus_mediana_usada": med, "secao_usada": fonte_sec,
-            "proxima_decisao": alvo, "fonte_alvo": fonte_alvo, "prever": 0,
+        lin = {"ata": n, "data_reuniao": a["data_reuniao"], "decisao_registrada_na_ata": NORM.get(a["decisao"], a["decisao"]),
+               "tom_nivel": round(nivel, 4),
+               "tom_variacao": round(nivel - niveis[-2], 4) if len(niveis) > 1 else 0.0,
+               "tom_media_3_atas": round(float(np.mean(niveis[-3:])), 4)}
+        for nome, chaves in SECOES.items():
+            sub = p[p["secao_sa"].map(lambda s: any(k in s for k in chaves))] if chaves else p.iloc[0:0]
+            v = sub["nota"].dropna()
+            lin[f"tom_{nome}"] = round(float(v.mean()), 4) if len(v) else 0.0
+        lin.update({
+            "saldo_duro_brando": round(((notas > 0).sum() - (notas < 0).sum()) / tot, 4),
+            "proporcao_muito_duro": round((notas == 2).sum() / tot, 4),
+            "proporcao_muito_brando": round((notas == -2).sum() / tot, 4),
+            "dispersao_notas": round(float(notas.std(ddof=0)) if len(notas) else 0.0, 4),
+            "sinais_virada": int(sum(contar(sem_acento(t), TERMOS_VIRADA) for t in dec["texto"])),
         })
-        ant = nivel
-    df = pd.DataFrame(linhas)
-    # Linha de previsão da próxima reunião: texto da última ata + decisão mais recente conhecida
-    ultima = df.iloc[-1].copy()
-    prox_num = int(ultima["ata"]) + 1
-    if prox_num in of:
-        ultima["decisao_atual"] = of[prox_num]["decisao"]
-        ultima["proxima_decisao"] = None
-        ultima["fonte_alvo"] = f"linha de previsão da reunião {prox_num + 1} (decisao_atual = decisão da {prox_num})"
-        ultima["prever"] = 1
-        df = pd.concat([df, ultima.to_frame().T], ignore_index=True)
-    return df
+        for tema, termos in TEMAS.items():
+            lin[f"termos_{tema}"] = round(1000 * contar(texto, termos) / palavras, 3)
+        lin["n_paragrafos"] = int(len(p))
+        lin["var_n_paragrafos"] = int(len(p) - ant_n) if ant_n is not None else 0
+        lin.update({"proxima_decisao": alvo, "fonte_alvo": fonte_alvo})
+        linhas.append(lin)
+        ant_n = len(p)
+    return pd.DataFrame(linhas)
 
 
 def main() -> int:
     df = montar()
     SAIDA.parent.mkdir(exist_ok=True)
     df.to_csv(SAIDA, index=False, encoding="utf-8")
-    print(f"modelo/base_modelo.csv: {len(df)} linhas ({int((df['prever'] == 1).sum())} de previsão)")
+    print(f"modelo/base_modelo.csv: {len(df)} linhas, {int(df['proxima_decisao'].notna().sum())} com alvo")
     return 0
 
 

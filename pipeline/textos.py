@@ -41,7 +41,7 @@ ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
 MAX_REESCRITAS = 2
-VERSAO = 4          # muda o hash quando o formato/prompt muda
+VERSAO = 5          # muda o hash quando o formato/prompt muda
 FUSO = timezone(timedelta(hours=-3))
 
 NOME_PREV = {"aperto": "alta", "manutencao": "manutenção", "afrouxamento": "corte"}
@@ -103,13 +103,16 @@ Alterados (parágrafo atual ← anterior): {alterados}
 
 ## Tarefa
 Escreva um relatório em JSON:
-- "manchete": UMA frase forte que anuncia a PREVISÃO PUBLICADA ("{previsto}", do método "{metodo}") para a
+- "manchete": UMA frase forte que anuncia a PREVISÃO PUBLICADA ("{previsto}", do nosso modelo) para a
   próxima reunião, com a data dela no formato DD/MM, e cita a mudança de tom da ata como explicação do que
   mudou na comunicação. Forma (não conteúdo): "Copom deve manter a Selic em DD/MM; ata mostra tom menos duro".
   A mudança de tom NUNCA aparece como previsão diferente: manchete e linha fina não podem citar outra direção
   para a Selic (palavras como {termos_contra} são reprovadas por código).
-- "linha_fina": uma frase de apoio que pode citar a acurácia histórica do método escolhido e o que mudou no
-  tom, sem prever outra direção para a Selic.
+- "linha_fina": uma frase de apoio que cita SÓ três coisas: a previsão do modelo, a acurácia dele (forma:
+  "nosso modelo acertou NN% das decisões seguintes desde 2021", com o número dado em "Previsão") e o que
+  mudou no tom da ata, sem prever outra direção para a Selic.
+- Manchete e linha fina NÃO falam de "método" nem de "previsão ingênua" nem de "repete a última decisão"
+  (reprovado por código) e não usam termos técnicos.
 - "secoes": exatamente 3 seções, nesta ordem, com 3 a 5 parágrafos NO TOTAL (pelo menos 1 por seção):
   1. id "mudou", titulo "O que mudou na comunicação do Copom": o que mudou e por quê;
   2. id "efeito", titulo "O efeito provável no mercado": efeito provável sobre Selic, juros futuros, câmbio,
@@ -232,8 +235,8 @@ def texto_previsao(prev: dict) -> str:
     met = prev.get("metodo_escolhido") or "nivel_tom"
     vt = prev.get("variacao_tom") or {}
     l = [f"- PREVISÃO PUBLICADA para a próxima reunião: {prev['previsto']} ({NOME_PREV[prev['previsto']]} da Selic), "
-         f"pelo método {NOME_METODO.get(met, met)}, o de maior acurácia no histórico "
-         f"({pct(prev.get('acuracia_escolhido'))} das reuniões).",
+         f"pelo nosso modelo, treinado com as atas desde 2021, que acertou {pct(prev.get('acuracia_escolhido'))} "
+         f"das decisões seguintes.",
          f"- Tom (explicação do que mudou, não previsão): índice de tom {br(prev['indice'])} na ata {prev['base_ata']}"
          + (f", variação de {br(vt['delta'])} em relação à ata {vt.get('ata_anterior')}" if vt.get("delta") is not None else "")
          + ".",
@@ -250,9 +253,8 @@ def texto_previsao(prev: dict) -> str:
 
 def texto_acerto(prev: dict) -> str:
     if prev.get("metodos"):
-        return "\n".join(f"- {NOME_METODO.get(m['nome'], m['nome'])}: acurácia {pct(m.get('acuracia_loo'))} em "
-                         f"{m.get('n')} reuniões (validação deixando uma ata de fora por vez)"
-                         for m in prev["metodos"] if m.get("disponivel"))
+        return "\n".join(f"- Nosso modelo: acertou {pct(m.get('acuracia_tempo'))} das decisões seguintes "
+                         f"({m.get('n')} reuniões)" for m in prev["metodos"] if m.get("disponivel"))
     a = prev.get("acerto") or {}
     i, g = a.get("indice") or {}, a.get("ingenua") or {}
     return (f"- Nosso sinal de tom: acurácia {pct(i.get('acuracia'))} em {i.get('n')} reuniões; acerto de direção "
@@ -348,6 +350,9 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
             erros.append(f"a manchete não traz a data da próxima reunião ({data_br(data)})")
         nums("manchete", man)
     for rot, txt in (("manchete", man), ("linha_fina", fina)):
+        proib = [w for w in ("metodo", "ingenua", "repete a ultima decisao") if w in sem_acento(txt)]
+        if proib:
+            erros.append(f"{rot}: não pode falar de método, previsão ingênua ou repetir a última decisão: {proib}")
         ruins = [w for w in TERMOS_CONTRA[prev["previsto"]] if re.search(rf"\b{w}\b", sem_acento(txt))]
         if ruins:
             erros.append(f"{rot}: menciona direção diferente da previsão publicada "
@@ -585,8 +590,8 @@ def plano_b(ctx: dict) -> dict:
     manchete = f"Copom deve {ACAO_PREV[prev['previsto']]} a Selic {quando}; ata {atual} mostra tom {tom}"
     met = prev.get("metodo_escolhido") or "nivel_tom"
     n_met = next((m.get("n") for m in prev.get("metodos") or [] if m.get("nome") == met), None)
-    fina = (f"Método usado: {NOME_METODO.get(met, met)}, o de maior acerto no histórico "
-            f"({pct(prev.get('acuracia_escolhido'))} de {n_met} reuniões); o índice de tom foi a {br(i)} na ata {atual}"
+    fina = (f"Nosso modelo prevê {NOME_PREV[prev['previsto']]} e acertou {pct(prev.get('acuracia_escolhido'))} "
+            f"das decisões seguintes desde 2021; o índice de tom foi a {br(i)} na ata {atual}"
             + (f", contra {br(i0)} na ata {anterior}" if i0 is not None else "") + ".")
 
     # mudou

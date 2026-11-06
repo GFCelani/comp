@@ -47,6 +47,24 @@ export type PrevisaoProxima = {
     ingenua?: { acuracia: number; acerto_sinal: number | null; n: number; previsto?: Previsao } | null;
   } | null;
   focus_selic?: { mediana: number; ano_referencia: number; data: string } | null;
+  // modelo de nota de tom (único método publicado)
+  metodo_escolhido?: string | null;
+  acuracia_escolhido?: number | null;
+  probabilidades?: { alta: number; manutencao: number; corte: number } | null;
+  texto_publico?: string | null;
+  observacao?: string | null;
+  metodos?: {
+    nome: string;
+    rotulo_pt?: string | null;
+    acuracia_tempo?: number | null;
+    acuracia_balanceada?: number | null;
+    n_tempo?: number | null;
+    n?: number | null;
+    viradas_tempo?: { acertos: number; total: number } | null;
+    probabilidades?: { alta: number; manutencao: number; corte: number } | null;
+    previsto_proxima?: Previsao | null;
+    disponivel: boolean;
+  }[];
 };
 
 export type CamposNovos = {
