@@ -14,7 +14,13 @@ import type { CamposNovos, Relatorio } from "./previsao";
 
 export const SECOES_EDITAVEIS = ["mudou", "efeito", "observar"] as const;
 export const LIMITE_MANCHETE = 300;
-export const LIMITE_PARAGRAFO = 2000;
+export const LIMITE_PARAGRAFO_MIN = 300;
+export const LIMITE_PARAGRAFO_MAX = 1500;
+
+/** Limite do parágrafo editado: 1,5 vez o original, entre 300 e 1500 caracteres. */
+export function limiteParagrafo(tamanhoOriginal: number): number {
+  return Math.min(LIMITE_PARAGRAFO_MAX, Math.max(LIMITE_PARAGRAFO_MIN, Math.round(tamanhoOriginal * 1.5)));
+}
 
 type EdicaoMinima = { campo: string; chave: string; valor_novo: string };
 type ComCampos = DadosSite & CamposNovos & { relatorio?: (Relatorio & { base_ata?: number | null }) | null };
@@ -42,10 +48,12 @@ export function marcadores(texto: string): string[] {
 export function validarParagrafo(
   texto: string,
   idsOriginais: string[],
+  tamanhoOriginal = 0,
 ): { ok: true } | { ok: false; motivo: string } {
   const t = texto.trim();
   if (!t) return { ok: false, motivo: "O parágrafo não pode ficar vazio." };
-  if (t.length > LIMITE_PARAGRAFO) return { ok: false, motivo: `Parágrafo longo demais (máximo ${LIMITE_PARAGRAFO} caracteres).` };
+  const limite = limiteParagrafo(tamanhoOriginal);
+  if (t.length > limite) return { ok: false, motivo: `Parágrafo longo demais (máximo ${limite} caracteres, 1,5 vez o original).` };
   const usados = marcadores(t);
   if (usados.length === 0) {
     return {

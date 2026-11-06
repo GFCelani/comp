@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       if (k.ata !== ataRel) return erro(`O relatório atual é da ${ataRel}ª ata; a chave aponta para a ${k.ata}ª. Recarregue o painel.`, 409);
       const par = paragrafoDaChave(dados, chave);
       if (!par) return erro("Parágrafo do relatório não encontrado.", 404);
-      const v = validarParagrafo(valor, par.citacoes.map((c) => c.id));
+      const v = validarParagrafo(valor, par.citacoes.map((c) => c.id), par.texto.length);
       if (!v.ok) return erro(v.motivo, 422);
       if (!motivo) return erro("Explique o motivo da mudança.");
       if (par.texto === valor) return erro("Nada mudou.");

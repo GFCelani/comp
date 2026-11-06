@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { aplicarEdicoesTextos, validarParagrafo, validarManchete, lerChaveParagrafo, ataDosTextos } from "../edicoesTextos.ts";
+import { aplicarEdicoesTextos, validarParagrafo, validarManchete, lerChaveParagrafo, ataDosTextos, limiteParagrafo } from "../edicoesTextos.ts";
 
 const base = JSON.parse(readFileSync(new URL("../../data/dados_site.json", import.meta.url), "utf8"));
 const copia = () => structuredClone(base);
@@ -34,6 +34,23 @@ test("validarParagrafo: recusa citação inventada", () => {
   const v = validarParagrafo(`Texto [[${ids[0]}]] e [[c99]].`, ids);
   assert.equal(v.ok, false);
   assert.match(v.motivo, /\[\[c99\]\]/);
+});
+
+test("limiteParagrafo: 1,5 vez o original, entre 300 e 1500", () => {
+  assert.equal(limiteParagrafo(100), 300);
+  assert.equal(limiteParagrafo(400), 600);
+  assert.equal(limiteParagrafo(2000), 1500);
+});
+
+test("validarParagrafo: limite relativo ao original", () => {
+  const m = ` [[${ids[0]}]].`;
+  const tam = p0.texto.length;
+  const lim = limiteParagrafo(tam);
+  assert.ok(lim > 300, "parágrafo original real ultrapassa o antigo limite de 300/1,5");
+  assert.equal(validarParagrafo("a".repeat(lim - m.length) + m, ids, tam).ok, true);
+  const v = validarParagrafo("a".repeat(lim + 1 - m.length) + m, ids, tam);
+  assert.equal(v.ok, false);
+  assert.match(v.motivo, /longo demais/);
 });
 
 test("validarParagrafo: recusa vazio", () => {
