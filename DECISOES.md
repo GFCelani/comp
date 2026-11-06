@@ -100,3 +100,26 @@ Nada mais entra.
 **Combinações (8, hiperparâmetros fixos):** A-log C=0,3 (atual); B-log C=0,3; B-log C=0,1; B-floresta (300 árvores, prof. 3, min_samples_leaf 3, random_state 42); B-árvore (prof. 2, random_state 42); C-log C=0,3; C-log C=0,1; C-floresta (mesmos hiperparâmetros).
 
 **Protocolo.** Janela crescente no tempo. Escolha: previsões das atas 251–270; maior acurácia → maior acurácia balanceada → mais simples (árvore < logística < floresta; C < B). Confirmação: atas 271–281, rodada uma única vez para o escolhido e para A-log C=0,3. Troca só se o escolhido for melhor que A-log C=0,3 na escolha e não pior na confirmação.
+
+## Modelo v2: resultado (15h05) — modelo publicado NÃO muda
+
+Script: `modelo/v2_comparar.py` → `modelo/v2_resultado.json`. Nenhuma chamada ao Claude.
+
+**Escolha (janela crescente, previsões das atas 251–270, n = 20):**
+
+| Combinação | Acertos | Acurácia | Acurácia balanceada |
+|---|---|---|---|
+| A-log C=0,3 (atual) | 16/20 | 80,0% | 81,0% |
+| B-log C=0,3 | 16/20 | 80,0% | 81,0% |
+| B-log C=0,1 | 16/20 | 80,0% | 81,0% |
+| B-floresta | 15/20 | 75,0% | 75,4% |
+| B-árvore | 15/20 | 75,0% | 74,6% |
+| C-log C=0,3 | 15/20 | 75,0% | 74,6% |
+| C-log C=0,1 | 14/20 | 70,0% | 69,0% |
+| C-floresta | 12/20 | 60,0% | 59,5% |
+
+Escolhido pelo critério: A-log C=0,3 (empate com B-log, desempate pelo mais simples). Nenhuma combinação com as variáveis do parceiro superou o atual no período de escolha, então a regra de troca não se aplica.
+
+**Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Como o escolhido é o próprio atual, só ele foi rodado. Soma 16 + 7 = 23 de 31, igual ao publicado (74,2%).
+
+**Decisão.** Mantido o modelo publicado (logística C=0,3, conjunto A). banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.
