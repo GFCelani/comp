@@ -1,9 +1,10 @@
 "use client";
 
-import { Fragment, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { Fragment, useEffect, useId, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import { dataCurta } from "@/lib/formato";
+import { SimboloCopomAI } from "@/components/Logo";
 
-/** Formato de cada item devolvido por GET /api/busca (lib/busca.ts). */
+/** Formato de cada item devolvido por GET /api/busca (lib/busca.ts). A API não muda. */
 type Resultado = {
   ata: number;
   data_reuniao: string;
@@ -44,7 +45,6 @@ function termosDa(pergunta: string): Set<string> {
   );
 }
 
-/** Destaca as palavras do trecho que batem exatamente com um termo da pergunta (como a busca faz). */
 function destacar(texto: string, termos: Set<string>): ReactNode[] {
   if (termos.size === 0) return [texto];
   return texto.split(/([\p{L}\p{N}]+)/u).map((pedaco, i) =>
@@ -58,161 +58,244 @@ function destacar(texto: string, termos: Set<string>): ReactNode[] {
   );
 }
 
-type Estado =
-  | { tipo: "inicio" }
-  | { tipo: "carregando"; q: string }
-  | { tipo: "erro" }
-  | { tipo: "pronto"; q: string; resultados: Resultado[] };
+type Mensagem =
+  | { id: number; de: "usuario"; texto: string; ata: string }
+  | { id: number; de: "copom"; estado: "carregando" }
+  | { id: number; de: "copom"; estado: "erro" }
+  | { id: number; de: "copom"; estado: "pronto"; q: string; resultados: Resultado[] };
+
+function Citacao({ r, termos }: { r: Resultado; termos: Set<string> }) {
+  return (
+    <li className="rounded-[12px] border border-linha bg-papel px-4 py-3">
+      <p className="text-xs text-tinta-3 num">
+        Ata {r.ata} · {dataCurta(r.data_reuniao)} · §{r.paragrafo}
+      </p>
+      <p className="mt-1.5 font-serif text-[0.9875rem] leading-[1.55] text-tinta">“{destacar(r.texto, termos)}”</p>
+      <a href={r.url_pdf} target="_blank" rel="noopener noreferrer" className="link mt-1.5 inline-block text-[0.8125rem]">
+        abrir a ata em PDF
+      </a>
+    </li>
+  );
+}
+
+function Resposta({ m }: { m: Extract<Mensagem, { de: "copom" }> }) {
+  const [todos, setTodos] = useState(false);
+  let corpo: ReactNode;
+  if (m.estado === "carregando") {
+    corpo = (
+      <span className="digitando inline-flex items-center gap-1 py-2" role="status" aria-label="Buscando nas atas">
+        <span />
+        <span />
+        <span />
+      </span>
+    );
+  } else if (m.estado === "erro") {
+    corpo = <p className="text-[0.9375rem] text-tinta-2">A busca não respondeu agora. Tente de novo em instantes.</p>;
+  } else if (m.resultados.length === 0) {
+    corpo = (
+      <p className="text-[0.9375rem] text-tinta-2">
+        Não encontrei trechos com essas palavras. Tente termos que aparecem nas atas, como “inflação”, “atividade” ou
+        “expectativas”, ou busque em todas as atas.
+      </p>
+    );
+  } else {
+    const termos = termosDa(m.q);
+    const visiveis = todos ? m.resultados : m.resultados.slice(0, 3);
+    corpo = (
+      <>
+        <p className="text-[0.9375rem] text-tinta">Encontrei estes trechos nas atas:</p>
+        <ul className="mt-2.5 grid gap-2">
+          {visiveis.map((r) => (
+            <Citacao key={`${r.ata}-${r.paragrafo}`} r={r} termos={termos} />
+          ))}
+        </ul>
+        {!todos && m.resultados.length > 3 && (
+          <button type="button" onClick={() => setTodos(true)} className="link mt-2 text-[0.8125rem] cursor-pointer">
+            ver mais trechos ({m.resultados.length - 3})
+          </button>
+        )}
+      </>
+    );
+  }
+  return (
+    <div className="flex gap-3 items-start">
+      <SimboloCopomAI className="h-7 w-7 shrink-0 mt-0.5" />
+      <div className="min-w-0 flex-1">{corpo}</div>
+    </div>
+  );
+}
 
 export function PergunteAsAtas({
   atas,
   sugestoes = SUGESTOES,
 }: {
   atas: { numero: number; data_reuniao: string }[];
-  /** Buscas prontas mostradas abaixo do campo. */
   sugestoes?: string[];
 }) {
   const base = useId();
-  const campoId = `${base}-pergunta`;
+  const campoId = `${base}-msg`;
   const ataId = `${base}-ata`;
-  const [pergunta, setPergunta] = useState("");
+  const [texto, setTexto] = useState("");
   const [ata, setAta] = useState("");
-  const [estado, setEstado] = useState<Estado>({ tipo: "inicio" });
-  const [aviso, setAviso] = useState<string | null>(null);
-  const pedido = useRef(0);
-  const campo = useRef<HTMLInputElement>(null);
+  const [msgs, setMsgs] = useState<Mensagem[]>([]);
+  const [ocupado, setOcupado] = useState(false);
+  const seq = useRef(0);
+  const rolagem = useRef<HTMLDivElement>(null);
+  const campo = useRef<HTMLTextAreaElement>(null);
 
-  async function buscar(q: string, a: string) {
-    const termo = q.trim();
-    if (!termo) {
-      setAviso("Escreva uma pergunta antes de buscar.");
-      campo.current?.focus();
-      return;
-    }
-    setAviso(null);
-    const meu = ++pedido.current;
-    setEstado({ tipo: "carregando", q: termo });
+  useEffect(() => {
+    const el = rolagem.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  }, [msgs]);
+
+  async function perguntar(q: string) {
+    const pergunta = q.trim();
+    if (!pergunta || ocupado) return;
+    const idU = ++seq.current;
+    const idR = ++seq.current;
+    setMsgs((m) => [...m, { id: idU, de: "usuario", texto: pergunta, ata }, { id: idR, de: "copom", estado: "carregando" }]);
+    setTexto("");
+    setOcupado(true);
+    // indicador de digitação por pelo menos meio segundo
+    const meioSegundo = new Promise((ok) => setTimeout(ok, 500));
+    let nova: Mensagem;
     try {
-      const params = new URLSearchParams({ q: termo });
-      if (a) params.set("ata", a);
-      const r = await fetch(`/api/busca?${params.toString()}`);
+      const params = new URLSearchParams({ q: pergunta });
+      if (ata) params.set("ata", ata);
+      const r = await fetch(`/api/busca?${params}`);
       if (!r.ok) throw new Error(String(r.status));
-      const json = (await r.json()) as { resultados?: Resultado[] };
-      if (meu !== pedido.current) return;
-      setEstado({ tipo: "pronto", q: termo, resultados: json.resultados ?? [] });
+      const j = (await r.json()) as { resultados?: Resultado[] };
+      nova = { id: idR, de: "copom", estado: "pronto", q: pergunta, resultados: j.resultados ?? [] };
     } catch {
-      if (meu !== pedido.current) return;
-      setEstado({ tipo: "erro" });
+      nova = { id: idR, de: "copom", estado: "erro" };
     }
+    await meioSegundo;
+    setMsgs((m) => m.map((x) => (x.id === idR ? nova : x)));
+    setOcupado(false);
+    campo.current?.focus();
   }
 
   function enviar(e: FormEvent) {
     e.preventDefault();
-    void buscar(pergunta, ata);
+    perguntar(texto);
   }
 
-  const carregando = estado.tipo === "carregando";
-  const termos = estado.tipo === "pronto" ? termosDa(estado.q) : new Set<string>();
+  function tecla(e: KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+      e.preventDefault();
+      perguntar(texto);
+    }
+  }
+
+  const vazio = msgs.length === 0;
+  const ataRotulo = ata ? `ata ${ata}` : "todas as atas";
 
   return (
     <div>
-      <form onSubmit={enviar} role="search" className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_11rem_auto] sm:items-end">
-        <div className="min-w-0">
-          <label htmlFor={campoId} className="rotulo mb-1.5 block">
-            Sua pergunta
-          </label>
-          <input
-            ref={campo}
-            id={campoId}
-            name="q"
-            type="search"
-            className="campo min-h-12 text-[1.0625rem]"
-            placeholder="ex.: inflação de serviços"
-            value={pergunta}
-            onChange={(e) => setPergunta(e.target.value)}
-            autoComplete="off"
-            spellCheck={false}
-            maxLength={300}
-            aria-describedby={aviso ? `${base}-aviso` : undefined}
-          />
-        </div>
-        <div>
-          <label htmlFor={ataId} className="rotulo mb-1.5 block">
-            Onde buscar
-          </label>
-          <select id={ataId} name="ata" className="campo num min-h-12" value={ata} onChange={(e) => setAta(e.target.value)}>
-            <option value="">todas as atas</option>
-            {[...atas]
-              .sort((a, b) => b.numero - a.numero)
-              .map((a) => (
-                <option key={a.numero} value={a.numero}>
-                  ata {a.numero} · {dataCurta(a.data_reuniao)}
-                </option>
-              ))}
-          </select>
-        </div>
-        <button type="submit" className="botao botao-principal min-h-12 px-6 text-[0.9375rem]" disabled={carregando}>
-          {carregando ? "buscando…" : "perguntar"}
-        </button>
-      </form>
-
-      {aviso && (
-        <p id={`${base}-aviso`} className="rotulo mt-2 text-tinta-2">
-          {aviso}
-        </p>
-      )}
-
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="rotulo mr-1">Experimente:</span>
-        {sugestoes.map((s) => (
+      <div className="relative flex h-[min(520px,78svh)] flex-col overflow-hidden rounded-[18px] border border-linha bg-papel shadow-[var(--sombra-2)]">
+        {!vazio && (
           <button
-            key={s}
             type="button"
-            className="botao min-h-8 px-3 py-1 text-[0.8125rem]"
-            onClick={() => {
-              setPergunta(s);
-              void buscar(s, ata);
-            }}
+            onClick={() => setMsgs([])}
+            className="absolute right-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-linha bg-papel/90 px-3 py-1 text-xs text-tinta-2 backdrop-blur hover:text-tinta hover:border-linha-2"
           >
-            {s}
+            <svg aria-hidden width="12" height="12" viewBox="0 0 16 16" fill="none">
+              <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+            nova conversa
           </button>
-        ))}
-      </div>
-      <p className="rotulo mt-3">A resposta é sempre um trecho da ata, não uma interpretação.</p>
-
-      <div aria-live="polite" aria-busy={carregando} className="mt-6">
-        {estado.tipo === "carregando" && <p className="aguardando">buscando nas atas…</p>}
-
-        {estado.tipo === "erro" && <p className="text-[0.9375rem] text-erro">A busca não respondeu. Tente de novo em instantes.</p>}
-
-        {estado.tipo === "pronto" && estado.resultados.length === 0 && (
-          <p className="texto-2">Nenhum trecho encontrado. Tente outras palavras ou todas as atas.</p>
         )}
 
-        {estado.tipo === "pronto" && estado.resultados.length > 0 && (
-          <>
-            <p className="rotulo num border-b border-tinta pb-2">
-              {estado.resultados.length} {estado.resultados.length === 1 ? "trecho" : "trechos"} para “{estado.q}”, do mais
-              ao menos relevante
-            </p>
-            <ol className="divide-y divide-linha">
-              {estado.resultados.map((r) => (
-                <li key={`${r.ata}-${r.paragrafo}`} className="py-4">
-                  <p className="rotulo num">
-                    Ata {r.ata} · §{r.paragrafo} · {dataCurta(r.data_reuniao)}
-                  </p>
-                  <p className="mt-1.5 font-serif text-[1.0625rem] leading-[1.6] break-words text-tinta">
-                    “{destacar(r.texto, termos)}”
-                  </p>
-                  <a href={r.url_pdf} target="_blank" rel="noopener noreferrer" className="link mt-2 inline-block text-sm">
-                    abrir a ata em PDF
-                  </a>
-                </li>
-              ))}
+        <div ref={rolagem} className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-6 pt-5 pb-4" aria-live="polite">
+          {vazio ? (
+            <div className="flex h-full flex-col items-center justify-center text-center">
+              <SimboloCopomAI className="h-10 w-10" />
+              <p className="titulo-serifa mt-4 text-[1.375rem] leading-tight">Pergunte qualquer coisa sobre as atas do Copom</p>
+              <div className="mt-6 grid w-full max-w-[520px] gap-2 sm:grid-cols-2">
+                {sugestoes.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => perguntar(s)}
+                    className="rounded-[12px] border border-linha bg-papel px-4 py-2.5 text-left text-sm text-tinta-2 transition-colors hover:border-linha-2 hover:bg-papel-2 hover:text-tinta cursor-pointer"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <ol className="grid gap-5">
+              {msgs.map((m) =>
+                m.de === "usuario" ? (
+                  <li key={m.id} className="flex justify-end">
+                    <div className="max-w-[85%] rounded-[16px] rounded-br-[6px] bg-papel-3 px-4 py-2.5 text-[0.9375rem] text-tinta">
+                      {m.texto}
+                      {m.ata && <span className="ml-2 text-xs text-tinta-3 num">· ata {m.ata}</span>}
+                    </div>
+                  </li>
+                ) : (
+                  <li key={m.id}>
+                    <Resposta m={m} />
+                  </li>
+                ),
+              )}
             </ol>
-          </>
-        )}
+          )}
+        </div>
+
+        <form onSubmit={enviar} role="search" className="border-t border-linha bg-papel px-3 py-3 sm:px-4">
+          <div className="flex items-end gap-2 rounded-[16px] border border-linha-2 bg-papel px-3 py-2 focus-within:border-acento focus-within:shadow-[0_0_0_3px_var(--acento-suave)]">
+            <label htmlFor={campoId} className="sr-only">
+              Sua pergunta
+            </label>
+            <textarea
+              ref={campo}
+              id={campoId}
+              rows={1}
+              value={texto}
+              onChange={(e) => setTexto(e.target.value)}
+              onKeyDown={tecla}
+              maxLength={300}
+              placeholder="Pergunte às atas…"
+              className="min-h-[36px] max-h-28 flex-1 resize-none bg-transparent py-1.5 text-base text-tinta outline-none placeholder:text-tinta-3 [field-sizing:content]"
+            />
+            <label htmlFor={ataId} className="sr-only">
+              Onde buscar
+            </label>
+            <span className="relative mb-0.5 shrink-0">
+              <select
+                id={ataId}
+                value={ata}
+                onChange={(e) => setAta(e.target.value)}
+                className="h-8 max-w-[8.5rem] cursor-pointer appearance-none truncate rounded-full border border-linha bg-papel-2 pl-3 pr-7 text-xs text-tinta-2 hover:border-linha-2 focus:outline-none focus-visible:border-acento"
+                title={ataRotulo}
+              >
+                <option value="">todas as atas</option>
+                {[...atas].reverse().map((a) => (
+                  <option key={a.numero} value={a.numero}>
+                    ata {a.numero} · {dataCurta(a.data_reuniao)}
+                  </option>
+                ))}
+              </select>
+              <svg aria-hidden width="10" height="10" viewBox="0 0 10 10" className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-tinta-3">
+                <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" />
+              </svg>
+            </span>
+            <button
+              type="submit"
+              disabled={!texto.trim() || ocupado}
+              aria-label="Enviar pergunta"
+              className="mb-0.5 flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-acento text-papel transition-colors hover:bg-acento-2 disabled:cursor-not-allowed disabled:bg-linha-2"
+            >
+              <svg aria-hidden width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M8 13V3m0 0L3.5 7.5M8 3l4.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
+      <p className="mt-3 text-xs text-tinta-3">As respostas são trechos exatos das atas, não interpretação.</p>
     </div>
   );
 }

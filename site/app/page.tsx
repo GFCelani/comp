@@ -504,7 +504,7 @@ export default async function Pagina() {
             por conta própria
           </TituloSecao>
           <div className="mt-10 grid gap-8">
-            <div id="perguntar" className="cartao p-5 sm:p-8">
+            <div id="perguntar">
               <h3 className="titulo-serifa text-[1.625rem] leading-tight">Pergunte às atas</h3>
               <p className="mt-2 text-tinta-2 max-w-[62ch]">
                 A resposta é sempre um trecho da ata, com o número do parágrafo e o link para o PDF oficial.

@@ -2,7 +2,7 @@
 
 export const SECOES = [
   { id: "visao-geral", nome: "Visão geral", titulo: "Visão geral" },
-  { id: "modelos", nome: "Modelos", titulo: "Modelos de previsão" },
+  { id: "modelo", nome: "Modelo", titulo: "Modelo de previsão" },
   { id: "validacao", nome: "Validação", titulo: "Validação" },
   { id: "dados", nome: "Dados", titulo: "Dados do pipeline" },
   { id: "textos", nome: "Textos", titulo: "Textos publicados" },

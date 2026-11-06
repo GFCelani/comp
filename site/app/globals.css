@@ -531,3 +531,30 @@ html {
     opacity: 1 !important;
   }
 }
+
+/* indicador de digitação do chat */
+.digitando span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--tinta-3);
+  animation: pisca 900ms ease-in-out infinite;
+}
+.digitando span:nth-child(2) {
+  animation-delay: 150ms;
+}
+.digitando span:nth-child(3) {
+  animation-delay: 300ms;
+}
+@keyframes pisca {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}

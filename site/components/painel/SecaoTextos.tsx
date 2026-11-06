@@ -375,7 +375,7 @@ export function SecaoTextos({
               </label>
               <select id="fonte" className="campo sm:max-w-[260px]" value={fonte} onChange={(e) => setFonte(e.target.value)}>
                 <option value="simples">simples (média sem zeros)</option>
-                <option value="modelo">modelo do parceiro</option>
+                <option value="modelo">modelo de notas</option>
               </select>
               <button
                 type="button"
@@ -391,7 +391,7 @@ export function SecaoTextos({
         ) : (
           <p className="text-sm">
             <span className="text-tinta-3">em uso: </span>
-            {fonteIndice === "modelo" ? "modelo do parceiro" : "simples (média sem zeros)"}
+            {fonteIndice === "modelo" ? "modelo de notas" : "simples (média sem zeros)"}
           </p>
         )}
       </Bloco>
