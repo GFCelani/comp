@@ -160,3 +160,17 @@ Escolhido pelo critério: A-log C=0,3 (empate em acurácia e balanceada com D-lo
 **Confirmação (atas 271–281, n = 11, rodada uma vez):** A-log C=0,3: 7/11 (63,6%, balanceada 65,0%). Total 23/31, igual ao publicado.
 
 **Decisão.** Mantido o modelo publicado. As variáveis de histórico foram só testadas e não entram no modelo nem na lista do README. banco/, saida/ e site/data/ não foram regenerados. Previsão da 283 inalterada: corte 56,2%, manutenção 28,5%, alta 15,2%.
+
+## Modelo v4: candidatos (fixados às 15h34, antes de testar)
+
+Lista fechada, sem Claude. Escolha na janela crescente prevendo as atas 251–270; confirmação única nas 271–281 (escolhido e A).
+
+- Histórico recente: variacao_taxa_atual, decisao_anterior (one-hot), variacao_taxa_anterior, reunioes_na_mesma_direcao.
+- Interações: int_tomvar_x_decisao_<classe> = tom_variacao × decisao_registrada_na_ata_<classe> (3 colunas); int_virada_x_sequencia = sinais_virada × reunioes_na_mesma_direcao.
+- Duas variáveis contra os erros de modelo/analise_erros.md:
+  - var_termos_cambio = termos_cambio menos o da ata anterior (0 na primeira): os erros vieram de câmbio pesando pelo nível; a mudança separa um choque novo de um tema permanente.
+  - var_sinais_virada = sinais_virada menos o da ata anterior (0 na primeira): o modelo demora a perceber viradas; a mudança marca o momento em que a linguagem de virada aparece.
+- Conjuntos: F = A + histórico + interações; G = F + as 2 variáveis contra erros.
+- Modelos (hiperparâmetros fixos): logística C=0,3; logística C=1,0 (ambas com StandardScaler, max_iter 5000); floresta (300 árvores, max_depth 3, min_samples_leaf 3, random_state 42).
+- 6 combinações mais A-log C=0,3 como referência. Vence a maior acurácia; desempate pela balanceada e depois pela mais simples (A antes de F antes de G; logística antes de floresta).
+- Troca só se o escolhido for melhor que A na escolha e não for pior na confirmação.
