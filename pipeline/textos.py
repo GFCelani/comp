@@ -7,8 +7,10 @@ Relatório de mercado sobre a última ata e a previsão para a próxima reunião
 
 Uma chamada `claude -p --model sonnet` com o diff, os parágrafos das 2 últimas atas (número e nota),
 o índice das últimas 6 atas, banco/previsao.json, o acerto histórico, Selic/Focus com datas e a lista de
-números permitidos. Pede manchete, linha fina e 3 seções (mudou, efeito, observar) com 3 a 5 parágrafos
-no total; toda sentença leva um marcador [[cN]] que aponta para uma citação {ata, paragrafo, trecho}.
+números permitidos. Pede só as 3 seções (mudou, efeito, observar) com 3 a 5 parágrafos no total; toda
+sentença leva um marcador [[cN]] que aponta para uma citação {ata, paragrafo, trecho}. Manchete e linha fina
+são montadas por código (modelo de texto fixo: manchete_fixa, linha_fina_fixa), sem o Claude. Nenhuma frase
+afirma o futuro com certeza (lista CERTEZA, verificada por código).
 Verificação por código (ver verificar()); até 2 reescritas com os erros. Se ainda falhar, ou se o
 Claude não estiver disponível, PLANO B determinístico por modelos de frase fixos, que passa pela mesma
 verificação. `mudancas` e `impacto` (seção de Evidência) vêm sempre do código.
@@ -40,8 +42,9 @@ ARQ_FOCUS = RAIZ / "data" / "case1_focus" / "focus_anuais.csv"
 ARQ_SGS = RAIZ / "data" / "case1_focus" / "sgs_realizado.csv"
 ARQ_SAIDA = RAIZ / "saida" / "textos.json"
 ARQ_ROTULOS = RAIZ / "banco" / "rotulos.jsonl"
+ARQ_METRICAS = RAIZ / "banco" / "metricas_modelo.json"
 MAX_REESCRITAS = 2
-VERSAO = 5          # muda o hash quando o formato/prompt muda
+VERSAO = 6          # muda o hash quando o formato/prompt muda
 FUSO = timezone(timedelta(hours=-3))
 
 NOME_PREV = {"aperto": "alta", "manutencao": "manutenção", "afrouxamento": "corte"}
@@ -64,6 +67,18 @@ RE_NUM = re.compile(r"\d+(?:[.,]\d+)*")
 # Proibido no relatório (seções): afirmações sobre os nossos próprios dados. Manchete e linha fina podem.
 PROIBIDOS_RELATORIO = {"acert": "acerto do sinal", "previsao ingenua": "previsão ingênua", "ingenua": "previsão ingênua",
                        "nosso sinal": "nosso sinal", "focus": "Focus", "nao foi publicada": "ata não publicada"}
+# Afirmações sobre o futuro em tom de certeza: reprovadas em toda sentença do relatório (sem acento, caixa baixa).
+# Lista simples de propósito: verbos no futuro do presente ("vai", "vão", "irá", "irão", "será", "serão") e
+# expressões de certeza. O relatório fala do futuro só com "prevê", "é esperado", "a projeção indica", "pode".
+CERTEZA = {r"\bvai\b": "vai", r"\bvao\b": "vão", r"\bira\b": "irá", r"\birao\b": "irão",
+           r"\bcertamente\b": "certamente", r"\bcom certeza\b": "com certeza", r"\bsem duvida": "sem dúvida",
+           r"\bgarant": "garant…", r"\bsera\b": "será", r"\bserao\b": "serão"}
+CLASSE_PREV = {"aperto": "alta", "manutencao": "manutencao", "afrouxamento": "corte"}   # chave em probabilidades
+# Temas da linha fina: (raízes sem acento procuradas no trecho, nome). Ordem = prioridade.
+TEMAS_FINA = [(("expectativa",), "as expectativas de inflação"), (("mercado de trabalho", "desemprego", "salari"),
+              "o mercado de trabalho"), (("cenario externo", "externo", "geopolit", "global"), "o cenário externo"),
+              (("cambio", "cambial"), "o câmbio"), (("credito",), "o crédito"),
+              (("atividade", "pib", "crescimento"), "a atividade"), (("inflacao", "precos"), "a inflação")]
 STOPWORDS = set("""sobre entre quando ainda mesmo mesma porque tambem assim desde depois antes apenas outro outra
 outros outras sendo estao seria serao pelos pelas essas esses essa nessa nesse nesta neste nestes nestas aquela
 aquele aquelas aqueles muito muitos muita muitas menos maior menores maiores menor tanto tanta quanto quanta todos
@@ -102,17 +117,11 @@ Alterados (parágrafo atual ← anterior): {alterados}
 {permitidos}
 
 ## Tarefa
-Escreva um relatório em JSON:
-- "manchete": UMA frase forte que anuncia a PREVISÃO PUBLICADA ("{previsto}", do nosso modelo) para a
-  próxima reunião, com a data dela no formato DD/MM, e cita a mudança de tom da ata como explicação do que
-  mudou na comunicação. Forma (não conteúdo): "Copom deve manter a Selic em DD/MM; ata mostra tom menos duro".
-  A mudança de tom NUNCA aparece como previsão diferente: manchete e linha fina não podem citar outra direção
-  para a Selic (palavras como {termos_contra} são reprovadas por código).
-- "linha_fina": uma frase de apoio que cita SÓ três coisas: a previsão do modelo, a acurácia dele (forma:
-  "nosso modelo acertou NN% das decisões seguintes desde 2021", com o número dado em "Previsão") e o que
-  mudou no tom da ata, sem prever outra direção para a Selic.
-- Manchete e linha fina NÃO falam de "método" nem de "previsão ingênua" nem de "repete a última decisão"
-  (reprovado por código) e não usam termos técnicos.
+Escreva SÓ o corpo do relatório em JSON (a manchete e a linha fina já existem e vêm do código:
+"{manchete}" / "{linha_fina}"). O relatório não pode contradizer essa previsão.
+- O futuro NUNCA aparece como certeza: use "prevê", "é esperado", "a projeção indica", "pode", "tende a".
+  Frases com "vai", "vão", "irá", "irão", "será", "serão", "certamente", "com certeza", "sem dúvida" ou
+  "garant..." (garante, garantir, garantia) são reprovadas por código, mesmo ao parafrasear a ata.
 - "secoes": exatamente 3 seções, nesta ordem, com 3 a 5 parágrafos NO TOTAL (pelo menos 1 por seção):
   1. id "mudou", titulo "O que mudou na comunicação do Copom": o que mudou e por quê;
   2. id "efeito", titulo "O efeito provável no mercado": efeito provável sobre Selic, juros futuros, câmbio,
@@ -138,15 +147,16 @@ Linguagem de mercado, direta, sem jargão sem explicação. Não é recomendaç�
 comprar, vender ou investir em nada.
 
 Responda APENAS com o JSON:
-{{"manchete": "", "linha_fina": "", "secoes": [{{"id": "mudou", "titulo": "O que mudou na comunicação do Copom", "paragrafos": [{{"texto": "Frase [[c1]].", "citacoes": [{{"id": "c1", "ata": {atual}, "paragrafo": 1, "trecho": ""}}]}}]}}, {{"id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": []}}, {{"id": "observar", "titulo": "O que observar até a próxima reunião", "paragrafos": []}}]}}"""
+{{"secoes": [{{"id": "mudou", "titulo": "O que mudou na comunicação do Copom", "paragrafos": [{{"texto": "Frase [[c1]].", "citacoes": [{{"id": "c1", "ata": {atual}, "paragrafo": 1, "trecho": ""}}]}}]}}, {{"id": "efeito", "titulo": "O efeito provável no mercado", "paragrafos": []}}, {{"id": "observar", "titulo": "O que observar até a próxima reunião", "paragrafos": []}}]}}"""
 
 PROMPT_REESCRITA = """Sua resposta anterior teve problemas verificados por código:
 {erros}
 
 Corrija o que falhou mantendo todas as regras (toda sentença com marcador [[cN]] antes do ponto; trecho =
 cópia literal de até 25 palavras do parágrafo indicado; cada trecho sustenta a sua frase; nada sobre acerto
-do sinal, previsão ingênua, Focus ou ata não publicada nas seções; só números permitidos; manchete com a previsão
-"{previsto}" e a data da próxima reunião; manchete e linha fina sem termos de outra direção para a Selic). Responda APENAS com o JSON completo.
+do sinal, previsão ingênua, Focus ou ata não publicada nas seções; só números permitidos; nada de futuro em
+tom de certeza: sem "vai", "vão", "irá", "irão", "será", "serão", "certamente", "com certeza", "sem dúvida",
+"garant..."; use "prevê", "é esperado", "a projeção indica", "pode"). Responda APENAS com o JSON {{"secoes": [...]}}.
 
 Sua resposta anterior:
 {anterior}"""
@@ -326,6 +336,68 @@ def palavras_conteudo(s: str) -> set[str]:
             for w in re.findall(r"[a-z]+", sem_acento(RE_MARCA.sub(" ", s))) if len(w) >= 5 and w not in STOPWORDS}
 
 
+def termos_certeza(texto: str) -> list[str]:
+    """Termos de CERTEZA presentes no texto (fora dos marcadores), sem acento e em caixa baixa."""
+    t = sem_acento(RE_MARCA.sub(" ", texto))
+    return [nome for padrao, nome in CERTEZA.items() if re.search(padrao, t)]
+
+
+# ---------------------------------------------------------------- manchete e linha fina (modelo fixo)
+
+def data_extenso(iso: str | None) -> str | None:
+    if not iso:
+        return None
+    d = date.fromisoformat(iso[:10])
+    return f"{d.day} de {MESES[d.month - 1]}"
+
+
+def manchete_fixa(prev: dict, atas: dict) -> str:
+    data = data_extenso((prev.get("proxima_reuniao") or {}).get("data"))
+    if prev["previsto"] == "manutencao":
+        selic = (prev.get("ultima_decisao_conhecida") or {}).get("selic")
+        if selic is None:
+            selic = atas[max(atas)].get("selic_apos")
+        return f"Selic deve ficar em {br(selic)}% {'em ' + data if data else 'na próxima reunião'}, prevê o CopomAI"
+    verbo = "cair" if prev["previsto"] == "afrouxamento" else "subir"
+    return f"Selic deve {verbo} {'na reunião de ' + data if data else 'na próxima reunião'}, prevê o CopomAI"
+
+
+def tema_fina(trecho: str) -> str | None:
+    t = sem_acento(trecho)
+    for raizes, nome in TEMAS_FINA:
+        if any(r in t for r in raizes):
+            if nome == "a atividade" and re.search(r"desaceler|moderac", t):
+                return "a desaceleração da atividade"
+            return nome
+    return None
+
+
+def linha_fina_fixa(ctx: dict) -> str:
+    prev = ctx["prev"]
+    met = (ler(ARQ_METRICAS) or {}).get("metricas") or {}
+    probs = prev.get("probabilidades") or {}
+    p = probs.get(CLASSE_PREV[prev["previsto"]])
+    n, acc = met.get("n"), met.get("acuracia")
+    ini = (met.get("periodo") or {}).get("inicio") or (prev.get("validacao_tempo") or {}).get("inicio")
+    partes = []
+    if p is not None:
+        partes.append(f"Probabilidade estimada de {round(p * 100)}% de {NOME_PREV[prev['previsto']]}")
+    if n and acc is not None and ini:
+        d = date.fromisoformat(ini[:10])
+        partes.append(f"o modelo acertou {round(acc * n)} de {n} reuniões desde {MESES[d.month - 1]} de {d.year}")
+    frase1 = "; ".join(partes)
+    frase1 = (frase1[0].upper() + frase1[1:] + ". ") if frase1 else ""
+    atual, anterior = ctx["atual"], ctx["anterior"]
+    i, i0 = ctx["indices"].get(atual), ctx["indices"].get(anterior)
+    dlt = (i - i0) if i is not None and i0 is not None else 0
+    tom = "mais duro" if dlt > 0.05 else "menos duro" if dlt < -0.05 else "estável"
+    efeito = "endureceu" if dlt > 0.05 else "suavizou" if dlt < -0.05 else None
+    cands = candidatos_mudanca(ctx)
+    c = next((x for x in cands if efeito is None or x["efeito"] == efeito), None)
+    t = tema_fina(c["trecho"]) if c else None
+    return frase1 + f"A ata {atual} trouxe tom {tom}" + (f", com destaque para {t}." if t else ".")
+
+
 def verificar(resp: dict, ctx: dict) -> list[str]:
     erros: list[str] = []
     prev, permitidos, datas_ok = ctx["prev"], ctx["permitidos"], ctx["datas_ok"]
@@ -339,16 +411,13 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
         if ruins:
             erros.append(f"{rotulo}: números fora dos dados: {ruins}")
 
+    # Manchete e linha fina são montadas por código (modelo de texto fixo); aqui só se confere que não mudaram
+    # e que não usam termos proibidos.
     man, fina = (resp.get("manchete") or "").strip(), (resp.get("linha_fina") or "").strip()
-    if not man:
-        erros.append("manchete vazia")
-    else:
-        if not any(w in man.lower() for w in PALAVRAS_PREV[prev["previsto"]] + (ACAO_PREV[prev["previsto"]],)):
-            erros.append(f"a manchete não menciona a previsão publicada ({NOME_PREV[prev['previsto']]})")
-        data = (prev.get("proxima_reuniao") or {}).get("data")
-        if data and data_br(data) not in man:
-            erros.append(f"a manchete não traz a data da próxima reunião ({data_br(data)})")
-        nums("manchete", man)
+    if man != ctx["manchete"]:
+        erros.append("a manchete difere do modelo de texto fixo")
+    if fina != ctx["linha_fina"]:
+        erros.append("a linha fina difere do modelo de texto fixo")
     for rot, txt in (("manchete", man), ("linha_fina", fina)):
         proib = [w for w in ("metodo", "ingenua", "repete a ultima decisao") if w in sem_acento(txt)]
         if proib:
@@ -357,10 +426,9 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
         if ruins:
             erros.append(f"{rot}: menciona direção diferente da previsão publicada "
                          f"({NOME_PREV[prev['previsto']]}): {ruins}; a mudança de tom é explicação, não previsão")
-    if not fina:
-        erros.append("linha_fina vazia")
-    else:
-        nums("linha_fina", fina)
+        cert = termos_certeza(txt)
+        if cert:
+            erros.append(f"{rot}: afirma o futuro com certeza: {cert}")
 
     secoes = resp.get("secoes") or []
     ids = [s.get("id") for s in secoes]
@@ -384,6 +452,10 @@ def verificar(resp: dict, ctx: dict) -> list[str]:
                 if not RE_MARCA.search(sent):
                     erros.append(f"{rot}: sentença sem marcador [[cN]]: {sent[:80]!r}")
                 norm = sem_acento(sent)
+                cert = termos_certeza(sent)
+                if cert:
+                    erros.append(f"{rot}: afirma o futuro com certeza ({', '.join(cert)}); use \"prevê\", \"é "
+                                 f"esperado\", \"a projeção indica\" ou \"pode\": {sent[:80]!r}")
                 for chave, nome in PROIBIDOS_RELATORIO.items():
                     if chave in norm:
                         erros.append(f"{rot}: o relatório não pode falar de {nome} (isso já está na manchete e nos "
@@ -582,17 +654,7 @@ def maior_nota(ctx: dict, filtro) -> int | None:
 
 def plano_b(ctx: dict) -> dict:
     prev, atual, anterior = ctx["prev"], ctx["atual"], ctx["anterior"]
-    i, i0 = ctx["indices"].get(atual), ctx["indices"].get(anterior)
-    d = (i - i0) if i is not None and i0 is not None else 0
-    tom = "mais duro" if d > 0.1 else "menos duro" if d < -0.1 else "sem grande mudança"
-    prox = prev.get("proxima_reuniao") or {}
-    quando = f"em {data_br(prox['data'])}" if prox.get("data") else "na próxima reunião"
-    manchete = f"Copom deve {ACAO_PREV[prev['previsto']]} a Selic {quando}; ata {atual} mostra tom {tom}"
-    met = prev.get("metodo_escolhido") or "nivel_tom"
-    n_met = next((m.get("n") for m in prev.get("metodos") or [] if m.get("nome") == met), None)
-    fina = (f"Nosso modelo prevê {NOME_PREV[prev['previsto']]} e acertou {pct(prev.get('acuracia_escolhido'))} "
-            f"das decisões seguintes desde 2021; o índice de tom foi a {br(i)} na ata {atual}"
-            + (f", contra {br(i0)} na ata {anterior}" if i0 is not None else "") + ".")
+    manchete, fina = ctx["manchete"], ctx["linha_fina"]      # modelo de texto fixo, igual ao do Claude
 
     # mudou
     cits, frases = [], []
@@ -675,6 +737,8 @@ def contexto() -> dict:
     ctx["datas_ok"] = {(int(x[8:10]), int(x[5:7])) for x in datas}
     lista = sorted(x for x in ctx["permitidos"] if not (1900 <= x <= 2100))
     campos["permitidos"] = ", ".join(br(x, 4).rstrip("0").rstrip(",") for x in lista)
+    ctx["manchete"], ctx["linha_fina"] = manchete_fixa(prev, atas), linha_fina_fixa(ctx)
+    campos["manchete"], campos["linha_fina"] = ctx["manchete"], ctx["linha_fina"]
     ctx["prompt"] = PROMPT.format(**campos)
     return ctx
 
@@ -686,6 +750,7 @@ def via_claude(ctx: dict):
     while True:
         try:
             resp = claude_cli.extrair_json(texto)
+            resp["manchete"], resp["linha_fina"] = ctx["manchete"], ctx["linha_fina"]   # sempre do código
             erros = verificar(resp, ctx)
         except Exception as e:
             resp, erros = None, [f"JSON inválido: {e}"]
@@ -701,7 +766,8 @@ def via_claude(ctx: dict):
 
 def hash_entrada(atual: int, anterior: int) -> str:
     prev = {k: v for k, v in (ler(ARQ_PREVISAO) or {}).items() if k != "gerado_em"}
-    s = json.dumps([VERSAO, atual, anterior, prev], sort_keys=True, ensure_ascii=False)
+    met = (ler(ARQ_METRICAS) or {}).get("metricas")            # entra na linha fina (acertou K de N)
+    s = json.dumps([VERSAO, atual, anterior, prev, met], sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 

@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-11-06T15:16:16-03:00",
+  "gerado_em": "2026-11-06T15:20:56-03:00",
   "exemplo": false,
-  "ultima_verificacao": "2026-11-06T15:16:16-03:00",
+  "ultima_verificacao": "2026-11-06T15:20:56-03:00",
   "textos_pendentes": false,
   "fonte_indice": "simples",
   "resumo": {
@@ -4290,13 +4290,13 @@
     }
   },
   "manchete": {
-    "texto": "Copom deve cortar a Selic em 09/12; ata mostra tom menos duro",
-    "linha_fina": "Nosso modelo prevê corte de juros e acertou 23 de 31 reuniões testadas desde dezembro de 2022; a ata mais recente ficou mais branda ao destacar a desaceleração da atividade.",
+    "texto": "Selic deve cair na reunião de 9 de dezembro, prevê o CopomAI",
+    "linha_fina": "Probabilidade estimada de 56% de corte; o modelo acertou 23 de 31 reuniões desde dezembro de 2022. A ata 281 trouxe tom menos duro, com destaque para a desaceleração da atividade.",
     "origem": "claude"
   },
   "relatorio": {
     "origem": "claude",
-    "gerado_em": "2026-11-06T14:53:47-03:00",
+    "gerado_em": "2026-11-06T15:20:49-03:00",
     "reescritas": 0,
     "secoes": [
       {
@@ -4304,42 +4304,42 @@
         "titulo": "O que mudou na comunicação do Copom",
         "paragrafos": [
           {
-            "texto": "A ata 281 passou a destacar que o PIB do segundo trimestre confirmou a desaceleração da atividade [[c1]]. Na ata 280, o texto ainda falava em sinais mistos advindos dos indicadores [[c2]].",
+            "texto": "O Copom descreve a atividade como em moderação gradual, principalmente em setores mais cíclicos [[c1]]. A leitura do PIB do segundo trimestre de 2026 mostrou movimento mais intenso nas atividades e nos componentes da demanda mais sensíveis ao ciclo [[c2]].",
             "citacoes": [
               {
                 "id": "c1",
                 "ata": 281,
-                "paragrafo": 5,
-                "trecho": "A leitura mais recente do PIB, referente ao segundo trimestre de 2026, confirmou a desaceleração apontada por outros indicadores",
+                "paragrafo": 2,
+                "trecho": "mostra uma moderação gradual da atividade econômica, principalmente em setores mais cíclicos",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c2",
-                "ata": 280,
+                "ata": 281,
                 "paragrafo": 5,
-                "trecho": "Naturalmente, em momentos de inflexão no ciclo econômico, observam-se sinais mistos advindos de indicadores econômicos.",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom280-not20260805280.pdf",
-                "data_reuniao": "2026-08-05"
+                "trecho": "revelou que o movimento foi mais intenso nas atividades econômicas e nos componentes da demanda mais sensíveis ao ciclo econômico",
+                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
+                "data_reuniao": "2026-09-16"
               }
             ]
           },
           {
-            "texto": "A ata 281 incluiu um parágrafo sobre crédito, que mostra desaceleração do crescimento em meio a uma política monetária restritiva [[c3]]. A inflação, segundo a ata 281, desacelerou e ficou abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c4]].",
+            "texto": "A inflação cheia e a média das medidas subjacentes desaceleraram e ficam abaixo do limite superior do intervalo de tolerância, mas ainda acima da meta [[c3]]. O Comitê reiterou que expectativas desancoradas exigem restrição monetária maior e por mais tempo [[c4]].",
             "citacoes": [
               {
                 "id": "c3",
                 "ata": 281,
-                "paragrafo": 6,
-                "trecho": "consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva",
+                "paragrafo": 2,
+                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c4",
                 "ata": 281,
-                "paragrafo": 2,
-                "trecho": "a inflação cheia e a média de medidas subjacentes desaceleraram, situando-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta",
+                "paragrafo": 10,
+                "trecho": "exige-se uma restrição monetária maior e por mais tempo do que outrora seria apropriado",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4352,29 +4352,34 @@
         "titulo": "O efeito provável no mercado",
         "paragrafos": [
           {
-            "texto": "O acúmulo de evidências de que os juros altos chegam à atividade tende a sustentar a continuidade do afrouxamento da Selic [[c5]]. Isso pode limitar a queda dos juros futuros, porque a ata diz que a inflação permanece pressionada pela demanda [[c6]]. A leitura de que as expectativas seguem acima da meta em todos os horizontes pode deixar a inflação esperada sob pressão [[c7]]. O câmbio pode reagir a um eventual corte, pois a ata cita o risco de uma taxa de câmbio persistentemente mais depreciada [[c8]]. O crédito de mais longo prazo tende a seguir em redução, segundo a ata [[c9]].",
+            "texto": "A redução da taxa básica de juros para 13,75% ao ano é, segundo o Copom, compatível com a convergência da inflação para o redor da meta, o que pode favorecer cortes graduais [[c5]]. O aumento de crédito direcionado e as incertezas sobre a dívida pública têm o potencial de elevar a taxa de juros neutra, o que pode pressionar os juros futuros [[c6]].",
             "citacoes": [
               {
                 "id": "c5",
                 "ata": 281,
-                "paragrafo": 15,
-                "trecho": "O Comitê avalia que as evidências de transmissão da política monetária contracionista para a atividade econômica têm se acumulado gradualmente.",
+                "paragrafo": 18,
+                "trecho": "essa decisão é compatível com a estratégia de convergência da inflação para o redor da meta ao longo do horizonte relevante",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
               {
                 "id": "c6",
                 "ata": 281,
-                "paragrafo": 15,
-                "trecho": "a inflação permanece pressionada pela demanda, exigindo que a política monetária mantenha caráter restritivo",
+                "paragrafo": 8,
+                "trecho": "o aumento de crédito direcionado e as incertezas sobre a estabilização da dívida pública têm o potencial de elevar a taxa de juros neutra",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
-              },
+              }
+            ]
+          },
+          {
+            "texto": "Expectativas de inflação acima da meta em todos os horizontes tendem a manter o Comitê cauteloso, o que pode limitar o alívio da inflação esperada [[c7]]. Uma taxa de câmbio persistentemente mais depreciada aparece entre os riscos de alta para a inflação, e por isso o dólar pode influenciar o ritmo dos cortes [[c8]]. O crédito bancário com recursos livres tende a seguir em desaceleração, em meio a uma política monetária restritiva [[c9]].",
+            "citacoes": [
               {
                 "id": "c7",
                 "ata": 281,
                 "paragrafo": 10,
-                "trecho": "As expectativas de inflação, medidas por diferentes instrumentos e obtidas de diferentes grupos de agentes permanecem acima da meta de inflação em todos os horizontes.",
+                "trecho": "permanecem acima da meta de inflação em todos os horizontes",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               },
@@ -4390,7 +4395,7 @@
                 "id": "c9",
                 "ata": 281,
                 "paragrafo": 6,
-                "trecho": "Nota-se, em particular, redução nas modalidades de mais longo prazo",
+                "trecho": "é consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -4403,26 +4408,10 @@
         "titulo": "O que observar até a próxima reunião",
         "paragrafos": [
           {
-            "texto": "Vale observar o mercado de trabalho, onde o desemprego segue em patamares historicamente baixos [[c10]]. Também importa ver se os rendimentos seguem crescendo em termos reais acima da produtividade do trabalho [[c11]]. Outro ponto é o risco de efeitos de segunda ordem dos choques de oferta, aos quais o Copom diz que reagiria com firmeza [[c12]]. A política fiscal também merece atenção, porque o esmorecimento das reformas pode elevar a taxa de juros neutra da economia [[c13]].",
+            "texto": "Vale acompanhar se surgem efeitos de segunda ordem dos choques de oferta, pois o Copom diz que reagiria com firmeza caso esses efeitos se materializem [[c10]]. Os rendimentos do trabalho ainda crescem em termos reais acima da produtividade, ponto que o Comitê segue acompanhando [[c11]].",
             "citacoes": [
               {
                 "id": "c10",
-                "ata": 281,
-                "paragrafo": 7,
-                "trecho": "A taxa de desemprego mantém-se em patamares historicamente baixos",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c11",
-                "ata": 281,
-                "paragrafo": 7,
-                "trecho": "ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
-                "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
-                "data_reuniao": "2026-09-16"
-              },
-              {
-                "id": "c12",
                 "ata": 281,
                 "paragrafo": 16,
                 "trecho": "é necessário monitorar com atenção eventuais efeitos de segunda ordem, e reagir com firmeza caso esses efeitos se materializem",
@@ -4430,10 +4419,10 @@
                 "data_reuniao": "2026-09-16"
               },
               {
-                "id": "c13",
+                "id": "c11",
                 "ata": 281,
-                "paragrafo": 8,
-                "trecho": "têm o potencial de elevar a taxa de juros neutra da economia",
+                "paragrafo": 7,
+                "trecho": "mas ainda crescem em termos reais a uma taxa superior à da produtividade do trabalho",
                 "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom281-not20260916281.pdf",
                 "data_reuniao": "2026-09-16"
               }
@@ -7810,8 +7799,8 @@
       "total": 1060
     },
     "citacoes_relatorio": {
-      "verificadas": 13,
-      "total": 13,
+      "verificadas": 11,
+      "total": 11,
       "ok": true
     },
     "portao_qualidade": null
