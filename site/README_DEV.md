@@ -48,6 +48,8 @@ A página deve ler os dados sempre por `obterDados()` (`lib/edicoes.ts`), que j�
 | `components/ExplorarAtas.tsx` | lista de atas e parágrafos com nota ≠ 0 |
 | `components/Rodape.tsx` | fontes, datas, aviso, última verificação, link para `/painel` |
 | `components/Matriz.tsx` | matriz de confusão (usada no `/painel`) |
+| `components/GraficoTomSelic.tsx` | tom e Selic em dois painéis com o mesmo eixo de reuniões, anotações nos pontos de virada |
+| `components/painel/` | `/painel`: entrada por senha (`PainelPagina`), aplicativo de página única com barra lateral (`Aplicativo`) e as 7 seções em `secoes.tsx` |
 | `lib/formato.ts` | formatação pt-BR de datas, %, índice, decisão |
 
 ## O que ainda é rascunho ou depende de algo

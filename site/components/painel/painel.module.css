@@ -1,0 +1,24 @@
+/* Tabela de borda a borda dentro do cartão: células mais justas no celular e
+   recuo da primeira e da última coluna igual ao padding do cartão. */
+table.compacta th,
+table.compacta td {
+  padding: 0.5rem;
+}
+table.compacta :is(th, td):first-child {
+  padding-left: 1.25rem;
+}
+table.compacta :is(th, td):last-child {
+  padding-right: 1.25rem;
+}
+@media (min-width: 640px) {
+  table.compacta th,
+  table.compacta td {
+    padding-inline: 0.75rem;
+  }
+  table.compacta :is(th, td):first-child {
+    padding-left: 1.5rem;
+  }
+  table.compacta :is(th, td):last-child {
+    padding-right: 1.5rem;
+  }
+}
