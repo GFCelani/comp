@@ -98,7 +98,7 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
     <div>
       <div className="h-[300px] sm:h-[340px] w-full" role="img" aria-label="Gráfico do índice de tom por ata, com a Selic meta no eixo direito">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={serie} margin={{ top: 20, right: 8, bottom: 4, left: -12 }}>
+          <ComposedChart data={serie} margin={{ top: 24, right: 12, bottom: 4, left: 4 }}>
             <CartesianGrid stroke="var(--borda)" strokeDasharray="3 3" vertical={false} />
             <XAxis
               dataKey="ata"
@@ -134,8 +134,8 @@ export function GraficoIndice({ serie }: { serie: PontoSerie[] }) {
               type="stepAfter"
               dataKey="selic_apos"
               name="Selic meta"
-              stroke="var(--texto-2)"
-              strokeWidth={1.5}
+              stroke="var(--texto-3)"
+              strokeWidth={1.25}
               strokeDasharray="4 3"
               dot={(p: PontoProps) => <MarcadorDecisao {...p} />}
               activeDot={false}
