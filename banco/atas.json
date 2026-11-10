@@ -778,6 +778,23 @@
       "ano_referencia": 2026,
       "mediana": 13.75
     },
+    "proxima_decisao_pp": 0.0,
+    "proxima_decisao": "manutencao"
+  },
+  {
+    "numero": 282,
+    "data_reuniao": "2026-11-04",
+    "url_pdf": "https://www.bcb.gov.br/content/copom/atascopom/Copom282-not20261104282.pdf",
+    "arquivo": "ata_282_2026-11-04.pdf",
+    "data_publicacao": "2026-11-10",
+    "selic_apos": 13.75,
+    "decisao_pp": 0.0,
+    "decisao": "manutencao",
+    "focus_selic_fim_ano": {
+      "data": "2026-11-04",
+      "ano_referencia": 2026,
+      "mediana": 13.5
+    },
     "proxima_decisao_pp": null,
     "proxima_decisao": null
   }

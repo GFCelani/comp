@@ -1,7 +1,15 @@
 {
   "metodo": "media_sem_zeros",
-  "gerado_em": "2026-11-06T12:42:01",
+  "gerado_em": "2026-11-10T20:22:34",
   "atas": [
+    {
+      "ata": 282,
+      "data_reuniao": "2026-11-04",
+      "indice": 0.79,
+      "indice_media_simples": 0.58,
+      "n_paragrafos": 19,
+      "n_nao_zero": 14
+    },
     {
       "ata": 281,
       "data_reuniao": "2026-09-16",

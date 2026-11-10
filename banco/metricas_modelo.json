@@ -1,6 +1,6 @@
 {
   "tipo": "logistica",
-  "gerado_em": "2026-11-06T15:34:23",
+  "gerado_em": "2026-11-10T20:22:45",
   "descricao": "modelo de nota de tom: todas as variáveis vêm das atas e das notas dos parágrafos",
   "hiperparametros": {
     "arvore": "DecisionTreeClassifier(max_depth=2, random_state=42)",

@@ -5,16 +5,16 @@
     "manutencao": "entre -0.25 e 0.25"
   },
   "fonte_indice": "simples",
-  "gerado_em": "2026-11-06T14:53:03",
-  "n_atas": 45,
+  "gerado_em": "2026-11-10T20:22:45",
+  "n_atas": 46,
   "periodo": {
     "inicio": "2021-01-20",
-    "fim": "2026-08-05"
+    "fim": "2026-09-16"
   },
   "indice": {
-    "acuracia": 0.4,
-    "acerto_sinal": 0.429,
-    "n_previsoes_direcionais": 42,
+    "acuracia": 0.391,
+    "acerto_sinal": 0.419,
+    "n_previsoes_direcionais": 43,
     "matriz_confusao": {
       "rotulos": [
         "afrouxamento",
@@ -34,12 +34,21 @@
         ],
         [
           10,
-          14,
+          15,
           18
         ]
       ]
     },
     "atas": [
+      {
+        "ata": 281,
+        "data_reuniao": "2026-09-16",
+        "indice": 0.62,
+        "previsto": "aperto",
+        "realizado": "manutencao",
+        "variacao_pp": 0.0,
+        "acertou": false
+      },
       {
         "ata": 280,
         "data_reuniao": "2026-08-05",
@@ -448,9 +457,9 @@
     ]
   },
   "ingenua": {
-    "acuracia": 0.844,
-    "acerto_sinal": 0.9,
-    "n_previsoes_direcionais": 30,
+    "acuracia": 0.826,
+    "acerto_sinal": 0.871,
+    "n_previsoes_direcionais": 31,
     "matriz_confusao": {
       "rotulos": [
         "afrouxamento",
@@ -460,7 +469,7 @@
       "valores": [
         [
           10,
-          1,
+          2,
           0
         ],
         [
@@ -476,6 +485,13 @@
       ]
     },
     "atas": [
+      {
+        "ata": 281,
+        "data_reuniao": "2026-09-16",
+        "previsto": "afrouxamento",
+        "realizado": "manutencao",
+        "acertou": false
+      },
       {
         "ata": 280,
         "data_reuniao": "2026-08-05",
@@ -807,10 +823,10 @@
     "ingenua": {
       "disponivel": true,
       "rotulo_pt": "Previsão ingênua (repete a última decisão)",
-      "acuracia_loo": 0.844,
-      "acerto_sinal": 0.9,
-      "n": 45,
-      "n_previsoes_direcionais": 30,
+      "acuracia_loo": 0.826,
+      "acerto_sinal": 0.871,
+      "n": 46,
+      "n_previsoes_direcionais": 31,
       "matriz_confusao": {
         "rotulos": [
           "afrouxamento",
@@ -820,7 +836,7 @@
         "valores": [
           [
             10,
-            1,
+            2,
             0
           ],
           [
@@ -836,6 +852,13 @@
         ]
       },
       "atas": [
+        {
+          "ata": 281,
+          "data_reuniao": "2026-09-16",
+          "previsto": "afrouxamento",
+          "realizado": "manutencao",
+          "acertou": false
+        },
         {
           "ata": 280,
           "data_reuniao": "2026-08-05",
@@ -1156,10 +1179,10 @@
     "variacao_tom": {
       "disponivel": true,
       "rotulo_pt": "Variação do índice de tom entre atas (±0,25)",
-      "acuracia_loo": 0.644,
-      "acerto_sinal": 0.8,
-      "n": 45,
-      "n_previsoes_direcionais": 25,
+      "acuracia_loo": 0.63,
+      "acerto_sinal": 0.769,
+      "n": 46,
+      "n_previsoes_direcionais": 26,
       "matriz_confusao": {
         "rotulos": [
           "afrouxamento",
@@ -1169,7 +1192,7 @@
         "valores": [
           [
             8,
-            2,
+            3,
             0
           ],
           [
@@ -1185,6 +1208,13 @@
         ]
       },
       "atas": [
+        {
+          "ata": 281,
+          "data_reuniao": "2026-09-16",
+          "previsto": "afrouxamento",
+          "realizado": "manutencao",
+          "acertou": false
+        },
         {
           "ata": 280,
           "data_reuniao": "2026-08-05",
@@ -1505,10 +1535,10 @@
     "nivel_tom": {
       "disponivel": true,
       "rotulo_pt": "Nível do índice de tom (±0,25)",
-      "acuracia_loo": 0.4,
-      "acerto_sinal": 0.429,
-      "n": 45,
-      "n_previsoes_direcionais": 42,
+      "acuracia_loo": 0.391,
+      "acerto_sinal": 0.419,
+      "n": 46,
+      "n_previsoes_direcionais": 43,
       "matriz_confusao": {
         "rotulos": [
           "afrouxamento",
@@ -1528,12 +1558,19 @@
           ],
           [
             10,
-            14,
+            15,
             18
           ]
         ]
       },
       "atas": [
+        {
+          "ata": 281,
+          "data_reuniao": "2026-09-16",
+          "previsto": "aperto",
+          "realizado": "manutencao",
+          "acertou": false
+        },
         {
           "ata": 280,
           "data_reuniao": "2026-08-05",
@@ -1856,7 +1893,7 @@
       "rotulo_pt": "Árvore de decisão (profundidade 2) com tom, Focus e inflação",
       "acuracia_loo": null,
       "acerto_sinal": null,
-      "n": null,
+      "n": 46,
       "acuracia_tempo": 0.645,
       "acuracia_balanceada_tempo": 0.655,
       "viradas_tempo": {
@@ -1869,9 +1906,9 @@
     "logistica": {
       "disponivel": true,
       "rotulo_pt": "Regressão logística multinomial com tom, Focus e inflação",
-      "acuracia_loo": null,
+      "acuracia_loo": 0.804,
       "acerto_sinal": null,
-      "n": null,
+      "n": 46,
       "acuracia_tempo": 0.742,
       "acuracia_balanceada_tempo": 0.738,
       "viradas_tempo": {
@@ -1886,7 +1923,7 @@
       "rotulo_pt": "Floresta aleatória (300 árvores, profundidade 3) com tom, Focus e inflação",
       "acuracia_loo": null,
       "acerto_sinal": null,
-      "n": null,
+      "n": 46,
       "acuracia_tempo": 0.677,
       "acuracia_balanceada_tempo": 0.702,
       "viradas_tempo": {

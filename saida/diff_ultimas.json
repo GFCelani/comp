@@ -1,10 +1,28 @@
 {
-  "ata_atual": 281,
-  "ata_anterior": 280,
+  "ata_atual": 282,
+  "ata_anterior": 281,
   "novos": [
     {
-      "paragrafo": 4,
-      "texto": "A incerteza com relação ao cenário externo segue em níveis elevados. A continuidade de indefinições em relação aos desdobramentos das tensões geopolíticas e seus efeitos sobre preços de commodities e insumos alteraram expectativas sobre a condução da política monetária nas principais economias avançadas."
+      "paragrafo": 1,
+      "texto": "O ambiente externo tornou-se mais adverso em função do prolongamento dos conflitos armados no Oriente Médio, com impactos altistas sobre o preço do petróleo e derivados, e da política monetária mais restritiva nas economias avançadas. Tal cenário exige cautela por parte de países emergentes em ambiente marcado por elevação da volatilidade de preços de ativos e commodities."
+    },
+    {
+      "paragrafo": 5,
+      "texto": "O Comitê avalia que a moderação da atividade econômica doméstica, demonstrada pelo resultado do PIB no segundo trimestre de 2026, pode acentuar-se, de acordo com indicadores de maior frequência mais recentes. Os resultados de pesquisas de desempenho do comércio demonstram inflexão, especialmente nos segmentos mais sensíveis ao crédito. Esse resultado é esperado em um contexto em que a política monetária em patamar restritivo mantém taxas de juros do crédito livre bastante elevadas, tanto no segmento de pessoas físicas quanto no de pessoas jurídicas. O Comitê relembra que o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia e convergência da inflação à meta."
+    },
+    {
+      "paragrafo": 10,
+      "texto": "O cenário, caracterizado por expectativas de inflação mais elevadas e redução nas projeções de crescimento, reflete a combinação de sinais mais evidentes de desaceleração da economia doméstica juntamente com quatro choques de oferta: (i) a elevação dos preços do petróleo, em decorrência dos conflitos no Oriente Médio; (ii) os efeitos climáticos associados ao fenômeno El Niño, com impactos sobre produtividade agrícola e custos de energia; (iii) os efeitos do fim da escala 6X1 sobre os custos do trabalho e; (iv) a depreciação da taxa de câmbio, em função de incertezas relacionadas à política doméstica. O Comitê avalia que a des aceleração mais acentuada da demanda agregada, com projeções de crescimento do PIB abaixo do seu potencial, sugere a possibilidade de redução do risco de transmissão desses choques para efeitos secundários, que poderiam se propagar e gerar pressões inflacionárias mais persistentes."
+    },
+    {
+      "paragrafo": 18,
+      "texto": "O contexto atual, caracterizado por taxa Selic substancialmente contracionista, aumento significativo das incertezas em torno do cenário base, expectativas de inflação mais elevadas, e desaceleração da atividade econômica doméstica mais acentuada, apresenta um cenário desafiador para a política monetária, demandando serenidade e cautela na sua condução. O Comitê seguirá acompanhando a evolução do cenário, para manter a restrição adequada de forma a assegurar a convergência da inflação à meta."
+    }
+  ],
+  "removidos": [
+    {
+      "paragrafo": 1,
+      "texto": "O ambiente externo permanece incerto em função da indefinição acerca dos conflitos armados no Oriente Médio e da incerteza sobre a política monetária em algumas economias avançadas. Tal cenário exige cautela por parte de países emergentes em ambiente marca do por elevação da volatilidade de preços de ativos e commodities."
     },
     {
       "paragrafo": 5,
@@ -15,31 +33,33 @@
       "texto": "A evolução do mercado de crédito bancário com recursos livres também é consistente com um quadro de desaceleração do crescimento, em meio a uma política monetária restritiva. Nota-se, em particular, redução nas modalidades de mais longo prazo, mais sensíve is à política monetária que as modalidades de curto prazo ou emergenciais, mais onerosas. Estas continuaram crescendo, porém com desaceleração na margem. Por outro lado, o s créditos com recursos direcionados mantiveram trajetória de expansão para pessoas físicas, na linha do crédito imobiliário, e para empresas, sustentados pelas operações com fundos garantidores."
     },
     {
-      "paragrafo": 9,
-      "texto": "As leituras mais recentes apontam para queda da inflação ao consumidor, tanto no índice cheio quanto na média das medidas subjacentes. Pelas duas métricas, o índice acumulado em 12 meses situa-se abaixo do limite superior do intervalo de tolerância, porém ainda acima da meta. Ainda sob a mesma perspectiva das variações acumuladas em 12 meses, nas divulgações mais recentes as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo."
-    }
-  ],
-  "removidos": [
-    {
-      "paragrafo": 4,
-      "texto": "A incerteza com relação ao cenário externo segue em níveis elevados. Além das indefinições em relação aos desdobramentos das tensões geopolíticas, colaborou para esse cenário a permanência de incertezas com relação à política econômica dos Estados Unidos."
+      "paragrafo": 17,
+      "texto": "No contexto atual de incerteza em níveis historicamente elevados, com riscos assimétricos na direção altista para os preços, o Comitê reitera que a magnitude do ciclo de calibração será ajustada à luz da evolução do cenário, de forma a manter a restrição adequada para assegurar a convergência da inflação à meta."
     },
     {
-      "paragrafo": 5,
-      "texto": "A atividade econômica doméstica manteve trajetória de moderação, tal como antecipado pelo Comitê. Indicadores correntes apontam para desaceleração na passagem do primeiro para o segundo trimestre de 2026, disseminada entre os componentes de oferta e demanda do produto agregado. Naturalmente, em momentos de inflexão no ciclo econômico, observam-se sinais mistos advindos de indicadores econômicos. O Comitê relembra que o arrefecimento da demanda agregada é um elemento essencial do processo de reequilíbrio entre oferta e demanda da economia e convergência da inflação à meta."
-    },
-    {
-      "paragrafo": 8,
-      "texto": "A inflação para os consumidores desacelerou nas leituras mais recentes do índice cheio, que permanece em nível superior ao intervalo superior da meta na variação acumulada em 12 meses, enquanto as medidas subjacentes também desaceleraram, situando-se em nível ligeiramente abaixo do limite superior da meta. Ainda sob a mesma perspectiva das variações acumuladas em 12 meses nas divulgações mais recentes, os preços aos produtores recuaram, sob forte influência da indústria extrativa, ao passo que as medidas menos voláteis da transformação mostraram ligeira elevação."
+      "paragrafo": 19,
+      "texto": "O cenário atual, caracterizado por significativo aumento da incerteza, desancoragem das expectativas e riscos elevados em torno do cenário base, demanda serenidade e cautela na condução da política monetária. O Comitê seguirá incorporando novas informações e acompanhando a evolução do cenário de forma a manter a restrição adequada para assegurar a convergência da inflação à meta."
     }
   ],
   "alterados": [
     {
       "paragrafo_atual": 2,
       "paragrafo_anterior": 2,
-      "similaridade": 0.72,
-      "diff": "Em relação ao cenário doméstico, o conjunto dos indicadores divulgados desde a última reunião ~~sugere~~ **mostra** uma moderação gradual da atividade econômica, **principalmente em setores mais cíclicos,** embora ainda em patamar ~~resiliente, com sinais mistos entre setores,~~ **resiliente** e mercado de trabalho aquecido. Nas ~~divu lgações~~ **divulgações** mais recentes, a inflação cheia ~~desacelerou, porém ainda acima do limite superior da meta, enquanto as~~ **e a média de** medidas subjacentes ~~desaceleraram para patamar ligeiramente~~ **desaceleraram, situando-se** abaixo do limite superior **do intervalo de tolerância, porém ainda acima** da meta."
+      "similaridade": 0.77,
+      "diff": "Em relação ao cenário doméstico, o conjunto dos indicadores divulgados desde a última reunião ~~mostra~~ **aponta para** uma moderação ~~gradual~~ **mais acentuada** da atividade econômica, principalmente em setores mais ~~cíclicos, embora ainda em patamar resiliente e~~ **cíclicos. O** mercado de trabalho ~~aquecido.~~ **permanece resiliente, porém apresentando sinais de desaquecimento na margem.** Nas divulgações mais recentes, a inflação cheia e a média ~~de~~ **das** medidas subjacentes ~~desaceleraram,~~ **aceleraram,** situando-se ~~abaixo~~ **acima** do limite superior do intervalo de ~~tolerância, porém ainda acima~~ **tolerância** da meta."
+    },
+    {
+      "paragrafo_atual": 3,
+      "paragrafo_anterior": 3,
+      "similaridade": 0.51,
+      "diff": "As expectativas de inflação para 2026 e 2027 apuradas pela pesquisa Focus ~~permanecem~~ **distanciaram-se adicionalmente** em ~~valores acima da meta,~~ **relação à meta desde a última reunião,** situando-se em ~~4,9%~~ **5,2%** e ~~4,3%,~~ **4,8%,** respectivamente. A projeção de inflação do Copom para o ~~primeiro~~ **segundo** trimestre de 2028, atual horizonte relevante de política monetária, ~~situa-se em 3,2%~~ **elevou-se para 3,5%** no cenário de referência (Tabela ~~1).~~ **1), com a incorporação dos choques de oferta materializados desde a última reunião. O Copom relembra que essa projeção utiliza a trajetória da Selic extraída da Focus.**"
+    },
+    {
+      "paragrafo_atual": 8,
+      "paragrafo_anterior": 9,
+      "similaridade": 0.91,
+      "diff": "As leituras mais recentes ~~apontam para queda~~ **mostraram aceleração** da inflação ao consumidor, tanto no índice cheio quanto na média das medidas subjacentes. Pelas duas métricas, o índice acumulado em 12 meses situa-se ~~abaixo~~ **acima** do limite superior do intervalo de ~~tolerância, porém ainda acima~~ **tolerância** da meta. Ainda sob a mesma perspectiva das variações acumuladas em 12 meses, nas divulgações mais recentes as variações de preços aos produtores aceleraram, tanto em bens intermediários quanto em bens de consumo."
     }
   ],
-  "iguais": 15
+  "iguais": 12
 }
