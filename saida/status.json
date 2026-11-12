@@ -1,16 +1,15 @@
 {
-  "ultima_verificacao": "2026-11-10T17:22:07-03:00",
-  "ultimo_commit_keepalive": "2026-11-06T12:55:43-03:00",
+  "ultima_verificacao": "2026-11-12T17:42:58-03:00",
+  "ultimo_commit_keepalive": "2026-11-12T17:42:58-03:00",
   "token_cadastrado_em": null,
   "token_expira_em": null,
   "fluxo": {
     "agenda": "dias úteis às 10h, 14h e 18h de Brasília (GitHub Actions)",
-    "ultima_ata_no_banco": 281,
-    "atas_novas": [
-      282
-    ],
+    "ultima_ata_no_banco": 282,
+    "atas_novas": [],
     "pendencias": [
-      "textos automáticos da ata 281"
+      "textos automáticos da ata 282",
+      "ata 282 com nota do TF-IDF de base"
     ],
     "token_no_ambiente": false
   }
